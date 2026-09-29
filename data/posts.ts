@@ -5,13 +5,36 @@
  * slugs and dates. The published export is sorted newest first below.
  */
 
+/**
+ * `p`, `ul`, and `ol` text may contain inline links written as
+ * `[anchor text](href)`. Hrefs starting with "/" are internal routes; anything
+ * else must be an absolute https URL. Rendered by components/blog/PostBody.
+ */
 export type PostBlock =
   | { type: "p"; text: string }
   | { type: "h2"; text: string }
   | { type: "h3"; text: string }
   | { type: "ul"; items: string[] }
   | { type: "ol"; items: string[] }
-  | { type: "quote"; text: string };
+  | { type: "quote"; text: string }
+  | {
+      type: "img";
+      /** path under /public, e.g. "/images/blog/<slug>/<file>.webp" */
+      src: string;
+      alt: string;
+      /** intrinsic pixel size, required by next/image to reserve layout */
+      width: number;
+      height: number;
+      caption?: string;
+    };
+
+/** Matches inline `[anchor text](href)` links inside block text. */
+export const INLINE_LINK_RE = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+
+/** Block text with inline link markup reduced to its anchor text. */
+export function stripInlineLinks(text: string): string {
+  return text.replace(INLINE_LINK_RE, "$1");
+}
 
 export type Post = {
   slug: string;
@@ -541,11 +564,18 @@ const postCatalog: Post[] = [
       },
       {
         type: "p",
-        text: "Easify Custom Product Options is an all-in-one Shopify app that extends product customization beyond standard variants, combining product options, personalization, pricing tools, file uploads, and visual customization.",
+        text: "[Easify Custom Product Options](https://apps.shopify.com/easify-product-options) is an all-in-one Shopify app that extends product customization beyond standard variants, combining product options, personalization, pricing tools, file uploads, and visual customization.",
       },
       {
         type: "p",
         text: "It supports text fields, dropdowns, checkboxes, swatches, date pickers, file uploads, and dimension-based options.",
+      },
+      {
+        type: "img",
+        src: "/images/blog/best-shopify-product-customization-apps-2026/easify-custom-product-options.webp",
+        alt: "Easify Custom Product Options listing on the Shopify App Store",
+        width: 1352,
+        height: 753,
       },
       {
         type: "h3",
@@ -557,7 +587,7 @@ const postCatalog: Post[] = [
       },
       {
         type: "p",
-        text: "The app includes Product Personalizer with Live Preview, Conditional Logic, file uploads, and flexible pricing features such as add-ons, formula-based pricing, per-character fees, and one-time charges. For merchants exploring subscription box pricing strategies, see How to Price a Shopify Subscription Box.",
+        text: "The app includes Product Personalizer with Live Preview, Conditional Logic, file uploads, and flexible pricing features such as add-ons, formula-based pricing, per-character fees, and one-time charges. For merchants exploring subscription box pricing strategies, see [How to Price a Shopify Subscription Box](/blog/how-to-price-a-shopify-subscription-box).",
       },
       {
         type: "h3",
@@ -621,11 +651,18 @@ const postCatalog: Post[] = [
       },
       {
         type: "p",
-        text: "EasyFlow Product Options is designed to help Shopify merchants add unlimited product options beyond Shopify's standard variant system.",
+        text: "[EasyFlow Product Options](https://apps.shopify.com/product-options-4) is designed to help Shopify merchants add unlimited product options beyond Shopify's standard variant system.",
       },
       {
         type: "p",
         text: "It supports common option types such as text boxes, dropdowns, checkboxes, radio buttons, color swatches, image swatches, file uploads, date pickers, and multi-select fields.",
+      },
+      {
+        type: "img",
+        src: "/images/blog/best-shopify-product-customization-apps-2026/easyflow-product-options.webp",
+        alt: "EasyFlow Product Options listing on the Shopify App Store",
+        width: 1352,
+        height: 753,
       },
       {
         type: "h3",
@@ -698,11 +735,18 @@ const postCatalog: Post[] = [
       },
       {
         type: "p",
-        text: "Hulk Product Options helps merchants create unlimited product options, variants, and swatches beyond Shopify's standard limitations.",
+        text: "[Hulk Product Options](https://apps.shopify.com/product-options-by-hulkapps-1) helps merchants create unlimited product options, variants, and swatches beyond Shopify's standard limitations.",
       },
       {
         type: "p",
         text: "The app supports dropdowns, checkboxes, file uploads, custom text, color swatches, image swatches, and other product configuration fields.",
+      },
+      {
+        type: "img",
+        src: "/images/blog/best-shopify-product-customization-apps-2026/hulk-product-options.webp",
+        alt: "Hulk Product Options listing on the Shopify App Store",
+        width: 1352,
+        height: 753,
       },
       {
         type: "h3",
@@ -775,11 +819,18 @@ const postCatalog: Post[] = [
       },
       {
         type: "p",
-        text: "Qstomizer - Product Customizer takes a more visual approach to product customization. It is designed for stores selling custom apparel, mugs, gifts, posters, print-on-demand products, and other products that customers need to personalize visually.",
+        text: "[Qstomizer - Product Customizer](https://apps.shopify.com/qstomizer) takes a more visual approach to product customization. It is designed for stores selling custom apparel, mugs, gifts, posters, print-on-demand products, and other products that customers need to personalize visually.",
       },
       {
         type: "p",
         text: "Instead of simply adding extra fields to a product page, Qstomizer provides a product design experience where shoppers can customize products before ordering.",
+      },
+      {
+        type: "img",
+        src: "/images/blog/best-shopify-product-customization-apps-2026/qstomizer-product-customizer.webp",
+        alt: "Qstomizer - Product Customizer listing on the Shopify App Store",
+        width: 1352,
+        height: 753,
       },
       {
         type: "h3",
@@ -854,11 +905,18 @@ const postCatalog: Post[] = [
       },
       {
         type: "p",
-        text: "Qikify Custom Product Options gives Shopify merchants a way to add more than 30 product option types without relying entirely on standard variants.",
+        text: "[Qikify Custom Product Options](https://apps.shopify.com/tepo-product-options) gives Shopify merchants a way to add more than 30 product option types without relying entirely on standard variants.",
       },
       {
         type: "p",
         text: "It supports common customization fields such as text, swatches, file uploads, date pickers, and other custom fields.",
+      },
+      {
+        type: "img",
+        src: "/images/blog/best-shopify-product-customization-apps-2026/qikify-custom-product-options.webp",
+        alt: "Qikify Custom Product Options listing on the Shopify App Store",
+        width: 1352,
+        height: 753,
       },
       {
         type: "h3",
@@ -930,11 +988,18 @@ const postCatalog: Post[] = [
       },
       {
         type: "p",
-        text: "Variant Option Product Options helps merchants create unlimited custom product options while extending Shopify's standard variant functionality.",
+        text: "[Variant Option Product Options](https://apps.shopify.com/variant-option-product-options) helps merchants create unlimited custom product options while extending Shopify's standard variant functionality.",
       },
       {
         type: "p",
         text: "It supports price add-ons, swatches, buttons, checkboxes, text fields, file uploads, and product personalization.",
+      },
+      {
+        type: "img",
+        src: "/images/blog/best-shopify-product-customization-apps-2026/variant-option-product-options.webp",
+        alt: "Variant Option Product Options listing on the Shopify App Store",
+        width: 1352,
+        height: 753,
       },
       {
         type: "h3",
@@ -1005,11 +1070,18 @@ const postCatalog: Post[] = [
       },
       {
         type: "p",
-        text: "YMQ Product Options, Variants is a flexible product options app focused on expanding Shopify's standard product configuration capabilities.",
+        text: "[YMQ Product Options, Variants](https://apps.shopify.com/ymq-options) is a flexible product options app focused on expanding Shopify's standard product configuration capabilities.",
       },
       {
         type: "p",
         text: "It supports text fields, file uploads, color swatches, dropdowns, checkboxes, and other option types.",
+      },
+      {
+        type: "img",
+        src: "/images/blog/best-shopify-product-customization-apps-2026/ymq-product-options-variants.webp",
+        alt: "YMQ Product Options, Variants listing on the Shopify App Store",
+        width: 1343,
+        height: 747,
       },
       {
         type: "h3",
@@ -1122,7 +1194,11 @@ const postCatalog: Post[] = [
       },
       {
         type: "p",
-        text: "For more ideas, explore The Post-Purchase Upsell That Turns One-Time Shopify Buyers Into Subscribers.",
+        text: "For more ideas, explore [Post-purchase upsells customers actually welcome](/blog/post-purchase-upsells-that-convert).",
+      },
+      {
+        type: "p",
+        text: "If you're looking to offer recurring purchases, discover [AppFox Subscriptions](https://apps.shopify.com/appfox-subscriptions) to learn how subscription options can complement your Shopify product offerings.",
       },
       {
         type: "p",
@@ -3007,7 +3083,7 @@ export function readingMinutes(post: Post): number {
   const words = post.body.reduce((sum, block) => {
     const text =
       "items" in block ? block.items.join(" ") : "text" in block ? block.text : "";
-    return sum + text.trim().split(/\s+/).filter(Boolean).length;
+    return sum + stripInlineLinks(text).trim().split(/\s+/).filter(Boolean).length;
   }, 0);
   return Math.max(1, Math.round(words / 220));
 }
