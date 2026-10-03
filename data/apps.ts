@@ -47,10 +47,10 @@ export const apps: AppEntry[] = [
     shortName: "Subscription",
     tagline: "Turn one-time buyers into subscribers",
     description:
-      "Recurring payments, subscribe-and-save, and subscription boxes on Shopify's native checkout - with a customer portal that runs itself. Free plan for your first 50 subscriptions.",
+      "Recurring payments, subscribe-and-save, and subscription boxes on Shopify's native checkout - with a customer portal that runs itself. Free for now, with every feature included.",
     href: "/subscription",
     installUrl: "https://apps.shopify.com/appfox-subscriptions",
-    pricingLine: "Free plan · paid plans from $10/mo",
+    pricingLine: "Free for now · every feature included",
     highlights: [
       "Subscription widgets in your branding",
       "Auto-renewal & recurring billing on Shopify Checkout",

@@ -1,7 +1,7 @@
 import { site } from "@/lib/site";
 import { competitors } from "@/data/competitors";
 import { posts } from "@/data/posts";
-import { SUBSCRIPTION_TIERS, SUBSCRIPTION_PAID_FROM } from "@/data/subscription-pricing";
+import { SUBSCRIPTION_FREE_FEATURES } from "@/data/subscription-pricing";
 
 /**
  * /llms.txt - a plain-text product summary for LLM crawlers and AI
@@ -36,7 +36,7 @@ export function GET(): Response {
       title: "AppFox Subscription",
       path: "/subscription",
       description:
-        "Shopify subscription app with a free plan - subscribe-and-save widgets, auto-renewal billing on native checkout, and a self-service customer portal.",
+        "Shopify subscription app, free for now - subscribe-and-save widgets, auto-renewal billing on native checkout, and a self-service customer portal.",
     },
     {
       title: "AppFox Product Bundles",
@@ -80,7 +80,7 @@ export function GET(): Response {
     {
       title: "Subscription pricing",
       path: "/pricing/subscription",
-      description: `Free plan for 50 active subscriptions, paid plans $${SUBSCRIPTION_PAID_FROM}-$100/mo by subscription count - 0% transaction fees on renewals.`,
+      description: "Free for now - every feature unlocked, no cap on active subscriptions, 0% transaction fees on renewals.",
     },
     {
       title: "Product Bundles pricing",
@@ -125,15 +125,13 @@ No per-edit fees or revenue caps on paid plans.
 
 ## AppFox Subscription
 
-AppFox Subscription (formerly Trust Subscriptions) is a Shopify subscription app. Merchants add subscribe-and-save widgets to product pages, and customers pay through Shopify's native checkout with auto-renewal on the schedule they picked. A self-service customer portal handles skips, pauses, swaps, payment updates, and cancellations. Supports replenishment, subscription boxes, memberships, digital products, and bundles, with discounts, trials, and tiered pricing. Integrates with Klaviyo, PageFly, Loyalty Lion, and Shopify Flow. Shopify Sidekick (admin AI assistant) integration lets merchants ask natural-language questions about subscriptions and jump to the right page. For developers: hosted MCP (Model Context Protocol) server connects Cursor, Claude Desktop, and VS Code to read subscription data with Enterprise API keys. Rated 4.2/5 on the Shopify App Store.
+AppFox Subscription (formerly Trust Subscriptions) is a Shopify subscription app. Merchants add subscribe-and-save widgets to product pages, and customers pay through Shopify's native checkout with auto-renewal on the schedule they picked. A self-service customer portal handles skips, pauses, swaps, payment updates, and cancellations. Supports replenishment, subscription boxes, memberships, digital products, and bundles, with discounts, trials, and tiered pricing. Integrates with Klaviyo, PageFly, Loyalty Lion, and Shopify Flow. Shopify Sidekick (admin AI assistant) integration lets merchants ask natural-language questions about subscriptions and jump to the right page. For developers: hosted MCP (Model Context Protocol) server connects Cursor, Claude Desktop, and VS Code to read subscription data with AppFox API keys. Rated 4.2/5 on the Shopify App Store.
 
 ### Subscription pricing
 
-Plans are priced by active subscriptions only - 0% transaction fees on every plan, 14-day free trial on paid plans, ~20% off with yearly billing.
+AppFox Subscription is free for now. Every new install gets every feature at $0, with no plan to pick and no cap on active subscriptions:
 
-| Plan | Price | Active subscriptions |
-| --- | --- | --- |
-${SUBSCRIPTION_TIERS.map((t) => `| ${t.name} | $${t.monthly}/mo | ${t.limit} |`).join("\n")}
+${SUBSCRIPTION_FREE_FEATURES.map((f) => `- ${f}`).join("\n")}
 
 ## Pages
 

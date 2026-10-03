@@ -35,13 +35,13 @@ const CARDS = [
   },
   {
     app: subscription,
-    priceLine: { amount: "$0", note: "to $100/mo" },
+    priceLine: { amount: "$0", note: "free for now" },
     summary:
-      "A free plan for your first 50 active subscriptions, then three paid plans priced by subscription count alone - 0% transaction fees on every tier. Paid plans include a 14-day trial.",
+      "Free for now: every feature unlocked for every store, with no cap on active subscriptions and 0% transaction fees. No plan to pick, no card required.",
     bullets: [
-      "Free - $0/mo, 50 active subscriptions",
-      "Starter & Business - $10 & $30/mo, 1,000 & 10,000 subscriptions",
-      "Enterprise - $100/mo, unlimited subscriptions",
+      "Unlimited active subscriptions",
+      "Analytics, bundles, build-a-box & custom emails included",
+      "0% transaction fees on renewals",
     ],
     href: "/pricing/subscription",
     cta: "See Subscription pricing",

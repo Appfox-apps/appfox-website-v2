@@ -235,7 +235,7 @@ export default function ProductBundlesPricingPage() {
                     Also from AppFox
                   </p>
                   <p className="mt-2 text-lg font-semibold text-ink-900">
-                    Subscription starts free for 50 active subscriptions, paid from $10/mo.
+                    Subscription is free for now, with every feature included.
                   </p>
                   <p className="mt-1 text-[0.9375rem] text-ink-700">
                     Recurring billing and a self-service portal - 0% transaction fees on all plans.
