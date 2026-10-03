@@ -48,7 +48,7 @@ export default function SubscriptionFeaturesPage() {
         {/* ── Final CTA ──────────────────────────────────────── */}
         <CtaBand
           headline="Recurring revenue, without the recurring admin"
-          body="Install free, drop the widget on your product pages, and let auto-renewal do the collecting. The free plan covers your first 50 subscriptions."
+          body="Install free, drop the widget on your product pages, and let auto-renewal do the collecting. The app is free for now, with every feature included."
           primaryLabel="Install free on Shopify"
           primaryHref={subscriptionApp.installUrl}
           secondaryLabel="See pricing"

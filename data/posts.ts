@@ -508,7 +508,7 @@ const postCatalog: Post[] = [
       },
       {
         type: "p",
-        text: "It depends on the app, so confirm POS and subscription compatibility before you commit — some bundle apps support both. And if you want customers to receive their build-your-own box on repeat, you can stack the bundle with a dedicated subscriptions app such as AppFox Subscriptions (apps.shopify.com/appfox-subscriptions) to turn a one-time bundle into recurring replenishment revenue. AppFox Subscriptions is free for up to 50 subscribers, charges 0% transaction fees on every plan, and includes free white-glove migration from Recharge, Appstle, Seal, or Subscription Plus.",
+        text: "It depends on the app, so confirm POS and subscription compatibility before you commit — some bundle apps support both. And if you want customers to receive their build-your-own box on repeat, you can stack the bundle with a dedicated subscriptions app such as AppFox Subscriptions (apps.shopify.com/appfox-subscriptions) to turn a one-time bundle into recurring replenishment revenue. AppFox Subscriptions is free for now with every feature unlocked, charges 0% transaction fees, and includes free white-glove migration from Recharge, Appstle, Seal, or Subscription Plus.",
       },
     ],
   },
@@ -1404,7 +1404,7 @@ const postCatalog: Post[] = [
       { type: "h2", text: "Where this lives in AppFox Subscription" },
       {
         type: "p",
-        text: "Product bundles are one of the subscription models AppFox Subscription supports directly, alongside replenishment, curated boxes, memberships, and digital products - so a bundled box runs on the same subscribe-and-save widget, recurring billing, and self-service portal as any other plan, with 0% transaction fees on every tier and a Free plan that covers your first 50 active subscriptions. What AppFox won't do is decide what a bundle costs to ship alone or where its margin floor should sit - that math depends on your own packaging and carrier rates, and it has to happen before the bundle discount and the subscription discount get combined into one checkout price. Subscription analytics on the Starter plan and above breaks revenue out in enough detail to check whether a bundled plan is actually holding its margin in practice, and on the Business plan, custom shipping profiles let a bundle that ships alone carry its own real shipping cost instead of inheriting an assumption built for a single-item plan.",
+        text: "Product bundles are one of the subscription models AppFox Subscription supports directly, alongside replenishment, curated boxes, memberships, and digital products - so a bundled box runs on the same subscribe-and-save widget, recurring billing, and self-service portal as any other plan, with 0% transaction fees, and the app is free for now with no cap on active subscriptions. What AppFox won't do is decide what a bundle costs to ship alone or where its margin floor should sit - that math depends on your own packaging and carrier rates, and it has to happen before the bundle discount and the subscription discount get combined into one checkout price. Subscription analytics breaks revenue out in enough detail to check whether a bundled plan is actually holding its margin in practice, and custom shipping profiles let a bundle that ships alone carry its own real shipping cost instead of inheriting an assumption built for a single-item plan.",
       },
       {
         type: "p",
@@ -1474,7 +1474,7 @@ const postCatalog: Post[] = [
       { type: "h2", text: "Where this lives in AppFox Subscription" },
       {
         type: "p",
-        text: "AppFox Subscription runs the mechanics once the price is set - subscribe-and-save discounts and recurring billing on Shopify's native checkout, on the Free plan up to 50 active subscriptions with 0% transaction fees on every tier. What it won't do is calculate your landed cost per box or tell you what discount your margin can actually absorb - that math depends on a merchant's own product cost, packaging, and carrier rates, none of which live inside a subscription app. Subscription analytics on the Starter plan and above breaks revenue and active subscriptions out by cohort, which is the view that shows whether a pricing decision is holding up in practice rather than just on a spreadsheet. On the Business plan, custom shipping profiles let a merchant price and fulfill different frequencies distinctly instead of running every cadence through one shipping assumption that only fits one of them.",
+        text: "AppFox Subscription runs the mechanics once the price is set - subscribe-and-save discounts and recurring billing on Shopify's native checkout, free for now with no cap on active subscriptions and 0% transaction fees. What it won't do is calculate your landed cost per box or tell you what discount your margin can actually absorb - that math depends on a merchant's own product cost, packaging, and carrier rates, none of which live inside a subscription app. Subscription analytics breaks revenue and active subscriptions out by cohort, which is the view that shows whether a pricing decision is holding up in practice rather than just on a spreadsheet. Custom shipping profiles let a merchant price and fulfill different frequencies distinctly instead of running every cadence through one shipping assumption that only fits one of them.",
       },
       {
         type: "p",
@@ -1624,7 +1624,7 @@ const postCatalog: Post[] = [
       { type: "h2", text: "Where this lives in AppFox Subscription" },
       {
         type: "p",
-        text: "AppFox Subscription retries a failed renewal automatically rather than leaving it as a single dead attempt, and Business and Enterprise plans can replace the default dunning template with custom HTML per message in the sequence - which is where the day-zero heads-up and the final-notice warning stop being the same email with a different subject line. That's the part of the schedule a merchant actually controls: how many attempts run, roughly how they're spaced, and what each one says.",
+        text: "AppFox Subscription retries a failed renewal automatically rather than leaving it as a single dead attempt, and merchants can replace the default dunning template with custom HTML per message in the sequence - which is where the day-zero heads-up and the final-notice warning stop being the same email with a different subject line. That's the part of the schedule a merchant actually controls: how many attempts run, roughly how they're spaced, and what each one says.",
       },
       {
         type: "p",
@@ -1694,7 +1694,7 @@ const postCatalog: Post[] = [
       { type: "h2", text: "Where this lives in AppFox Subscription" },
       {
         type: "p",
-        text: "AppFox Subscription runs on the same Shopify Checkout and Selling Plans APIs a custom build would use - subscribers pay on the checkout they already trust, and nothing about the underlying billing is different from what an in-house build produces. What ships built-in instead of scoped separately is the rest of it: automatic retries on a failed renewal, a customer portal where a subscriber can skip, pause, swap, update a card, or cancel without a ticket, and subscription analytics - churn, MRR, plan performance - on the Starter plan and above. The Free plan covers up to 50 active subscriptions at 0% transaction fees with no time limit, which is enough room to compare a real cohort against a custom build's actual maintenance cost before either one has scaled past the point where switching is easy.",
+        text: "AppFox Subscription runs on the same Shopify Checkout and Selling Plans APIs a custom build would use - subscribers pay on the checkout they already trust, and nothing about the underlying billing is different from what an in-house build produces. What ships built-in instead of scoped separately is the rest of it: automatic retries on a failed renewal, a customer portal where a subscriber can skip, pause, swap, update a card, or cancel without a ticket, and subscription analytics - churn, MRR, plan performance. AppFox Subscription is free for now, with no cap on active subscriptions and 0% transaction fees, which is enough room to compare a real cohort against a custom build's actual maintenance cost before either one has scaled past the point where switching is easy.",
       },
       {
         type: "p",
@@ -1782,7 +1782,7 @@ const postCatalog: Post[] = [
       { type: "h2", text: "Where this lives in AppFox Subscription" },
       {
         type: "p",
-        text: "AppFox Subscription retries a failed renewal payment automatically over the days after a decline, instead of letting a temporarily-expired card register as an immediate cancellation - which is the single biggest lever most merchants have for pulling involuntary churn out of a blended number in the first place. Subscription analytics, on the Starter plan and above, tracks active, paused, and canceled counts over time, which is the raw material for building whichever churn calculation actually fits a program - store-wide, by plan, by cohort.",
+        text: "AppFox Subscription retries a failed renewal payment automatically over the days after a decline, instead of letting a temporarily-expired card register as an immediate cancellation - which is the single biggest lever most merchants have for pulling involuntary churn out of a blended number in the first place. Subscription analytics tracks active, paused, and canceled counts over time, which is the raw material for building whichever churn calculation actually fits a program - store-wide, by plan, by cohort.",
       },
       {
         type: "p",
@@ -1930,7 +1930,7 @@ const postCatalog: Post[] = [
       { type: "h2", text: "Where this lives in AppFox Subscription" },
       {
         type: "p",
-        text: "AppFox Subscription's widget ships as a theme app extension, which is what lets it drop onto a default Online Store 2.0 product template with no code and no theme surgery - and that same mechanism is what carries it cleanly onto a PageFly page built as a customization of that template. What it doesn't do on its own is appear on a PageFly page built as an entirely separate canvas, for the same structural reason no theme-app-extension widget does: that canvas isn't running the theme's section-and-block system the extension depends on. AppFox integrates with PageFly specifically because this gap is common enough to plan for rather than discover mid-campaign, and subscription analytics on the Starter plan and above can be filtered by landing page, which turns \"this page's take rate looks low\" from a guess into something a merchant can catch before a campaign's budget is spent finding out the hard way.",
+        text: "AppFox Subscription's widget ships as a theme app extension, which is what lets it drop onto a default Online Store 2.0 product template with no code and no theme surgery - and that same mechanism is what carries it cleanly onto a PageFly page built as a customization of that template. What it doesn't do on its own is appear on a PageFly page built as an entirely separate canvas, for the same structural reason no theme-app-extension widget does: that canvas isn't running the theme's section-and-block system the extension depends on. AppFox integrates with PageFly specifically because this gap is common enough to plan for rather than discover mid-campaign, and subscription analytics can be filtered by landing page, which turns \"this page's take rate looks low\" from a guess into something a merchant can catch before a campaign's budget is spent finding out the hard way.",
       },
       {
         type: "p",
@@ -2066,7 +2066,7 @@ const postCatalog: Post[] = [
       { type: "h2", text: "Where this lives in AppFox Subscription" },
       {
         type: "p",
-        text: "AppFox Subscription's Free plan covers up to 50 active subscriptions at 0% transaction fees, which is enough runway to run the sequence above against a real cohort before compounding decisions across thousands of subscribers. The subscribe-and-save widgets and templates are pre-built, so the one-afternoon part of launching stays exactly that short. The customer self-service portal - skip, pause, swap, cancel - ships as part of the core app rather than something to add once the first support ticket makes the case for it, so a narrow initial catalog can still offer full self-service from the first signup. The recurring billing engine retries a failed renewal automatically instead of treating the first decline as the end of the relationship, and subscription analytics on the Starter plan and above shows churn and revenue by cohort, so the decision to expand past that first slice of the catalog is made from what actually happened rather than a guess made twice.",
+        text: "AppFox Subscription is free for now, with no cap on active subscriptions and 0% transaction fees, which is plenty of runway to run the sequence above against a real cohort before compounding decisions across thousands of subscribers. The subscribe-and-save widgets and templates are pre-built, so the one-afternoon part of launching stays exactly that short. The customer self-service portal - skip, pause, swap, cancel - ships as part of the core app rather than something to add once the first support ticket makes the case for it, so a narrow initial catalog can still offer full self-service from the first signup. The recurring billing engine retries a failed renewal automatically instead of treating the first decline as the end of the relationship, and subscription analytics shows churn and revenue by cohort, so the decision to expand past that first slice of the catalog is made from what actually happened rather than a guess made twice.",
       },
       {
         type: "p",

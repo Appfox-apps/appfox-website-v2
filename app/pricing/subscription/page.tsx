@@ -4,42 +4,37 @@ import { Footer } from "@/components/site/Footer";
 import { CtaBand } from "@/components/site/CtaBand";
 import { SectionSlug } from "@/components/site/SectionSlug";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { InView } from "@/components/ui/InView";
-import { Reveal, StaggerGroup } from "@/components/ui/Reveal";
+import { Reveal } from "@/components/ui/Reveal";
 import { Tick } from "@/components/pricing/Tick";
 import { routeMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { getApp } from "@/data/apps";
 import {
-  SUBSCRIPTION_TIERS,
-  SUBSCRIPTION_MATRIX,
-  SUBSCRIPTION_PAID_FROM,
-  TRIAL_DAYS,
-  type MatrixCell,
-  type SubscriptionTier,
+  SUBSCRIPTION_FREE_FEATURES,
+  SUBSCRIPTION_PRICE_LABEL,
 } from "@/data/subscription-pricing";
 
 export const metadata = routeMeta.pricingSubscription;
 
 const subscriptionApp = getApp("subscription")!;
 
-/** The four questions everyone asks about a tiered app with a free plan. */
+/** The questions everyone asks about an app that is free for now. */
 export const subscriptionPricingFaqs: { q: string; a: string }[] = [
   {
-    q: "Is the Free plan actually free?",
-    a: "Yes - no monthly fee, no trial clock, no card required. It includes the full core app (widgets, recurring billing on Shopify Checkout, and the customer portal) for up to 50 active subscriptions, with 0% transaction fees. You only upgrade when your program outgrows it.",
+    q: "Is AppFox Subscription really free?",
+    a: "Yes. AppFox Subscription is free for now - no monthly fee, no trial clock, no card required, and no plan to choose. Every feature is unlocked, including analytics, bundles and build-a-box, custom emails, and the External API.",
   },
   {
-    q: "What counts against my plan's limit?",
-    a: "Active subscriptions. Each plan carries an allowance - 50 on Free, 1,000 on Starter, 10,000 on Business, unlimited on Enterprise - and cancelled or expired subscriptions don't count. When you approach a ceiling, upgrading to the next tier happens in-app through Shopify billing.",
+    q: "Is there a limit on active subscriptions?",
+    a: "No. While the app is free there's no cap on active subscriptions, so you can grow your program without hitting a plan ceiling.",
   },
   {
     q: "Are there transaction fees on renewals?",
-    a: "No, on any plan - including Free. Renewals bill through Shopify's own checkout and payment infrastructure, so you pay only your normal Shopify payment processing. AppFox takes 0% of your recurring revenue.",
+    a: "No. Renewals bill through Shopify's own checkout and payment infrastructure, so you pay only your normal Shopify payment processing. AppFox takes 0% of your recurring revenue.",
   },
   {
-    q: "How do trials and yearly billing work?",
-    a: `Every paid plan starts with a ${TRIAL_DAYS}-day free trial, billed through your existing Shopify subscription - no separate card. Switch to yearly billing and you save about 20%: Starter is $96/yr instead of $120, Enterprise $960/yr instead of $1,200.`,
+    q: "What if paid plans come back?",
+    a: "AppFox Subscription bills through Shopify App Pricing, so any future paid plan would need your approval in Shopify before a charge is made. Merchants already on a paid plan keep it as it is.",
   },
 ];
 
@@ -54,33 +49,26 @@ const faqJsonLd = {
   })),
 };
 
-function TierCard({ tier }: { tier: SubscriptionTier }) {
-  const cardClass = tier.featured
-    ? "relative flex h-full flex-col rounded-2xl border border-brand-200 bg-paper-raised p-6 shadow-(--shadow-pop) transition-transform duration-200 hover:-translate-y-1 sm:p-7"
-    : "card lift flex h-full flex-col p-6 sm:p-7";
-
+/** The single plan: free, everything unlocked. */
+function FreeCard() {
   return (
-    <article className={cardClass}>
-      {tier.featured ? (
-        <span className="sticker absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
-          MOST POPULAR
-        </span>
-      ) : null}
+    <article className="relative flex h-full flex-col rounded-2xl border border-brand-200 bg-paper-raised p-6 shadow-(--shadow-pop) sm:p-8">
+      <span className="sticker absolute -top-4 left-8 whitespace-nowrap">FREE FOR NOW</span>
 
-      <p className="till text-[0.8125rem] uppercase tracking-[0.12em] text-ink-500">{tier.name}</p>
-      <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-700">{tier.blurb}</p>
-
-      <p className="mt-4 flex items-baseline gap-1.5">
-        <span className="font-display font-[560] text-4xl tracking-tight text-ink-900">
-          ${tier.monthly}
-        </span>
-        <span className="till text-sm text-ink-500">
-          {tier.monthly === 0 ? "/mo · forever" : `/mo · $${tier.yearly}/yr`}
-        </span>
+      <p className="till text-[0.8125rem] uppercase tracking-[0.12em] text-ink-500">
+        {subscriptionApp.name}
+      </p>
+      <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-700">
+        Every feature, every store, no subscription ceiling.
       </p>
 
-      <ul className="mt-5 flex-1 space-y-2.5 border-t border-paper-edge pt-5">
-        {tier.features.map((feature, i) => (
+      <p className="mt-4 flex items-baseline gap-1.5">
+        <span className="font-display font-[560] text-4xl tracking-tight text-ink-900">$0</span>
+        <span className="till text-sm text-ink-500">{SUBSCRIPTION_PRICE_LABEL.toLowerCase()}</span>
+      </p>
+
+      <ul className="mt-5 grid flex-1 gap-2.5 border-t border-paper-edge pt-5 sm:grid-cols-2">
+        {SUBSCRIPTION_FREE_FEATURES.map((feature, i) => (
           <li key={feature} className="flex items-start gap-2.5 text-[0.9375rem] text-ink-700">
             <Tick delay={250 + i * 40} />
             <span>{feature}</span>
@@ -88,43 +76,11 @@ function TierCard({ tier }: { tier: SubscriptionTier }) {
         ))}
       </ul>
 
-      <a
-        href={subscriptionApp.installUrl}
-        className={`${tier.featured ? "btn-primary" : "btn-secondary"} mt-7 w-full`}
-      >
-        {tier.monthly === 0 ? "Install free" : "Start free trial"}
+      <a href={subscriptionApp.installUrl} className="btn-primary mt-7 w-full">
+        Install free on Shopify
       </a>
     </article>
   );
-}
-
-/** brand-tinted featured (Business) column, hairline columns otherwise */
-const FEATURED_COL = SUBSCRIPTION_TIERS.findIndex((t) => t.featured);
-
-function colClass(col: number) {
-  return col === FEATURED_COL ? "border-x border-brand-200 bg-brand-50" : "";
-}
-
-function CellValue({ cell, drawDelay }: { cell: MatrixCell; drawDelay: number }) {
-  if (cell === true) {
-    return (
-      <>
-        <Tick delay={drawDelay} className="h-4 w-4 shrink-0" />
-        <span className="sr-only">Included</span>
-      </>
-    );
-  }
-  if (cell === null) {
-    return (
-      <>
-        <span aria-hidden="true" className="text-ink-300">
-          -
-        </span>
-        <span className="sr-only">Not included</span>
-      </>
-    );
-  }
-  return <span className="till text-[0.8125rem] text-ink-700">{cell}</span>;
 }
 
 export default function SubscriptionPricingPage() {
@@ -141,14 +97,13 @@ export default function SubscriptionPricingPage() {
               <SectionSlug
                 no="01"
                 label="PRICING"
-                caption="AppFox Subscription · four plans · from $0"
+                caption="AppFox Subscription · free for now"
               />
             </div>
 
             <h1 className="enter-rise mt-10 max-w-3xl">
-              Starts{" "}
               <span className="wonk relative inline-block">
-                free
+                Free
                 {/* hand-drawn marigold underline, draws on at ~600ms */}
                 <svg
                   className="absolute -bottom-[0.04em] left-0 h-[0.2em] w-full"
@@ -168,7 +123,7 @@ export default function SubscriptionPricingPage() {
                   />
                 </svg>
               </span>
-              . Scales when you do.
+              {" "}for now. Every feature included.
             </h1>
 
             <p
@@ -181,124 +136,43 @@ export default function SubscriptionPricingPage() {
               >
                 AppFox Subscription
               </Link>{" "}
-              has a free plan for your first 50 active subscriptions, paid plans from $
-              {SUBSCRIPTION_PAID_FROM}/mo as your program grows - and 0% transaction fees on
-              every plan, so the recurring revenue stays yours.
+              is free for now: every feature unlocked, no limit on active subscriptions, and 0%
+              transaction fees, so the recurring revenue stays yours.
             </p>
           </div>
         </section>
 
-        {/* ── Plan cards - sunken band ── */}
+        {/* ── The plan - sunken band ── */}
         <section id="plans" className="bg-paper-sunken">
           <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8 sm:py-24 lg:px-10">
             <Reveal variant="none">
               <SectionSlug
                 no="02"
-                label="THE PLANS"
-                caption="Priced by active subscriptions - nothing else is metered"
+                label="THE PLAN"
+                caption="One plan, everything included"
               />
             </Reveal>
-            <h2 className="sr-only">The plans</h2>
+            <h2 className="sr-only">The plan</h2>
 
-            <div className="mt-12 grid gap-6 pt-2 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-              <StaggerGroup step={90}>
-                {SUBSCRIPTION_TIERS.map((tier, i) => (
-                  <Reveal key={tier.name} index={i} className="h-full">
-                    <TierCard tier={tier} />
-                  </Reveal>
-                ))}
-              </StaggerGroup>
+            <div className="mx-auto mt-12 max-w-3xl pt-2">
+              <Reveal className="h-full">
+                <FreeCard />
+              </Reveal>
             </div>
 
             <Reveal delay={150}>
               <p className="till mt-12 text-center text-[0.8125rem] text-ink-500">
-                {TRIAL_DAYS}-day free trial on paid plans · Save 20% with yearly billing · Works
-                on all Shopify plans
+                No card required · No subscription cap · Works on all Shopify plans
               </p>
             </Reveal>
           </div>
         </section>
 
-        {/* ── Plan-difference table - light ── */}
-        <section id="whats-in-each-plan" className="py-16 sm:py-24">
+        {/* ── Straight answers - light ── */}
+        <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
             <Reveal variant="none">
-              <SectionSlug
-                no="03"
-                label="WHAT’S IN EACH PLAN"
-                caption="The differences, line by line"
-              />
-            </Reveal>
-            <Reveal>
-              <h2 className="mt-8 max-w-2xl">What’s in each plan</h2>
-            </Reveal>
-
-            <Reveal delay={100}>
-              <InView className="mt-10 overflow-hidden rounded-2xl border border-paper-edge bg-paper-raised shadow-(--shadow-card)">
-                <div className="overflow-x-auto">
-                  <table className="w-full min-w-[44rem] border-collapse text-left">
-                    <caption className="sr-only">
-                      Plan differences across the Free, Starter, Business, and Enterprise plans
-                    </caption>
-                    <thead>
-                      <tr className="border-b border-paper-edge">
-                        <th scope="col" className="px-5 py-4 sm:px-6">
-                          <span className="sr-only">Feature</span>
-                        </th>
-                        {SUBSCRIPTION_TIERS.map((tier, col) => (
-                          <th
-                            key={tier.name}
-                            scope="col"
-                            className={`px-4 py-4 sm:px-5 ${colClass(col)}`}
-                          >
-                            <span className="flex items-center gap-1.5 text-[0.9375rem] font-semibold text-ink-900">
-                              {tier.name}
-                              {tier.featured ? (
-                                <span
-                                  aria-hidden="true"
-                                  className="h-1.5 w-1.5 rounded-full bg-marigold-500"
-                                />
-                              ) : null}
-                            </span>
-                            <span className="till mt-1 block text-[0.8125rem] font-normal text-ink-500">
-                              ${tier.monthly}/mo
-                            </span>
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-paper-edge">
-                      {SUBSCRIPTION_MATRIX.map((row, r) => (
-                        <tr key={row.label} className="transition-colors hover:bg-paper-sunken">
-                          <th
-                            scope="row"
-                            className="px-5 py-3.5 text-[0.9375rem] font-medium text-ink-700 sm:px-6"
-                          >
-                            {row.label}
-                          </th>
-                          {row.cells.map((cell, col) => (
-                            <td
-                              key={col}
-                              className={`px-4 py-3.5 align-middle sm:px-5 ${colClass(col)}`}
-                            >
-                              <CellValue cell={cell} drawDelay={200 + r * 60} />
-                            </td>
-                          ))}
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </InView>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* ── Four straight answers - sunken band ── */}
-        <section className="bg-paper-sunken py-16 sm:py-24">
-          <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-            <Reveal variant="none">
-              <SectionSlug no="04" label="QUESTIONS" caption="The fine print, minus the squinting" />
+              <SectionSlug no="03" label="QUESTIONS" caption="The fine print, minus the squinting" />
             </Reveal>
             <div className="mt-10 grid gap-5 md:grid-cols-2">
               {subscriptionPricingFaqs.map((faq, i) => (
@@ -337,8 +211,8 @@ export default function SubscriptionPricingPage() {
         </section>
 
         <CtaBand
-          headline="Your first 50 subscribers are on the house"
-          body={`Install free, drop the widget on your product pages, and let auto-renewal do the collecting. Upgrade only when your program outgrows the free plan - paid plans start at $${SUBSCRIPTION_PAID_FROM}/mo with a ${TRIAL_DAYS}-day trial.`}
+          headline="Every subscriber is on the house, for now"
+          body="Install free, drop the widget on your product pages, and let auto-renewal do the collecting. Every feature is unlocked and there's no cap on active subscriptions."
           primaryHref={subscriptionApp.installUrl}
           secondaryLabel="Compare subscription apps"
           secondaryHref="/vs#subscription"

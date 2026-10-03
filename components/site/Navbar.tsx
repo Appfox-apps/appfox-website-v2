@@ -31,7 +31,7 @@ const FAQ_LINKS = [
 
 const PRICING_LINKS = [
   { label: "Order Editing & Upsell", detail: "Free plan · paid from $19/mo", href: "/pricing/order-editing" },
-  { label: "Subscription", detail: "Free plan · paid from $10/mo", href: "/pricing/subscription" },
+  { label: "Subscription", detail: "Free for now · every feature", href: "/pricing/subscription" },
   { label: "Product Bundles", detail: "Free to start", href: "/pricing/product-bundles" },
 ];
 

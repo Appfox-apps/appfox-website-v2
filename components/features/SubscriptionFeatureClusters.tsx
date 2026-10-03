@@ -136,7 +136,7 @@ const CLUSTERS: Cluster[] = [
         >
           MCP server
         </Link>{" "}
-        for developers - read subscription data in Cursor, Claude, and VS Code with Enterprise API keys
+        for developers - read subscription data in Cursor, Claude, and VS Code with AppFox API keys
       </>,
       <>
         Assisted migration from apps like{" "}
@@ -148,7 +148,7 @@ const CLUSTERS: Cluster[] = [
         </Link>{" "}
         - payment methods stay with Shopify
       </>,
-      <>24/7 support, included on the free plan</>,
+      <>24/7 support, included for every store</>,
     ],
     visual: <ModelsVisual />,
   },
