@@ -177,7 +177,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 aria-label={`Summarize ${site.name} with ${a.name}`}
                 title={`Summarize with ${a.name}`}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-(--color-night-edge) text-mist-on-night transition-all duration-700 hover:border-marigold-300/60 hover:text-cream-on-night hover:scale-110"
+                className="inline-flex h-10 w-10 items-center justify-center border-2 border-marigold-500 text-cream-on-night transition-colors duration-150 hover:bg-marigold-500 hover:text-ink-900"
               >
                 <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
                   <path d={a.iconPath} />
@@ -198,8 +198,8 @@ export function Footer() {
       {/* Ghost wordmark - ink on ink */}
       <div aria-hidden="true" className="overflow-hidden select-none pointer-events-none -mb-[2vw]">
         <p
-          className="font-display font-[560] text-center leading-none text-night-raised"
-          style={{ fontSize: "13vw", fontVariationSettings: '"SOFT" 60, "WONK" 0' }}
+          className="text-center font-display font-extrabold leading-none text-transparent"
+          style={{ fontSize: "13vw", WebkitTextStroke: "2px #ffe500" }}
         >
           AppFox
         </p>

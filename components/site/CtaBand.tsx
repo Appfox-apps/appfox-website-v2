@@ -29,24 +29,11 @@ export function CtaBand({
     <section className="on-night night-wash grain relative overflow-hidden">
       <Perforation from={from} />
       <div className="relative max-w-4xl mx-auto px-6 sm:px-8 lg:px-10 py-24 sm:py-32 text-center">
-        {/* The stamp about to land */}
+        {/* Hard frame behind the close */}
         <div
           aria-hidden="true"
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[34rem] h-[34rem] pointer-events-none"
-        >
-          <svg viewBox="0 0 100 100" className="w-full h-full orbit-slow opacity-25">
-            <circle
-              cx="50"
-              cy="50"
-              r="48"
-              fill="none"
-              stroke="var(--color-brand-300)"
-              strokeWidth="0.4"
-              strokeDasharray="0.6 2.4"
-              strokeLinecap="round"
-            />
-          </svg>
-        </div>
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[22rem] w-[min(100%,36rem)] -translate-x-1/2 -translate-y-1/2 border-[3px] border-marigold-500 opacity-40"
+        />
 
         <h2 className="relative text-cream-on-night max-w-3xl mx-auto">{headline}</h2>
         <p className="relative mt-5 text-lg text-mist-on-night max-w-2xl mx-auto leading-relaxed">
