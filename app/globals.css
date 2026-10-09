@@ -99,6 +99,22 @@
       always win over element defaults. ─ */
 
 @layer base {
+/* Fine diagonal crosshatch. 1px ink lines, wide gaps, very low
+   opacity so the cream stays cream. Fixed to the viewport and
+   painted as a background, so it sits behind type and cards. */
+:root {
+  --paper-hatch: repeating-linear-gradient(
+      45deg,
+      transparent 0 11px,
+      rgba(10, 10, 10, 0.08) 11px 12px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0 11px,
+      rgba(10, 10, 10, 0.055) 11px 12px
+    );
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 84px;
@@ -106,10 +122,8 @@ html {
 
 body {
   background-color: var(--color-paper);
-  background-image: url("./paper-grain.png");
-  background-repeat: repeat;
+  background-image: var(--paper-hatch);
   background-attachment: fixed;
-  background-size: 128px 128px;
   color: var(--color-ink-700);
   font-family: var(--font-sans);
   font-size: 1rem;
@@ -244,28 +258,14 @@ h3 {
   background: var(--color-marigold-500);
 }
 
-/* Paper and night backgrounds. Cream and sunken fields share one
-   fixed newsprint grain (a 5KB tile) so the sheet reads as paper
-   and the type stays on top of it. Night stays flat ink. */
+/* Cream fields share the page hatch. Night stays flat ink. */
 .paper-wash {
   background-color: var(--color-paper);
-  background-image: url("./paper-grain.png");
-  background-repeat: repeat;
+  background-image: var(--paper-hatch);
   background-attachment: fixed;
-  background-size: 128px 128px;
 }
 .night-wash {
   background-color: var(--color-night);
-}
-
-/* Per-section grain hooks stay inert. The page grain is a background
-   image, not an overlay, so it cannot cover type or cards. */
-.grain {
-  position: relative;
-}
-.grain::after,
-.grain-soft::after {
-  content: none;
 }
 
 /* Sticker treatment - flat yellow label, hard shadow, no tilt */
@@ -681,15 +681,13 @@ html.js [data-open] .accordion-content {
   }
 }
 
-/* Newsprint tooth on the large paper fields. The tile is bundled
-   with the stylesheet. Unlayered so Tailwind background-color
-   utilities do not wipe it. Small chips are left flat. */
+/* Same hatch on the large paper and sunken fields. Unlayered so a
+   Tailwind background-color utility does not drop the image.
+   Small chips are left flat. */
 section.bg-paper,
 section.bg-paper-sunken {
-  background-image: url("./paper-grain.png");
-  background-repeat: repeat;
+  background-image: var(--paper-hatch);
   background-attachment: fixed;
-  background-size: 128px 128px;
 }
 
 /* ════════════════════════════════════════════════════════
