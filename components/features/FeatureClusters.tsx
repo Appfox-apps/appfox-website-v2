@@ -225,7 +225,7 @@ function Tick({ delay }: { delay: number }) {
 function PortalVisual() {
   return (
     <div className="relative mx-auto w-full max-w-[22rem]" aria-hidden="true">
-      <div className="card rounded-[20px] p-5 shadow-(--shadow-raised)">
+      <div className="shot card rounded-[20px] p-5 shadow-(--shadow-raised)">
         {/* fake status bar */}
         <div className="till flex items-center justify-between text-[0.625rem] text-ink-300">
           <span>9:41</span>
@@ -258,7 +258,7 @@ function PortalVisual() {
         </div>
         {/* validated address */}
         <p className="mt-3.5 text-[0.6875rem] font-medium text-ink-500">Shipping address</p>
-        <div className="till mt-1.5 flex items-center justify-between gap-2 rounded-lg border border-paper-edge bg-paper-sunken px-2.5 py-1.5 text-[0.75rem] text-ink-900">
+        <div className="shot-field till mt-1.5 flex items-center justify-between gap-2 rounded-lg border border-paper-edge bg-paper-sunken px-2.5 py-1.5 text-[0.75rem] text-ink-900">
           <span>123 Main St, Portland</span>
           <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 shrink-0" fill="none">
             <path
@@ -282,7 +282,7 @@ function PortalVisual() {
           <p className="mt-1 text-[0.6875rem] text-ink-500">One tap - added to this order</p>
         </div>
         {/* save */}
-        <span className="mt-4 flex items-center justify-center rounded-xl bg-brand-600 px-3.5 py-2 text-[0.8125rem] font-semibold leading-none text-paper shadow-[inset_0_1px_0_rgba(255,255,255,0.18)]">
+        <span className="shot-cta mt-4 flex items-center justify-center rounded-xl bg-brand-600 px-3.5 py-2 text-[0.8125rem] font-semibold leading-none text-paper shadow-[inset_0_1px_0_rgba(255,255,255,0.18)]">
           Save changes
         </span>
       </div>
@@ -298,7 +298,7 @@ function PortalVisual() {
 function RulesVisual() {
   return (
     <div className="mx-auto w-full max-w-md space-y-4" aria-hidden="true">
-      <div className="card rounded-[20px] p-5">
+      <div className="shot card rounded-[20px] p-5">
         <p className="till text-[0.6875rem] uppercase tracking-[0.12em] text-ink-500">
           Eligibility rules
         </p>
@@ -315,7 +315,7 @@ function RulesVisual() {
         </div>
       </div>
 
-      <div className="card-tinted rounded-[20px] p-5 shadow-(--shadow-card)">
+      <div className="shot card-tinted rounded-[20px] p-5 shadow-(--shadow-card)">
         <p className="till text-[0.6875rem] uppercase tracking-[0.12em] text-brand-700">
           Approval queue
         </p>
@@ -472,7 +472,7 @@ const KPIS = [
 function AnalyticsVisual() {
   return (
     <div className="mx-auto w-full max-w-md" aria-hidden="true">
-      <div className="card overflow-hidden rounded-[20px]">
+      <div className="shot card overflow-hidden rounded-[20px]">
         {/* fake browser bar */}
         <div className="flex items-center gap-2 border-b border-paper-edge bg-paper-sunken px-4 py-2.5">
           <span className="flex gap-1.5">

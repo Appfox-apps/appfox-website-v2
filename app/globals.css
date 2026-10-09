@@ -731,3 +731,42 @@ html[data-design="brutalist"] :focus-visible {
   box-shadow: 0 0 0 7px #ffe500 !important;
   border-radius: 0;
 }
+
+/* Product-UI mockups. Control keeps the classes already on the
+   elements; these rules only fire for the brutalist variant. */
+html[data-design="brutalist"] .shot {
+  border: 3px solid #0a0a0a !important;
+  border-radius: 0 !important;
+  box-shadow: 4px 4px 0 0 #0a0a0a !important;
+}
+
+html[data-design="brutalist"] .shot-field {
+  border: 2px solid #0a0a0a !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-design="brutalist"] .shot-cta {
+  background: #ffe500 !important;
+  color: #0a0a0a !important;
+  border: 3px solid #0a0a0a !important;
+  border-radius: 0 !important;
+  box-shadow: 3px 3px 0 0 #0a0a0a !important;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+html[data-design="brutalist"] .shot-on {
+  background: #ffe500 !important;
+  color: #0a0a0a !important;
+  border: 3px solid #0a0a0a !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-design="brutalist"] .shot-dot {
+  border-radius: 0 !important;
+  box-shadow: 2px 2px 0 0 #ffe500 !important;
+}

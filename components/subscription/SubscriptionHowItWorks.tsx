@@ -132,13 +132,13 @@ export function SubscriptionHowItWorks() {
 
 function PlanVignette() {
   return (
-    <div className="rounded-2xl border border-paper-edge bg-paper p-4" aria-hidden="true">
+    <div className="shot rounded-2xl border border-paper-edge bg-paper p-4" aria-hidden="true">
       <p className="text-[0.6875rem] font-medium text-ink-500">Subscription plan</p>
-      <div className="till mt-1.5 flex items-center justify-between rounded-lg border border-paper-edge bg-paper-raised px-2.5 py-1.5 text-[0.75rem] text-ink-900">
+      <div className="shot-field till mt-1.5 flex items-center justify-between rounded-lg border border-paper-edge bg-paper-raised px-2.5 py-1.5 text-[0.75rem] text-ink-900">
         <span>Deliver every</span>
         <span className="text-brand-700">30 days</span>
       </div>
-      <div className="till mt-1.5 flex items-center justify-between rounded-lg border border-paper-edge bg-paper-raised px-2.5 py-1.5 text-[0.75rem] text-ink-900">
+      <div className="shot-field till mt-1.5 flex items-center justify-between rounded-lg border border-paper-edge bg-paper-raised px-2.5 py-1.5 text-[0.75rem] text-ink-900">
         <span>Subscriber discount</span>
         <span className="text-brand-700">10%</span>
       </div>
@@ -150,7 +150,7 @@ function PlanVignette() {
 
 function CheckoutVignette() {
   return (
-    <div className="rounded-2xl border border-paper-edge bg-paper p-4" aria-hidden="true">
+    <div className="shot rounded-2xl border border-paper-edge bg-paper p-4" aria-hidden="true">
       <div className="flex items-baseline justify-between border-b border-paper-edge pb-2.5">
         <p className="text-[0.75rem] font-semibold tracking-wide text-ink-900">Checkout</p>
         <p className="till text-[0.6875rem] text-ink-500">shopify</p>
@@ -163,7 +163,7 @@ function CheckoutVignette() {
         <p className="till text-[0.6875rem] text-ink-500">Subscribe &amp; save</p>
         <p className="till text-[0.6875rem] text-success">-10%</p>
       </div>
-      <span className="mt-3 inline-flex rounded-xl bg-brand-600 px-3.5 py-2 text-[0.75rem] font-semibold leading-none text-paper shadow-[inset_0_1px_0_rgba(255,255,255,0.18)]">
+      <span className="shot-cta mt-3 inline-flex rounded-xl bg-brand-600 px-3.5 py-2 text-[0.75rem] font-semibold leading-none text-paper shadow-[inset_0_1px_0_rgba(255,255,255,0.18)]">
         Pay now
       </span>
     </div>
@@ -174,7 +174,7 @@ function CheckoutVignette() {
 
 function RenewalVignette() {
   return (
-    <div className="rounded-2xl border border-paper-edge bg-paper p-4" aria-hidden="true">
+    <div className="shot rounded-2xl border border-paper-edge bg-paper p-4" aria-hidden="true">
       <div className="flex items-center justify-between gap-2 border-b border-paper-edge pb-2.5">
         <p className="till text-[0.6875rem] text-ink-500">
           <span className="text-ink-700">Renewal 3 of ∞</span> · Jul 04

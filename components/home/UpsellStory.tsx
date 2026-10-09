@@ -87,7 +87,7 @@ export function UpsellStory() {
 function ReceiptCard() {
   return (
     <InView as="figure" className="mx-auto w-full max-w-sm">
-      <div className="bg-paper-raised shadow-(--shadow-raised)" aria-hidden="true">
+      <div className="shot bg-paper-raised shadow-(--shadow-raised)" aria-hidden="true">
         <Perforation from="paper" />
 
         <div className="till px-7 py-6 text-[0.8125rem] leading-relaxed text-ink-700">

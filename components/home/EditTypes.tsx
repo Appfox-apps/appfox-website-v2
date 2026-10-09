@@ -87,7 +87,7 @@ export function EditTypes() {
             {CARDS.map((card, i) => (
               <Reveal key={i} index={i} className="h-full">
                 <InView as="div" className="card lift flex h-full flex-col p-6" threshold={0.35}>
-                  <div className="flex min-h-[9.5rem] flex-col justify-center rounded-2xl border border-paper-edge bg-paper p-4">
+                  <div className="shot flex min-h-[9.5rem] flex-col justify-center rounded-2xl border border-paper-edge bg-paper p-4">
                     {card.vignette}
                   </div>
                   <h3 className="mt-5 font-sans text-[1.125rem] font-semibold tracking-normal text-ink-900">
@@ -111,11 +111,11 @@ export function EditTypes() {
 function AddressVignette() {
   return (
     <div aria-hidden="true">
-      <div className="till flex items-center justify-between rounded-lg border border-brand-200 bg-paper-raised px-2.5 py-1.5 text-[0.75rem] text-ink-900">
+      <div className="shot-field till flex items-center justify-between rounded-lg border border-brand-200 bg-paper-raised px-2.5 py-1.5 text-[0.75rem] text-ink-900">
         <span>123 Mian St</span>
         <span className="text-ink-300">⌫</span>
       </div>
-      <div className="mt-1.5 overflow-hidden rounded-lg border border-paper-edge bg-paper-raised shadow-(--shadow-card)">
+      <div className="shot-field mt-1.5 overflow-hidden rounded-lg border border-paper-edge bg-paper-raised shadow-(--shadow-card)">
         <div
           className="print-out flex items-center justify-between bg-brand-50 px-2.5 py-1.5"
           style={{ "--i": 0, "--print-delay": "250ms" } as React.CSSProperties}
@@ -190,11 +190,11 @@ function QuantityVignette() {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <span className="till flex h-7 w-7 items-center justify-center rounded-lg border border-paper-edge text-[0.8125rem] text-ink-500">
+          <span className="shot-field till flex h-7 w-7 items-center justify-center rounded-lg border border-paper-edge text-[0.8125rem] text-ink-500">
             −
           </span>
           <DigitRoll value="2" className="text-[0.9375rem] text-ink-900" />
-          <span className="till flex h-7 w-7 items-center justify-center rounded-lg bg-brand-600 text-[0.8125rem] text-paper">
+          <span className="shot-cta till flex h-7 w-7 items-center justify-center rounded-lg bg-brand-600 text-[0.8125rem] text-paper">
             +
           </span>
         </div>
@@ -216,7 +216,7 @@ function AddItemVignette() {
         <span>$38.00</span>
       </div>
       <div
-        className="print-out till mt-1.5 flex items-center justify-between rounded-lg border border-brand-200 bg-brand-50 px-2.5 py-1.5 text-[0.75rem]"
+        className="shot-on print-out till mt-1.5 flex items-center justify-between rounded-lg border border-brand-200 bg-brand-50 px-2.5 py-1.5 text-[0.75rem]"
         style={{ "--i": 0, "--print-delay": "450ms" } as React.CSSProperties}
       >
         <span className="text-brand-700">+ Wool Beanie</span>

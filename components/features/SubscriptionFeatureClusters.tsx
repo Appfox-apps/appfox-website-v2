@@ -228,7 +228,7 @@ function Tick({ delay }: { delay: number }) {
 function WidgetVisual() {
   return (
     <div className="relative mx-auto w-full max-w-[22rem]" aria-hidden="true">
-      <div className="card rounded-[20px] p-5 shadow-(--shadow-raised)">
+      <div className="shot card rounded-[20px] p-5 shadow-(--shadow-raised)">
         <div className="border-b border-paper-edge pb-3">
           <div className="h-1 w-10 rounded-full bg-brand-600" />
           <div className="mt-2 flex items-baseline justify-between">
@@ -249,7 +249,7 @@ function WidgetVisual() {
         </div>
 
         {/* subscribe & save - selected */}
-        <div className="mt-2 rounded-lg border border-brand-200 bg-brand-50 px-3 py-2 ring-2 ring-brand-200/50">
+        <div className="shot-on mt-2 rounded-lg border border-brand-200 bg-brand-50 px-3 py-2 ring-2 ring-brand-200/50">
           <div className="flex items-center justify-between">
             <span className="flex items-center gap-2.5">
               <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full border-2 border-brand-600 bg-brand-600">
@@ -265,7 +265,7 @@ function WidgetVisual() {
           </div>
         </div>
 
-        <span className="mt-3.5 flex items-center justify-center rounded-xl bg-brand-600 px-3.5 py-2 text-[0.8125rem] font-semibold leading-none text-paper shadow-[inset_0_1px_0_rgba(255,255,255,0.18)]">
+        <span className="shot-cta mt-3.5 flex items-center justify-center rounded-xl bg-brand-600 px-3.5 py-2 text-[0.8125rem] font-semibold leading-none text-paper shadow-[inset_0_1px_0_rgba(255,255,255,0.18)]">
           Add to cart - $16.20/mo
         </span>
       </div>
@@ -281,7 +281,7 @@ function WidgetVisual() {
 function BillingVisual() {
   return (
     <div className="mx-auto w-full max-w-md space-y-4" aria-hidden="true">
-      <div className="card rounded-[20px] p-5">
+      <div className="shot card rounded-[20px] p-5">
         <div className="flex items-baseline justify-between">
           <p className="till text-[0.6875rem] uppercase tracking-[0.12em] text-ink-500">
             Billing schedule
@@ -297,7 +297,7 @@ function BillingVisual() {
         </div>
       </div>
 
-      <div className="card-tinted rounded-[20px] p-5 shadow-(--shadow-card)">
+      <div className="shot card-tinted rounded-[20px] p-5 shadow-(--shadow-card)">
         <div className="flex items-center justify-between gap-2">
           <p className="till text-[0.75rem] text-ink-700">
             <span className="text-ink-900">Payment retry</span> · card declined
@@ -343,7 +343,7 @@ function RenewalRow({
 function PortalVisual() {
   return (
     <div className="relative mx-auto w-full max-w-[22rem]" aria-hidden="true">
-      <div className="card rounded-[20px] p-5 shadow-(--shadow-raised)">
+      <div className="shot card rounded-[20px] p-5 shadow-(--shadow-raised)">
         <div className="flex items-baseline justify-between border-b border-paper-edge pb-3">
           <p className="text-[0.8125rem] font-semibold tracking-[0.08em] text-ink-900">
             YOUR SUBSCRIPTION
@@ -360,7 +360,7 @@ function PortalVisual() {
           {["Skip", "Pause", "Swap", "Reschedule"].map((action) => (
             <span
               key={action}
-              className="till rounded-lg border border-paper-edge bg-paper-sunken px-2.5 py-2 text-center text-[0.75rem] font-medium text-ink-900"
+              className="shot-field till rounded-lg border border-paper-edge bg-paper-sunken px-2.5 py-2 text-center text-[0.75rem] font-medium text-ink-900"
             >
               {action}
             </span>
@@ -396,7 +396,7 @@ const INTEGRATIONS = ["Klaviyo", "PageFly", "Loyalty Lion", "Shopify Flow"];
 function ModelsVisual() {
   return (
     <div className="mx-auto w-full max-w-md space-y-4" aria-hidden="true">
-      <div className="card rounded-[20px] p-5">
+      <div className="shot card rounded-[20px] p-5">
         <p className="till text-[0.6875rem] uppercase tracking-[0.12em] text-ink-500">
           Subscription models
         </p>
@@ -412,7 +412,7 @@ function ModelsVisual() {
         </div>
       </div>
 
-      <div className="card-tinted rounded-[20px] p-5 shadow-(--shadow-card)">
+      <div className="shot card-tinted rounded-[20px] p-5 shadow-(--shadow-card)">
         <p className="till text-[0.6875rem] uppercase tracking-[0.12em] text-brand-700">
           Integrations
         </p>

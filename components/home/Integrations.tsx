@@ -40,7 +40,7 @@ function Tile({
     <Reveal index={index} className="h-full" as="li">
       <article className="card lift flex h-full flex-col p-4 sm:p-5">
         <div
-          className="flex h-28 items-center justify-center overflow-hidden rounded-lg border border-paper-edge bg-paper p-3"
+          className="shot flex h-28 items-center justify-center overflow-hidden rounded-lg border border-paper-edge bg-paper p-3"
           aria-hidden="true"
         >
           {children}

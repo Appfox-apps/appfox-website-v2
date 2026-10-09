@@ -229,7 +229,7 @@ function AdminMockup() {
           </li>
           <li className="flex items-center justify-between gap-3 py-3.5">
             <span className="text-cream-on-night">Edit window</span>
-            <span className="rounded-lg border border-(--color-night-edge) px-2 py-0.5 text-[0.75rem] text-cream-on-night">
+            <span className="shot-field rounded-lg border border-(--color-night-edge) px-2 py-0.5 text-[0.75rem] text-cream-on-night">
               24h
             </span>
           </li>
@@ -284,7 +284,7 @@ function AdminMockup() {
                 style={{ "--i": i * 4, "--print-delay": "350ms" } as React.CSSProperties}
               >
                 <span
-                  className="absolute left-[2px] top-[5px] h-2.5 w-2.5 rounded-full"
+                  className="shot-dot absolute left-[2px] top-[5px] h-2.5 w-2.5 rounded-full"
                   style={{
                     backgroundColor: event.dotColor,
                     boxShadow: "0 0 0 3px var(--color-night-raised)",
