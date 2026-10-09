@@ -1785,13 +1785,112 @@
   }
 }
 
-/* Brutalist geometry for the animated portal — square every control. */
+/* Brutalist geometry for the animated portal. Outer chrome was already
+   ink + yellow; these rules finish the in-scene product UI (fields,
+   sheet, upsell, merchant timeline) so the loop matches the stills.
+   Control overrides above keep the previous soft video. */
 :global(html[data-design="brutalist"]) .stage,
 :global(html[data-design="brutalist"]) .stage * {
   border-radius: 0 !important;
 }
 :global(html[data-design="brutalist"]) .portal {
+  border: 3px solid #0a0a0a;
+  background: #f4f1e8;
+  box-shadow: 8px 8px 0 0 #0a0a0a;
+}
+:global(html[data-design="brutalist"]) .storeName,
+:global(html[data-design="brutalist"]) .sheetTitle,
+:global(html[data-design="brutalist"]) .successMsg {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+:global(html[data-design="brutalist"]) .microLabel {
+  font-weight: 700;
+  color: #0a0a0a;
+}
+:global(html[data-design="brutalist"]) .storeHead,
+:global(html[data-design="brutalist"]) .totals,
+:global(html[data-design="brutalist"]) .merchantHead,
+:global(html[data-design="brutalist"]) .approvalRow {
+  border-color: #0a0a0a;
   border-width: 3px;
+}
+:global(html[data-design="brutalist"]) .addrField,
+:global(html[data-design="brutalist"]) .thumb,
+:global(html[data-design="brutalist"]) .sizeChip {
+  border: 2px solid #0a0a0a;
+  background: #e6e2d6;
+  color: #0a0a0a;
+}
+:global(html[data-design="brutalist"]) .addrField::after {
+  box-shadow: 3px 3px 0 0 #0a0a0a;
+  border: 3px solid #ffe500;
+}
+:global(html[data-design="brutalist"]) .dropdown,
+:global(html[data-design="brutalist"]) .merchant,
+:global(html[data-design="brutalist"]) .tile {
+  border: 3px solid #0a0a0a;
+  background: #f4f1e8;
+  box-shadow: 4px 4px 0 0 #0a0a0a;
+}
+:global(html[data-design="brutalist"]) .sheet {
+  border-top: 3px solid #0a0a0a;
+  background: #f4f1e8;
+  box-shadow: 0 -4px 0 0 #0a0a0a;
+}
+:global(html[data-design="brutalist"]) .chipOn {
+  background: #ffe500;
+  color: #0a0a0a;
+  border: 3px solid #0a0a0a;
+}
+:global(html[data-design="brutalist"]) .saveBtn,
+:global(html[data-design="brutalist"]) .tileBtn {
+  background: #ffe500;
+  color: #0a0a0a;
+  border: 3px solid #0a0a0a;
+  box-shadow: 3px 3px 0 0 #0a0a0a;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+:global(html[data-design="brutalist"]) .validPop,
+:global(html[data-design="brutalist"]) .validChip,
+:global(html[data-design="brutalist"]) .toastTag,
+:global(html[data-design="brutalist"]) .nodeDot {
+  background: #ffe500;
+  color: #0a0a0a;
+  border: 2px solid #0a0a0a;
+  box-shadow: 2px 2px 0 0 #0a0a0a;
+}
+:global(html[data-design="brutalist"]) .nodeTick,
+:global(html[data-design="brutalist"]) .spine {
+  color: #0a0a0a;
+}
+:global(html[data-design="brutalist"]) .caret {
+  background: #0a0a0a;
+}
+:global(html[data-design="brutalist"]) .validChip,
+:global(html[data-design="brutalist"]) .toastTag {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+:global(html[data-design="brutalist"]) .scrim {
+  background: rgba(10, 10, 10, 0.45);
+}
+:global(html[data-design="brutalist"]) .rowFlash,
+:global(html[data-design="brutalist"]) .acHl {
+  background: #ffe500;
+}
+:global(html[data-design="brutalist"]) .success {
+  background: #f4f1e8;
+}
+:global(html[data-design="brutalist"]) .shimmer {
+  background: #9d1400;
 }
 
 /* Control keeps the previous soft portal chrome. */
