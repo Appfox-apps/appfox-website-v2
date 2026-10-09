@@ -72,7 +72,7 @@ const PLANS: Plan[] = [
 
 function PlanCard({ plan }: { plan: Plan }) {
   const cardClass = plan.featured
-    ? "relative flex h-full flex-col border-[3px] border-ink-900 bg-paper-raised p-6 shadow-(--shadow-pop) transition-transform duration-150 hover:-translate-y-1 sm:p-8"
+    ? "relative flex h-full flex-col rounded-2xl border border-brand-200 bg-paper-raised p-6 shadow-(--shadow-pop) transition-transform duration-200 hover:-translate-y-1 sm:p-8 lg:scale-[1.03]"
     : "card lift flex h-full flex-col p-6 sm:p-8";
 
   return (

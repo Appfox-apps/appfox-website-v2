@@ -7,9 +7,9 @@ type RevealVariant = "up" | "down" | "left" | "right" | "scale" | "blur" | "none
 const StaggerContext = createContext<{ step: number; base: number } | null>(null);
 
 /**
- * Marks the wrapper with `.is-visible` once it has entered the viewport.
- * Content is painted at full opacity immediately — visibility does not wait
- * on this class. The class is only a hook for optional decoration.
+ * Scroll-triggered reveal. Children start hidden (CSS `.reveal`) and animate
+ * in when they enter the viewport. Honors prefers-reduced-motion via CSS
+ * (the .reveal rules are wrapped in a motion-safe media query in globals.css).
  *
  * Wrap a list in <StaggerGroup> to auto-stagger child <Reveal> delays.
  */
@@ -37,38 +37,17 @@ export function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const show = () => el.classList.add("is-visible");
-    const inOrPastView = () => {
-      const rect = el.getBoundingClientRect();
-      return rect.top < window.innerHeight && rect.bottom > 0;
-    };
-    if (inOrPastView()) show();
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          show();
-          observer.disconnect();
+          el.classList.add("is-visible");
+          observer.unobserve(el);
         }
       },
-      { threshold: 0, rootMargin: "0px" }
+      { threshold: 0, rootMargin: "0px 0px -100px 0px" }
     );
     observer.observe(el);
-    // A fast fling can jump an element across the viewport between
-    // observer frames. The scroll event still fires at the end, and any
-    // block already on screen or above it must not stay unrevealed.
-    const onScroll = () => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight) {
-        show();
-        observer.disconnect();
-        window.removeEventListener("scroll", onScroll);
-      }
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", onScroll);
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (

@@ -28,9 +28,14 @@ export function BrandHero() {
               </span>
             </p>
 
-            <h1 className="enter-rise mx-auto mt-6 max-w-4xl lg:mx-0 lg:text-[3.75rem] xl:text-[4.25rem]">
+            <h1 className="enter-rise mx-auto mt-6 max-w-4xl hero-gradient lg:mx-0 lg:text-[3.75rem] xl:text-[4.25rem]">
               Grow revenue from{" "}
-              <span className="wonk relative inline-block">
+              <span className="wonk relative inline-block" style={{
+                background: "linear-gradient(to right, var(--color-brand-600), var(--color-brand-400))",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}>
                 every order
                 {/* Hand-drawn marigold underline, draws on at ~600ms */}
                 <svg

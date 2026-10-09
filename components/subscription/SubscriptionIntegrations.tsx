@@ -22,10 +22,10 @@ function IntegrationCard({
   integration: IntegrationEntry;
   index: number;
 }) {
-  const cardContent = (
+  const CardContent = () => (
     <>
       {integration.logoSrc && (
-        <div className="mb-4 flex h-16 w-16 items-center justify-center overflow-hidden border-[3px] border-ink-900 bg-white shadow-(--shadow-card)">
+        <div className="mb-4 flex h-16 w-16 items-center justify-center overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-ink-900/5">
           <Image
             src={integration.logoSrc}
             alt={`${integration.name} logo`}
@@ -67,11 +67,11 @@ function IntegrationCard({
           rel={integration.href.startsWith("http") ? "noopener noreferrer" : undefined}
           className="card lift hover:border-brand-300 transition-all flex h-full flex-col p-5 sm:p-6"
         >
-          {cardContent}
+          <CardContent />
         </Link>
       ) : (
         <div className="card flex h-full flex-col p-5 sm:p-6">
-          {cardContent}
+          <CardContent />
         </div>
       )}
     </Reveal>
