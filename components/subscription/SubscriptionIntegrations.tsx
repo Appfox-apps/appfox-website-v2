@@ -32,7 +32,7 @@ function IntegrationCard({
   const cardContent = (
     <>
       {(nativeSlug || integration.logoSrc) && (
-        <div className="mb-4 flex h-16 w-16 items-center justify-center overflow-hidden border-[3px] border-ink-900 bg-white shadow-(--shadow-card)">
+        <div className={`mb-4 flex h-16 w-16 items-center justify-center overflow-hidden border-[3px] border-ink-900 bg-white shadow-(--shadow-card) ${nativeSlug ? "brutalist-only" : ""}`}>
           {nativeSlug ? (
             <AppMark slug={nativeSlug} className="h-full w-full" title={`${integration.name} logo`} />
           ) : (

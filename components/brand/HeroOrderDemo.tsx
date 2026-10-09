@@ -37,13 +37,13 @@ export function HeroOrderDemo() {
 
   return (
     <div className="relative mx-auto w-full max-w-md">
-      <div className="card relative border-[3px] border-ink-900 p-6 shadow-(--shadow-pop) sm:p-7">
+      <div className="card relative rounded-2xl border-[3px] border-ink-900 p-6 shadow-(--shadow-pop) sm:p-7">
         <span className="sticker absolute -top-4 right-6">TRY AN EDIT</span>
 
         {/* Receipt header */}
         <div className="flex items-center justify-between gap-3 border-b-[3px] border-ink-900 pb-4">
           <p className="till flex items-center gap-2 text-[0.75rem] text-ink-500">
-            <OrderEditingMark className="h-7 w-7 shrink-0" />
+            <OrderEditingMark className="brutalist-only h-7 w-7 shrink-0" />
             ORDER <span className="text-ink-900">#1042</span> · just placed
           </p>
           {edited ? (
@@ -73,8 +73,8 @@ export function HeroOrderDemo() {
                   onClick={() => setSize(s)}
                   className={
                     size === s
-                      ? "till border-2 border-ink-900 bg-ink-900 px-2.5 py-1 text-[0.75rem] text-marigold-500 shadow-(--shadow-card)"
-                      : "till cursor-pointer border-2 border-ink-900 bg-paper-raised px-2.5 py-1 text-[0.75rem] text-ink-700 transition-colors duration-150 hover:bg-marigold-500 hover:text-ink-900"
+                      ? "press-chosen till rounded-lg border-2 border-ink-900 bg-ink-900 px-2.5 py-1 text-[0.75rem] text-marigold-500 shadow-(--shadow-card)"
+                      : "till cursor-pointer rounded-lg border-2 border-ink-900 bg-paper-raised px-2.5 py-1 text-[0.75rem] text-ink-700 transition-colors duration-150 hover:bg-marigold-500 hover:text-ink-900"
                   }
                 >
                   {s}

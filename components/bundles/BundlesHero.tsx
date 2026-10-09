@@ -139,13 +139,13 @@ export function BundlesHero() {
 function BundleDemo() {
   return (
     <div
-      className="mx-auto w-full max-w-md border-[3px] border-ink-900 bg-paper-raised p-6 shadow-(--shadow-pop)"
+      className="mx-auto w-full max-w-md rounded-2xl border-[3px] border-ink-900 bg-paper-raised p-6 shadow-(--shadow-pop)"
       aria-hidden="true"
     >
       <div className="border-b-[3px] border-ink-900 pb-4">
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-start gap-3">
-            <BundlesMark className="h-10 w-10 shrink-0" />
+            <BundlesMark className="brutalist-only h-10 w-10 shrink-0" />
             <div>
             <p className="text-[0.8125rem] font-semibold tracking-wide text-ink-900">
               COMPLETE THE SET
@@ -168,7 +168,7 @@ function BundleDemo() {
         ].map((item, i) => (
           <div key={item.name} className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="flex h-5 w-5 items-center justify-center border-2 border-ink-900 bg-ink-900">
+              <div className="press-dot flex h-5 w-5 items-center justify-center rounded-md border-2 border-ink-900 bg-ink-900">
                 <svg className="h-3 w-3 text-paper" fill="currentColor" viewBox="0 0 20 20">
                   <path
                     fillRule="evenodd"

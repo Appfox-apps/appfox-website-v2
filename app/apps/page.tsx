@@ -109,7 +109,7 @@ export default function AppsPage() {
                   <Reveal key={app.slug} index={i} className="h-full">
                     <article className="card lift flex h-full flex-col p-7 sm:p-9">
                       <div className="flex items-center gap-3">
-                        <AppMark slug={app.slug} className="h-12 w-12 shrink-0" />
+                        <AppMark slug={app.slug} className="brutalist-only h-12 w-12 shrink-0" />
                         <p className="till text-[0.8125rem] uppercase tracking-[0.12em] text-ink-500">
                           {String(i + 1).padStart(2, "0")} · {app.pricingLine}
                         </p>

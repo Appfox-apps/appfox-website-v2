@@ -140,12 +140,12 @@ export function SubscriptionHero() {
 function WidgetDemo() {
   return (
     <div
-      className="mx-auto w-full max-w-md border-[3px] border-ink-900 bg-paper-raised p-6 shadow-(--shadow-pop)"
+      className="mx-auto w-full max-w-md rounded-2xl border-[3px] border-ink-900 bg-paper-raised p-6 shadow-(--shadow-pop)"
       aria-hidden="true"
     >
       <div className="flex items-start justify-between gap-4 border-b-[3px] border-ink-900 pb-4">
         <div className="flex items-start gap-3">
-          <SubscriptionsMark className="h-10 w-10 shrink-0" />
+          <SubscriptionsMark className="brutalist-only h-10 w-10 shrink-0" />
           <div>
           <p className="text-[0.8125rem] font-semibold tracking-wide text-ink-900">OAK &amp; ANCHOR</p>
           <p className="mt-1 text-[1.0625rem] font-semibold text-ink-900">Single-Origin Coffee, 12oz</p>
@@ -155,19 +155,19 @@ function WidgetDemo() {
       </div>
 
       {/* One-time option - unselected */}
-      <div className="mt-4 flex items-center justify-between border-2 border-ink-900 px-4 py-3">
+      <div className="mt-4 flex items-center justify-between rounded-xl border-2 border-ink-900 px-4 py-3">
         <span className="flex items-center gap-3">
-          <span className="h-4 w-4 border-2 border-ink-900" />
+          <span className="h-4 w-4 rounded-full border-2 border-ink-900" />
           <span className="text-[0.9375rem] font-medium text-ink-700">One-time purchase</span>
         </span>
         <span className="till text-[0.875rem] text-ink-500">$18.00</span>
       </div>
 
       {/* Subscribe & save - selected */}
-      <div className="mt-2.5 border-[3px] border-ink-900 bg-marigold-500 px-4 py-3">
+      <div className="press-selected mt-2.5 rounded-xl border-[3px] border-ink-900 bg-marigold-500 px-4 py-3">
         <div className="flex items-center justify-between">
           <span className="flex items-center gap-3">
-            <span className="flex h-4 w-4 items-center justify-center border-2 border-ink-900 bg-ink-900">
+            <span className="press-dot flex h-4 w-4 items-center justify-center rounded-full border-2 border-ink-900 bg-ink-900">
               <span className="h-1.5 w-1.5 bg-marigold-500" />
             </span>
             <span className="text-[0.9375rem] font-semibold text-ink-900">Subscribe &amp; save 10%</span>

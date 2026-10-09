@@ -32,7 +32,7 @@ export function CtaBand({
         {/* Hard frame behind the close */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[22rem] w-[min(100%,36rem)] -translate-x-1/2 -translate-y-1/2 border-[3px] border-marigold-500 opacity-40"
+          className="brutalist-only pointer-events-none absolute left-1/2 top-1/2 h-[22rem] w-[min(100%,36rem)] -translate-x-1/2 -translate-y-1/2 border-[3px] border-marigold-500 opacity-40"
         />
 
         <h2 className="relative text-cream-on-night max-w-3xl mx-auto">{headline}</h2>

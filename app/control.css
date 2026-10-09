@@ -1,0 +1,294 @@
+/* Previous site ("control"). Applied only when the flag resolves to control.
+   Brutalist tokens live in globals.css; these overrides win by being
+   unlayered and more specific. Reveal visibility is left alone. */
+
+html[data-design="control"] {
+  --color-brand-50: #f5f3ff;
+  --color-brand-100: #ede7fe;
+  --color-brand-200: #ddd3fb;
+  --color-brand-300: #c4b2f7;
+  --color-brand-400: #a78bfa;
+  --color-brand-500: #8b5cf6;
+  --color-brand-600: #7c3aed;
+  --color-brand-700: #6d28d9;
+  --color-brand-800: #5b21b6;
+  --color-brand-900: #4c1d95;
+  --color-brand-950: #2e1065;
+
+  --color-paper: #f5f3fa;
+  --color-paper-raised: #ffffff;
+  --color-paper-sunken: #ede9f9;
+  --color-paper-edge: #e4def5;
+  --color-ink-900: #1b1826;
+  --color-ink-700: #55535f;
+  --color-ink-500: #8e8c99;
+  --color-ink-300: #b8b4c2;
+
+  --color-marigold-300: #f7d98b;
+  --color-marigold-500: #eec15a;
+  --color-marigold-700: #b7791f;
+
+  --color-night: #181818;
+  --color-night-raised: #1f1f1f;
+  --color-night-edge: rgba(196, 178, 247, 0.16);
+  --color-cream-on-night: #f5f3fa;
+  --color-mist-on-night: #c4bed1;
+
+  --color-success: #059669;
+  --color-success-bg: #d6f0e1;
+  --color-danger: #d1495b;
+  --color-danger-bg: #fbeaec;
+  --color-warn: #b7791f;
+  --color-warn-bg: #fbf3e4;
+
+  --shadow-sm: 0 1px 2px rgba(27, 24, 38, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(27, 24, 38, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(27, 24, 38, 0.08);
+  --shadow-xl: 0 20px 25px -5px rgba(27, 24, 38, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(27, 24, 38, 0.25);
+  --shadow-card: 0 1px 2px rgba(27, 24, 38, 0.05), 0 4px 12px rgba(27, 24, 38, 0.05);
+  --shadow-raised: 0 2px 4px rgba(27, 24, 38, 0.06), 0 14px 36px -10px rgba(124, 58, 237, 0.18);
+  --shadow-pop: 0 4px 8px rgba(27, 24, 38, 0.07), 0 28px 60px -14px rgba(124, 58, 237, 0.3);
+
+  --radius-xs: 0.125rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-4xl: 2rem;
+  --radius-full: 9999px;
+
+  --blur-xs: 4px;
+  --blur-sm: 8px;
+  --blur-md: 12px;
+  --blur-lg: 16px;
+  --blur-xl: 24px;
+  --blur-2xl: 40px;
+  --blur-3xl: 64px;
+
+  --ease-out-soft: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-glide: cubic-bezier(0.45, 0, 0.15, 1);
+
+  --paper-hatch: none;
+  --font-display: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  scroll-padding-top: 88px;
+}
+
+html[data-design="control"] body {
+  background-image: none;
+  background-color: var(--color-paper);
+}
+
+html[data-design="control"] h1 {
+  font-weight: 700;
+  font-size: clamp(2.875rem, 2rem + 4vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+html[data-design="control"] h2 {
+  font-weight: 700;
+  font-size: clamp(2.125rem, 1.6rem + 2.4vw, 3.25rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+html[data-design="control"] h3,
+html[data-design="control"] h4 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+html[data-design="control"] :focus-visible {
+  outline: 2px solid var(--color-marigold-500) !important;
+  outline-offset: 2px;
+  box-shadow: none !important;
+  border-radius: 4px;
+}
+
+html[data-design="control"] .wonk {
+  font-weight: 800;
+  color: var(--color-brand-600);
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  padding: 0;
+}
+
+html[data-design="control"] .hero-gradient {
+  background: linear-gradient(to right, #000000, #666666);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html[data-design="control"] .section-slug {
+  border-top: 1px solid var(--color-paper-edge);
+}
+
+html[data-design="control"] .section-slug > .slug-label {
+  color: var(--color-brand-600);
+  background: none;
+  font-weight: 500;
+}
+
+html[data-design="control"] .on-night .section-slug > .slug-label,
+html[data-design="control"] .section-slug.on-night > .slug-label {
+  color: var(--color-brand-300);
+  background: none;
+}
+
+html[data-design="control"] .paper-wash {
+  background-image: none;
+}
+
+html[data-design="control"] .sticker {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 0 0 2px var(--color-paper);
+  rotate: -2deg;
+}
+
+html[data-design="control"] .ember {
+  border: 0;
+  box-shadow: 0 0 0 1px rgba(238, 157, 43, 0.35), 0 0 24px rgba(238, 157, 43, 0.18);
+}
+
+html[data-design="control"] .leader {
+  border-bottom: 1px dotted var(--color-ink-300);
+}
+
+html[data-design="control"] .btn-primary,
+html[data-design="control"] .btn-secondary,
+html[data-design="control"] .btn-marigold {
+  border-radius: 12px;
+  border: 0;
+  padding: 0.5rem 0.75rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.5;
+  transition: transform 700ms var(--ease-out-soft), box-shadow 700ms var(--ease-out-soft),
+    background-color 700ms var(--ease-out-soft);
+}
+
+html[data-design="control"] .btn-primary {
+  background: var(--color-brand-600);
+  color: #ffffff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 10px 24px -8px rgba(124, 58, 237, 0.55);
+}
+
+html[data-design="control"] .btn-primary:hover {
+  background: var(--color-brand-700);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 10px 24px -8px rgba(124, 58, 237, 0.55);
+}
+
+html[data-design="control"] .btn-primary:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 2px 6px rgba(124, 58, 237, 0.4);
+}
+
+html[data-design="control"] .btn-secondary {
+  background: var(--color-paper-raised);
+  color: var(--color-ink-900);
+  border: 1px solid var(--color-paper-edge);
+  box-shadow: var(--shadow-card);
+}
+
+html[data-design="control"] .btn-secondary:hover {
+  background: var(--color-paper-raised);
+  border-color: var(--color-brand-300);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-raised);
+}
+
+html[data-design="control"] .btn-marigold {
+  background: var(--color-marigold-500);
+  color: var(--color-ink-900);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 2px 8px rgba(238, 157, 43, 0.35);
+}
+
+html[data-design="control"] .btn-marigold:hover {
+  background: var(--color-marigold-300);
+  transform: translateY(-1px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 2px 8px rgba(238, 157, 43, 0.35);
+}
+
+html[data-design="control"] .card {
+  border: 1px solid var(--color-paper-edge);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+}
+
+html[data-design="control"] .card-tinted {
+  background: var(--color-brand-50);
+  border: 1px solid var(--color-brand-200);
+  border-radius: 16px;
+  box-shadow: none;
+}
+
+html[data-design="control"] .card-night {
+  border: 1px solid var(--color-night-edge);
+  border-radius: 16px;
+  box-shadow: none;
+}
+
+html[data-design="control"] .lift {
+  transition: transform 700ms var(--ease-out-soft), box-shadow 700ms var(--ease-out-soft);
+}
+
+html[data-design="control"] .lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-raised);
+}
+
+html[data-design="control"] [class*="border-[3px]"],
+html[data-design="control"] [class*="border-b-[3px]"],
+html[data-design="control"] [class*="border-t-[3px]"] {
+  border-width: 1px !important;
+  border-color: var(--color-paper-edge) !important;
+}
+
+html[data-design="control"] .press-selected {
+  background-color: var(--color-brand-50) !important;
+  color: var(--color-ink-900) !important;
+  border-color: var(--color-brand-200) !important;
+}
+
+html[data-design="control"] .press-dot {
+  background-color: var(--color-brand-600) !important;
+  border-color: var(--color-brand-600) !important;
+}
+
+html[data-design="control"] .press-chosen {
+  background-color: var(--color-brand-600) !important;
+  color: #ffffff !important;
+  border-color: var(--color-brand-600) !important;
+}
+
+html[data-design="control"] .press-dot > span {
+  background-color: var(--color-paper) !important;
+  border-radius: 9999px !important;
+}
+
+/* Marks and chrome that exist only on the brutalist variant. */
+html:not([data-design="brutalist"]) .brutalist-only {
+  display: none !important;
+}
+
+html[data-design="brutalist"] .control-only {
+  display: none !important;
+}

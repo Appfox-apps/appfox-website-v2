@@ -1,11 +1,27 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, IBM_Plex_Mono } from "next/font/google";
+import { Suspense } from "react";
+import { Archivo, Geist, Geist_Mono, IBM_Plex_Mono } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
+import { FlagValues } from "flags/react";
 import { site } from "@/lib/site";
+import { getDesign } from "@/lib/design";
+import { FLAG_KEY } from "@/lib/flag-key";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { CrispChat } from "@/components/site/CrispChat";
+import { DesignProvider } from "@/components/site/DesignProvider";
 import "./globals.css";
+import "./control.css";
+
+const geist = Geist({
+  variable: "--font-geist",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 const display = Archivo({
   variable: "--font-display-family",
@@ -39,9 +55,10 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
 };
 
-export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
-};
+export async function generateViewport(): Promise<Viewport> {
+  const design = await getDesign();
+  return { themeColor: design === "brutalist" ? "#0a0a0a" : "#f5f3fa" };
+}
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -72,17 +89,19 @@ const organizationJsonLd = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const design = await getDesign();
   return (
     <html
       lang="en"
+      data-design={design}
       // the inline head script adds .js before hydration - expected mismatch
       suppressHydrationWarning
-      className={`${display.variable} ${mono.variable} h-full`}
+      className={`${geist.variable} ${geistMono.variable} ${display.variable} ${mono.variable} h-full`}
     >
       <head>
         {/* Gate hidden pre-animation states behind html.js so content is
@@ -94,6 +113,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col antialiased">
+        <DesignProvider design={design}>
         <JsonLd data={organizationJsonLd} />
         
         {/* Google Analytics */}
@@ -111,8 +131,12 @@ export default function RootLayout({
         </Script>
         
         {children}
+        <Suspense fallback={null}>
+          <FlagValues values={{ [FLAG_KEY]: design }} />
+        </Suspense>
         <Analytics />
         <CrispChat />
+        </DesignProvider>
       </body>
     </html>
   );

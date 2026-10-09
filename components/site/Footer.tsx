@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { site } from "@/lib/site";
 import { AppFoxMark } from "@/components/brand/marks";
 import { Wordmark } from "./Wordmark";
@@ -103,7 +104,14 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2">
             <div className="flex items-center gap-2.5">
-              <AppFoxMark className="h-8 w-8 shrink-0" />
+              <AppFoxMark className="brutalist-only h-8 w-8 shrink-0" />
+              <Image
+                src="/images/brand/appfox-icon-control.png"
+                alt=""
+                width={32}
+                height={32}
+                className="control-only h-8 w-8 rounded-lg"
+              />
               <Wordmark onNight className="text-[1.375rem]" />
             </div>
             <p className="mt-4 text-base leading-relaxed">
@@ -192,8 +200,14 @@ export function Footer() {
       {/* Ghost wordmark - ink on ink */}
       <div aria-hidden="true" className="overflow-hidden select-none pointer-events-none -mb-[2vw]">
         <p
-          className="text-center font-display font-extrabold leading-none text-transparent"
+          className="brutalist-only text-center font-display font-extrabold leading-none text-transparent"
           style={{ fontSize: "13vw", WebkitTextStroke: "2px #ffe500" }}
+        >
+          AppFox
+        </p>
+        <p
+          className="control-only text-center font-display font-[560] leading-none text-night-raised"
+          style={{ fontSize: "13vw", fontVariationSettings: '"SOFT" 60, "WONK" 0' }}
         >
           AppFox
         </p>

@@ -46,13 +46,13 @@ export function AppShowcase() {
             <StaggerGroup step={140}>
               {apps.map((app, i) => (
                 <Reveal key={app.slug} index={i} className="h-full">
-                  <article className="relative flex h-full flex-col border-[3px] border-ink-900 bg-paper-raised p-7 shadow-(--shadow-pop) transition-transform duration-150 hover:-translate-y-1 sm:p-9">
+                  <article className="relative flex h-full flex-col rounded-2xl border-[3px] border-ink-900 bg-paper-raised p-7 shadow-(--shadow-pop) transition-transform duration-150 hover:-translate-y-1 sm:p-9">
                     <span className="sticker absolute -top-4 left-8 whitespace-nowrap">
                       FREE TO START
                     </span>
 
                     <div className="flex items-center gap-3">
-                      <AppMark slug={app.slug} className="h-11 w-11 shrink-0" />
+                      <AppMark slug={app.slug} className="brutalist-only h-11 w-11 shrink-0" />
                       <p className="till text-xs uppercase tracking-[0.12em] text-ink-500">
                         {String(i + 1).padStart(2, "0")} · {app.pricingLine}
                       </p>
@@ -94,7 +94,7 @@ export function AppShowcase() {
 
 function OrderEditVignette() {
   return (
-      <div className="border-[3px] border-ink-900 bg-paper p-4 shadow-(--shadow-card)" aria-hidden="true">
+      <div className="rounded-2xl border-[3px] border-ink-900 bg-paper p-4 shadow-(--shadow-card)" aria-hidden="true">
       <div className="flex items-center justify-between gap-2 border-b border-paper-edge pb-2.5">
         <p className="till text-xs text-ink-500">
           <span className="text-ink-700">#1042</span> · Size swap M → L
@@ -120,10 +120,10 @@ function OrderEditVignette() {
 
 function SubscribeVignette() {
   return (
-    <div className="border-[3px] border-ink-900 bg-paper p-4 shadow-(--shadow-card)" aria-hidden="true">
-      <div className="flex items-center justify-between border-[3px] border-ink-900 bg-marigold-500 px-3 py-2">
+    <div className="rounded-2xl border-[3px] border-ink-900 bg-paper p-4 shadow-(--shadow-card)" aria-hidden="true">
+      <div className="press-selected flex items-center justify-between rounded-lg border-[3px] border-ink-900 bg-marigold-500 px-3 py-2">
         <span className="flex items-center gap-2.5">
-          <span className="flex h-3.5 w-3.5 items-center justify-center border-2 border-ink-900 bg-ink-900">
+          <span className="press-dot flex h-3.5 w-3.5 items-center justify-center rounded-full border-2 border-ink-900 bg-ink-900">
             <span className="h-1.5 w-1.5 bg-marigold-500" />
           </span>
           <span className="text-xs font-semibold text-ink-900">Subscribe &amp; save 10%</span>
@@ -142,7 +142,7 @@ function SubscribeVignette() {
 
 function BundleVignette() {
   return (
-    <div className="border-[3px] border-ink-900 bg-paper p-4 shadow-(--shadow-card)" aria-hidden="true">
+    <div className="brutalist-only rounded-2xl border-[3px] border-ink-900 bg-paper p-4 shadow-(--shadow-card)" aria-hidden="true">
       <div className="flex items-center justify-between border-b-[3px] border-ink-900 pb-2.5">
         <p className="text-xs font-bold uppercase tracking-[0.12em] text-ink-900">Essentials set</p>
         <span className="till text-xs font-bold text-ink-900">Save 20%</span>
