@@ -466,38 +466,19 @@ h3 {
 /* ════════════════════════════════════════════════════════
    ANIMATION VOCABULARY (deliberately unlayered - animation
    state machinery must beat utilities)
-   All entrance/scroll effects gated behind html.js (set by an
-   inline script in layout) so content is never hidden from
-   crawlers or no-JS users, and behind prefers-reduced-motion.
+   Page content is visible without JavaScript. Do not set
+   opacity: 0 (or clip/scale to nothing) until .is-visible.
+   Hero load-in animations are CSS-only and finish on their own.
+   Accordion collapse is the one html.js exception, and without
+   JS those panels stay expanded.
    ════════════════════════════════════════════════════════ */
 
 @media (prefers-reduced-motion: no-preference) {
-  /* - Scroll reveal (IntersectionObserver adds .is-visible) - */
-  html.js .reveal {
-    opacity: 0;
-    transition: opacity 800ms var(--ease-out-soft) var(--reveal-delay, 0ms),
-      transform 800ms var(--ease-out-soft) var(--reveal-delay, 0ms);
-    will-change: opacity, transform;
-  }
-  html.js .reveal-up {
-    transform: translateY(24px);
-  }
-  html.js .reveal-down {
-    transform: translateY(-16px);
-  }
-  html.js .reveal-left {
-    transform: translateX(24px);
-  }
-  html.js .reveal-right {
-    transform: translateX(-24px);
-  }
-  html.js .reveal-scale {
-    transform: scale(0.94);
-  }
-  html.js .reveal.is-visible {
-    opacity: 1;
-    transform: none;
-  }
+  /* Scroll reveals, stamps, print-outs, charts, and drawn ticks stay
+     fully visible without JavaScript. An earlier version set opacity: 0
+     until IntersectionObserver added .is-visible. Fast scrolls (and the
+     -100px root margin) skipped that callback, so everything below the
+     hero stayed blank. Do not hide content while waiting for a class. */
 
   /* - Hero entrance (page load; transform-only on the H1 so the
        LCP element is painted immediately) - */
@@ -506,60 +487,6 @@ h3 {
   }
   .enter-fade-rise {
     animation: enter-fade-rise 700ms var(--ease-out-soft) both;
-  }
-
-  /* - Stamps (APPROVED / SELF-SERVED) - */
-  html.js .stamp-in {
-    opacity: 0;
-    transform: scale(1.4) rotate(0deg);
-  }
-  html.js .is-visible .stamp-in,
-  html.js .stamp-in.is-visible {
-    animation: stamp 450ms var(--ease-spring) both;
-    animation-delay: var(--stamp-delay, 0ms);
-  }
-
-  /* - SVG line draws (dashed threads, ticks, underlines) - */
-  html.js .draw-path {
-    stroke-dasharray: var(--path-length, 400);
-    stroke-dashoffset: var(--path-length, 400);
-  }
-  html.js .is-visible .draw-path,
-  html.js .draw-path.is-visible {
-    animation: draw-line 900ms var(--ease-out-soft) forwards;
-    animation-delay: var(--draw-delay, 0ms);
-  }
-
-  /* - Receipt print-out rows - */
-  html.js .print-out {
-    opacity: 0;
-    transform: translateY(8px);
-    clip-path: inset(0 0 100% 0);
-  }
-  html.js .is-visible .print-out,
-  html.js .print-out.is-visible {
-    animation: print-out 350ms var(--ease-out-soft) both;
-    animation-delay: calc(var(--i, 0) * 60ms + var(--print-delay, 0ms));
-  }
-
-  /* - Bar chart growth - */
-  html.js .bar-grow {
-    transform: scaleY(0);
-    transform-origin: bottom;
-  }
-  html.js .is-visible .bar-grow {
-    animation: bar-grow 700ms var(--ease-out-soft) both;
-    animation-delay: calc(var(--i, 0) * 60ms);
-  }
-
-  /* - Digit roll (animation half; structure lives outside this query) - */
-  html.js .digit-strip {
-    transform: translateY(0);
-    transition: transform 600ms var(--ease-out-soft);
-    transition-delay: calc(var(--i, 0) * 60ms);
-  }
-  html.js .is-visible .digit-strip {
-    transform: translateY(calc(var(--digit, 0) * -1em));
   }
 
   /* - Marquees - */
