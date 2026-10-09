@@ -1,5 +1,6 @@
 import { site } from "@/lib/site";
 import { InView } from "@/components/ui/InView";
+import { AppMark } from "@/components/brand/AppMark";
 import { PortalDemo } from "./PortalDemo";
 
 /**
@@ -38,8 +39,9 @@ export function Hero() {
         <div className="grid items-center gap-14 lg:grid-cols-[55fr_45fr] lg:gap-10">
           {/* ── Left: copy ─────────────────────────────────── */}
           <InView className="relative z-10">
-            <p className="enter-fade-rise" style={{ animationDelay: "60ms" }}>
-              <span className="till inline-flex items-center rounded-lg border border-paper-edge bg-paper-raised px-3 py-1.5 text-[0.8125rem] text-marigold-700 shadow-(--shadow-card)">
+            <p className="enter-fade-rise flex items-center gap-3" style={{ animationDelay: "60ms" }}>
+              <AppMark id="order-editing" size={44} />
+              <span className="till inline-flex items-center border border-paper-edge bg-paper-raised px-3 py-1.5 text-[0.8125rem] text-marigold-700 shadow-(--shadow-card)">
                 “Can I change my order?” - answered automatically
               </span>
             </p>

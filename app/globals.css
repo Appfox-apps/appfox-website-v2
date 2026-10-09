@@ -385,6 +385,31 @@ h3 {
 
 /* ── Cards & chips ──────────────────────────────────────── */
 
+/* Product-UI stills: thick rule, hard offset, no blur. */
+.shot {
+  border: 3px solid #0a0a0a;
+  background: var(--color-paper);
+  box-shadow: 4px 4px 0 0 #0a0a0a;
+}
+
+/* Mock press inside a product still. Matches .btn-primary. */
+.shot-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #0a0a0a;
+  background: #0a0a0a;
+  color: #ffe500;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 0.55rem 0.8rem;
+  box-shadow: 3px 3px 0 0 #ffe500;
+}
+
 .card {
   background: var(--color-paper-raised);
   border: 3px solid var(--color-ink-900);

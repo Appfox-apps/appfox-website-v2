@@ -1,5 +1,7 @@
 import { getApp } from "@/data/apps";
 import { InView } from "@/components/ui/InView";
+import { AppMark } from "@/components/brand/AppMark";
+import { ProductFrame } from "@/components/brand/ProductFrame";
 
 /**
  * Product Bundles hero - same "Counter" grammar as the subscription hero:
@@ -35,8 +37,9 @@ export function BundlesHero() {
         <div className="grid items-center gap-14 lg:grid-cols-[55fr_45fr] lg:gap-10">
           {/* ── Left: copy ─────────────────────────────────── */}
           <InView className="relative z-10">
-            <p className="enter-fade-rise" style={{ animationDelay: "60ms" }}>
-              <span className="till inline-flex items-center rounded-lg border border-paper-edge bg-paper-raised px-3 py-1.5 text-[0.8125rem] text-marigold-700 shadow-(--shadow-card)">
+            <p className="enter-fade-rise flex items-center gap-3" style={{ animationDelay: "60ms" }}>
+              <AppMark id="product-bundles" size={44} />
+              <span className="till inline-flex items-center border border-paper-edge bg-paper-raised px-3 py-1.5 text-[0.8125rem] text-marigold-700 shadow-(--shadow-card)">
                 Free to install · Unlimited bundles
               </span>
             </p>
@@ -137,10 +140,8 @@ export function BundlesHero() {
 
 function BundleDemo() {
   return (
-    <div
-      className="mx-auto w-full max-w-md rounded-2xl border border-paper-edge bg-paper-raised p-6 shadow-(--shadow-pop)"
-      aria-hidden="true"
-    >
+    <ProductFrame kicker="Bundle widget · save 20%" className="mx-auto w-full max-w-md">
+    <div className="p-6" aria-hidden="true">
       <div className="border-b border-paper-edge pb-4">
         <div className="flex items-start justify-between gap-4">
           <div>
@@ -161,11 +162,11 @@ function BundleDemo() {
           { name: "Oak Tee - White", price: "$32" },
           { name: "Wool Beanie", price: "$24" },
           { name: "Canvas Tote", price: "$18" },
-        ].map((item, i) => (
+        ].map((item) => (
           <div key={item.name} className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="flex h-5 w-5 items-center justify-center rounded-md border-2 border-brand-600 bg-brand-600">
-                <svg className="h-3 w-3 text-paper" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex h-5 w-5 items-center justify-center border-2 border-ink-900 bg-marigold-500">
+                <svg className="h-3 w-3 text-ink-900" fill="currentColor" viewBox="0 0 20 20">
                   <path
                     fillRule="evenodd"
                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -181,7 +182,7 @@ function BundleDemo() {
       </div>
 
       {/* Price summary */}
-      <div className="mt-5 rounded-xl border border-brand-200 bg-brand-50 p-4">
+      <div className="mt-5 border-[3px] border-ink-900 bg-brand-50 p-4">
         <div className="flex items-center justify-between">
           <span className="text-[0.9375rem] font-medium text-ink-700">Bundle price</span>
           <div className="text-right">
@@ -192,9 +193,10 @@ function BundleDemo() {
         <p className="till mt-1 text-[0.75rem] text-success">Save $14.80 (20%)</p>
       </div>
 
-      <button className="mt-5 flex w-full items-center justify-center rounded-xl bg-brand-600 px-4 py-3 text-[0.9375rem] font-semibold text-paper shadow-[inset_0_1px_0_rgba(255,255,255,0.18)]">
+      <button className="shot-btn mt-5 w-full">
         Add bundle to cart
       </button>
     </div>
+    </ProductFrame>
   );
 }

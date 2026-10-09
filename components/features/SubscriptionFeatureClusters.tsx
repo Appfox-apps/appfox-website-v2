@@ -265,7 +265,7 @@ function WidgetVisual() {
           </div>
         </div>
 
-        <span className="mt-3.5 flex items-center justify-center rounded-xl bg-brand-600 px-3.5 py-2 text-[0.8125rem] font-semibold leading-none text-paper shadow-[inset_0_1px_0_rgba(255,255,255,0.18)]">
+        <span className="shot-btn mt-3.5 w-full">
           Add to cart - $16.20/mo
         </span>
       </div>

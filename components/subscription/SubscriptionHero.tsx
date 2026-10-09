@@ -1,5 +1,7 @@
 import { getApp } from "@/data/apps";
 import { InView } from "@/components/ui/InView";
+import { AppMark } from "@/components/brand/AppMark";
+import { ProductFrame } from "@/components/brand/ProductFrame";
 
 /**
  * Subscription hero - same "Counter" grammar as the home hero: light cream,
@@ -35,8 +37,9 @@ export function SubscriptionHero() {
         <div className="grid items-center gap-14 lg:grid-cols-[55fr_45fr] lg:gap-10">
           {/* ── Left: copy ─────────────────────────────────── */}
           <InView className="relative z-10">
-            <p className="enter-fade-rise" style={{ animationDelay: "60ms" }}>
-              <span className="till inline-flex items-center rounded-lg border border-paper-edge bg-paper-raised px-3 py-1.5 text-[0.8125rem] text-marigold-700 shadow-(--shadow-card)">
+            <p className="enter-fade-rise flex items-center gap-3" style={{ animationDelay: "60ms" }}>
+              <AppMark id="subscription" size={44} />
+              <span className="till inline-flex items-center border border-paper-edge bg-paper-raised px-3 py-1.5 text-[0.8125rem] text-marigold-700 shadow-(--shadow-card)">
                 4.2★ on the Shopify App Store · Free to install
               </span>
             </p>
@@ -138,10 +141,8 @@ export function SubscriptionHero() {
 
 function WidgetDemo() {
   return (
-    <div
-      className="mx-auto w-full max-w-md rounded-2xl border border-paper-edge bg-paper-raised p-6 shadow-(--shadow-pop)"
-      aria-hidden="true"
-    >
+    <ProductFrame kicker="Subscribe widget · 10% off" className="mx-auto w-full max-w-md">
+    <div className="p-6" aria-hidden="true">
       <div className="flex items-start justify-between gap-4 border-b border-paper-edge pb-4">
         <div>
           <p className="text-[0.8125rem] font-semibold tracking-wide text-ink-900">OAK &amp; ANCHOR</p>
@@ -151,20 +152,20 @@ function WidgetDemo() {
       </div>
 
       {/* One-time option - unselected */}
-      <div className="mt-4 flex items-center justify-between rounded-xl border border-paper-edge px-4 py-3">
+      <div className="mt-4 flex items-center justify-between border-[3px] border-ink-900 px-4 py-3">
         <span className="flex items-center gap-3">
-          <span className="h-4 w-4 rounded-full border-2 border-ink-300" />
+          <span className="h-4 w-4 border-2 border-ink-900 bg-paper-raised" />
           <span className="text-[0.9375rem] font-medium text-ink-700">One-time purchase</span>
         </span>
         <span className="till text-[0.875rem] text-ink-500">$18.00</span>
       </div>
 
       {/* Subscribe & save - selected */}
-      <div className="mt-2.5 rounded-xl border border-brand-200 bg-brand-50 px-4 py-3 ring-2 ring-brand-200/50">
+      <div className="mt-2.5 border-[3px] border-ink-900 bg-brand-50 px-4 py-3">
         <div className="flex items-center justify-between">
           <span className="flex items-center gap-3">
-            <span className="flex h-4 w-4 items-center justify-center rounded-full border-2 border-brand-600 bg-brand-600">
-              <span className="h-1.5 w-1.5 rounded-full bg-paper" />
+            <span className="flex h-4 w-4 items-center justify-center border-2 border-ink-900 bg-marigold-500">
+              <span className="h-2 w-2 bg-ink-900" />
             </span>
             <span className="text-[0.9375rem] font-semibold text-ink-900">Subscribe &amp; save 10%</span>
           </span>
@@ -181,7 +182,7 @@ function WidgetDemo() {
         </div>
       </div>
 
-      <span className="mt-5 flex w-full items-center justify-center rounded-xl bg-brand-600 px-4 py-3 text-[0.9375rem] font-semibold text-paper shadow-[inset_0_1px_0_rgba(255,255,255,0.18)]">
+      <span className="shot-btn mt-5 w-full">
         Add to cart - $16.20/mo
       </span>
 
@@ -189,5 +190,6 @@ function WidgetDemo() {
         skip · pause · swap · cancel anytime
       </p>
     </div>
+    </ProductFrame>
   );
 }

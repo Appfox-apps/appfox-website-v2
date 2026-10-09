@@ -213,14 +213,14 @@ export function Integrations() {
         <Reveal delay={120}>
           <div className="card mt-6 overflow-hidden sm:mt-8">
             {/* Browser chrome */}
-            <div className="flex items-center gap-1.5 border-b border-paper-edge bg-paper px-4 py-2.5">
-              <span className="h-2.5 w-2.5 rounded-full bg-paper-edge" aria-hidden="true" />
-              <span className="h-2.5 w-2.5 rounded-full bg-paper-edge" aria-hidden="true" />
-              <span className="h-2.5 w-2.5 rounded-full bg-paper-edge" aria-hidden="true" />
-              <span className="till mx-auto rounded-md bg-paper-sunken px-2.5 py-0.5 text-[11px] text-ink-500">
+            <div className="flex items-center justify-between gap-3 border-b-[3px] border-ink-900 bg-ink-900 px-3 py-1.5">
+              <span className="till text-[11px] font-bold uppercase tracking-[0.16em] text-marigold-500">
                 appfox · analytics
               </span>
-              <span className="w-12" aria-hidden="true" />
+              <span className="flex gap-1" aria-hidden="true">
+                <span className="h-2.5 w-2.5 bg-marigold-500" />
+                <span className="h-2.5 w-2.5 bg-brand-600" />
+              </span>
             </div>
 
             <InView className="p-5 sm:p-7">
@@ -241,7 +241,7 @@ export function Integrations() {
                       <div
                         key={i}
                         className={`bar-grow flex-1 rounded-t-[3px] ${
-                          i === BARS.length - 1 ? "bg-brand-600" : "bg-brand-300"
+                          i === BARS.length - 1 ? "bg-brand-600" : "bg-ink-900"
                         }`}
                         style={{ height: `${h}%`, "--i": i } as React.CSSProperties}
                       />
@@ -255,14 +255,9 @@ export function Integrations() {
 
                 {/* Approval-rate donut */}
                 <div className="flex items-center gap-5">
-                  <div
-                    className="relative h-28 w-28 shrink-0 rounded-full"
-                    style={{
-                      background:
-                        "conic-gradient(var(--color-brand-600) 0deg 331deg, var(--color-brand-100) 331deg 360deg)",
-                    }}
-                  >
-                    <div className="absolute inset-3 flex items-center justify-center rounded-full bg-paper-raised">
+                  <div className="w-28 shrink-0 border-[3px] border-ink-900 bg-paper-sunken shadow-[4px_4px_0_0_#0A0A0A]">
+                    <div className="h-3 bg-brand-600" style={{ width: "92%" }} />
+                    <div className="flex items-center justify-center bg-paper-raised py-4">
                       <DigitRoll value="92%" className="text-xl text-ink-900" />
                     </div>
                   </div>
@@ -280,7 +275,7 @@ export function Integrations() {
                 {KPIS.map((k) => (
                   <div
                     key={k.label}
-                    className="rounded-xl border border-paper-edge bg-paper px-4 py-3.5"
+                    className="border-[3px] border-ink-900 bg-paper px-4 py-3.5"
                   >
                     <p className="till text-[10px] tracking-[0.12em] text-ink-500">{k.label}</p>
                     <DigitRoll value={k.value} className="mt-1 text-2xl text-ink-900" />

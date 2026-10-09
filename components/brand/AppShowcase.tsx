@@ -1,16 +1,14 @@
 import Link from "next/link";
-import { apps, getApp } from "@/data/apps";
+import { apps } from "@/data/apps";
 import { InView } from "@/components/ui/InView";
 import { Reveal, StaggerGroup } from "@/components/ui/Reveal";
+import { AppMark } from "@/components/brand/AppMark";
 
 /**
  * The front-of-house shelf: one large card per app, each with a mini
  * product vignette, the app's proof points, and both CTAs. Sits directly
  * under the brand hero on the same paper-wash - the hero's second half.
  */
-
-const orderEditing = getApp("order-editing")!;
-const subscription = getApp("subscription")!;
 
 /** Hand-drawn tick - never a ✓ character. */
 function Tick({ delay }: { delay: number }) {
@@ -33,6 +31,7 @@ function Tick({ delay }: { delay: number }) {
 const VIGNETTES: Record<string, React.ReactNode> = {
   "order-editing": <OrderEditVignette />,
   subscription: <SubscribeVignette />,
+  "product-bundles": <BundlesVignette />,
 };
 
 export function AppShowcase() {
@@ -49,9 +48,12 @@ export function AppShowcase() {
                       FREE TO START
                     </span>
 
-                    <p className="till text-xs uppercase tracking-[0.12em] text-ink-500">
-                      {String(i + 1).padStart(2, "0")} · {app.pricingLine}
-                    </p>
+                    <div className="flex items-start justify-between gap-4">
+                      <p className="till text-xs uppercase tracking-[0.12em] text-ink-500">
+                        {String(i + 1).padStart(2, "0")} · {app.pricingLine}
+                      </p>
+                      <AppMark id={app.slug} size={52} />
+                    </div>
                     <h2 className="mt-4 !text-3xl sm:!text-4xl">{app.name}</h2>
                     <p className="mt-2 text-base font-medium text-brand-700">{app.tagline}</p>
 
@@ -89,7 +91,7 @@ export function AppShowcase() {
 
 function OrderEditVignette() {
   return (
-      <div className="rounded-2xl border border-paper-edge bg-paper p-4" aria-hidden="true">
+      <div className="shot p-4" aria-hidden="true">
       <div className="flex items-center justify-between gap-2 border-b border-paper-edge pb-2.5">
         <p className="till text-xs text-ink-500">
           <span className="text-ink-700">#1042</span> · Size swap M → L
@@ -115,11 +117,11 @@ function OrderEditVignette() {
 
 function SubscribeVignette() {
   return (
-    <div className="rounded-2xl border border-paper-edge bg-paper p-4" aria-hidden="true">
-      <div className="flex items-center justify-between rounded-lg border border-brand-200 bg-brand-50 px-3 py-2">
+    <div className="shot p-4" aria-hidden="true">
+      <div className="flex items-center justify-between border-[3px] border-ink-900 bg-brand-50 px-3 py-2">
         <span className="flex items-center gap-2.5">
-          <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full border-2 border-brand-600 bg-brand-600">
-            <span className="h-1 w-1 rounded-full bg-paper" />
+          <span className="flex h-3.5 w-3.5 items-center justify-center border-2 border-ink-900 bg-marigold-500">
+            <span className="h-1.5 w-1.5 bg-ink-900" />
           </span>
           <span className="text-xs font-semibold text-ink-900">Subscribe &amp; save 10%</span>
         </span>
@@ -128,6 +130,23 @@ function SubscribeVignette() {
       <div className="mt-2 flex items-center justify-between gap-2 pt-0.5">
         <p className="till text-xs text-ink-500">Deliver every 30 days</p>
         <span className="till text-xs text-ink-500">skip · pause · cancel</span>
+      </div>
+    </div>
+  );
+}
+
+/* ── Bundles - same Essentials offer as the bundles hero ─────────── */
+
+function BundlesVignette() {
+  return (
+    <div className="shot p-4" aria-hidden="true">
+      <div className="flex items-center justify-between gap-2 border-b-[3px] border-ink-900 pb-2.5">
+        <p className="text-xs font-semibold text-ink-900">Essentials Bundle</p>
+        <span className="till text-xs text-brand-700">−20%</span>
+      </div>
+      <div className="mt-2.5 flex items-center justify-between gap-2">
+        <p className="till text-xs text-ink-500">Oak Tee · Beanie · Tote</p>
+        <span className="till text-xs text-ink-900">$59.20</span>
       </div>
     </div>
   );

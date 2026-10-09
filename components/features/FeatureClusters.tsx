@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ProductFrame } from "@/components/brand/ProductFrame";
 import { DigitRoll } from "@/components/ui/DigitRoll";
 import { InView } from "@/components/ui/InView";
 import { Reveal } from "@/components/ui/Reveal";
@@ -282,7 +283,7 @@ function PortalVisual() {
           <p className="mt-1 text-[0.6875rem] text-ink-500">One tap - added to this order</p>
         </div>
         {/* save */}
-        <span className="mt-4 flex items-center justify-center rounded-xl bg-brand-600 px-3.5 py-2 text-[0.8125rem] font-semibold leading-none text-paper shadow-[inset_0_1px_0_rgba(255,255,255,0.18)]">
+        <span className="shot-btn mt-4 w-full">
           Save changes
         </span>
       </div>
@@ -366,32 +367,12 @@ function RuleRow({ label, value, on }: { label: string; value: string; on: boole
   );
 }
 
-/* ── Cluster 3 - receipt with delta math (perforated edges) ─────── */
-
-const RECEIPT_EDGE_TOP =
-  "radial-gradient(circle at 11px 0, transparent 6.5px, var(--color-paper-raised) 7px)";
-const RECEIPT_EDGE_BOTTOM =
-  "radial-gradient(circle at 11px 12px, transparent 6.5px, var(--color-paper-raised) 7px)";
+/* ── Cluster 3 - receipt with delta math ───────────────────────── */
 
 function ReceiptVisual() {
   return (
-    <div
-      className="mx-auto w-full max-w-[21rem]"
-      aria-hidden="true"
-      style={{
-        filter:
-          "drop-shadow(0 2px 4px rgba(36,27,56,0.07)) drop-shadow(0 12px 32px rgba(98,64,200,0.16))",
-      }}
-    >
-      <div
-        className="h-3"
-        style={{
-          backgroundImage: RECEIPT_EDGE_TOP,
-          backgroundSize: "22px 12px",
-          backgroundRepeat: "repeat-x",
-        }}
-      />
-      <div className="bg-paper-raised px-5 py-4">
+    <ProductFrame kicker="Order #1042 · edited in place" className="mx-auto w-full max-w-[21rem]">
+      <div className="bg-paper-raised px-5 py-4" aria-hidden="true">
         <p className="text-center text-[0.8125rem] font-semibold tracking-[0.14em] text-ink-900">
           OAK &amp; ANCHOR
         </p>
@@ -446,15 +427,7 @@ function ReceiptVisual() {
           <p className="mt-0.5">No second checkout</p>
         </div>
       </div>
-      <div
-        className="h-3"
-        style={{
-          backgroundImage: RECEIPT_EDGE_BOTTOM,
-          backgroundSize: "22px 12px",
-          backgroundRepeat: "repeat-x",
-        }}
-      />
-    </div>
+    </ProductFrame>
   );
 }
 
@@ -474,14 +447,13 @@ function AnalyticsVisual() {
     <div className="mx-auto w-full max-w-md" aria-hidden="true">
       <div className="card overflow-hidden rounded-[20px]">
         {/* fake browser bar */}
-        <div className="flex items-center gap-2 border-b border-paper-edge bg-paper-sunken px-4 py-2.5">
-          <span className="flex gap-1.5">
-            <span className="h-2 w-2 rounded-full bg-ink-300/60" />
-            <span className="h-2 w-2 rounded-full bg-ink-300/60" />
-            <span className="h-2 w-2 rounded-full bg-ink-300/60" />
-          </span>
-          <span className="till mx-auto rounded-md bg-paper-raised px-3 py-0.5 text-[0.625rem] text-ink-500">
+        <div className="flex items-center justify-between gap-3 border-b-[3px] border-ink-900 bg-ink-900 px-3 py-1.5">
+          <span className="till text-[0.625rem] font-bold uppercase tracking-[0.16em] text-marigold-500">
             appfox · analytics
+          </span>
+          <span className="flex gap-1" aria-hidden="true">
+            <span className="h-2.5 w-2.5 bg-marigold-500" />
+            <span className="h-2.5 w-2.5 bg-brand-600" />
           </span>
         </div>
 
@@ -497,7 +469,7 @@ function AnalyticsVisual() {
               <div
                 key={i}
                 className={`bar-grow w-full rounded-t-[3px] ${
-                  i === 9 ? "bg-marigold-500" : "bg-brand-300"
+                  i === 9 ? "bg-brand-600" : "bg-ink-900"
                 }`}
                 style={{ height: `${height}%`, "--i": i } as React.CSSProperties}
               />
@@ -506,7 +478,7 @@ function AnalyticsVisual() {
 
           <div className="mt-4 grid grid-cols-2 gap-2.5">
             {KPIS.map((kpi) => (
-              <div key={kpi.label} className="rounded-lg border border-paper-edge bg-paper px-3 py-2.5">
+              <div key={kpi.label} className="border-[3px] border-ink-900 bg-paper px-3 py-2.5">
                 <DigitRoll value={kpi.value} className="text-[1rem] text-ink-900" />
                 <p className="till mt-0.5 text-[0.625rem] uppercase tracking-[0.12em] text-ink-500">
                   {kpi.label}

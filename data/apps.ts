@@ -3,8 +3,10 @@
  * Footer, /apps, and llms.txt all render from this list, so adding an app
  * here is the single step that makes the site aware of it.
  */
+export type AppSlug = "order-editing" | "subscription" | "product-bundles";
+
 export type AppEntry = {
-  slug: string;
+  slug: AppSlug;
   /** Full App Store listing name. */
   name: string;
   /** Short name used in nav, footer, and cross-links. */

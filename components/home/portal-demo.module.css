@@ -1783,11 +1783,68 @@
   }
 }
 
-/* Brutalist geometry for the animated portal — square every control. */
+/* Brutalist poster frame. There is no video file in this repo; this
+   looping demo is the hero motion piece, so the frame is the poster. */
+.poster {
+  border: 3px solid #0a0a0a;
+  background: #0a0a0a;
+  box-shadow: 8px 8px 0 0 #0a0a0a;
+}
+.posterBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  color: #ffe500;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.posterMarks {
+  width: 10px;
+  height: 10px;
+  flex: none;
+  background: #9d1400;
+  box-shadow: 14px 0 0 #ffe500;
+}
+.posterStage {
+  background: #f4f1e8;
+  padding: 16px 12px 18px;
+}
+
+/* Square every control. No soft glow, no glass inset. */
 .stage,
 .stage * {
   border-radius: 0 !important;
 }
+.portal,
+.merchant,
+.toast,
+.dropdown {
+  border: 3px solid #0a0a0a;
+}
 .portal {
-  border-width: 3px;
+  box-shadow: 4px 4px 0 0 #0a0a0a;
+}
+.shimmer {
+  background: #ffe500;
+}
+.saveBtn {
+  border: 3px solid #ffe500;
+  background: #0a0a0a;
+  color: #ffe500;
+  box-shadow: none;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.scrim {
+  background: rgba(10, 10, 10, 0.55);
+}
+.toastBar {
+  background: #9d1400;
 }

@@ -9,6 +9,7 @@ import { SectionSlug } from "@/components/site/SectionSlug";
 import { pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { apps } from "@/data/apps";
+import { AppMark } from "@/components/brand/AppMark";
 
 export const metadata: Metadata = pageMetadata({
   title: "Shopify Apps by AppFox - Order Editing & Subscriptions",
@@ -107,9 +108,12 @@ export default function AppsPage() {
                 {apps.map((app, i) => (
                   <Reveal key={app.slug} index={i} className="h-full">
                     <article className="card lift flex h-full flex-col p-7 sm:p-9">
-                      <p className="till text-[0.8125rem] uppercase tracking-[0.12em] text-ink-500">
-                        {String(i + 1).padStart(2, "0")} · {app.pricingLine}
-                      </p>
+                      <div className="flex items-start justify-between gap-4">
+                        <p className="till text-[0.8125rem] uppercase tracking-[0.12em] text-ink-500">
+                          {String(i + 1).padStart(2, "0")} · {app.pricingLine}
+                        </p>
+                        <AppMark id={app.slug} size={56} />
+                      </div>
                       <h2 className="mt-4 !text-[1.75rem] sm:!text-[2rem]">{app.name}</h2>
                       <p className="mt-2 text-[1.0625rem] font-medium text-brand-700">
                         {app.tagline}

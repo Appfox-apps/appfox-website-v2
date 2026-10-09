@@ -194,7 +194,6 @@ function AdminMockup() {
     <InView className="relative">
       <div
         className="card-night p-6 shadow-(--shadow-card) sm:p-7"
-        style={{ borderRadius: 20 }}
         aria-hidden="true"
       >
         {/* Header */}
@@ -307,16 +306,16 @@ function AdminMockup() {
 function Toggle({ on = false, animated = false }: { on?: boolean; animated?: boolean }) {
   return (
     <span
-      className="relative inline-block h-[18px] w-8 shrink-0 rounded-full border border-(--color-night-edge) bg-white/10"
+      className="relative inline-block h-[18px] w-8 shrink-0 border border-(--color-night-edge) bg-ink-900"
       aria-hidden="true"
     >
       <span
-        className={`absolute inset-0 rounded-full bg-success/70${
+        className={`absolute inset-0 bg-success${
           animated ? " cr-fill" : on ? "" : " opacity-0"
         }`}
       />
       <span
-        className={`absolute left-[2px] top-[2px] h-3 w-3 rounded-full bg-cream-on-night shadow-sm${
+        className={`absolute left-[2px] top-[2px] h-3 w-3 bg-cream-on-night${
           animated ? " cr-knob" : on ? " translate-x-[14px]" : ""
         }`}
       />

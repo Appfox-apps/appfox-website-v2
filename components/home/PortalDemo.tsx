@@ -139,6 +139,12 @@ export function PortalDemo() {
         the edit, auto-approves it by rules, and captures the payment.
       </p>
 
+      <div className={styles.poster}>
+        <div className={styles.posterBar}>
+          <span>Demo · order #1042</span>
+          <span className={styles.posterMarks} aria-hidden="true" />
+        </div>
+        <div className={styles.posterStage}>
       <div className={styles.scene} aria-hidden="true">
         {/* ── Back layer: merchant card (md+) ─────────────── */}
         <div className={styles.merchant}>
@@ -322,7 +328,7 @@ export function PortalDemo() {
               <svg viewBox="0 0 72 72" className={styles.successMark} aria-hidden="true">
                 <path
                   className={styles.successCircle}
-                  d="M37 7c15 1 26 12 25 29C61 52 50 65 35 64 20 63 9 52 9 36 9 19 22 6 37 7Z"
+                  d="M8 8 H64 V64 H8 Z"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth={3.5}
@@ -389,6 +395,8 @@ export function PortalDemo() {
             </p>
             <p className={`till ${styles.toastMsg}`}>#1042 edited · +$24.00 upsell</p>
           </div>
+        </div>
+      </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AppFox Order Editing and Upsell">
+  <rect width="64" height="64" fill="#F4F1E8"/>
+  <rect x="2" y="2" width="60" height="60" fill="none" stroke="#0A0A0A" stroke-width="4"/>
+  <path fill="#0A0A0A" d="M12 10h26l12 12v26H12V10z"/>
+  <path fill="#FFE500" d="M38 10v12h12L38 10z"/>
+  <path fill="none" stroke="#0A0A0A" stroke-width="2.5" d="M38 10v12h12"/>
+  <rect x="18" y="28" width="16" height="3" fill="#F4F1E8"/>
+  <rect x="18" y="34.5" width="24" height="3" fill="#F4F1E8"/>
+  <rect x="18" y="41" width="14" height="3" fill="#9D1400"/>
+  <rect x="44" y="44" width="16" height="16" fill="#FFE500" stroke="#0A0A0A" stroke-width="3"/>
+</svg>

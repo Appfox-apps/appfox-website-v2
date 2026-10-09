@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ProductFrame } from "@/components/brand/ProductFrame";
 
 /**
  * Interactive hero vignette - a working miniature of the customer portal.
@@ -36,8 +37,9 @@ export function HeroOrderDemo() {
 
   return (
     <div className="relative mx-auto w-full max-w-md">
-      <div className="card relative rounded-2xl p-6 shadow-(--shadow-pop) sm:p-7">
-        <span className="sticker absolute -top-4 right-6">TRY AN EDIT</span>
+      <ProductFrame kicker="Order #1042 · try an edit" className="relative">
+      <div className="relative p-6 sm:p-7">
+        <span className="sticker absolute -top-3 right-6">TRY AN EDIT</span>
 
         {/* Receipt header */}
         <div className="flex items-center justify-between gap-3 border-b border-paper-edge pb-4">
@@ -119,19 +121,19 @@ export function HeroOrderDemo() {
             role="switch"
             aria-checked={monthly}
             onClick={() => setMonthly((v) => !v)}
-            className={`flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border px-3.5 py-2.5 text-left transition-colors duration-200 ${
-              monthly ? "border-brand-300 bg-brand-50" : "border-paper-edge bg-paper hover:border-brand-200"
+            className={`flex w-full cursor-pointer items-center justify-between gap-3 border-[3px] border-ink-900 px-3.5 py-2.5 text-left ${
+              monthly ? "bg-brand-50" : "bg-paper"
             }`}
           >
             <span className="flex items-center gap-2.5">
               <span
                 aria-hidden="true"
-                className={`h-5 w-9 shrink-0 rounded-full p-0.5 transition-colors duration-200 ${
-                  monthly ? "bg-brand-600" : "bg-ink-300"
+                className={`h-5 w-9 shrink-0 border-2 border-ink-900 p-0.5 ${
+                  monthly ? "bg-marigold-500" : "bg-paper-sunken"
                 }`}
               >
                 <span
-                  className={`block h-4 w-4 rounded-full bg-white shadow-(--shadow-card) transition-transform duration-200 ${
+                  className={`block h-3.5 w-3.5 bg-ink-900 transition-transform duration-200 ${
                     monthly ? "translate-x-4" : ""
                   }`}
                 />
@@ -178,6 +180,7 @@ export function HeroOrderDemo() {
           </p>
         )}
       </div>
+      </ProductFrame>
 
       <p className="till mt-4 text-center text-[0.75rem] text-ink-500">
         Live demo · the same portal your customers get

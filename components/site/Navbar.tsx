@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { site } from "@/lib/site";
 import { competitorsForApp } from "@/data/competitors";
 import { apps } from "@/data/apps";
+import { AppMark } from "@/components/brand/AppMark";
 import { Wordmark } from "./Wordmark";
 
 const NAV_LINKS = [{ label: "Blog", href: "/blog" }];
@@ -93,13 +93,7 @@ export function Navbar() {
             onClick={() => setMobileOpen(false)}
             className="mr-auto flex items-center gap-2.5"
           >
-            <Image
-              src="/images/brand/appfox-icon.png"
-              alt="AppFox"
-              width={28}
-              height={28}
-              className="border-2 border-marigold-500"
-            />
+            <AppMark id="brand" size={32} />
             <Wordmark onNight className="text-lg" />
           </Link>
 
@@ -124,10 +118,13 @@ export function Navbar() {
                     <Link
                       key={app.slug}
                       href={app.href}
-                      className="flex flex-col gap-0.5 px-3 py-2.5 hover:bg-marigold-500"
+                      className="flex items-center gap-3 px-3 py-2.5 hover:bg-marigold-500"
                     >
-                      <span className="text-sm font-bold text-ink-900">{app.shortName}</span>
-                      <span className="till text-xs text-ink-500">{app.tagline}</span>
+                      <AppMark id={app.slug} size={36} />
+                      <span className="flex flex-col gap-0.5">
+                        <span className="text-sm font-bold text-ink-900">{app.shortName}</span>
+                        <span className="till text-xs text-ink-500">{app.tagline}</span>
+                      </span>
                     </Link>
                   ))}
                   <div className="mt-1 border-t-2 border-ink-900 pt-1">

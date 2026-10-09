@@ -136,7 +136,7 @@ export function HowItWorks() {
 
 function EmailVignette() {
   return (
-    <div className="rounded-2xl border border-paper-edge bg-paper p-4" aria-hidden="true">
+    <div className="shot p-4" aria-hidden="true">
       <div className="border-b border-paper-edge pb-2.5">
         <p className="text-[0.75rem] font-semibold tracking-wide text-ink-900">OAK &amp; ANCHOR</p>
         <p className="till mt-0.5 text-[0.6875rem] text-ink-500">
@@ -144,10 +144,10 @@ function EmailVignette() {
         </p>
       </div>
       <div className="mt-3 space-y-1.5">
-        <div className="h-1.5 w-full rounded-full bg-paper-edge" />
-        <div className="h-1.5 w-3/4 rounded-full bg-paper-edge" />
+        <div className="h-1.5 w-full bg-ink-900" />
+        <div className="h-1.5 w-3/4 bg-ink-900" />
       </div>
-      <span className="mt-3.5 inline-flex rounded-xl bg-brand-600 px-3.5 py-2 text-[0.75rem] font-semibold leading-none text-paper shadow-[inset_0_1px_0_rgba(255,255,255,0.18)]">
+      <span className="shot-btn mt-3.5">
         Edit your order
       </span>
     </div>
@@ -158,13 +158,13 @@ function EmailVignette() {
 
 function PortalVignette() {
   return (
-    <div className="rounded-2xl border border-paper-edge bg-paper p-4" aria-hidden="true">
+    <div className="shot p-4" aria-hidden="true">
       <div className="flex items-baseline justify-between border-b border-paper-edge pb-2.5">
         <p className="text-[0.75rem] font-semibold tracking-wide text-ink-900">OAK &amp; ANCHOR</p>
         <p className="till text-[0.6875rem] text-ink-500">#1042</p>
       </div>
       <p className="mt-3 text-[0.6875rem] font-medium text-ink-500">Shipping address</p>
-      <div className="till mt-1.5 flex items-center rounded-lg border border-brand-200 bg-paper-raised px-2.5 py-1.5 text-[0.75rem] text-ink-900 ring-2 ring-brand-200/50">
+      <div className="till mt-1.5 flex items-center border-[3px] border-ink-900 bg-paper-raised px-2.5 py-1.5 text-[0.75rem] text-ink-900">
         123 M<span className="text-brand-600">|</span>
       </div>
       <div className="mt-1.5 overflow-hidden rounded-lg border border-paper-edge bg-paper-raised shadow-(--shadow-card)">
@@ -181,7 +181,7 @@ function PortalVignette() {
 
 function QueueVignette() {
   return (
-    <div className="rounded-2xl border border-paper-edge bg-paper p-4" aria-hidden="true">
+    <div className="shot p-4" aria-hidden="true">
       <div className="flex items-center justify-between gap-2 border-b border-paper-edge pb-2.5">
         <p className="till text-[0.6875rem] text-ink-500">
           <span className="text-ink-700">#1042</span> · Address change

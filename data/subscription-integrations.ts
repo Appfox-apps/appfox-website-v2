@@ -119,6 +119,7 @@ export const subscriptionIntegrations: IntegrationEntry[] = [
       "Combine subscriptions with product bundles - let subscribers save more when they bundle recurring items together.",
     type: "native",
     href: "/product-bundles",
+    logoSrc: "/images/brand/bundles-512.png",
   },
   {
     slug: "appfox-order-editing",
@@ -128,6 +129,7 @@ export const subscriptionIntegrations: IntegrationEntry[] = [
       "Let subscribers edit upcoming orders or add one-time items to a renewal - self-service upsells inside the customer portal.",
     type: "native",
     href: "/order-editing",
+    logoSrc: "/images/brand/order-editing-512.png",
   },
 
   // Loyalty

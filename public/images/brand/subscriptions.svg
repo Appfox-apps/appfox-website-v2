@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AppFox">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AppFox Subscriptions">
   <rect width="64" height="64" fill="#F4F1E8"/>
   <rect x="2" y="2" width="60" height="60" fill="none" stroke="#0A0A0A" stroke-width="4"/>
-  <path fill="#0A0A0A" fill-rule="evenodd" d="M30 10 8 54h10.4l4.2-11h18.8l4.2 11H56L34 10h-4zm2 18.2 5.2 13.6H24.8L30 28.2h2z"/>
+  <path fill="#0A0A0A" d="M10 15h24V9l16 12-16 12v-6H10V15z"/>
+  <path fill="#0A0A0A" d="M38 34H18v-6L8 40l10 12v-6h20V34z"/>
   <rect x="44" y="44" width="16" height="16" fill="#FFE500" stroke="#0A0A0A" stroke-width="3"/>
 </svg>
