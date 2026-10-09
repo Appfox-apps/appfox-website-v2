@@ -38,7 +38,7 @@ export function SubscriptionHero() {
           {/* ── Left: copy ─────────────────────────────────── */}
           <InView className="relative z-10">
             <p className="enter-fade-rise flex items-center gap-3" style={{ animationDelay: "60ms" }}>
-              <AppMark id="subscription" size={44} />
+              <AppMark size={44} />
               <span className="till inline-flex items-center border border-paper-edge bg-paper-raised px-3 py-1.5 text-[0.8125rem] text-marigold-700 shadow-(--shadow-card)">
                 4.2★ on the Shopify App Store · Free to install
               </span>

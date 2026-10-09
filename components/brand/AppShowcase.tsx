@@ -52,7 +52,7 @@ export function AppShowcase() {
                       <p className="till text-xs uppercase tracking-[0.12em] text-ink-500">
                         {String(i + 1).padStart(2, "0")} · {app.pricingLine}
                       </p>
-                      <AppMark id={app.slug} size={52} />
+                      <AppMark size={52} />
                     </div>
                     <h2 className="mt-4 !text-3xl sm:!text-4xl">{app.name}</h2>
                     <p className="mt-2 text-base font-medium text-brand-700">{app.tagline}</p>

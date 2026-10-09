@@ -93,7 +93,7 @@ export function Navbar() {
             onClick={() => setMobileOpen(false)}
             className="mr-auto flex items-center gap-2.5"
           >
-            <AppMark id="brand" size={32} />
+            <AppMark size={32} />
             <Wordmark onNight className="text-lg" />
           </Link>
 
@@ -120,7 +120,7 @@ export function Navbar() {
                       href={app.href}
                       className="flex items-center gap-3 px-3 py-2.5 hover:bg-marigold-500"
                     >
-                      <AppMark id={app.slug} size={36} />
+                      <AppMark size={36} />
                       <span className="flex flex-col gap-0.5">
                         <span className="text-sm font-bold text-ink-900">{app.shortName}</span>
                         <span className="till text-xs text-ink-500">{app.tagline}</span>

@@ -103,7 +103,7 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2">
             <div className="flex items-center gap-2.5">
-              <AppMark id="brand" size={36} />
+              <AppMark size={36} />
               <Wordmark onNight className="text-[1.375rem]" />
             </div>
             <p className="mt-4 text-base leading-relaxed">

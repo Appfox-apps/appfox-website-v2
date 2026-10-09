@@ -112,7 +112,7 @@ export default function AppsPage() {
                         <p className="till text-[0.8125rem] uppercase tracking-[0.12em] text-ink-500">
                           {String(i + 1).padStart(2, "0")} · {app.pricingLine}
                         </p>
-                        <AppMark id={app.slug} size={56} />
+                        <AppMark size={56} />
                       </div>
                       <h2 className="mt-4 !text-[1.75rem] sm:!text-[2rem]">{app.name}</h2>
                       <p className="mt-2 text-[1.0625rem] font-medium text-brand-700">
