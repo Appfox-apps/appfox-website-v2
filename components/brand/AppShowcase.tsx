@@ -44,7 +44,7 @@ export function AppShowcase() {
             <StaggerGroup step={140}>
               {apps.map((app, i) => (
                 <Reveal key={app.slug} index={i} className="h-full">
-                  <article className="relative flex h-full flex-col rounded-2xl border border-paper-edge bg-paper-raised p-7 shadow-(--shadow-raised) transition-all duration-700 hover:-translate-y-1 hover:shadow-(--shadow-pop) sm:p-9">
+                  <article className="relative flex h-full flex-col border-[3px] border-ink-900 bg-paper-raised p-7 shadow-(--shadow-pop) transition-transform duration-150 hover:-translate-y-1 sm:p-9">
                     <span className="sticker absolute -top-4 left-8 whitespace-nowrap">
                       FREE TO START
                     </span>

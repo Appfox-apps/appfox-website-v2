@@ -1,71 +1,97 @@
 @import "tailwindcss";
 
 /* ════════════════════════════════════════════════════════════════
-   AppFox - "Storefront" design system
-   Electric violet on cool lavender · grotesk display, mono voice
-   (Derived from the app's own Shopify listing)
+   AppFox - "Concrete Press" brutalist design system
+   Newsprint + ink · signal yellow + signal red · grotesk + mono
+   Thick rules, hard offset shadows, square corners, no blur.
    ════════════════════════════════════════════════════════════════ */
 
 @theme {
-  /* Brand violet - "Electric Violet" */
-  --color-brand-50: #f5f3ff;
-  --color-brand-100: #ede7fe;
-  --color-brand-200: #ddd3fb;
-  --color-brand-300: #c4b2f7;
-  --color-brand-400: #a78bfa;
-  --color-brand-500: #8b5cf6;
-  --color-brand-600: #7c3aed;
-  --color-brand-700: #6d28d9;
-  --color-brand-800: #5b21b6;
-  --color-brand-900: #4c1d95;
-  --color-brand-950: #2e1065;
+  /* Signal red - fills behind light text, and accent link color.
+     Chosen so white-on-red and red-on-paper both clear WCAG AA. */
+  --color-brand-50: #fff4cc;
+  --color-brand-100: #ffe500;
+  --color-brand-200: #0a0a0a;
+  --color-brand-300: #ffe500;
+  --color-brand-400: #ff2a00;
+  --color-brand-500: #c41200;
+  --color-brand-600: #9d1400;
+  --color-brand-700: #6e0c00;
+  --color-brand-800: #0a0a0a;
+  --color-brand-900: #0a0a0a;
+  --color-brand-950: #000000;
 
-  /* Paper neutrals - cool lavender-white, never warm */
-  --color-paper: #f5f3fa;
+  /* Newsprint neutrals */
+  --color-paper: #f4f1e8;
   --color-paper-raised: #ffffff;
-  --color-paper-sunken: #ede9f9;
-  --color-paper-edge: #e4def5;
-  --color-ink-900: #1b1826;
-  --color-ink-700: #55535f;
-  --color-ink-500: #8e8c99;
-  --color-ink-300: #b8b4c2;
+  --color-paper-sunken: #e6e2d6;
+  --color-paper-edge: #0a0a0a;
+  --color-ink-900: #0a0a0a;
+  --color-ink-700: #1a1a1a;
+  --color-ink-500: #3a3a36;
+  --color-ink-300: #5c5c56;
 
-  /* Marigold accent - the upsell price sticker (secondary) */
-  --color-marigold-300: #f7d98b;
-  --color-marigold-500: #eec15a;
-  --color-marigold-700: #b7791f;
+  /* Signal yellow - sticker, focus, primary press */
+  --color-marigold-300: #ffe500;
+  --color-marigold-500: #ffe500;
+  --color-marigold-700: #0a0a0a;
 
-  /* Dark sections - approved dark backgrounds */
-  --color-night: #181818;
-  --color-night-raised: #1F1F1F;
-  --color-night-edge: rgba(196, 178, 247, 0.16);
-  --color-cream-on-night: #f5f3fa;
-  --color-mist-on-night: #c4bed1;
+  /* Night is flat ink, edges are signal yellow */
+  --color-night: #0a0a0a;
+  --color-night-raised: #161616;
+  --color-night-edge: #ffe500;
+  --color-cream-on-night: #f4f1e8;
+  --color-mist-on-night: #d4d0c4;
 
-  /* Semantic */
-  --color-success: #059669;
-  --color-success-bg: #d6f0e1;
-  --color-danger: #d1495b;
-  --color-danger-bg: #fbeaec;
-  --color-warn: #b7791f;
-  --color-warn-bg: #fbf3e4;
+  /* Semantic - flat, still AA on their backgrounds */
+  --color-success: #0b6b32;
+  --color-success-bg: #d7f5e3;
+  --color-danger: #c41200;
+  --color-danger-bg: #ffd9d4;
+  --color-warn: #8a5a00;
+  --color-warn-bg: #fff4cc;
 
-  /* Shadows - violet-tinted, 3 tiers */
-  --shadow-card: 0 1px 2px rgba(27, 24, 38, 0.05), 0 4px 12px rgba(27, 24, 38, 0.05);
-  --shadow-raised: 0 2px 4px rgba(27, 24, 38, 0.06), 0 14px 36px -10px rgba(124, 58, 237, 0.18);
-  --shadow-pop: 0 4px 8px rgba(27, 24, 38, 0.07), 0 28px 60px -14px rgba(124, 58, 237, 0.3);
+  /* Hard offset shadows - no blur */
+  --shadow-sm: 3px 3px 0 0 #0a0a0a;
+  --shadow-md: 4px 4px 0 0 #0a0a0a;
+  --shadow-lg: 6px 6px 0 0 #0a0a0a;
+  --shadow-xl: 8px 8px 0 0 #0a0a0a;
+  --shadow-2xl: 12px 12px 0 0 #0a0a0a;
+  --shadow-card: 4px 4px 0 0 #0a0a0a;
+  --shadow-raised: 6px 6px 0 0 #0a0a0a;
+  --shadow-pop: 8px 8px 0 0 #0a0a0a;
 
-  /* Easings - skill specification */
-  --ease-out-soft: cubic-bezier(0.32, 0.72, 0, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --ease-glide: cubic-bezier(0.45, 0, 0.15, 1);
+  /* Square geometry */
+  --radius-xs: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+  --radius-full: 0px;
+
+  /* No glass */
+  --blur-xs: 0px;
+  --blur-sm: 0px;
+  --blur-md: 0px;
+  --blur-lg: 0px;
+  --blur-xl: 0px;
+  --blur-2xl: 0px;
+  --blur-3xl: 0px;
+
+  /* Mechanical motion - no spring, no soft ease */
+  --ease-out-soft: cubic-bezier(0.2, 0, 0, 1);
+  --ease-spring: cubic-bezier(0.2, 0, 0, 1);
+  --ease-glide: linear;
 }
 
 @theme inline {
-  /* Display and body share Geist - weight carries the hierarchy */
-  --font-display: var(--font-geist);
-  --font-sans: var(--font-geist);
-  --font-mono: var(--font-geist-mono);
+  /* Archivo (grotesk) for display + UI, IBM Plex Mono for the till voice */
+  --font-display: var(--font-display-family), "Arial Black", Arial, sans-serif;
+  --font-sans: var(--font-display-family), Arial, sans-serif;
+  --font-mono: var(--font-mono-family), ui-monospace, monospace;
 }
 
 /* ── Base ───────────────────────────────────────────────────
@@ -73,13 +99,31 @@
       always win over element defaults. ─ */
 
 @layer base {
+/* Fine diagonal crosshatch. 1px ink lines, wide gaps, very low
+   opacity so the cream stays cream. Fixed to the viewport and
+   painted as a background, so it sits behind type and cards. */
+:root {
+  --paper-hatch: repeating-linear-gradient(
+      45deg,
+      transparent 0 11px,
+      rgba(10, 10, 10, 0.08) 11px 12px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0 11px,
+      rgba(10, 10, 10, 0.055) 11px 12px
+    );
+}
+
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 88px;
+  scroll-padding-top: 84px;
 }
 
 body {
-  background: var(--color-paper);
+  background-color: var(--color-paper);
+  background-image: var(--paper-hatch);
+  background-attachment: fixed;
   color: var(--color-ink-700);
   font-family: var(--font-sans);
   font-size: 1rem;
@@ -102,62 +146,66 @@ h4 {
 }
 
 h1 {
-  font-weight: 700;
-  font-size: clamp(2.875rem, 2rem + 4vw, 5rem);
-  line-height: 0.98;
-  letter-spacing: -0.035em;
+  font-weight: 800;
+  font-size: clamp(2.875rem, 2rem + 4vw, 5.25rem);
+  line-height: 0.92;
+  letter-spacing: -0.045em;
 }
 
 h2 {
-  font-weight: 700;
-  font-size: clamp(2.125rem, 1.6rem + 2.4vw, 3.25rem);
-  line-height: 1.02;
-  letter-spacing: -0.03em;
+  font-weight: 800;
+  font-size: clamp(2.125rem, 1.6rem + 2.4vw, 3.4rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
 }
 
 h3 {
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1.5rem;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
 }
 
 ::selection {
-  background: var(--color-brand-200);
+  background: var(--color-marigold-500);
   color: var(--color-ink-900);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-marigold-500);
+  outline: 3px solid var(--color-ink-900);
   outline-offset: 2px;
-  border-radius: 4px;
+  box-shadow: 0 0 0 6px var(--color-marigold-500);
+  border-radius: 0;
 }
 }
 
 @layer components {
-/* The single accent display word (hero "handled", vs-page "vs") -
-   now the one electric-violet moment in an otherwise ink headline. */
+/* Marker-highlight on the one accent word in a headline. */
 .wonk {
   font-family: var(--font-display);
   font-weight: 800;
-  color: var(--color-brand-600);
+  color: var(--color-ink-900);
+  background: var(--color-marigold-500);
+  -webkit-text-fill-color: var(--color-ink-900);
+  padding: 0 0.08em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.wonk svg path {
+  stroke: var(--color-ink-900);
 }
 
-/* Hero heading gradient - light theme */
-.hero-gradient {
-  background: linear-gradient(to right, #000000, #666666);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Hero heading gradient - dark theme */
+/* Headlines stay solid ink. Gradients are not part of this system. */
+.hero-gradient,
 .on-night .hero-gradient,
 .hero-gradient.on-night {
-  background: linear-gradient(to right, #FFFFFF, #9B9B9B);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--color-ink-900);
+}
+.on-night .hero-gradient,
+.hero-gradient.on-night {
+  color: var(--color-cream-on-night);
 }
 
 /* Mono "till voice" - money, order numbers, eyebrows, table data */
@@ -169,22 +217,24 @@ h3 {
 
 /* ── Section furniture ──────────────────────────────────── */
 
-/* Numbered mono slug on a hairline: `NO. 03 - HOW IT WORKS` */
+/* Numbered mono slug on a heavy rule: `NO. 03 - HOW IT WORKS` */
 .section-slug {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 1.5rem;
-  border-top: 1px solid var(--color-paper-edge);
+  border-top: 3px solid var(--color-ink-900);
   padding-top: 0.875rem;
 }
 .section-slug > .slug-label {
   font-family: var(--font-mono);
-  font-weight: 500;
+  font-weight: 700;
   font-size: 0.8125rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-brand-600);
+  color: var(--color-marigold-500);
+  background: var(--color-ink-900);
+  padding: 0.3rem 0.55rem;
   white-space: nowrap;
 }
 .section-slug > .slug-caption {
@@ -204,58 +254,49 @@ h3 {
 }
 .on-night .section-slug > .slug-label,
 .section-slug.on-night > .slug-label {
-  color: var(--color-brand-300);
+  color: var(--color-ink-900);
+  background: var(--color-marigold-500);
 }
 
-/* Paper and night backgrounds - flat, no gradients */
+/* Cream fields share the page hatch. Night stays flat ink. */
 .paper-wash {
   background-color: var(--color-paper);
+  background-image: var(--paper-hatch);
+  background-attachment: fixed;
 }
 .night-wash {
   background-color: var(--color-night);
 }
 
-/* Film grain (hero + dark sections only) */
-.grain {
-  position: relative;
-}
-.grain::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.04;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-.grain-soft::after {
-  opacity: 0.025;
-}
-
-/* Sticker treatment - featured badges */
+/* Sticker treatment - flat yellow label, hard shadow, no tilt */
 .sticker {
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
   background: var(--color-marigold-500);
   color: var(--color-ink-900);
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-weight: 700;
   font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   padding: 0.375rem 0.875rem;
-  border-radius: 8px;
-  box-shadow: 0 0 0 2px var(--color-paper);
-  rotate: -2deg;
+  border: 2px solid var(--color-ink-900);
+  border-radius: 0;
+  box-shadow: 3px 3px 0 0 var(--color-ink-900);
+  rotate: 0deg;
 }
 
-/* Marigold revenue glow */
+/* Hard offset instead of a glow */
 .ember {
-  box-shadow: 0 0 0 1px rgba(238, 157, 43, 0.35), 0 0 24px rgba(238, 157, 43, 0.18);
+  border: 2px solid var(--color-ink-900);
+  box-shadow: 4px 4px 0 0 var(--color-ink-900);
 }
 
-/* Dotted index leaders (Further Reading) */
+/* Index leaders (Further Reading) */
 .leader {
-  border-bottom: 1px dotted var(--color-ink-300);
-  transition: border-color 700ms var(--ease-out-soft);
+  border-bottom: 2px dashed var(--color-ink-900);
+  transition: border-color 120ms linear;
 }
 
 /* ── Buttons ────────────────────────────────────────────── */
@@ -267,107 +308,121 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border-radius: 12px;
-  padding: 0.5rem 0.75rem;
-  font-weight: 600;
-  font-size: 1rem;
-  line-height: 1.5;
-  transition: transform 700ms var(--ease-out-soft), box-shadow 700ms var(--ease-out-soft),
-    background-color 700ms var(--ease-out-soft), translate 700ms var(--ease-out-soft);
+  border-radius: 0;
+  border: 3px solid var(--color-ink-900);
+  padding: 0.7rem 1rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  transition: transform 120ms linear, box-shadow 120ms linear, background-color 120ms linear,
+    color 120ms linear;
   cursor: pointer;
 }
 
 .btn-primary {
-  background: var(--color-brand-600);
-  color: #ffffff;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 10px 24px -8px rgba(124, 58, 237, 0.55);
+  background: var(--color-ink-900);
+  color: var(--color-marigold-500);
+  box-shadow: 4px 4px 0 0 var(--color-marigold-500);
 }
 .btn-primary:hover {
-  background: var(--color-brand-700);
-  transform: translateY(-1px);
+  background: var(--color-marigold-500);
+  color: var(--color-ink-900);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 var(--color-ink-900);
 }
 .btn-primary:active {
-  transform: translateY(1px);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 2px 6px rgba(124, 58, 237, 0.4);
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 0 var(--color-ink-900);
 }
 
-/* Clean bordered secondary - white cutout with a hairline edge */
 .btn-secondary {
   background: var(--color-paper-raised);
   color: var(--color-ink-900);
-  border: 1px solid var(--color-paper-edge);
-  box-shadow: var(--shadow-card);
+  box-shadow: 4px 4px 0 0 var(--color-ink-900);
 }
 .btn-secondary:hover {
-  border-color: var(--color-brand-300);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-raised);
+  background: var(--color-marigold-500);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 var(--color-ink-900);
 }
 .btn-secondary:active {
-  transform: translateY(1px);
-  box-shadow: var(--shadow-card);
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 0 var(--color-ink-900);
 }
 .on-night .btn-secondary,
 .btn-secondary.on-night {
   background: transparent;
   color: var(--color-cream-on-night);
-  border-color: var(--color-night-edge);
-  box-shadow: none;
+  border-color: var(--color-marigold-500);
+  box-shadow: 4px 4px 0 0 var(--color-marigold-500);
 }
-.on-night .btn-secondary:hover {
-  border-color: var(--color-brand-300);
-  transform: translateY(-1px);
-  box-shadow: none;
+.on-night .btn-secondary:hover,
+.btn-secondary.on-night:hover {
+  background: var(--color-marigold-500);
+  color: var(--color-ink-900);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 var(--color-cream-on-night);
 }
 
-/* Final-CTA marigold variant - the only marigold button on the site */
+/* Final-CTA yellow block */
 .btn-marigold {
   background: var(--color-marigold-500);
   color: var(--color-ink-900);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 2px 8px rgba(238, 157, 43, 0.35);
+  box-shadow: 4px 4px 0 0 var(--color-cream-on-night);
 }
 .btn-marigold:hover {
-  background: var(--color-marigold-300);
-  transform: translateY(-1px);
+  background: var(--color-paper-raised);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 var(--color-marigold-500);
 }
 .btn-marigold:active {
-  transform: translateY(1px);
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 0 var(--color-ink-900);
 }
 
 /* ── Cards & chips ──────────────────────────────────────── */
 
 .card {
   background: var(--color-paper-raised);
-  border: 1px solid var(--color-paper-edge);
-  border-radius: 16px;
-  box-shadow: var(--shadow-card);
+  border: 3px solid var(--color-ink-900);
+  border-radius: 0;
+  box-shadow: var(--shadow-raised);
 }
 .card-tinted {
   background: var(--color-brand-50);
-  border: 1px solid var(--color-brand-200);
-  border-radius: 16px;
+  border: 3px solid var(--color-ink-900);
+  border-radius: 0;
+  box-shadow: var(--shadow-card);
 }
 .card-night {
   background: var(--color-night-raised);
-  border: 1px solid var(--color-night-edge);
-  border-radius: 16px;
+  border: 3px solid var(--color-marigold-500);
+  border-radius: 0;
+  box-shadow: 6px 6px 0 0 var(--color-marigold-500);
 }
 .lift {
-  transition: transform 700ms var(--ease-out-soft), box-shadow 700ms var(--ease-out-soft);
+  transition: transform 120ms linear, box-shadow 120ms linear;
 }
 .lift:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-raised);
+  transform: translate(4px, 4px);
+  box-shadow: 2px 2px 0 0 var(--color-ink-900);
 }
 
 .chip {
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  border-radius: 8px;
+  border-radius: 0;
+  border: 2px solid currentColor;
   padding: 0.25rem 0.625rem;
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-weight: 700;
   font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   line-height: 1.5;
 }
 .chip-success {
@@ -390,48 +445,34 @@ h3 {
 .perforation {
   display: block;
   width: 100%;
-  height: 14px;
-  background-image: radial-gradient(circle at 11px 8px, transparent 6.5px, var(--perf-color, var(--color-paper)) 7px);
-  background-size: 22px 14px;
-  background-repeat: repeat-x;
+  height: 12px;
+  background-color: var(--color-ink-900);
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-ink-900) 0 16px,
+    var(--color-marigold-500) 16px 32px
+  );
+  background-size: auto;
+  background-repeat: repeat;
 }
 }
 
 /* ════════════════════════════════════════════════════════
    ANIMATION VOCABULARY (deliberately unlayered - animation
    state machinery must beat utilities)
-   All entrance/scroll effects gated behind html.js (set by an
-   inline script in layout) so content is never hidden from
-   crawlers or no-JS users, and behind prefers-reduced-motion.
+   Page content is visible without JavaScript. Do not set
+   opacity: 0 (or clip/scale to nothing) until .is-visible.
+   Hero load-in animations are CSS-only and finish on their own.
+   Accordion collapse is the one html.js exception, and without
+   JS those panels stay expanded.
    ════════════════════════════════════════════════════════ */
 
 @media (prefers-reduced-motion: no-preference) {
-  /* - Scroll reveal (IntersectionObserver adds .is-visible) - */
-  html.js .reveal {
-    opacity: 0;
-    transition: opacity 800ms var(--ease-out-soft) var(--reveal-delay, 0ms),
-      transform 800ms var(--ease-out-soft) var(--reveal-delay, 0ms);
-    will-change: opacity, transform;
-  }
-  html.js .reveal-up {
-    transform: translateY(24px);
-  }
-  html.js .reveal-down {
-    transform: translateY(-16px);
-  }
-  html.js .reveal-left {
-    transform: translateX(24px);
-  }
-  html.js .reveal-right {
-    transform: translateX(-24px);
-  }
-  html.js .reveal-scale {
-    transform: scale(0.94);
-  }
-  html.js .reveal.is-visible {
-    opacity: 1;
-    transform: none;
-  }
+  /* Scroll reveals, stamps, print-outs, charts, and drawn ticks stay
+     fully visible without JavaScript. An earlier version set opacity: 0
+     until IntersectionObserver added .is-visible. Fast scrolls (and the
+     -100px root margin) skipped that callback, so everything below the
+     hero stayed blank. Do not hide content while waiting for a class. */
 
   /* - Hero entrance (page load; transform-only on the H1 so the
        LCP element is painted immediately) - */
@@ -440,60 +481,6 @@ h3 {
   }
   .enter-fade-rise {
     animation: enter-fade-rise 700ms var(--ease-out-soft) both;
-  }
-
-  /* - Stamps (APPROVED / SELF-SERVED) - */
-  html.js .stamp-in {
-    opacity: 0;
-    transform: scale(1.4) rotate(0deg);
-  }
-  html.js .is-visible .stamp-in,
-  html.js .stamp-in.is-visible {
-    animation: stamp 450ms var(--ease-spring) both;
-    animation-delay: var(--stamp-delay, 0ms);
-  }
-
-  /* - SVG line draws (dashed threads, ticks, underlines) - */
-  html.js .draw-path {
-    stroke-dasharray: var(--path-length, 400);
-    stroke-dashoffset: var(--path-length, 400);
-  }
-  html.js .is-visible .draw-path,
-  html.js .draw-path.is-visible {
-    animation: draw-line 900ms var(--ease-out-soft) forwards;
-    animation-delay: var(--draw-delay, 0ms);
-  }
-
-  /* - Receipt print-out rows - */
-  html.js .print-out {
-    opacity: 0;
-    transform: translateY(8px);
-    clip-path: inset(0 0 100% 0);
-  }
-  html.js .is-visible .print-out,
-  html.js .print-out.is-visible {
-    animation: print-out 350ms var(--ease-out-soft) both;
-    animation-delay: calc(var(--i, 0) * 60ms + var(--print-delay, 0ms));
-  }
-
-  /* - Bar chart growth - */
-  html.js .bar-grow {
-    transform: scaleY(0);
-    transform-origin: bottom;
-  }
-  html.js .is-visible .bar-grow {
-    animation: bar-grow 700ms var(--ease-out-soft) both;
-    animation-delay: calc(var(--i, 0) * 60ms);
-  }
-
-  /* - Digit roll (animation half; structure lives outside this query) - */
-  html.js .digit-strip {
-    transform: translateY(0);
-    transition: transform 600ms var(--ease-out-soft);
-    transition-delay: calc(var(--i, 0) * 60ms);
-  }
-  html.js .is-visible .digit-strip {
-    transform: translateY(calc(var(--digit, 0) * -1em));
   }
 
   /* - Marquees - */
@@ -675,10 +662,10 @@ html.js [data-open] .accordion-content {
 @keyframes ember-pulse {
   0%,
   100% {
-    box-shadow: 0 0 0 1px rgba(238, 157, 43, 0.35), 0 0 24px rgba(238, 157, 43, 0.18);
+    box-shadow: 4px 4px 0 0 #0a0a0a;
   }
   50% {
-    box-shadow: 0 0 0 1px rgba(238, 157, 43, 0.45), 0 0 32px rgba(238, 157, 43, 0.3);
+    box-shadow: 6px 6px 0 0 #ff2a00;
   }
 }
 
@@ -692,4 +679,56 @@ html.js [data-open] .accordion-content {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Same hatch on the large paper and sunken fields. Unlayered so a
+   Tailwind background-color utility does not drop the image.
+   Small chips are left flat. */
+section.bg-paper,
+section.bg-paper-sunken {
+  background-image: var(--paper-hatch);
+  background-attachment: fixed;
+}
+
+/* ════════════════════════════════════════════════════════
+   Brutalist enforcement
+   Unlayered so these beat Tailwind utilities: square every
+   radius (including arbitrary values), kill glass blur,
+   and turn soft hover-lifts into a hard press.
+   ════════════════════════════════════════════════════════ */
+
+[class*="rounded"] {
+  border-radius: 0 !important;
+}
+
+[class*="backdrop-blur"],
+[class*="backdrop-saturate"] {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.hover\:-translate-y-1:hover {
+  transform: translate(4px, 4px);
+}
+
+[class*="shadow-(--shadow"]:not(.card-night) {
+  border-width: 3px;
+  border-style: solid;
+  border-color: #0a0a0a;
+}
+
+blockquote {
+  border-left-width: 6px;
+  border-left-color: var(--color-ink-900);
+  background: var(--color-brand-50);
+  padding: 0.85rem 1rem;
+  font-style: normal;
+  box-shadow: 4px 4px 0 0 var(--color-ink-900);
+}
+
+:focus-visible {
+  outline: 3px solid #0a0a0a !important;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 7px #ffe500 !important;
+  border-radius: 0;
 }

@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { site } from "@/lib/site";
 
 /**
- * Shared Open Graph image layouts - "The Counter" on night paper.
+ * Shared Open Graph image layouts - brutalist ink and signal yellow.
  *
  * ImageResponse (Satori) cannot read CSS variables or stylesheets, so the
  * design tokens from globals.css are mirrored here as literals. Styling is
@@ -15,22 +15,19 @@ import { site } from "@/lib/site";
 
 export const ogSize = { width: 1200, height: 630 } as const;
 
-const NIGHT = "#1B1233";
-const CREAM = "#F6F1E4";
-const MIST = "#B7AED4";
-const MARIGOLD = "#EE9D2B";
-const MARIGOLD_SOFT = "#F9C66B";
-const PERF_DOT = "rgba(178, 157, 241, 0.3)";
-const EDGE = "rgba(178, 157, 241, 0.32)";
+const NIGHT = "#0A0A0A";
+const CREAM = "#F4F1E8";
+const MIST = "#D4D0C4";
+const MARIGOLD = "#FFE500";
+const MARIGOLD_SOFT = "#FFE500";
+const PERF_DOT = "#FFE500";
+const EDGE = "#FFE500";
 
-const SERIF = "Georgia, 'Times New Roman', serif";
+const SERIF = "Arial, Helvetica, sans-serif";
 
 const STRIP = "5-minute setup · Free plan · Works on every Shopify plan";
 
-/** Violet radial wash over the night base (matches .night-wash). */
-const WASH =
-  "radial-gradient(75% 65% at 76% 0%, rgba(98, 64, 200, 0.52), rgba(98, 64, 200, 0) 68%), " +
-  "radial-gradient(38% 32% at 8% 100%, rgba(238, 157, 43, 0.1), rgba(238, 157, 43, 0) 70%)";
+/** Flat ink. No wash. */
 
 const HOST = new URL(site.url).host;
 
@@ -67,7 +64,7 @@ function OgWordmark({ fontSize = 40 }: { fontSize?: number }) {
         style={{
           width: dot,
           height: dot,
-          borderRadius: 999,
+          borderRadius: 0,
           backgroundColor: MARIGOLD,
           marginLeft: Math.max(4, Math.round(fontSize * 0.08)),
         }}
@@ -93,7 +90,7 @@ function OgPerforation() {
           style={{
             width: 7,
             height: 7,
-            borderRadius: 999,
+            borderRadius: 0,
             backgroundColor: PERF_DOT,
           }}
         />
@@ -129,7 +126,7 @@ function OgFrame({ children }: { children: React.ReactNode }) {
         display: "flex",
         flexDirection: "column",
         backgroundColor: NIGHT,
-        backgroundImage: WASH,
+        border: "10px solid #FFE500",
         padding: "52px 72px 44px",
       }}
     >
@@ -242,17 +239,19 @@ export function vsOgImage(competitor: {
                 justifyContent: "center",
                 width: 104,
                 height: 104,
-                borderRadius: 999,
-                border: `2px solid ${EDGE}`,
+                borderRadius: 0,
+                border: `4px solid ${EDGE}`,
+                backgroundColor: MARIGOLD,
                 margin: "0 44px",
               }}
             >
               <span
                 style={{
                   fontFamily: SERIF,
-                  fontStyle: "italic",
+                  fontStyle: "normal",
                   fontSize: 40,
-                  color: MARIGOLD_SOFT,
+                  fontWeight: 800,
+                  color: NIGHT,
                 }}
               >
                 vs

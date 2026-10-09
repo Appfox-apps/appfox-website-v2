@@ -23,17 +23,32 @@ export function InView({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    const show = () => el.classList.add("is-visible");
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) show();
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.classList.add("is-visible");
-          observer.unobserve(el);
+          show();
+          observer.disconnect();
         }
       },
-      { threshold }
+      { threshold, rootMargin: "0px" }
     );
     observer.observe(el);
-    return () => observer.disconnect();
+    const onScroll = () => {
+      const next = el.getBoundingClientRect();
+      if (next.top < window.innerHeight) {
+        show();
+        observer.disconnect();
+        window.removeEventListener("scroll", onScroll);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
   }, [threshold]);
 
   return (

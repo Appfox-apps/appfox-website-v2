@@ -513,8 +513,8 @@
   z-index: 2;
   background: var(--color-paper-raised);
   border-top: 1px solid var(--color-paper-edge);
-  border-radius: 16px 16px 20px 20px;
-  box-shadow: 0 -8px 24px rgba(36, 27, 56, 0.1);
+  border-radius: 0;
+  box-shadow: 0 -4px 0 0 var(--color-ink-900);
   padding: 14px 16px 16px;
   transform: translateY(106%); /* parked below the card (clipped) */
   will-change: transform;
@@ -575,9 +575,8 @@
   background: var(--color-paper-raised);
   border-radius: 12px;
   padding: 10px 12px;
-  /* marigold glow (static - never animated) */
-  box-shadow: 0 0 0 1px rgba(238, 157, 43, 0.35), 0 0 24px rgba(238, 157, 43, 0.18),
-    var(--shadow-raised);
+  /* hard offset (static - never animated) */
+  box-shadow: 4px 4px 0 0 var(--color-ink-900);
   opacity: 0; /* transient */
   transform-origin: 50% 20%;
   will-change: transform;
@@ -631,9 +630,9 @@
   left: -4px;
   width: 8px;
   height: 8px;
-  border-radius: 50%;
-  background: var(--color-brand-600);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9), 0 2px 8px rgba(36, 27, 56, 0.35);
+  border-radius: 0;
+  background: var(--color-marigold-500);
+  box-shadow: 2px 2px 0 0 var(--color-ink-900);
   opacity: 0; /* transient */
 }
 
@@ -1782,4 +1781,13 @@
   to {
     transform: translateY(-10em);
   }
+}
+
+/* Brutalist geometry for the animated portal — square every control. */
+.stage,
+.stage * {
+  border-radius: 0 !important;
+}
+.portal {
+  border-width: 3px;
 }
