@@ -67,7 +67,7 @@ export function ComparisonTable({
   className?: string;
 }) {
   const rows = competitor.comparison;
-  const stickyTh = "sticky top-[72px] z-10 py-4";
+  const stickyTh = "sticky top-[60px] z-10 py-4 backdrop-blur-[10px]";
 
   return (
     <InView threshold={0.05} className={className}>
@@ -81,7 +81,7 @@ export function ComparisonTable({
             <tr>
               <th
                 scope="col"
-                className={`${stickyTh} border-b-2 border-ink-900 bg-paper px-5 text-left lg:px-7`}
+                className={`${stickyTh} border-b border-paper-edge bg-paper/85 px-5 text-left lg:px-7`}
               >
                 <span className="till text-[0.75rem] font-medium uppercase tracking-[0.14em] text-ink-500">
                   Feature
@@ -89,7 +89,7 @@ export function ComparisonTable({
               </th>
               <th
                 scope="col"
-                className={`${stickyTh} w-[26%] border-x-2 border-b-2 border-ink-900 bg-brand-50 px-4 text-center`}
+                className={`${stickyTh} w-[26%] border-x border-b border-x-brand-200 border-b-brand-200 bg-brand-50/90 px-4 text-center`}
               >
                 <span className="flex flex-col items-center gap-1.5">
                   <Wordmark className="text-[1.125rem]" />
@@ -100,7 +100,7 @@ export function ComparisonTable({
               </th>
               <th
                 scope="col"
-                className={`${stickyTh} w-[26%] border-b-2 border-ink-900 bg-paper px-4 text-center`}
+                className={`${stickyTh} w-[26%] border-b border-paper-edge bg-paper/85 px-4 text-center`}
               >
                 <span className="text-[1.0625rem] font-semibold text-ink-700">
                   {competitor.shortName}

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, IBM_Plex_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { site } from "@/lib/site";
@@ -7,17 +7,14 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { CrispChat } from "@/components/site/CrispChat";
 import "./globals.css";
 
-const display = Archivo({
-  variable: "--font-display-family",
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
-  display: "swap",
 });
 
-const mono = IBM_Plex_Mono({
-  variable: "--font-mono-family",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -40,7 +37,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
+  themeColor: "#f5f3fa",
 };
 
 const organizationJsonLd = {
@@ -82,7 +79,7 @@ export default function RootLayout({
       lang="en"
       // the inline head script adds .js before hydration - expected mismatch
       suppressHydrationWarning
-      className={`${display.variable} ${mono.variable} h-full`}
+      className={`${geist.variable} ${geistMono.variable} h-full`}
     >
       <head>
         {/* Gate hidden pre-animation states behind html.js so content is
