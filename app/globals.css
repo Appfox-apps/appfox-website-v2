@@ -105,7 +105,11 @@ html {
 }
 
 body {
-  background: var(--color-paper);
+  background-color: var(--color-paper);
+  background-image: url("./paper-grain.png");
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-size: 128px 128px;
   color: var(--color-ink-700);
   font-family: var(--font-sans);
   font-size: 1rem;
@@ -117,23 +121,6 @@ body {
      mobile never gets a phantom horizontal scrollbar. clip (not hidden)
      keeps position:sticky working and creates no scroll container. */
   overflow-x: clip;
-}
-
-/* Column grid drawn over every section. Lines only — transparent gaps
-   do not block clicks. Sits under the navbar (z-50) and menus (z-40). */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 35;
-  pointer-events: none;
-  background-image: linear-gradient(to right, rgba(10, 10, 10, 0.16) 1px, transparent 1px);
-  background-size: 25% 100%;
-}
-@media (min-width: 768px) {
-  body::before {
-    background-size: 8.333% 100%;
-  }
 }
 
 h1,
@@ -257,15 +244,22 @@ h3 {
   background: var(--color-marigold-500);
 }
 
-/* Paper and night backgrounds - flat, no gradients */
+/* Paper and night backgrounds. Cream and sunken fields share one
+   fixed newsprint grain (a 5KB tile) so the sheet reads as paper
+   and the type stays on top of it. Night stays flat ink. */
 .paper-wash {
   background-color: var(--color-paper);
+  background-image: url("./paper-grain.png");
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-size: 128px 128px;
 }
 .night-wash {
   background-color: var(--color-night);
 }
 
-/* Grain overlay retired — flat paper only. Class kept so markup is unchanged. */
+/* Per-section grain hooks stay inert. The page grain is a background
+   image, not an overlay, so it cannot cover type or cards. */
 .grain {
   position: relative;
 }
@@ -685,6 +679,17 @@ html.js [data-open] .accordion-content {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Newsprint tooth on the large paper fields. The tile is bundled
+   with the stylesheet. Unlayered so Tailwind background-color
+   utilities do not wipe it. Small chips are left flat. */
+section.bg-paper,
+section.bg-paper-sunken {
+  background-image: url("./paper-grain.png");
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-size: 128px 128px;
 }
 
 /* ════════════════════════════════════════════════════════
