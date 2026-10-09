@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { AppFoxMark } from "@/components/brand/marks";
 import { site } from "@/lib/site";
 import { competitorsForApp } from "@/data/competitors";
 import { apps } from "@/data/apps";
@@ -93,13 +93,7 @@ export function Navbar() {
             onClick={() => setMobileOpen(false)}
             className="mr-auto flex items-center gap-2.5"
           >
-            <Image
-              src="/images/brand/appfox-icon.png"
-              alt="AppFox"
-              width={28}
-              height={28}
-              className="border-2 border-marigold-500"
-            />
+            <AppFoxMark className="h-7 w-7 shrink-0" />
             <Wordmark onNight className="text-lg" />
           </Link>
 

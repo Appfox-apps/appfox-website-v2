@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import styles from "./portal-demo.module.css";
+import { AppFoxMark } from "@/components/brand/marks";
 
 /**
  * §6 Hero Centerpiece - "The Order That Fixes Itself".
@@ -320,23 +321,24 @@ export function PortalDemo() {
             {/* Scene 6 success frame - also the reduced-motion frame */}
             <div className={styles.success}>
               <svg viewBox="0 0 72 72" className={styles.successMark} aria-hidden="true">
-                <path
+                <rect
                   className={styles.successCircle}
-                  d="M37 7c15 1 26 12 25 29C61 52 50 65 35 64 20 63 9 52 9 36 9 19 22 6 37 7Z"
+                  x="8"
+                  y="8"
+                  width="56"
+                  height="56"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth={3.5}
-                  strokeLinecap="round"
+                  strokeWidth={4}
                   pathLength={100}
                 />
                 <path
                   className={styles.successTick}
-                  d="M23 37.5 33 47l17-21"
+                  d="M22 37.5 33 48 52 26"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth={4}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                  strokeWidth={5}
+                  strokeLinejoin="miter"
                   pathLength={100}
                 />
               </svg>
@@ -384,6 +386,7 @@ export function PortalDemo() {
           <span className={styles.toastBar} />
           <div>
             <p className={styles.toastApp}>
+              <AppFoxMark className="h-4 w-4 shrink-0" />
               AppFox
               <span className={styles.toastTag}>APP</span>
             </p>

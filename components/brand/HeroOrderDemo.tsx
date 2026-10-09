@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { OrderEditingMark } from "@/components/brand/marks";
 
 /**
  * Interactive hero vignette - a working miniature of the customer portal.
@@ -36,12 +37,13 @@ export function HeroOrderDemo() {
 
   return (
     <div className="relative mx-auto w-full max-w-md">
-      <div className="card relative rounded-2xl p-6 shadow-(--shadow-pop) sm:p-7">
+      <div className="card relative border-[3px] border-ink-900 p-6 shadow-(--shadow-pop) sm:p-7">
         <span className="sticker absolute -top-4 right-6">TRY AN EDIT</span>
 
         {/* Receipt header */}
-        <div className="flex items-center justify-between gap-3 border-b border-paper-edge pb-4">
-          <p className="till text-[0.75rem] text-ink-500">
+        <div className="flex items-center justify-between gap-3 border-b-[3px] border-ink-900 pb-4">
+          <p className="till flex items-center gap-2 text-[0.75rem] text-ink-500">
+            <OrderEditingMark className="h-7 w-7 shrink-0" />
             ORDER <span className="text-ink-900">#1042</span> · just placed
           </p>
           {edited ? (
@@ -71,8 +73,8 @@ export function HeroOrderDemo() {
                   onClick={() => setSize(s)}
                   className={
                     size === s
-                      ? "till rounded-lg border border-brand-600 bg-brand-600 px-2.5 py-1 text-[0.75rem] text-white shadow-(--shadow-card)"
-                      : "till cursor-pointer rounded-lg border border-paper-edge bg-paper-raised px-2.5 py-1 text-[0.75rem] text-ink-700 transition-colors duration-150 hover:border-brand-300 hover:text-ink-900"
+                      ? "till border-2 border-ink-900 bg-ink-900 px-2.5 py-1 text-[0.75rem] text-marigold-500 shadow-(--shadow-card)"
+                      : "till cursor-pointer border-2 border-ink-900 bg-paper-raised px-2.5 py-1 text-[0.75rem] text-ink-700 transition-colors duration-150 hover:bg-marigold-500 hover:text-ink-900"
                   }
                 >
                   {s}

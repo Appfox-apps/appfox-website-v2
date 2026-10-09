@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import { site } from "@/lib/site";
+import { AppFoxMark } from "@/components/brand/marks";
 import { Wordmark } from "./Wordmark";
 
 const ORDER_EDITING_LINKS = [
@@ -103,13 +103,7 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2">
             <div className="flex items-center gap-2.5">
-              <Image 
-                src="/images/brand/appfox-icon.png" 
-                alt="AppFox" 
-                width={32} 
-                height={32}
-                className="rounded-lg"
-              />
+              <AppFoxMark className="h-8 w-8 shrink-0" />
               <Wordmark onNight className="text-[1.375rem]" />
             </div>
             <p className="mt-4 text-base leading-relaxed">

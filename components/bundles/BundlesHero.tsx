@@ -1,5 +1,6 @@
 import { getApp } from "@/data/apps";
 import { InView } from "@/components/ui/InView";
+import { BundlesMark } from "@/components/brand/marks";
 
 /**
  * Product Bundles hero - same "Counter" grammar as the subscription hero:
@@ -138,20 +139,23 @@ export function BundlesHero() {
 function BundleDemo() {
   return (
     <div
-      className="mx-auto w-full max-w-md rounded-2xl border border-paper-edge bg-paper-raised p-6 shadow-(--shadow-pop)"
+      className="mx-auto w-full max-w-md border-[3px] border-ink-900 bg-paper-raised p-6 shadow-(--shadow-pop)"
       aria-hidden="true"
     >
-      <div className="border-b border-paper-edge pb-4">
+      <div className="border-b-[3px] border-ink-900 pb-4">
         <div className="flex items-start justify-between gap-4">
-          <div>
+          <div className="flex items-start gap-3">
+            <BundlesMark className="h-10 w-10 shrink-0" />
+            <div>
             <p className="text-[0.8125rem] font-semibold tracking-wide text-ink-900">
               COMPLETE THE SET
             </p>
             <p className="mt-1 text-[1.0625rem] font-semibold text-ink-900">
               Essentials Bundle - Save 20%
             </p>
+            </div>
           </div>
-          <span className="sticker !-rotate-2 text-xs">BUNDLE</span>
+          <span className="sticker text-xs">BUNDLE</span>
         </div>
       </div>
 
@@ -164,7 +168,7 @@ function BundleDemo() {
         ].map((item, i) => (
           <div key={item.name} className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="flex h-5 w-5 items-center justify-center rounded-md border-2 border-brand-600 bg-brand-600">
+              <div className="flex h-5 w-5 items-center justify-center border-2 border-ink-900 bg-ink-900">
                 <svg className="h-3 w-3 text-paper" fill="currentColor" viewBox="0 0 20 20">
                   <path
                     fillRule="evenodd"

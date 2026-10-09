@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { AppMark } from "@/components/brand/marks";
 import { Reveal, StaggerGroup } from "@/components/ui/Reveal";
 import { SectionSlug } from "@/components/site/SectionSlug";
 import {
@@ -22,17 +23,27 @@ function IntegrationCard({
   integration: IntegrationEntry;
   index: number;
 }) {
+  const nativeSlug =
+    integration.slug === "appfox-bundles"
+      ? "product-bundles"
+      : integration.slug === "appfox-order-editing"
+        ? "order-editing"
+        : null;
   const cardContent = (
     <>
-      {integration.logoSrc && (
+      {(nativeSlug || integration.logoSrc) && (
         <div className="mb-4 flex h-16 w-16 items-center justify-center overflow-hidden border-[3px] border-ink-900 bg-white shadow-(--shadow-card)">
-          <Image
-            src={integration.logoSrc}
-            alt={`${integration.name} logo`}
-            width={64}
-            height={64}
-            className="h-full w-full object-contain p-2"
-          />
+          {nativeSlug ? (
+            <AppMark slug={nativeSlug} className="h-full w-full" title={`${integration.name} logo`} />
+          ) : (
+            <Image
+              src={integration.logoSrc!}
+              alt={`${integration.name} logo`}
+              width={64}
+              height={64}
+              className="h-full w-full object-contain p-2"
+            />
+          )}
         </div>
       )}
       <div className="flex items-start justify-between gap-3">

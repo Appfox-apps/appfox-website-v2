@@ -2,6 +2,7 @@ import Link from "next/link";
 import { apps, getApp } from "@/data/apps";
 import { InView } from "@/components/ui/InView";
 import { Reveal, StaggerGroup } from "@/components/ui/Reveal";
+import { AppMark } from "@/components/brand/marks";
 
 /**
  * The front-of-house shelf: one large card per app, each with a mini
@@ -33,6 +34,7 @@ function Tick({ delay }: { delay: number }) {
 const VIGNETTES: Record<string, React.ReactNode> = {
   "order-editing": <OrderEditVignette />,
   subscription: <SubscribeVignette />,
+  "product-bundles": <BundleVignette />,
 };
 
 export function AppShowcase() {
@@ -49,9 +51,12 @@ export function AppShowcase() {
                       FREE TO START
                     </span>
 
-                    <p className="till text-xs uppercase tracking-[0.12em] text-ink-500">
-                      {String(i + 1).padStart(2, "0")} · {app.pricingLine}
-                    </p>
+                    <div className="flex items-center gap-3">
+                      <AppMark slug={app.slug} className="h-11 w-11 shrink-0" />
+                      <p className="till text-xs uppercase tracking-[0.12em] text-ink-500">
+                        {String(i + 1).padStart(2, "0")} · {app.pricingLine}
+                      </p>
+                    </div>
                     <h2 className="mt-4 !text-3xl sm:!text-4xl">{app.name}</h2>
                     <p className="mt-2 text-base font-medium text-brand-700">{app.tagline}</p>
 
@@ -89,7 +94,7 @@ export function AppShowcase() {
 
 function OrderEditVignette() {
   return (
-      <div className="rounded-2xl border border-paper-edge bg-paper p-4" aria-hidden="true">
+      <div className="border-[3px] border-ink-900 bg-paper p-4 shadow-(--shadow-card)" aria-hidden="true">
       <div className="flex items-center justify-between gap-2 border-b border-paper-edge pb-2.5">
         <p className="till text-xs text-ink-500">
           <span className="text-ink-700">#1042</span> · Size swap M → L
@@ -115,11 +120,11 @@ function OrderEditVignette() {
 
 function SubscribeVignette() {
   return (
-    <div className="rounded-2xl border border-paper-edge bg-paper p-4" aria-hidden="true">
-      <div className="flex items-center justify-between rounded-lg border border-brand-200 bg-brand-50 px-3 py-2">
+    <div className="border-[3px] border-ink-900 bg-paper p-4 shadow-(--shadow-card)" aria-hidden="true">
+      <div className="flex items-center justify-between border-[3px] border-ink-900 bg-marigold-500 px-3 py-2">
         <span className="flex items-center gap-2.5">
-          <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full border-2 border-brand-600 bg-brand-600">
-            <span className="h-1 w-1 rounded-full bg-paper" />
+          <span className="flex h-3.5 w-3.5 items-center justify-center border-2 border-ink-900 bg-ink-900">
+            <span className="h-1.5 w-1.5 bg-marigold-500" />
           </span>
           <span className="text-xs font-semibold text-ink-900">Subscribe &amp; save 10%</span>
         </span>
@@ -129,6 +134,27 @@ function SubscribeVignette() {
         <p className="till text-xs text-ink-500">Deliver every 30 days</p>
         <span className="till text-xs text-ink-500">skip · pause · cancel</span>
       </div>
+    </div>
+  );
+}
+
+/* ── Bundles - mini mix-and-match screenshot ─────────────────────── */
+
+function BundleVignette() {
+  return (
+    <div className="border-[3px] border-ink-900 bg-paper p-4 shadow-(--shadow-card)" aria-hidden="true">
+      <div className="flex items-center justify-between border-b-[3px] border-ink-900 pb-2.5">
+        <p className="text-xs font-bold uppercase tracking-[0.12em] text-ink-900">Essentials set</p>
+        <span className="till text-xs font-bold text-ink-900">Save 20%</span>
+      </div>
+      <ul className="mt-2.5 space-y-1.5">
+        {["Oak Tee", "Wool Beanie", "Canvas Tote"].map((name) => (
+          <li key={name} className="flex items-center gap-2 text-xs font-medium text-ink-900">
+            <span className="h-3.5 w-3.5 border-2 border-ink-900 bg-ink-900" />
+            {name}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
