@@ -13,7 +13,11 @@ export function generateImageMetadata({ params }: { params: { slug: string } }) 
   const competitor = getCompetitor(params.slug);
   const name = competitor?.shortName ?? "the competition";
   const topic =
-    competitor?.app === "subscription" ? "Shopify subscriptions" : "Shopify order editing";
+    competitor?.app === "subscription"
+      ? "Shopify subscriptions"
+      : competitor?.app === "product-bundles"
+        ? "Shopify product bundles"
+        : "Shopify order editing";
   return [
     {
       id: "comparison",

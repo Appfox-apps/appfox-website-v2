@@ -81,9 +81,9 @@ export const routeMeta = {
     path: "/pricing/product-bundles",
   }),
   vs: pageMetadata({
-    title: "Compare Shopify Order Editing & Subscription Apps",
+    title: "Compare Shopify Order Editing, Subscription & Bundle Apps",
     description:
-      "Side-by-side comparisons of AppFox and 11 Shopify order editing, upsell, and subscription apps - pricing, features, and trade-offs. Find the right fit free.",
+      "Side-by-side comparisons of AppFox and Shopify order editing, subscription, and product bundle apps - pricing, features, and honest trade-offs. Start free.",
     path: "/vs",
   }),
   blog: pageMetadata({

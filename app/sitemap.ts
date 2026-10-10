@@ -7,7 +7,7 @@ import { posts } from "@/data/posts";
  * Bump when marketing content meaningfully changes. A perpetually-fresh
  * build-time date would teach crawlers to ignore lastModified entirely.
  */
-const CONTENT_UPDATED = new Date("2026-06-10");
+const CONTENT_UPDATED = new Date("2026-10-10");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = CONTENT_UPDATED;

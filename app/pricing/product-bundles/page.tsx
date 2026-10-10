@@ -129,7 +129,21 @@ export default function ProductBundlesPricingPage() {
                 AppFox Product Bundles
               </Link>{" "}
               is free to install with unlimited bundles, all bundle types, and full analytics. Most
-              stores never need to upgrade.
+              stores never need to upgrade. Weighing us against{" "}
+              <Link
+                href="/vs/kaching-bundles"
+                className="text-brand-700 underline decoration-brand-300 underline-offset-2 transition-colors hover:decoration-brand-700"
+              >
+                Kaching
+              </Link>{" "}
+              or{" "}
+              <Link
+                href="/vs#product-bundles"
+                className="text-brand-700 underline decoration-brand-300 underline-offset-2 transition-colors hover:decoration-brand-700"
+              >
+                other bundle apps
+              </Link>
+              ? The comparisons are public.
             </p>
           </div>
         </section>

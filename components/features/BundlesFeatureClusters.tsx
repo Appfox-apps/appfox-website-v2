@@ -1,5 +1,9 @@
-import { Reveal, StaggerGroup } from "@/components/ui/Reveal";
+import Link from "next/link";
+import { Reveal } from "@/components/ui/Reveal";
 import { SectionSlug } from "@/components/site/SectionSlug";
+
+const compareLink =
+  "font-medium text-brand-700 underline decoration-brand-300 underline-offset-[3px] transition-colors hover:decoration-brand-600";
 
 /**
  * Product Bundles feature clusters - four groups covering the full tour.
@@ -19,7 +23,7 @@ const CLUSTERS: {
     label: "BUNDLE TYPES",
     headline: "Every way to bundle",
     narrative:
-      "Fixed bundles let you curate perfect product sets with preset discounts. Mix-and-match bundles let customers build their own combinations from products you select. Volume discounts reward bigger orders with tiered pricing. All three work with the same widget system and analytics dashboard.",
+      "Fixed bundles let you curate perfect product sets with preset discounts. Mix-and-match bundles let customers build their own combinations from products you select. Volume discounts reward bigger orders with tiered pricing. All three work with the same widget system and analytics dashboard. If you are weighing us against Kaching or Fast Bundle, the honest write-ups live on the comparison pages.",
     capabilities: [
       "Fixed bundles - curated product sets with preset pricing",
       "Mix-and-match - customers choose from your selection",
@@ -97,6 +101,21 @@ export function BundlesFeatureClusters() {
                     <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-700">
                       {cluster.narrative}
                     </p>
+                    {cluster.no === "01" ? (
+                      <p className="mt-4 max-w-xl text-[0.9375rem] leading-relaxed text-ink-500">
+                        <Link href="/vs/kaching-bundles" className={compareLink}>
+                          AppFox vs Kaching Bundles
+                        </Link>
+                        {" · "}
+                        <Link href="/vs/fast-bundle" className={compareLink}>
+                          vs Fast Bundle
+                        </Link>
+                        {" · "}
+                        <Link href="/vs#product-bundles" className={compareLink}>
+                          all bundle comparisons
+                        </Link>
+                      </p>
+                    ) : null}
                   </div>
                 </Reveal>
 

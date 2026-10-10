@@ -97,6 +97,11 @@ export default async function ComparisonPage({
   const related = relatedCompetitors(competitor);
   const appfoxApp = getApp(competitor.app)!;
   const isSubscription = competitor.app === "subscription";
+  const isBundles = competitor.app === "product-bundles";
+  const hasHonesty = Boolean(competitor.whereTheyWin?.length);
+  const checkedLabel = competitor.checked ?? "June 2026";
+  const faqNo = hasHonesty ? "05" : "04";
+  const relatedNo = hasHonesty ? "06" : "05";
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -256,17 +261,81 @@ export default async function ComparisonPage({
             <ComparisonTable competitor={competitor} className="mt-10" />
 
             <p className="mt-5 text-sm text-ink-500">
-              Comparison based on publicly available information as of June 2026. Pricing and
-              features may change.
+              Comparison based on publicly available information as of {checkedLabel}. Pricing and
+              features may change. Unverified items are marked &ldquo;Not listed&rdquo; or
+              &ldquo;Listed&rdquo; rather than guessed.
             </p>
+            {competitor.sources?.length ? (
+              <div className="mt-4">
+                <p className="till text-[0.75rem] uppercase tracking-[0.14em] text-ink-500">
+                  Sources
+                </p>
+                <ul className="mt-2 space-y-1 text-sm text-ink-500">
+                  {competitor.sources.map((source) => (
+                    <li key={source.url}>
+                      <a
+                        href={source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline decoration-paper-edge underline-offset-2 transition-colors hover:text-brand-700 hover:decoration-brand-300"
+                      >
+                        {source.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </div>
         </section>
+
+        {hasHonesty ? (
+          <section className="py-16 sm:py-24">
+            <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
+              <Reveal variant="none">
+                <SectionSlug
+                  no="04"
+                  label="WHERE THEY WIN"
+                  caption="The gaps we will not talk around."
+                />
+              </Reveal>
+              <Reveal>
+                <h2 className="mt-8 max-w-2xl">
+                  Where {competitor.shortName} is a better fit
+                </h2>
+              </Reveal>
+              <Reveal delay={80}>
+                <p className="mt-5 max-w-[62ch] text-lg leading-relaxed text-ink-500">
+                  What we do not do yet - or do not do as well. If one of these is the job, pick
+                  them.
+                </p>
+              </Reveal>
+              <div className="mt-10 grid gap-5 md:grid-cols-2">
+                <StaggerGroup step={80}>
+                  {competitor.whereTheyWin!.map((item, i) => (
+                    <Reveal key={item.title} index={i} className="h-full">
+                      <article className="card h-full p-7">
+                        <p className="till text-[0.75rem] uppercase tracking-[0.14em] text-marigold-700">
+                          Better there
+                        </p>
+                        <h3 className="mt-3">{item.title}</h3>
+                        <p className="mt-2.5 text-[0.9375rem] leading-relaxed text-ink-500">
+                          {item.description}
+                        </p>
+                      </article>
+                    </Reveal>
+                  ))}
+                </StaggerGroup>
+              </div>
+            </div>
+          </section>
+        ) : null}
 
         {/* ── 04 · FAQ ─────────────────────────────────────── */}
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
             <Reveal variant="none">
-              <SectionSlug no="04" label="SWITCHING QUESTIONS" caption="Straight answers, no hedging." />
+              <SectionSlug no={faqNo} label="SWITCHING QUESTIONS" caption="Straight answers, no hedging." />
             </Reveal>
             <Reveal>
               <h2 className="mt-8 max-w-2xl">Switching from {competitor.shortName}?</h2>
@@ -305,7 +374,7 @@ export default async function ComparisonPage({
         <section className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
             <Reveal variant="none">
-              <SectionSlug no="05" label="KEEP COMPARING" />
+              <SectionSlug no={relatedNo} label="KEEP COMPARING" />
             </Reveal>
             <h2 className="sr-only">Related comparisons</h2>
 
@@ -341,11 +410,25 @@ export default async function ComparisonPage({
           body={
             isSubscription
               ? "Free for now with every feature included - 0% transaction fees. 5-minute setup, no card required."
-              : "Free plan up to 50 edits per month. 5-minute setup. No card required."
+              : isBundles
+                ? "Free to install with unlimited listed bundle types. 5-minute setup. No card required."
+                : "Free plan up to 50 edits per month. 5-minute setup. No card required."
           }
           primaryHref={appfoxApp.installUrl}
-          secondaryLabel={isSubscription ? "See Subscription pricing" : "Compare plans"}
-          secondaryHref={isSubscription ? "/pricing/subscription" : "/pricing/order-editing"}
+          secondaryLabel={
+            isSubscription
+              ? "See Subscription pricing"
+              : isBundles
+                ? "See Product Bundles pricing"
+                : "Compare plans"
+          }
+          secondaryHref={
+            isSubscription
+              ? "/pricing/subscription"
+              : isBundles
+                ? "/pricing/product-bundles"
+                : "/pricing/order-editing"
+          }
           from="paper"
         />
       </main>

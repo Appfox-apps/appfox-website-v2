@@ -1,3 +1,5 @@
+import { bundleCompetitors } from "./bundle-competitors";
+
 export type ComparisonRow = {
   feature: string;
   appfox: string | true | false;
@@ -6,6 +8,11 @@ export type ComparisonRow = {
 
 /** Which AppFox app this competitor is compared against. */
 export type CompetitorApp = "order-editing" | "subscription" | "product-bundles";
+
+export type CompetitorSource = {
+  label: string;
+  url: string;
+};
 
 export type Competitor = {
   /** Which AppFox app the comparison is about - drives hub grouping, CTAs, and OG copy. */
@@ -24,6 +31,12 @@ export type Competitor = {
   whyAppfox: { title: string; description: string }[];
   comparison: ComparisonRow[];
   faq: { q: string; a: string }[];
+  /** Public sources used for this comparison. Shown on the page when present. */
+  sources?: CompetitorSource[];
+  /** Human-readable month the public listings were checked, e.g. "October 2026". */
+  checked?: string;
+  /** Where this competitor is genuinely a better fit. Shown as an honesty section. */
+  whereTheyWin?: { title: string; description: string }[];
 };
 
 export const competitors: Competitor[] = [
@@ -790,6 +803,7 @@ export const competitors: Competitor[] = [
       },
     ],
   },
+  ...bundleCompetitors,
 ];
 
 export function getCompetitor(slug: string): Competitor | undefined {

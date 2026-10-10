@@ -90,7 +90,7 @@ export function GET(): Response {
     {
       title: "Comparison hub",
       path: "/vs",
-      description: `Side-by-side comparisons of ${site.name} and ${competitors.length} other Shopify order editing, upsell, and subscription apps.`,
+      description: `Side-by-side comparisons of ${site.name} and ${competitors.length} other Shopify order editing, upsell, subscription, and product bundle apps.`,
     },
     {
       title: "Blog",
