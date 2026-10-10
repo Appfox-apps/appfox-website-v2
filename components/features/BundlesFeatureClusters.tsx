@@ -103,16 +103,8 @@ export function BundlesFeatureClusters() {
                     </p>
                     {cluster.no === "01" ? (
                       <p className="mt-4 max-w-xl text-[0.9375rem] leading-relaxed text-ink-500">
-                        <Link href="/vs/kaching-bundles" className={compareLink}>
-                          AppFox vs Kaching Bundles
-                        </Link>
-                        {" · "}
-                        <Link href="/vs/fast-bundle" className={compareLink}>
-                          vs Fast Bundle
-                        </Link>
-                        {" · "}
-                        <Link href="/vs#product-bundles" className={compareLink}>
-                          all bundle comparisons
+                        <Link href="/product-bundles/compare" className={compareLink}>
+                          Compare AppFox to Kaching, Fast Bundle, Bundler & more
                         </Link>
                       </p>
                     ) : null}

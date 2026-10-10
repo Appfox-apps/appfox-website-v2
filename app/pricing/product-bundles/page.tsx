@@ -138,7 +138,7 @@ export default function ProductBundlesPricingPage() {
               </Link>{" "}
               or{" "}
               <Link
-                href="/vs#product-bundles"
+                href="/product-bundles/compare"
                 className="text-brand-700 underline decoration-brand-300 underline-offset-2 transition-colors hover:decoration-brand-700"
               >
                 other bundle apps

@@ -391,10 +391,20 @@ export default async function ComparisonPage({
                     />
                   </Reveal>
                 ))}
-                <Reveal as="li" index={related.length}>
+                {isBundles ? (
+                  <Reveal as="li" index={related.length}>
+                    <VsIndexRow
+                      href="/product-bundles/compare"
+                      numeral={String(related.length + 1).padStart(2, "0")}
+                      title="Product Bundles comparison table"
+                      action="OPEN TABLE"
+                    />
+                  </Reveal>
+                ) : null}
+                <Reveal as="li" index={related.length + (isBundles ? 1 : 0)}>
                   <VsIndexRow
                     href="/vs"
-                    numeral={String(related.length + 1).padStart(2, "0")}
+                    numeral={String(related.length + (isBundles ? 2 : 1)).padStart(2, "0")}
                     title="All comparisons"
                     action="VIEW ALL"
                   />

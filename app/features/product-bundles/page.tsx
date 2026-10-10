@@ -52,7 +52,7 @@ export default function ProductBundlesFeaturesPage() {
           primaryLabel="Install free on Shopify"
           primaryHref={bundlesApp.installUrl}
           secondaryLabel="Compare alternatives"
-          secondaryHref="/vs#product-bundles"
+          secondaryHref="/product-bundles/compare"
           from="paper"
         />
       </main>

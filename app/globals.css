@@ -560,6 +560,12 @@ html.js .accordion-content {
 html.js [data-open] .accordion-content {
   opacity: 1;
 }
+
+/* Multi-competitor "More features" rows: expanded without JS so crawlers
+   and no-JS users still see every cell. html.js hides them until open. */
+html.js [data-compare-more]:not([data-open]) [data-compare-extra] {
+  display: none;
+}
 @media (prefers-reduced-motion: no-preference) {
   html.js .accordion-panel {
     transition: grid-template-rows 300ms var(--ease-out-soft);

@@ -54,6 +54,7 @@ const BUNDLES_PATHS = new Set([
   "/product-bundles",
   "/features/product-bundles",
   "/pricing/product-bundles",
+  "/product-bundles/compare",
   ...competitorsForApp("product-bundles").map((c) => `/vs/${c.slug}`),
 ]);
 

@@ -17,7 +17,7 @@ export function BundlesCompare() {
           <SectionSlug
             no="05"
             label="COMPARED"
-            caption={`${bundleComps.length} honest comparisons, public sources only.`}
+            caption="One table, public sources only."
           />
         </Reveal>
         <Reveal>
@@ -25,15 +25,29 @@ export function BundlesCompare() {
         </Reveal>
         <Reveal delay={80}>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-500">
-            Kaching, Fast Bundle, Bundler, and the rest - side by side with AppFox, including
-            where they are a better fit. No invented ratings.
+            One table against Kaching, Fast Bundle, Bundler, Simple Bundles, and Shopify Bundles
+            — including where they are a better fit. Optional one-to-one pages sit underneath.
           </p>
         </Reveal>
 
         <ul className="mt-10 max-w-5xl divide-y divide-paper-edge border-b border-paper-edge">
           <StaggerGroup step={70}>
+            <Reveal as="li" index={0}>
+              <VsIndexRow
+                href="/product-bundles/compare"
+                numeral="00"
+                title={
+                  <>
+                    AppFox <span className="wonk text-marigold-700">vs</span> five bundle apps
+                  </>
+                }
+                category="Multi-competitor table"
+                framing="Feature columns for AppFox, Kaching, Fast Bundle, Bundler, Simple Bundles, and Shopify Bundles. Public sources, checked October 2026."
+                action="OPEN TABLE"
+              />
+            </Reveal>
             {bundleComps.map((c, i) => (
-              <Reveal key={c.slug} as="li" index={i}>
+              <Reveal key={c.slug} as="li" index={i + 1}>
                 <VsIndexRow
                   href={`/vs/${c.slug}`}
                   numeral={String(i + 1).padStart(2, "0")}
@@ -44,14 +58,6 @@ export function BundlesCompare() {
                 />
               </Reveal>
             ))}
-            <Reveal as="li" index={bundleComps.length}>
-              <VsIndexRow
-                href="/vs#product-bundles"
-                numeral={String(bundleComps.length + 1).padStart(2, "0")}
-                title="All Product Bundles comparisons"
-                action="VIEW ALL"
-              />
-            </Reveal>
           </StaggerGroup>
         </ul>
       </div>

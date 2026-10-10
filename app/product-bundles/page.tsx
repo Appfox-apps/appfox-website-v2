@@ -79,7 +79,7 @@ export default function ProductBundlesPage() {
           body="Install AppFox Product Bundles, create your first bundle, and watch your average order value climb. Setup takes about 5 minutes. The free plan never expires."
           primaryHref={bundlesApp.installUrl}
           secondaryLabel="Compare alternatives"
-          secondaryHref="/vs#product-bundles"
+          secondaryHref="/product-bundles/compare"
           from="paper"
         />
       </main>

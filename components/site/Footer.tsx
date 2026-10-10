@@ -26,14 +26,14 @@ const BUNDLES_LINKS = [
   { label: "Pricing", href: "/pricing/product-bundles" },
   { label: "How it works", href: "/product-bundles#how-it-works" },
   { label: "FAQ", href: "/product-bundles#faq" },
-  { label: "Compare", href: "/vs#product-bundles" },
+  { label: "Compare", href: "/product-bundles/compare" },
 ];
 
 const COMPARE_LINKS = [
   { label: "All comparisons", href: "/vs" },
   { label: "Order editing apps", href: "/vs#order-editing" },
   { label: "Subscription apps", href: "/vs#subscription" },
-  { label: "Product bundle apps", href: "/vs#product-bundles" },
+  { label: "Product bundle apps", href: "/product-bundles/compare" },
 ];
 
 const AI_SUMMARY_PROMPT = encodeURIComponent(

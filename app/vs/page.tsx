@@ -114,14 +114,28 @@ export default function ComparisonHubPage() {
               <SectionSlug
                 no="03"
                 label="PRODUCT BUNDLES"
-                caption={`${bundleComps.length} comparisons, free offers vs metered suites.`}
+                caption="One table, then optional one-to-one pages."
               />
             </Reveal>
 
             <ul className="mt-2 max-w-5xl divide-y divide-paper-edge border-b border-paper-edge">
               <StaggerGroup step={70}>
+                <Reveal as="li" index={0}>
+                  <VsIndexRow
+                    href="/product-bundles/compare"
+                    numeral="00"
+                    title={
+                      <>
+                        AppFox <span className="wonk text-marigold-700">vs</span> five bundle apps
+                      </>
+                    }
+                    category="Multi-competitor table"
+                    framing="Kaching, Fast Bundle, Bundler, Simple Bundles, and Shopify Bundles in one table — including where they win. Public sources, checked October 2026."
+                    action="OPEN TABLE"
+                  />
+                </Reveal>
                 {bundleComps.map((c, i) => (
-                  <Reveal key={c.slug} as="li" index={i}>
+                  <Reveal key={c.slug} as="li" index={i + 1}>
                     <VsIndexRow
                       href={`/vs/${c.slug}`}
                       numeral={String(i + 1).padStart(2, "0")}

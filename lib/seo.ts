@@ -86,6 +86,14 @@ export const routeMeta = {
       "Side-by-side comparisons of AppFox and Shopify order editing, subscription, and product bundle apps - pricing, features, and honest trade-offs. Start free.",
     path: "/vs",
   }),
+  productBundlesCompare: pageMetadata({
+    title:
+      "AppFox vs Kaching, Fast Bundle, Bundler, Simple Bundles & Shopify Bundles",
+    description:
+      "Honest side-by-side of AppFox Product Bundles vs Kaching, Fast Bundle, Bundler, Simple Bundles, and Shopify Bundles. Public sources, checked October 2026.",
+    path: "/product-bundles/compare",
+    absoluteTitle: true,
+  }),
   blog: pageMetadata({
     title: "Blog - Order Editing & Post-Purchase Upsells for Shopify",
     description:
