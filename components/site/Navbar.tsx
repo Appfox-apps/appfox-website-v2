@@ -80,7 +80,7 @@ export function Navbar() {
 
   return (
     <>
-      {/* Floating island navbar */}
+      {/* Floating island navbar. Inset (mt-6) + pill height feed --compare-sticky-top in globals.css. */}
       <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
         <div className="mx-auto mt-6 w-max max-w-[calc(100vw-3rem)] pointer-events-auto">
           <nav

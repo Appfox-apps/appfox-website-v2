@@ -88,10 +88,10 @@ export function GET(): Response {
       description: "Free to install with unlimited bundles, all bundle types, and full analytics.",
     },
     {
-      title: "Product Bundles comparison table",
+      title: "Best Shopify bundle apps compared",
       path: "/product-bundles/compare",
       description:
-        "Multi-competitor table: AppFox Product Bundles vs Kaching, Fast Bundle, Bundler, Simple Bundles, and Shopify Bundles. Public sources, checked October 2026.",
+        "Hub table of AppFox Product Bundles vs Kaching, Fast Bundle, Bundler, Simple Bundles, and Shopify Bundles, plus one-to-one alternative pages for Wide Bundles and Rebolt. Public sources, checked October 2026.",
     },
     {
       title: "Comparison hub",

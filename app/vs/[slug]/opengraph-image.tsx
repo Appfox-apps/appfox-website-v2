@@ -1,4 +1,5 @@
 import { getCompetitor } from "@/data/competitors";
+import { getBundleAlternative, vendorById } from "@/data/bundle-compare";
 import { brandOgImage, vsOgImage } from "@/lib/og";
 
 export const size = { width: 1200, height: 630 };
@@ -10,6 +11,18 @@ export const contentType = "image/png";
  * generateImageMetadata instead.
  */
 export function generateImageMetadata({ params }: { params: { slug: string } }) {
+  const alternative = getBundleAlternative(params.slug);
+  if (alternative) {
+    const name = vendorById(alternative.vendorId)?.shortName ?? "this app";
+    return [
+      {
+        id: "comparison",
+        alt: `${name} alternative - AppFox Product Bundles vs ${name}`,
+        size: { width: 1200, height: 630 },
+        contentType: "image/png",
+      },
+    ];
+  }
   const competitor = getCompetitor(params.slug);
   const name = competitor?.shortName ?? "the competition";
   const topic =

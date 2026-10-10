@@ -154,7 +154,7 @@ export default function ComparisonHubPage() {
         {/* CTA band - previous section is light paper. */}
         <CtaBand
           headline="However you compare it, every AppFox app starts at $0"
-          body="Order Editing's free plan never expires. Subscription is free for now. Product Bundles is free to install with unlimited listed offer types. Five-minute setups, no cards required."
+          body="Order Editing's free plan never expires. Subscription is free for now. Product Bundles is free, no limits. Five-minute setups, no cards required."
           primaryLabel="Get Order Editing"
           secondaryLabel="Get Product Bundles"
           secondaryHref="/product-bundles"

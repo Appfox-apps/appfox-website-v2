@@ -13,11 +13,17 @@ import { ComparisonTable } from "@/components/vs/ComparisonTable";
 import { DrawTick } from "@/components/vs/DrawTick";
 import { VsIndexRow, VsTitle } from "@/components/vs/VsIndexRow";
 import { competitors, getCompetitor, type Competitor } from "@/data/competitors";
+import {
+  bundleAlternativeSlugs,
+  getBundleAlternative,
+} from "@/data/bundle-compare";
+import { BundlesAlternativePage } from "@/components/compare/BundlesAlternativePage";
 import { getApp } from "@/data/apps";
 import { site } from "@/lib/site";
 
 export function generateStaticParams() {
-  return competitors.map((c) => ({ slug: c.slug }));
+  const slugs = new Set([...competitors.map((c) => c.slug), ...bundleAlternativeSlugs()]);
+  return [...slugs].map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -26,6 +32,21 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const alternative = getBundleAlternative(slug);
+  if (alternative) {
+    const path = `/vs/${alternative.slug}`;
+    return {
+      title: { absolute: alternative.metaTitle },
+      description: alternative.metaDescription,
+      alternates: { canonical: path },
+      openGraph: {
+        title: alternative.metaTitle,
+        description: alternative.metaDescription,
+        url: path,
+        type: "website",
+      },
+    };
+  }
   const competitor = getCompetitor(slug);
   if (!competitor) return {};
   const path = `/vs/${competitor.slug}`;
@@ -89,6 +110,9 @@ export default async function ComparisonPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  if (getBundleAlternative(slug)) {
+    return <BundlesAlternativePage slug={slug} />;
+  }
   const competitor = getCompetitor(slug);
   if (!competitor) notFound();
 
@@ -262,8 +286,8 @@ export default async function ComparisonPage({
 
             <p className="mt-5 text-sm text-ink-500">
               Checked {checkedLabel}. Comparison based on publicly available information. Pricing
-              and features may change. Unverified items are marked &ldquo;Not listed&rdquo; or
-              &ldquo;Listed&rdquo; rather than guessed.
+              and features may change. A ? or Unclear means we couldn&apos;t confirm this from
+              their public docs.
             </p>
             {competitor.sources?.length ? (
               <div className="mt-4">
@@ -421,7 +445,7 @@ export default async function ComparisonPage({
             isSubscription
               ? "Free for now with every feature included - 0% transaction fees. 5-minute setup, no card required."
               : isBundles
-                ? "Free to install with unlimited listed bundle types. 5-minute setup. No card required."
+                ? "Free, no limits. Volume discounts, mix-and-match, BOGO, FBT, and gifts. 5-minute setup. No card required."
                 : "Free plan up to 50 edits per month. 5-minute setup. No card required."
           }
           primaryHref={appfoxApp.installUrl}

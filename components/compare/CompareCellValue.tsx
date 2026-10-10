@@ -1,14 +1,14 @@
 import { DrawTick } from "@/components/vs/DrawTick";
-import type { CompareCell } from "@/data/bundle-compare";
+import { UNCLEAR_NOTE, type CompareCell } from "@/data/bundle-compare";
 
 /**
  * Cell renderer for the multi-competitor table. Separate from
  * `components/vs/ComparisonTable.tsx` so existing /vs pages keep their
- * yes / em-dash / string contract. Extra kinds (partial, via,
+ * yes / em-dash / string contract. Extra kinds (partial, via, unclear,
  * in_development, planned) live here only.
  *
- * Checks are hand-drawn ticks; misses are an ink-300 em-dash — never a
- * red X. String values use the till mono voice.
+ * Marks match ComparisonTable: hand-drawn ticks, ink-300 em-dash (never
+ * a red X), and `.till` mono at 0.875rem for any written value.
  */
 export function CompareCellValue({
   cell,
@@ -31,13 +31,14 @@ export function CompareCellValue({
   }
 
   const ink = highlight ? "text-brand-900" : "text-ink-700";
+  const written = `till text-[0.875rem] leading-snug ${ink}`;
 
   if (cell.kind === "yes") {
     return (
       <span className="inline-flex flex-col items-center gap-1">
         <DrawTick className="h-5 w-5 text-success" delay={delay} />
         {cell.label ? (
-          <span className={`till text-[0.6875rem] leading-snug ${ink}`}>{cell.label}</span>
+          <span className={written}>{cell.label}</span>
         ) : (
           <span className="sr-only">Yes</span>
         )}
@@ -52,10 +53,24 @@ export function CompareCellValue({
           -
         </span>
         {cell.label ? (
-          <span className="till text-[0.6875rem] leading-snug text-ink-500">{cell.label}</span>
+          <span className="till text-[0.875rem] leading-snug text-ink-500">{cell.label}</span>
         ) : (
           <span className="sr-only">No</span>
         )}
+      </span>
+    );
+  }
+
+  if (cell.kind === "unclear") {
+    return (
+      <span
+        className="inline-flex cursor-help flex-col items-center"
+        title={UNCLEAR_NOTE}
+      >
+        <span aria-hidden="true" className="till text-[0.875rem] leading-none text-ink-500">
+          ?
+        </span>
+        <span className="sr-only">Unclear. {UNCLEAR_NOTE}</span>
       </span>
     );
   }
@@ -74,19 +89,11 @@ export function CompareCellValue({
     );
   }
 
-  if (cell.kind === "partial") {
-    return (
-      <span className={`till text-[0.8125rem] leading-snug ${ink}`}>{cell.label ?? "Partial"}</span>
-    );
-  }
-
   if (cell.kind === "via") {
     return (
-      <span className={`till text-[0.8125rem] leading-snug ${ink}`}>
-        via {cell.label ?? "other"}
-      </span>
+      <span className={written}>via {cell.label ?? "other"}</span>
     );
   }
 
-  return <span className={`till text-[0.8125rem] leading-snug ${ink}`}>{cell.label}</span>;
+  return <span className={written}>{cell.label ?? "Partial"}</span>;
 }

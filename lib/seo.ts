@@ -87,10 +87,9 @@ export const routeMeta = {
     path: "/vs",
   }),
   productBundlesCompare: pageMetadata({
-    title:
-      "AppFox vs Kaching, Fast Bundle, Bundler, Simple Bundles & Shopify Bundles",
+    title: "Best Shopify Bundle Apps Compared (2026)",
     description:
-      "Honest side-by-side of AppFox Product Bundles vs Kaching, Fast Bundle, Bundler, Simple Bundles, and Shopify Bundles. Public sources, checked October 2026.",
+      "Honest table of AppFox Product Bundles vs Kaching, Fast Bundle, Bundler, Simple Bundles, Shopify Bundles, Wide Bundles, and Rebolt. Public sources, checked October 2026.",
     path: "/product-bundles/compare",
     absoluteTitle: true,
   }),

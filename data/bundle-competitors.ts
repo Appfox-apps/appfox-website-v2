@@ -5,17 +5,12 @@ import type { Competitor } from "./competitors";
  *
  * Facts below were checked against public sources in October 2026.
  * App Store ratings/review counts and plan prices are taken from each
- * listing on the check date. App Store category tags are treated as
- * "listed", not as independently verified product behavior. Install
- * counts are omitted — Shopify does not publish them on listings.
+ * listing on the check date. If the App Store shows a feature, the cell
+ * is yes. If we could not confirm a fact from public docs, the cell is
+ * Unclear. Install counts are omitted — Shopify does not publish them.
  *
- * AppFox Product Bundles claims are limited to:
- *   - apps.shopify.com/trust-bundles (listing copy, Works with, languages)
- *   - getappfox.com Product Bundles pages
- * The private app repo (Appfox-apps/bundles-app-new) was not accessible
- * from this environment, so features that appear only as category tags
- * (A/B testing, FBT, gifts, subscription boxes) are marked "Listed"
- * rather than claimed as verified product behavior.
+ * The AppFox column was checked against bundles-app-new main (08ad87e)
+ * on 9 October 2026. POS is still Unclear.
  *
  * Check date: October 2026.
  */
@@ -33,11 +28,11 @@ export const bundleCompetitors: Competitor[] = [
       "Kaching is the category's most-reviewed bundle app, with POS, layouts, and live chat to match. AppFox Product Bundles covers the same core offer types - and stays free.",
     framing:
       "Kaching has the reviews, the Built for Shopify badge, and a mature widget system; the comparison comes down to whether you need that depth, or unlimited volume discounts, mix-and-match, and BOGO without a revenue-metered bill.",
-    metaTitle: "AppFox vs Kaching Bundles: Shopify Bundle Apps Compared",
+    metaTitle: "Kaching Alternative: AppFox Product Bundles vs Kaching (2026)",
     metaDescription:
-      "Kaching meters plans on additional revenue from $14.99/mo; AppFox Product Bundles is free, with volume discounts, mix-and-match, and BOGO. Compare honestly.",
+      "Looking for a Kaching Bundles alternative? AppFox is free, with volume discounts, mix-and-match, BOGO, and FBT. Kaching has 6,000+ reviews, POS, and a sales meter from $14.99/mo.",
     intro:
-      "Kaching Bundles App & Upsells is the Shopify App Store's most-reviewed dedicated bundle app as of October 2026: 5.0 from 6,243 reviews, a Built for Shopify badge, and a listing that covers quantity breaks, fixed and mix-and-match bundles, BOGO, free gifts, progress bars, A/B testing, Shopify POS, and nine storefront languages. That depth is real, and so is the price: live stores start at $14.99/month for up to $1,000 of additional revenue, then $29.99 / $59.99 and higher Flex Billing tiers as attributed revenue grows. AppFox Product Bundles is the smaller, newer app - 5.0 from 4 reviews, English only, no POS on the listing - that still ships the offer types most stores actually run (volume discounts, fixed bundles, mix-and-match, BOGO) for $0.",
+      "Kaching Bundles App & Upsells is the Shopify App Store's most-reviewed dedicated bundle app as of October 2026: 5.0 from 6,243 reviews, a Built for Shopify badge, and a listing that covers quantity breaks, fixed and mix-and-match bundles, BOGO, free gifts, progress bars, A/B testing, Shopify POS, and nine storefront languages. That depth is real, and so is the price: live stores start at $14.99/month for up to $1,000 of additional revenue, then $29.99 / $59.99 and higher Flex Billing tiers as attributed revenue grows. AppFox Product Bundles is the smaller, newer app - 5.0 from 4 reviews, seven storefront languages, POS unclear - that still ships the offer types most stores actually run (volume discounts, fixed bundles, mix-and-match, BOGO, FBT) for $0.",
     bestFor:
       "Merchants who want volume discounts, mix-and-match, and BOGO without paying a percentage of the extra revenue those offers create - and who can live with a younger widget and a much smaller review base.",
     whyAppfox: [
@@ -63,22 +58,22 @@ export const bundleCompetitors: Competitor[] = [
       },
     ],
     comparison: [
-      { feature: "Price (live stores)", appfox: "Free to install", competitor: "From $14.99/mo" },
-      { feature: "Pricing model", appfox: "No paid plans listed", competitor: "Additional-revenue tiers" },
-      { feature: "Free plan for live stores", appfox: true, competitor: "Dev stores only" },
+      { feature: "Price (live stores)", appfox: "Free", competitor: "From $14.99/mo" },
+      { feature: "Pricing model", appfox: "Free, no limits", competitor: "From $14.99/mo, scales with sales" },
+      { feature: "Free plan for live stores", appfox: true, competitor: "Free on dev stores" },
       { feature: "Shopify App Store rating", appfox: "5.0 (4 reviews)", competitor: "5.0 (6,243 reviews)" },
       { feature: "Built for Shopify badge", appfox: false, competitor: true },
       { feature: "Volume discounts & quantity breaks", appfox: true, competitor: true },
       { feature: "Fixed / classic bundles", appfox: true, competitor: true },
       { feature: "Mix & match / build-a-box", appfox: true, competitor: true },
       { feature: "BOGO / Buy X Get Y", appfox: true, competitor: true },
-      { feature: "Frequently bought together", appfox: "Listed", competitor: true },
-      { feature: "A/B testing", appfox: "Listed", competitor: true },
-      { feature: "Progress bars", appfox: "Not listed", competitor: true },
-      { feature: "Free gifts / gift wrap", appfox: "Gifts listed", competitor: true },
-      { feature: "Shopify POS", appfox: "Not listed", competitor: true },
-      { feature: "Widget / layout customization", appfox: "Theme-integrated widgets", competitor: "Multiple layouts, CSS/HTML" },
-      { feature: "Storefront languages (listing)", appfox: "English", competitor: "9 languages" },
+      { feature: "Frequently bought together", appfox: true, competitor: true },
+      { feature: "A/B testing", appfox: true, competitor: true },
+      { feature: "Progress bars", appfox: "Step indicator on Build-a-Box", competitor: true },
+      { feature: "Free gifts / gift wrap", appfox: "Gifts; wrap via checkbox add-on", competitor: true },
+      { feature: "Shopify POS", appfox: "Unclear", competitor: true },
+      { feature: "Widget / layout customization", appfox: "4 layouts, 3 badge styles, brand presets", competitor: "Multiple layouts, CSS/HTML" },
+      { feature: "Storefront languages", appfox: "7 languages + Shopify locales", competitor: "9 languages" },
       { feature: "Analytics dashboard", appfox: true, competitor: true },
     ],
     faq: [
@@ -114,7 +109,7 @@ export const bundleCompetitors: Competitor[] = [
       {
         title: "Languages and live chat",
         description:
-          "Kaching lists nine storefront languages and live chat support. AppFox lists English and email support. If your storefront is not English-first, or you want chat while you build the first offer, Kaching wins that moment.",
+          "Kaching lists nine storefront languages and live chat support. AppFox ships seven built-in languages plus any Shopify locale, and in-app live chat. Kaching still wins on review volume and the extra two languages.",
       },
     ],
     sources: [
@@ -135,9 +130,9 @@ export const bundleCompetitors: Competitor[] = [
       "Fast Bundle is a broad bundle-and-upsell suite with AI frequently-bought-together and bundle-as-product. AppFox Product Bundles does the core offers, free, without a sales meter.",
     framing:
       "Fast Bundle prices live stores on monthly bundle sales from $19/month; AppFox Product Bundles is free, so the real question is whether you need AI recommendations and bundle-as-product, or volume discounts and mix-and-match that simply run.",
-    metaTitle: "AppFox vs Fast Bundle: Shopify Bundle Apps Compared",
+    metaTitle: "Fast Bundle Alternative: AppFox Product Bundles vs Fast Bundle (2026)",
     metaDescription:
-      "Fast Bundle meters live plans on bundle sales from $19/mo; AppFox Product Bundles is free, with volume discounts, mix-and-match, and BOGO. Compare side by side.",
+      "Looking for a Fast Bundle alternative? AppFox is free for volume discounts, mix-and-match, and BOGO. Fast Bundle adds AI FBT and bundle-as-product, from $19/mo as sales grow.",
     intro:
       "Fast Bundle (FBP) is one of the broadest bundle suites on the App Store: 5.0 from 3,533 reviews, mix-and-match, fixed bundles, BOGO, Buy X Get Y, volume discounts, product add-ons, AI-powered frequently bought together, and a dedicated bundle-as-product flow. Live pricing is a sales meter - Standard plans at $19 / $49 / $139 per month tied to monthly bundle revenue, with a free tier for development stores and eligible merchants up to $500/month, and an Enterprise tier (listed around $249–$299/month) for unlimited revenue, cart detection, and POS. AppFox Product Bundles is narrower and free: the common offer types, theme-integrated widgets, and analytics, without AI merchandising or a published paid ladder.",
     bestFor:
@@ -165,20 +160,20 @@ export const bundleCompetitors: Competitor[] = [
       },
     ],
     comparison: [
-      { feature: "Price (live stores)", appfox: "Free to install", competitor: "From $19/mo" },
-      { feature: "Pricing model", appfox: "No paid plans listed", competitor: "Monthly bundle-sales tiers" },
-      { feature: "Free plan", appfox: "Unlimited bundles listed", competitor: "Dev stores / eligible, up to $500/mo" },
+      { feature: "Price (live stores)", appfox: "Free", competitor: "From $19/mo" },
+      { feature: "Pricing model", appfox: "Free, no limits", competitor: "From $19/mo, scales with sales" },
+      { feature: "Free plan", appfox: "Free, no limits", competitor: "Free on dev stores, or up to $500/mo" },
       { feature: "Shopify App Store rating", appfox: "5.0 (4 reviews)", competitor: "5.0 (3,533 reviews)" },
       { feature: "Volume discounts & quantity breaks", appfox: true, competitor: true },
       { feature: "Fixed / classic bundles", appfox: true, competitor: true },
       { feature: "Mix & match / build-a-box", appfox: true, competitor: true },
       { feature: "BOGO / Buy X Get Y", appfox: true, competitor: true },
-      { feature: "Frequently bought together", appfox: "Listed", competitor: "AI FBT on paid plans" },
-      { feature: "Bundle as a product (combo SKU)", appfox: "Not listed", competitor: true },
-      { feature: "Product add-ons", appfox: "Not listed", competitor: true },
-      { feature: "Shopify POS", appfox: "Not listed", competitor: "Listed; Enterprise on their pricing page" },
-      { feature: "Subscription-app integrations", appfox: "Not listed", competitor: "Standard+" },
-      { feature: "Storefront languages (listing)", appfox: "English", competitor: "10 languages" },
+      { feature: "Frequently bought together", appfox: true, competitor: "AI FBT on paid plans" },
+      { feature: "Bundle as a product (combo SKU)", appfox: false, competitor: true },
+      { feature: "Product add-ons", appfox: true, competitor: true },
+      { feature: "Shopify POS", appfox: "Unclear", competitor: "Enterprise plan" },
+      { feature: "Subscription-app integrations", appfox: false, competitor: "Standard+" },
+      { feature: "Storefront languages", appfox: "7 languages + Shopify locales", competitor: "10 languages" },
       { feature: "Analytics dashboard", appfox: true, competitor: true },
     ],
     faq: [
@@ -234,9 +229,9 @@ export const bundleCompetitors: Competitor[] = [
       "Bundler earned a following with a useful free plan and flat paid tiers. AppFox Product Bundles puts mix-and-match and analytics on the free install, not behind an upgrade.",
     framing:
       "Bundler's free plan is genuinely useful for volume discounts and Buy X Get Y; mix-and-match and analytics sit on $9.99 and $19.99 plans. AppFox includes those on a free listing, with a much smaller review base.",
-    metaTitle: "AppFox vs Bundler: Shopify Product Bundles Compared",
+    metaTitle: "Bundler Alternative: AppFox Product Bundles vs Bundler (2026)",
     metaDescription:
-      "Bundler puts mix-and-match on $9.99/mo and analytics on $19.99/mo; AppFox Product Bundles includes both on a free install. Compare features and trade-offs.",
+      "Looking for a Bundler alternative? AppFox includes mix-and-match and analytics on a free install. Bundler’s free plan is strong for volume discounts and POS; mix-and-match starts at $9.99/mo.",
     intro:
       "Bundler is a long-running, Built for Shopify bundle app: 4.9 from 2,719 reviews, launched in 2019, with a free plan that is not a demo. That free tier includes unlimited revenue, Buy X Get Y, volume discounts and quantity breaks, product-page upsells, Shopify POS, and auto-apply discounts. Mix-and-match, landing pages, and funnel upsells unlock at $9.99/month; the analytics dashboard is $19.99/month. AppFox Product Bundles is newer and much less proven (4 reviews) but lists mix-and-match, BOGO, volume discounts, and analytics on a free install, without POS or Bundler's 17 listing languages.",
     bestFor:
@@ -264,8 +259,8 @@ export const bundleCompetitors: Competitor[] = [
       },
     ],
     comparison: [
-      { feature: "Price", appfox: "Free to install", competitor: "Free, then $9.99 / $19.99/mo" },
-      { feature: "Free-plan revenue cap", appfox: "None listed", competitor: "Unlimited revenue & orders" },
+      { feature: "Price", appfox: "Free", competitor: "Free, then $9.99 / $19.99/mo" },
+      { feature: "Free-plan revenue cap", appfox: "None", competitor: "Unlimited revenue & orders" },
       { feature: "Shopify App Store rating", appfox: "5.0 (4 reviews)", competitor: "4.9 (2,719 reviews)" },
       { feature: "Built for Shopify badge", appfox: false, competitor: true },
       { feature: "Volume discounts & quantity breaks", appfox: true, competitor: "On free plan" },
@@ -273,10 +268,10 @@ export const bundleCompetitors: Competitor[] = [
       { feature: "Mix & match / build-a-box", appfox: true, competitor: "From $9.99/mo" },
       { feature: "Bundle analytics", appfox: true, competitor: "From $19.99/mo" },
       { feature: "Product-page upsells", appfox: true, competitor: "On free plan" },
-      { feature: "Custom landing pages", appfox: "Not listed", competitor: "From $9.99/mo" },
-      { feature: "Shopify POS", appfox: "Not listed", competitor: "On free plan" },
-      { feature: "Subscription-product integration", appfox: "Not listed", competitor: "Listed" },
-      { feature: "Storefront languages (listing)", appfox: "English", competitor: "17 languages" },
+      { feature: "Custom landing pages", appfox: "Hosted Build-a-Box page", competitor: "From $9.99/mo" },
+      { feature: "Shopify POS", appfox: "Unclear", competitor: "On free plan" },
+      { feature: "Subscription-product integration", appfox: false, competitor: true },
+      { feature: "Storefront languages", appfox: "7 languages + Shopify locales", competitor: "17 languages" },
     ],
     faq: [
       {
@@ -330,9 +325,9 @@ export const bundleCompetitors: Competitor[] = [
       "Simple Bundles is the operations app: multi-SKU kits, 3PL sync, packing-slip breakdown. AppFox Product Bundles is the offer app: volume discounts and mix-and-match on the storefront.",
     framing:
       "Simple Bundles solves kitting and inventory - component sync, 3PL, POS. AppFox Product Bundles solves the product-page offer. They overlap on mix-and-match; they are not the same job.",
-    metaTitle: "AppFox vs Simple Bundles: Shopify Kits & Bundles Compared",
+    metaTitle: "Simple Bundles Alternative: AppFox Product Bundles vs Simple Bundles (2026)",
     metaDescription:
-      "Simple Bundles is built for multi-SKU kits and 3PL inventory; AppFox Product Bundles is a free storefront offer app. See what each actually does.",
+      "Looking for a Simple Bundles alternative for storefront offers? AppFox is the free product-page app. Simple Bundles is the kitting and 3PL app — a different job.",
     intro:
       "Simple Bundles & Kits (Freshly Commerce) is a Built for Shopify app rated 4.9 from 804 reviews, and merchants praise it for a reason that has little to do with widgets: it breaks a bundle into component SKUs, syncs inventory across 3PL / WMS / ERP, and prints packing slips that warehouse teams can pick. The free plan is capped at 3 bundles and 50 monthly orders; paid plans are $14 / $39 / $149 per month and add unlimited bundles, POS locations, Shopify Flow, and Hydrogen. AppFox Product Bundles is a different product - storefront offers (volume discounts, mix-and-match, BOGO) with theme widgets and analytics, free, with no published kitting or 3PL story.",
     bestFor:
@@ -360,29 +355,29 @@ export const bundleCompetitors: Competitor[] = [
       },
     ],
     comparison: [
-      { feature: "Price", appfox: "Free to install", competitor: "Free (capped), then $14 / $39 / $149/mo" },
-      { feature: "Free-plan limits", appfox: "None listed", competitor: "3 bundles, 50 orders/mo" },
+      { feature: "Price", appfox: "Free", competitor: "Free (capped), then $14 / $39 / $149/mo" },
+      { feature: "Free-plan limits", appfox: "None", competitor: "3 bundles, 50 orders/mo" },
       { feature: "Shopify App Store rating", appfox: "5.0 (4 reviews)", competitor: "4.9 (804 reviews)" },
       { feature: "Built for Shopify badge", appfox: false, competitor: true },
       { feature: "Volume discounts & quantity breaks", appfox: true, competitor: true },
       { feature: "Mix & match / BYOB", appfox: true, competitor: true },
       { feature: "BOGO", appfox: true, competitor: true },
-      { feature: "Component SKU breakdown for fulfillment", appfox: "Not listed", competitor: true },
-      { feature: "3PL / WMS / ERP inventory sync", appfox: "Not listed", competitor: true },
-      { feature: "Shopify POS", appfox: "Not listed", competitor: "Paid plans" },
-      { feature: "Shopify Flow", appfox: "Not listed", competitor: "Grow & Advanced+" },
-      { feature: "Hydrogen / headless", appfox: "Not listed", competitor: "Plus plan" },
-      { feature: "AI bundle suggestions", appfox: "Not listed", competitor: "On free plan" },
-      { feature: "Storefront languages (listing)", appfox: "English", competitor: "English, French, Japanese" },
+      { feature: "Component SKU breakdown for fulfillment", appfox: false, competitor: true },
+      { feature: "3PL / WMS / ERP inventory sync", appfox: false, competitor: true },
+      { feature: "Shopify POS", appfox: "Unclear", competitor: "Paid plans" },
+      { feature: "Shopify Flow", appfox: false, competitor: "Grow & Advanced+" },
+      { feature: "Hydrogen / headless", appfox: false, competitor: "Plus plan" },
+      { feature: "AI bundle suggestions", appfox: false, competitor: "On free plan" },
+      { feature: "Storefront languages", appfox: "7 languages + Shopify locales", competitor: "English, French, Japanese" },
     ],
     faq: [
       {
         q: "Can AppFox replace Simple Bundles for kits?",
-        a: "Not if you depend on component-level inventory, 3PL sync, or packing-slip breakdown. Those are Simple Bundles' listed strengths and AppFox does not list them. AppFox is a storefront offer app, not a kitting system.",
+        a: "Not if you depend on component-level inventory, 3PL sync, or packing-slip breakdown. Those are Simple Bundles' strengths and AppFox does not have them. AppFox is a storefront offer app, not a kitting system.",
       },
       {
         q: "Is Simple Bundles' free plan comparable to AppFox's?",
-        a: "No. Simple Bundles' free plan is 3 bundles and 50 monthly orders. AppFox lists unlimited bundles on a free install. Simple Bundles' free tier is a trial of the operations product; AppFox's is the whole listed product.",
+        a: "No. Simple Bundles' free plan is 3 bundles and 50 monthly orders. AppFox is free with no bundle cap. Simple Bundles' free tier is a trial of the operations product; AppFox's is the whole product.",
       },
       {
         q: "When is Simple Bundles the better choice?",
@@ -427,9 +422,9 @@ export const bundleCompetitors: Competitor[] = [
       "Wide Bundles sells design control - 100+ customization options and A/B tests. AppFox Product Bundles sells a free, theme-native widget for the same offer types.",
     framing:
       "Wide Bundles meters live stores on additional revenue from $14.99/month and leads with 100+ design options; AppFox Product Bundles is free, with widgets that inherit your theme instead of a large design studio.",
-    metaTitle: "AppFox vs Wide Bundles: Shopify Quantity Breaks Compared",
+    metaTitle: "Wide Bundles Alternative: AppFox Product Bundles vs Wide Bundles (2026)",
     metaDescription:
-      "Wide Bundles meters additional revenue from $14.99/mo and leads on design options; AppFox Product Bundles is free, with theme-integrated widgets. Compare.",
+      "Looking for a Wide Bundles alternative? AppFox is free, with theme-native widgets for quantity breaks, mix-and-match, and BOGO. Wide Bundles leads on 100+ design options from $14.99/mo.",
     intro:
       "Wide Bundles (WideBundle) is a Built for Shopify quantity-break and BOGO app rated 4.9 from 320 reviews. The listing's promise is visual: 100+ customization options, A/B tests, and connectors for PageFly, GemPages, and cart-drawer apps. Live pricing is performance-based - $14.99 / $19.99 / $24.99 per month against additional-revenue caps of $500 / $1,000 / $2,000, with development stores free and a 14-day trial. AppFox Product Bundles lists the same offer family (volume discounts, mix-and-match, BOGO, fixed pricing) on a free install, with widgets that inherit the theme rather than a 100-option design surface.",
     bestFor:
@@ -457,18 +452,18 @@ export const bundleCompetitors: Competitor[] = [
       },
     ],
     comparison: [
-      { feature: "Price (live stores)", appfox: "Free to install", competitor: "From $14.99/mo" },
-      { feature: "Pricing model", appfox: "No paid plans listed", competitor: "Additional-revenue tiers" },
-      { feature: "Free plan for live stores", appfox: true, competitor: "Dev stores; 14-day trial" },
+      { feature: "Price (live stores)", appfox: "Free", competitor: "From $14.99/mo" },
+      { feature: "Pricing model", appfox: "Free, no limits", competitor: "From $14.99/mo, scales with sales" },
+      { feature: "Free plan for live stores", appfox: true, competitor: "Free on dev stores; 14-day trial" },
       { feature: "Shopify App Store rating", appfox: "5.0 (4 reviews)", competitor: "4.9 (320 reviews)" },
       { feature: "Built for Shopify badge", appfox: false, competitor: true },
       { feature: "Volume discounts & quantity breaks", appfox: true, competitor: true },
       { feature: "Mix & match", appfox: true, competitor: true },
       { feature: "BOGO", appfox: true, competitor: true },
-      { feature: "A/B testing", appfox: "Listed", competitor: true },
-      { feature: "Design customization", appfox: "Theme-integrated widgets", competitor: "100+ options listed" },
-      { feature: "Page-builder / cart-drawer integrations", appfox: "Not listed", competitor: "PageFly, GemPages, others" },
-      { feature: "Storefront languages (listing)", appfox: "English", competitor: "8 languages" },
+      { feature: "A/B testing", appfox: true, competitor: true },
+      { feature: "Design customization", appfox: "4 layouts, 3 badge styles, brand presets", competitor: "100+ options" },
+      { feature: "Page-builder / cart-drawer integrations", appfox: false, competitor: "PageFly, GemPages, others" },
+      { feature: "Storefront languages", appfox: "7 languages + Shopify locales", competitor: "8 languages" },
       { feature: "Analytics", appfox: true, competitor: true },
     ],
     faq: [
@@ -478,7 +473,7 @@ export const bundleCompetitors: Competitor[] = [
       },
       {
         q: "Does AppFox have 100+ design options?",
-        a: "Not listed. AppFox describes Shopify 2.0 widgets that inherit the theme. If you need per-pixel control over layouts, colors, and A/B-tested designs, Wide Bundles documents that surface and we do not.",
+        a: "AppFox has four layouts, three badge styles, brand presets, and custom CSS — not 100+ options. If you need per-pixel control, Wide Bundles is further along.",
       },
       {
         q: "When is Wide Bundles the better choice?",
@@ -494,7 +489,7 @@ export const bundleCompetitors: Competitor[] = [
       {
         title: "A/B tests you can actually configure",
         description:
-          "Wide Bundles lists A/B testing as a first-class feature and merchants mention setting tests up. AppFox's listing tags A/B testing under managing discounts; we have not published a comparable testing UI on the marketing site.",
+          "Wide Bundles lists A/B testing as a first-class design feature. AppFox has weighted variants and a pick-a-winner flow. If the job is testing layouts and colors, they have more of a studio.",
       },
       {
         title: "Built for Shopify and review history",
@@ -524,9 +519,9 @@ export const bundleCompetitors: Competitor[] = [
       "Shopify Bundles is the free first-party app for fixed kits and multipacks. AppFox Product Bundles is the offer layer on top: volume discounts, mix-and-match, and BOGO.",
     framing:
       "Shopify Bundles is the right free tool for a fixed kit with component inventory; it does not do mix-and-match, quantity breaks, or BOGO widgets. AppFox Product Bundles starts where the native app stops.",
-    metaTitle: "AppFox vs Shopify Bundles: Free Bundle Apps Compared",
+    metaTitle: "Shopify Bundles Alternative: AppFox Product Bundles vs Shopify Bundles (2026)",
     metaDescription:
-      "Shopify Bundles is free for fixed kits and multipacks only. AppFox Product Bundles adds volume discounts, mix-and-match, and BOGO - also free. Compare both.",
+      "Looking for a Shopify Bundles alternative for mix-and-match or quantity breaks? The first-party app is free for fixed kits only. AppFox adds volume discounts, mix-and-match, and BOGO — also free.",
     intro:
       "Shopify Bundles is Shopify's own free app: create fixed bundles and multipacks in the admin, let customers pick component variants, and keep component inventory in sync. It is available on every Shopify plan, sells on the Online Store, Shop, POS, and headless, and needs no third-party billing. It is also narrowly scoped. The App Store listing names two bundle types (fixed, multipacks) and one pricing model (fixed pricing). The help center documents hard limits - 30 components on a fixed bundle, 3 options / 100 variants, no location-level inventory, and bundle prices that do not update when a component price changes. Merchants have rated it 2.9 from 568 reviews. AppFox Product Bundles is a third-party offer app: volume discounts, mix-and-match, BOGO, and theme widgets, free to install, with 4 reviews and none of Shopify's native admin or POS sales-channel coverage.",
     bestFor:
@@ -554,16 +549,16 @@ export const bundleCompetitors: Competitor[] = [
       },
     ],
     comparison: [
-      { feature: "Price", appfox: "Free to install", competitor: "Free" },
+      { feature: "Price", appfox: "Free", competitor: "Free" },
       { feature: "Shopify App Store rating", appfox: "5.0 (4 reviews)", competitor: "2.9 (568 reviews)" },
       { feature: "Fixed bundles & multipacks", appfox: true, competitor: true },
       { feature: "Mix & match / build-a-box", appfox: true, competitor: false },
       { feature: "Volume discounts & quantity breaks", appfox: true, competitor: false },
       { feature: "BOGO / Buy X Get Y", appfox: true, competitor: false },
       { feature: "Theme app-block widgets", appfox: true, competitor: "Native product page" },
-      { feature: "Component inventory sync", appfox: "Theme / listing: stock checks", competitor: "Realtime components" },
-      { feature: "Shopify POS sales channel", appfox: "Not listed", competitor: true },
-      { feature: "Shop app / headless channels", appfox: "Not listed", competitor: true },
+      { feature: "Component inventory sync", appfox: "Theme stock checks", competitor: "Realtime components" },
+      { feature: "Shopify POS sales channel", appfox: "Unclear", competitor: true },
+      { feature: "Shop app / headless channels", appfox: false, competitor: true },
       { feature: "First-party Shopify admin app", appfox: false, competitor: true },
       { feature: "Bundle price follows component price", appfox: "Discount rules", competitor: "Manual update required" },
       { feature: "Analytics", appfox: "Bundle sales reports", competitor: "Sales, orders, top bundles" },
@@ -621,9 +616,9 @@ export const bundleCompetitors: Competitor[] = [
       "Rebolt is an older bundle-and-upsell suite with checkout and post-purchase offers. AppFox Product Bundles is the free, narrower app for volume discounts and mix-and-match.",
     framing:
       "Rebolt is free until $300 of bundle revenue, then $19.99/month, and lists checkout, post-purchase, and free-gift offers AppFox does not. AppFox is free past that $300 line, with a much smaller review base.",
-    metaTitle: "AppFox vs Rebolt: Shopify Bundle Apps Compared",
+    metaTitle: "Rebolt Alternative: AppFox Product Bundles vs Rebolt (2026)",
     metaDescription:
-      "Rebolt is free to $300 bundle revenue, then $19.99/mo, with checkout and post-purchase upsells. AppFox Product Bundles stays free. Compare both honestly.",
+      "Looking for a Rebolt alternative? AppFox stays free past the $300 line for product-page bundles. Rebolt adds checkout and thank-you upsells, then $19.99/mo.",
     intro:
       "Rebolt Upsell & Bundles (Bristm LLP) has been on the App Store since 2018 and is rated 4.8 from 586 reviews. The listing is a suite: fixed and mix-and-match bundles, BOGO, volume discounts, frequently bought together, free gifts, add-ons, plus checkout, cart, and post-purchase / thank-you upsells, with A/B testing and POS in Works with. Pricing is a short free runway - free until $300 of bundle revenue - then $19.99/month unlimited, or a $299/month custom-development tier. AppFox Product Bundles lists the storefront offer types (volume discounts, mix-and-match, BOGO, analytics) on a free install and does not list checkout or post-purchase upsells, POS, or a paid plan.",
     bestFor:
@@ -651,18 +646,18 @@ export const bundleCompetitors: Competitor[] = [
       },
     ],
     comparison: [
-      { feature: "Price", appfox: "Free to install", competitor: "Free to $300 revenue, then $19.99/mo" },
+      { feature: "Price", appfox: "Free", competitor: "Free to $300 revenue, then $19.99/mo" },
       { feature: "Shopify App Store rating", appfox: "5.0 (4 reviews)", competitor: "4.8 (586 reviews)" },
       { feature: "Volume discounts & quantity breaks", appfox: true, competitor: true },
       { feature: "Mix & match / build-a-box", appfox: true, competitor: true },
       { feature: "BOGO / Buy X Get Y", appfox: true, competitor: true },
-      { feature: "Frequently bought together", appfox: "Listed", competitor: true },
-      { feature: "Free gifts / add-ons", appfox: "Gifts listed", competitor: true },
-      { feature: "Checkout upsells", appfox: "Not listed", competitor: true },
-      { feature: "Post-purchase / thank-you upsells", appfox: "Not listed", competitor: true },
-      { feature: "A/B testing", appfox: "Listed", competitor: true },
-      { feature: "Shopify POS", appfox: "Not listed", competitor: true },
-      { feature: "Page-builder / cart-drawer integrations", appfox: "Not listed", competitor: "Listed" },
+      { feature: "Frequently bought together", appfox: true, competitor: true },
+      { feature: "Free gifts / add-ons", appfox: true, competitor: true },
+      { feature: "Checkout upsells", appfox: false, competitor: true },
+      { feature: "Post-purchase / thank-you upsells", appfox: false, competitor: true },
+      { feature: "A/B testing", appfox: true, competitor: true },
+      { feature: "Shopify POS", appfox: "Unclear", competitor: true },
+      { feature: "Page-builder / cart-drawer integrations", appfox: false, competitor: true },
       { feature: "Analytics", appfox: true, competitor: true },
     ],
     faq: [
@@ -672,7 +667,7 @@ export const bundleCompetitors: Competitor[] = [
       },
       {
         q: "How does Rebolt's free tier compare to AppFox?",
-        a: "Rebolt is free until $300 of bundle revenue, then $19.99/month for the same feature list. AppFox lists a free install with no published revenue cap. Rebolt's free tier is a runway; AppFox's is the listed product.",
+        a: "Rebolt is free until $300 of bundle revenue, then $19.99/month for the same feature list. AppFox is free with no revenue cap. Rebolt's free tier is a runway; AppFox's is the whole product.",
       },
       {
         q: "When is Rebolt the better choice?",

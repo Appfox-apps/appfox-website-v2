@@ -73,9 +73,23 @@
       always win over element defaults. ─ */
 
 @layer base {
+:root {
+  /*
+   * Floating island Navbar: header is fixed; inner wrap is mt-6 (1.5rem);
+   * the pill is py-3 plus the Install-free / logo row (~3.75rem). Add a
+   * 0.5rem gap so sticky compare headers sit fully below the pill on
+   * desktop and mobile. Keep Navbar spacing in sync with these values.
+   */
+  --site-nav-inset: 1.5rem;
+  --site-nav-pill: 3.75rem;
+  --site-nav-gap: 0.5rem;
+  --compare-sticky-top: calc(var(--site-nav-inset) + var(--site-nav-pill) + var(--site-nav-gap));
+}
+
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 88px;
+  /* Keep in lockstep with Navbar: mt-6 inset + pill + gap. */
+  scroll-padding-top: var(--compare-sticky-top);
 }
 
 body {
@@ -579,7 +593,7 @@ html.js [data-compare-more]:not([data-open]) [data-compare-extra] {
 }
 thead .compare-sticky-col {
   z-index: 5;
-  background: color-mix(in srgb, var(--color-paper-raised) 95%, transparent);
+  background: color-mix(in srgb, var(--color-paper) 85%, transparent);
   backdrop-filter: blur(10px);
 }
 tr:hover .compare-sticky-col {

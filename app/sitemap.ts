@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 import { competitors } from "@/data/competitors";
+import { bundleAlternativeSlugs } from "@/data/bundle-compare";
 import { posts } from "@/data/posts";
 
 /**
@@ -33,8 +34,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/terms`, lastModified, changeFrequency: "yearly", priority: 0.2 },
   ];
 
-  const comparisonRoutes: MetadataRoute.Sitemap = competitors.map((c) => ({
-    url: `${site.url}/vs/${c.slug}`,
+  const comparisonSlugs = new Set([
+    ...competitors.map((c) => c.slug),
+    ...bundleAlternativeSlugs(),
+  ]);
+  const comparisonRoutes: MetadataRoute.Sitemap = [...comparisonSlugs].map((slug) => ({
+    url: `${site.url}/vs/${slug}`,
     lastModified,
     changeFrequency: "monthly",
     priority: 0.7,

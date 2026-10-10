@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { CtaBand } from "@/components/site/CtaBand";
@@ -10,22 +11,14 @@ import { MultiCompareTable } from "@/components/compare/MultiCompareTable";
 import { VsIndexRow } from "@/components/vs/VsIndexRow";
 import {
   bundleCompare,
-  hubVendors,
+  getBundleAlternative,
   listBundleAlternatives,
+  pairVendors,
   UNCLEAR_NOTE,
   vendorById,
 } from "@/data/bundle-compare";
 import { getApp } from "@/data/apps";
-import { routeMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
-
-const path = "/product-bundles/compare";
-const pageUrl = `${site.url}${path}`;
-const bundlesApp = getApp("product-bundles")!;
-const alternatives = listBundleAlternatives();
-const tableVendors = hubVendors();
-
-export const metadata = routeMeta.productBundlesCompare;
 
 const plusIcon = (
   <span
@@ -38,33 +31,40 @@ const plusIcon = (
   </span>
 );
 
-const breadcrumbLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "@id": `${pageUrl}#breadcrumb`,
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: site.url },
-    { "@type": "ListItem", position: 2, name: "Product Bundles", item: `${site.url}/product-bundles` },
-    { "@type": "ListItem", position: 3, name: "Compare" },
-  ],
-};
+export function BundlesAlternativePage({ slug }: { slug: string }) {
+  const alternative = getBundleAlternative(slug);
+  if (!alternative) notFound();
 
-const faqLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "@id": `${pageUrl}#faq`,
-  mainEntity: bundleCompare.faq.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
+  const vendor = vendorById(alternative.vendorId);
+  if (!vendor) notFound();
 
-export default function ProductBundlesComparePage() {
-  const names = tableVendors
-    .filter((v) => !v.highlight)
-    .map((v) => v.shortName);
-  const titleTail = `${names.slice(0, -1).join(", ")} & ${names.at(-1)}`;
+  const vendors = pairVendors(alternative.vendorId);
+  const others = listBundleAlternatives().filter((a) => a.slug !== alternative.slug);
+  const bundlesApp = getApp("product-bundles")!;
+  const path = `/vs/${alternative.slug}`;
+  const pageUrl = `${site.url}${path}`;
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      { "@type": "ListItem", position: 2, name: "Compare bundle apps", item: `${site.url}/product-bundles/compare` },
+      { "@type": "ListItem", position: 3, name: alternative.h1 },
+    ],
+  };
+
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    mainEntity: alternative.faq.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
 
   return (
     <>
@@ -85,27 +85,25 @@ export default function ProductBundlesComparePage() {
                   /
                 </li>
                 <li>
-                  <Link href="/product-bundles" className="transition-colors hover:text-brand-700">
-                    Product Bundles
+                  <Link href="/product-bundles/compare" className="transition-colors hover:text-brand-700">
+                    Compare
                   </Link>
                 </li>
                 <li aria-hidden="true" className="text-ink-300">
                   /
                 </li>
                 <li aria-current="page" className="text-ink-700">
-                  Compare
+                  {vendor.shortName} alternative
                 </li>
               </ol>
             </nav>
 
-            <h1 className="enter-rise mt-5 max-w-4xl">
-              AppFox <span className="wonk text-marigold-700">vs</span> {titleTail}
-            </h1>
+            <h1 className="enter-rise mt-5 max-w-4xl">{alternative.h1}</h1>
             <p
               className="enter-fade-rise mt-6 max-w-[62ch] text-xl leading-[1.55] text-ink-700"
               style={{ animationDelay: "140ms" }}
             >
-              {bundleCompare.tagline}
+              {alternative.tagline}
             </p>
             <div
               className="enter-fade-rise mt-9 flex flex-col gap-4 sm:flex-row"
@@ -129,61 +127,37 @@ export default function ProductBundlesComparePage() {
             <Reveal>
               <h2 className="mt-8 max-w-2xl">The short version</h2>
             </Reveal>
-            <div className="mt-8 grid items-start gap-8 lg:grid-cols-12 lg:gap-14">
-              <Reveal delay={80} className="lg:col-span-7">
-                <p className="max-w-[62ch] text-lg leading-relaxed text-ink-700">
-                  {bundleCompare.intro}
-                </p>
-              </Reveal>
-              <Reveal delay={180} className="lg:col-span-5">
-                <div className="card-tinted p-7">
-                  <p className="till text-[0.75rem] uppercase tracking-[0.14em] text-brand-700">
-                    Best for
-                  </p>
-                  <p className="mt-3 leading-relaxed text-ink-900">{bundleCompare.bestFor}</p>
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </section>
-
-        <section id="roadmap" className="py-16 sm:py-24">
-          <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-            <Reveal variant="none">
-              <SectionSlug
-                no="02"
-                label="PUBLIC ROADMAP"
-                caption="What In development and Planned mean — we are not using them yet."
-              />
+            <Reveal delay={80}>
+              <p className="mt-8 max-w-[62ch] text-lg leading-relaxed text-ink-700">
+                {alternative.summary}
+              </p>
             </Reveal>
-            <Reveal>
-              <h2 className="mt-8 max-w-2xl">What the status words mean</h2>
-            </Reveal>
-            <div className="mt-10 grid gap-5 md:grid-cols-2">
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
               <Reveal className="h-full">
                 <article className="card h-full p-7">
-                  <p className="till text-[0.75rem] uppercase tracking-[0.14em] text-brand-700">
-                    In development
+                  <p className="till text-[0.75rem] uppercase tracking-[0.14em] text-marigold-700">
+                    Better there
                   </p>
-                  <p className="mt-3 leading-relaxed text-ink-700">
-                    {bundleCompare.roadmap.inDevelopment}
-                  </p>
+                  <p className="mt-3 leading-relaxed text-ink-700">{alternative.betterFit}</p>
                 </article>
               </Reveal>
               <Reveal delay={80} className="h-full">
                 <article className="card h-full p-7">
                   <p className="till text-[0.75rem] uppercase tracking-[0.14em] text-ink-500">
-                    Planned
+                    What we don&apos;t do
                   </p>
-                  <p className="mt-3 leading-relaxed text-ink-700">{bundleCompare.roadmap.planned}</p>
+                  <p className="mt-3 leading-relaxed text-ink-700">{alternative.gaps}</p>
+                </article>
+              </Reveal>
+              <Reveal delay={160} className="h-full">
+                <article className="card-tinted h-full p-7">
+                  <p className="till text-[0.75rem] uppercase tracking-[0.14em] text-brand-700">
+                    Who should switch
+                  </p>
+                  <p className="mt-3 leading-relaxed text-ink-900">{alternative.whoShouldSwitch}</p>
                 </article>
               </Reveal>
             </div>
-            <Reveal delay={120}>
-              <p className="mt-6 max-w-[62ch] text-[0.9375rem] leading-relaxed text-ink-500">
-                {bundleCompare.roadmap.note}
-              </p>
-            </Reveal>
           </div>
         </section>
 
@@ -196,7 +170,7 @@ export default function ProductBundlesComparePage() {
               <Reveal>
                 <h2 className="mt-8 max-w-2xl">{section.title}</h2>
               </Reveal>
-              <MultiCompareTable section={section} vendors={tableVendors} className="mt-10" />
+              <MultiCompareTable section={section} vendors={vendors} className="mt-10" />
             </div>
           </section>
         ))}
@@ -204,14 +178,17 @@ export default function ProductBundlesComparePage() {
         <section id="sources" className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
             <p className="text-sm text-ink-500">
-              Checked {bundleCompare.checked}. Competitor columns are from public docs, checked
-              October 2026. Pricing and features may change. {UNCLEAR_NOTE}
+              Checked {bundleCompare.checked}. Same cells as{" "}
+              <Link href="/product-bundles/compare" className="underline decoration-paper-edge underline-offset-2 hover:text-brand-700">
+                the comparison hub
+              </Link>
+              . Pricing and features may change. {UNCLEAR_NOTE}
             </p>
             <p className="mt-4 till text-[0.75rem] uppercase tracking-[0.14em] text-ink-500">
               Sources
             </p>
             <ul className="mt-2 space-y-1 text-sm text-ink-500">
-              {bundleCompare.sources.map((source) => (
+              {alternative.sources.map((source) => (
                 <li key={source.url}>
                   <a
                     href={source.url}
@@ -227,38 +204,17 @@ export default function ProductBundlesComparePage() {
           </div>
         </section>
 
-        <section id="feature-request" className="py-16 sm:py-24">
-          <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-            <div className="card-tinted p-8 sm:p-10">
-              <p className="till text-[0.75rem] uppercase tracking-[0.14em] text-brand-700">
-                Feature request
-              </p>
-              <h2 className="mt-4 max-w-2xl">Missing a row you need?</h2>
-              <p className="mt-4 max-w-[62ch] text-lg leading-relaxed text-ink-700">
-                Tell us what to check. We will not guess, and we will not mark it In development
-                unless we have said so in public.
-              </p>
-              <a
-                href={`mailto:${site.supportEmail}?subject=${encodeURIComponent("Product Bundles feature request")}`}
-                className="btn-primary mt-8"
-              >
-                Email {site.supportEmail}
-              </a>
-            </div>
-          </div>
-        </section>
-
         <section id="faq" className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
             <Reveal variant="none">
-              <SectionSlug no="10" label="HONEST QUESTIONS" caption="Straight answers, no hedging." />
+              <SectionSlug no="10" label="SWITCHING QUESTIONS" caption="Straight answers, no hedging." />
             </Reveal>
             <Reveal>
-              <h2 className="mt-8 max-w-2xl">Questions we would ask this page</h2>
+              <h2 className="mt-8 max-w-2xl">Switching from {vendor.shortName}?</h2>
             </Reveal>
             <div className="mt-8 max-w-3xl divide-y divide-paper-edge border-y border-paper-edge">
               <StaggerGroup step={60}>
-                {bundleCompare.faq.map((faq, i) => (
+                {alternative.faq.map((faq, i) => (
                   <Reveal key={faq.q} index={i}>
                     <AccordionItem
                       buttonClassName="flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left"
@@ -285,29 +241,33 @@ export default function ProductBundlesComparePage() {
           </div>
         </section>
 
-        <section id="one-to-one" className="py-16 sm:py-24">
+        <section id="keep-comparing" className="py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
             <Reveal variant="none">
-              <SectionSlug
-                no="11"
-                label="KEEP COMPARING"
-                caption="Optional deeper write-ups, including Wide Bundles and Rebolt."
-              />
+              <SectionSlug no="11" label="KEEP COMPARING" caption="The hub, then the other alternatives." />
             </Reveal>
             <Reveal>
-              <h2 className="mt-8 max-w-2xl">Each app as an alternative</h2>
+              <h2 className="mt-8 max-w-2xl">More bundle app comparisons</h2>
             </Reveal>
             <ul className="mt-8 max-w-5xl divide-y divide-paper-edge border-b border-paper-edge">
               <StaggerGroup step={70}>
-                {alternatives.map((alt, i) => {
-                  const vendor = vendorById(alt.vendorId);
+                <Reveal as="li" index={0}>
+                  <VsIndexRow
+                    href="/product-bundles/compare"
+                    numeral="00"
+                    title="Best Shopify bundle apps compared"
+                    category="Hub"
+                    action="OPEN TABLE"
+                  />
+                </Reveal>
+                {others.map((alt, i) => {
+                  const other = vendorById(alt.vendorId);
                   return (
-                    <Reveal key={alt.slug} as="li" index={i}>
+                    <Reveal key={alt.slug} as="li" index={i + 1}>
                       <VsIndexRow
                         href={`/vs/${alt.slug}`}
                         numeral={String(i + 1).padStart(2, "0")}
-                        title={`${vendor?.shortName ?? alt.slug} alternative`}
-                        framing={alt.tagline}
+                        title={`${other?.shortName ?? alt.slug} alternative`}
                         action="READ"
                       />
                     </Reveal>
@@ -319,11 +279,11 @@ export default function ProductBundlesComparePage() {
         </section>
 
         <CtaBand
-          headline="The offer types most stores run, on a free install"
-          body="Volume discounts, mix-and-match, BOGO, FBT, gifts, A/B tests, and seven storefront languages on a free install. Four reviews and no verified POS — if that is a deal-breaker, the table above says so."
+          headline={`${vendor.shortName} alternative, on a free install`}
+          body="Volume discounts, mix-and-match, BOGO, FBT, and gifts. Four reviews and no verified POS — if that is a deal-breaker, the table above says so."
           primaryHref={bundlesApp.installUrl}
-          secondaryLabel="Product Bundles overview"
-          secondaryHref="/product-bundles"
+          secondaryLabel="All bundle apps compared"
+          secondaryHref="/product-bundles/compare"
           from="paper"
         />
       </main>
