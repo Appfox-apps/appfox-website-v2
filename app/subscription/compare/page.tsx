@@ -176,10 +176,10 @@ export default function SubscriptionComparePage() {
         <section id="sources" className="py-16 sm:py-20">
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
             <p className="text-sm text-ink-500">
-              AppFox column checked against the product on {subscriptionCompare.checked}, using the
-              public product docs and the App Store listing. Competitor columns are from public App
-              Store listings checked the same day. A question mark means we could not confirm the
-              cell. Pricing and features may change.
+              AppFox column checked against the product on {subscriptionCompare.checked}. Competitor
+              columns were checked the same day against each app&apos;s public help center, pricing
+              page, and feature pages. A question mark means those pages do not say. Pricing and
+              features may change.
             </p>
             <ColumnCheckNotes vendors={subscriptionCompare.vendors} />
             <CompareFootnotes notes={subscriptionCompare.footnotes} />

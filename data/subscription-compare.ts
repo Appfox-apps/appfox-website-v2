@@ -3,17 +3,19 @@
  *
  * AppFox cells were checked on 10 October 2026 against the public product
  * docs (https://subscriptions-docs.getappfox.com) and the App Store listing
- * (https://apps.shopify.com/appfox-subscriptions). The private repository
- * Appfox-apps/subscriptions-remix returned 404 to the environment that
- * prepared this file, so the column follows those docs, which name the
- * admin screens, portal toggles, email events, and the free-install switch.
- * The billing doc matches APP_IS_FREE: free for new installs, 0% transaction
- * fees, every feature unlocked. A merchant already on a paid plan keeps it.
+ * (https://apps.shopify.com/appfox-subscriptions). One-click checkout links
+ * and inventory forecast were confirmed in the product code: the admin route
+ * app/routes/app.quick-checkout.tsx builds a checkout link for a variant and
+ * a selling plan, with optional email prefill and Shop Pay, and there is no
+ * inventory-forecast code. The billing doc matches APP_IS_FREE: free for new
+ * installs, 0% transaction fees, every feature unlocked. A merchant already
+ * on a paid plan keeps it.
  *
- * Competitor cells are from public Shopify App Store listings fetched the
- * same day. A "?" means that listing or the docs we opened did not confirm
- * it. Do not turn "?" into yes. No In development or Planned cells: we do
- * not have a public roadmap for the gaps below.
+ * Competitor cells were checked the same day against public help centers,
+ * docs, pricing pages, and feature pages, then the App Store listing where
+ * the docs are silent. A "?" means those pages do not say. Do not turn "?"
+ * into yes. No In development or Planned cells: we do not have a public
+ * roadmap for the gaps below.
  *
  * Copy stays in merchant language. Do not use "Listed", "Not listed", or
  * "No paid plans listed".
@@ -65,7 +67,7 @@ function row(
 }
 
 const CHECKED_PRODUCT = "Checked against the product on 10 Oct 2026";
-const CHECKED_LISTING = "Checked against the listing on 10 Oct 2026";
+const CHECKED_DOCS = "Checked against public docs on 10 Oct 2026";
 
 export const subscriptionCompare: CompareTable = {
   product: "subscription",
@@ -76,7 +78,7 @@ export const subscriptionCompare: CompareTable = {
   bestFor:
     "A new store that wants subscribe-and-save, a portal, and build-a-box without an app bill, and can live with one public review.",
   intro:
-    "This is a vendor page. AppFox Subscriptions is free for new installs, with 0% transaction fees and the features below unlocked. The current App Store listing is 5.0 from 1 review, launched 10 September 2026, and it does not have a Built for Shopify badge. Recharge, Appstle, Seal, Loop, and Skio have the review history and, in some cases, cancel-flow tools we do not ship. A question mark means the public listing or the docs we opened on 10 October 2026 did not confirm that cell. We do not mark gaps as In development.",
+    "This is a vendor page. AppFox Subscriptions is free for new installs, with 0% transaction fees and the features below unlocked. The current App Store listing is 5.0 from 1 review, launched 10 September 2026, and it does not have a Built for Shopify badge. Recharge, Appstle, Seal, Loop, and Skio have the review history and, in some cases, cancel-flow tools we do not ship. A question mark means the public help center, pricing page, or feature page we opened on 10 October 2026 does not say. We do not mark gaps as In development.",
   vendors: [
     {
       id: A,
@@ -93,7 +95,7 @@ export const subscriptionCompare: CompareTable = {
       shortName: "Recharge",
       priceChip: "From $25/mo",
       href: "/vs/recharge",
-      checked: CHECKED_LISTING,
+      checked: CHECKED_DOCS,
     },
     {
       id: P,
@@ -101,7 +103,7 @@ export const subscriptionCompare: CompareTable = {
       shortName: "Appstle",
       priceChip: "Free to $500",
       href: "/vs/appstle",
-      checked: CHECKED_LISTING,
+      checked: CHECKED_DOCS,
     },
     {
       id: S,
@@ -109,7 +111,7 @@ export const subscriptionCompare: CompareTable = {
       shortName: "Seal",
       priceChip: "Free, then $5.95",
       href: "/vs/seal-subscriptions",
-      checked: CHECKED_LISTING,
+      checked: CHECKED_DOCS,
     },
     {
       id: L,
@@ -117,7 +119,7 @@ export const subscriptionCompare: CompareTable = {
       shortName: "Loop",
       priceChip: "Free to 50 subs",
       href: "/vs/loop-subscriptions",
-      checked: CHECKED_LISTING,
+      checked: CHECKED_DOCS,
     },
     {
       id: K,
@@ -125,7 +127,7 @@ export const subscriptionCompare: CompareTable = {
       shortName: "Skio",
       priceChip: "$599/mo",
       href: "/vs/skio",
-      checked: CHECKED_LISTING,
+      checked: CHECKED_DOCS,
     },
   ],
   roadmap: {
@@ -170,7 +172,7 @@ export const subscriptionCompare: CompareTable = {
     },
     {
       id: "9",
-      text: "Not in the listing bullets or the docs we opened on 10 October 2026. We are not guessing.",
+      text: "Not in the public help center, pricing page, or feature pages we opened on 10 October 2026.",
     },
   ],
   sections: [
@@ -263,10 +265,10 @@ export const subscriptionCompare: CompareTable = {
         }, { more: true }),
         row("annual", "Annual app bill", {
           [A]: text("No app bill for new installs"),
-          [R]: unknown("9"),
+          [R]: text("Monthly. Plus and Custom are 12-month terms."),
           [P]: text("$96 / $288 / $960 a year"),
           [S]: text("20% off the monthly price"),
-          [L]: unknown("9"),
+          [L]: text("The public plans are monthly"),
           [K]: text("$5,988/yr (17% off)"),
         }, { more: true }),
       ],
@@ -280,91 +282,91 @@ export const subscriptionCompare: CompareTable = {
       rows: [
         row("discount", "Percent or fixed subscriber discount", {
           [A]: text("Percent or fixed amount"),
-          [R]: partial("Tiered discounts on the $499 plan"),
+          [R]: text("Percent off or amount off"),
           [P]: partial("Tiered discounts advertised"),
           [S]: text("Tiered discounts on the free plan"),
           [L]: partial("Dynamic discounts in the overview"),
-          [K]: unknown("4"),
+          [K]: text("Percent off or a set price"),
         }),
         row("frequencies", "More than one frequency on a plan", {
           [A]: yes,
-          [R]: unknown("9"),
+          [R]: text("Days, weeks, or months on one product"),
           [P]: text("On the free plan"),
-          [S]: unknown("9"),
-          [L]: unknown("9"),
-          [K]: unknown("9"),
+          [S]: text("Daily, weekly, monthly, or yearly"),
+          [L]: text("Several frequencies on one selling plan"),
+          [K]: text("Each frequency is its own interval"),
         }),
         row("intro", "Lower price for the first cycles", {
           [A]: text("Intro price, then the normal discount"),
-          [R]: unknown("9"),
-          [P]: unknown("9"),
+          [R]: text("Initial discount for a set number of orders"),
+          [P]: text("Joining discount, then later rewards"),
           [S]: unknown("9"),
-          [L]: unknown("9"),
-          [K]: unknown("9"),
+          [L]: text("Discount can change after the first order"),
+          [K]: text("A second price after a set number of cycles"),
         }, { hint: "Not the same as a $0 trial." }),
         row("shopper-trial", "$0 trial for the shopper", {
           [A]: no,
-          [R]: unknown("4"),
+          [R]: partial("Only a listing category", "4"),
           [P]: text("Shopper trials in the overview"),
           [S]: text("Free trials in the overview"),
-          [L]: unknown("4"),
-          [K]: unknown("4"),
+          [L]: text("100% off the first order, then full price"),
+          [K]: partial("A later-cycle price can differ. A $0 trial is not documented."),
         }),
         row("prepaid", "Prepaid (pay once, deliver several times)", {
           [A]: yes,
-          [R]: unknown("9"),
+          [R]: text("Pay for several shipments up front"),
           [P]: text("On the free plan"),
-          [S]: text("In the overview"),
-          [L]: partial("On the $399 plan"),
-          [K]: unknown("9"),
+          [S]: text("Separate billing and delivery intervals"),
+          [L]: text("Pay up front for several deliveries. The listing puts it on the $399 plan."),
+          [K]: text("Prepaid selling plan"),
         }),
         row("dunning", "Retry a failed payment", {
           [A]: partial("Yes. Schedule is fixed.", "6"),
           [R]: text("On Starter, included in $25", "7"),
           [P]: text("On the free plan"),
-          [S]: unknown("9"),
+          [S]: text("You set the retry count and the delay"),
           [L]: partial("Up to 15 retries on the $99 plan"),
           [K]: text("On the $599 plan"),
         }),
         row("min-cycles", "Block cancel until N orders", {
           [A]: text("Per plan, customer portal only"),
           [R]: unknown("9"),
-          [P]: unknown("9"),
-          [S]: unknown("9"),
-          [L]: unknown("9"),
-          [K]: unknown("9"),
+          [P]: text("Minimum orders before cancel"),
+          [S]: text("Minimum payments before cancel"),
+          [L]: text("Minimum orders before cancel"),
+          [K]: text("Minimum cycles before cancel"),
         }),
         row("anchor", "Bill on set days of the week or month", {
           [A]: yes,
-          [R]: unknown("9"),
+          [R]: text("A set day of the month"),
           [P]: unknown("9"),
-          [S]: partial("Fixed schedules on the $24.95 plan"),
-          [L]: unknown("9"),
-          [K]: unknown("9"),
+          [S]: text("A set day of the week or month"),
+          [L]: text("Anchor day, with a cutoff window"),
+          [K]: text("Lock the order to a specific day"),
         }, { more: true }),
         row("loyalty-tier", "Extra discount after N paid cycles", {
           [A]: text("Up to two tiers on a plan"),
           [R]: partial("Loyalty rewards on the $499 plan"),
-          [P]: partial("Loyalty on the $10 plan"),
-          [S]: partial("Loyalty incentives in the overview"),
+          [P]: text("A reward ladder by order number"),
+          [S]: text("Another discount after N payments"),
           [L]: partial("Rewards on the $399 plan"),
-          [K]: unknown("9"),
+          [K]: text("A different discount after N cycles"),
         }, { more: true }),
         row("grandfather", "Existing subscribers keep their price", {
           [A]: via("Shopify"),
           [R]: unknown("9"),
           [P]: partial("Auto price sync named on the $100 plan"),
-          [S]: partial("Sync product prices on the $9.95 plan"),
+          [S]: text("On recurring invoices, you can keep the first price"),
           [L]: partial("Automatic price updates on the $99 plan"),
-          [K]: unknown("9"),
+          [K]: text("Old subscriptions keep their original price"),
         }, { more: true, hint: "On AppFox, Shopify stores the contract price. Editing the plan does not reprice old subscribers." }),
         row("manual", "Create a subscription from the admin", {
           [A]: text("For phone or in-person sales"),
-          [R]: unknown("9"),
-          [P]: partial("On the $10 plan"),
-          [S]: unknown("9"),
-          [L]: unknown("9"),
-          [K]: unknown("9"),
+          [R]: text("From the merchant portal"),
+          [P]: text("Pick the customer, plan, and card on file"),
+          [S]: text("Add subscription manually"),
+          [L]: text("From the admin"),
+          [K]: text("Create subscription in the dashboard"),
         }, { more: true }),
       ],
     },
@@ -377,11 +379,11 @@ export const subscriptionCompare: CompareTable = {
       rows: [
         row("pause", "Pause and resume", {
           [A]: yes,
-          [R]: unknown("9"),
-          [P]: unknown("9"),
-          [S]: unknown("9"),
-          [L]: unknown("9"),
-          [K]: unknown("9"),
+          [R]: partial("A pause step before cancel"),
+          [P]: yes,
+          [S]: yes,
+          [L]: yes,
+          [K]: text("Indefinite, or a set length"),
         }),
         row("cancel", "Cancel", {
           [A]: text("Switch you can turn off"),
@@ -393,74 +395,74 @@ export const subscriptionCompare: CompareTable = {
         }),
         row("skip", "Skip the next order", {
           [A]: partial("Docs disagree", "1"),
-          [R]: text("Named in the overview"),
-          [P]: unknown("9"),
-          [S]: unknown("9"),
-          [L]: text("Named in the overview"),
-          [K]: unknown("9"),
+          [R]: text("Skip button in the portal"),
+          [P]: yes,
+          [S]: yes,
+          [L]: text("With a cap on consecutive skips"),
+          [K]: yes,
         }),
         row("swap", "Swap a product", {
           [A]: yes,
-          [R]: text("Named in the overview"),
-          [P]: partial("On the $100 plan"),
+          [R]: text("Off until you turn it on"),
+          [P]: yes,
           [S]: text("On the free plan"),
-          [L]: text("Named in the overview"),
-          [K]: unknown("9"),
+          [L]: text("Portal preference"),
+          [K]: yes,
         }),
         row("frequency", "Change frequency", {
           [A]: yes,
-          [R]: unknown("9"),
-          [P]: unknown("9"),
-          [S]: partial("Recalculate price on interval change, $5.95 plan"),
-          [L]: unknown("9"),
-          [K]: unknown("9"),
+          [R]: text("From the plans on the product, or any interval"),
+          [P]: yes,
+          [S]: yes,
+          [L]: text("When that selling plan is on in the portal"),
+          [K]: yes,
         }),
         row("reschedule", "Change the next order date", {
           [A]: yes,
-          [R]: text("Reschedule, in the overview"),
-          [P]: unknown("9"),
-          [S]: unknown("9"),
-          [L]: unknown("9"),
-          [K]: unknown("9"),
+          [R]: yes,
+          [P]: yes,
+          [S]: yes,
+          [L]: text("With a maximum number of days"),
+          [K]: yes,
         }),
         row("payment", "Update the card", {
           [A]: yes,
-          [R]: unknown("9"),
-          [P]: unknown("9"),
-          [S]: unknown("9"),
-          [L]: unknown("9"),
-          [K]: unknown("9"),
+          [R]: text("Add a card, or email a Shopify update link"),
+          [P]: yes,
+          [S]: text("Edit sends an email to update the card"),
+          [L]: yes,
+          [K]: text("Pick a saved card, or add one"),
         }),
         row("line-items", "Add or remove a product", {
           [A]: yes,
-          [R]: unknown("9"),
-          [P]: partial("Add to subscriptions on the $100 plan"),
-          [S]: unknown("9"),
-          [L]: unknown("9"),
-          [K]: unknown("9"),
+          [R]: text("Add, swap, or change a variant"),
+          [P]: text("Add, swap, or remove"),
+          [S]: text("Add, remove, or change quantity"),
+          [L]: text("Add a one-time item"),
+          [K]: text("Add a product, or change quantity"),
         }, { more: true }),
         row("portal-discount", "Apply a discount code", {
           [A]: yes,
-          [R]: unknown("9"),
-          [P]: unknown("9"),
-          [S]: unknown("9"),
-          [L]: unknown("9"),
-          [K]: unknown("9"),
+          [R]: yes,
+          [P]: text("Through a quick-action link"),
+          [S]: yes,
+          [L]: text("Including more than one code"),
+          [K]: yes,
         }, { more: true }),
         row("address", "Change the shipping address", {
           [A]: partial("Email exists; switch not documented", "2"),
-          [R]: unknown("9"),
-          [P]: partial("Address sync on the $100 plan"),
-          [S]: unknown("9"),
-          [L]: unknown("9"),
-          [K]: unknown("9"),
+          [R]: yes,
+          [P]: yes,
+          [S]: text("Per subscription, if you turn it on"),
+          [L]: yes,
+          [K]: yes,
         }, { more: true }),
         row("passwordless", "Passwordless or magic-link login", {
           [A]: via("Shopify customer accounts"),
-          [R]: unknown("9"),
-          [P]: partial("On the $10 plan"),
-          [S]: partial("On the $5.95 plan"),
-          [L]: unknown("9"),
+          [R]: text("Magic link in the subscription email"),
+          [P]: text("Magic link in subscription emails"),
+          [S]: text("Magic link in each subscription email"),
+          [L]: text("Email magic link, or Shopify accounts"),
           [K]: yes,
         }, { more: true }),
         row("cancel-flow", "Multi-step cancel flow", {
@@ -484,9 +486,9 @@ export const subscriptionCompare: CompareTable = {
           [A]: text("Theme styling, no code"),
           [R]: text("On Starter, included in $25", "7"),
           [P]: partial("Themed widget on the $30 plan"),
-          [S]: unknown("9"),
+          [S]: text("Injected on products in a rule"),
           [L]: partial("Templates on the $99 plan"),
-          [K]: unknown("9"),
+          [K]: text("Plan picker on the product page"),
         }),
         row("bundles", "Fixed bundle (you pick the products)", {
           [A]: text("One price for the set"),
@@ -515,10 +517,10 @@ export const subscriptionCompare: CompareTable = {
         row("rewards", "Reward after N paid orders", {
           [A]: text("Percent, amount, fixed price, free gift, or free shipping"),
           [R]: partial("Loyalty rewards on the $499 plan"),
-          [P]: partial("Loyalty on the $10 plan"),
+          [P]: text("Discount, gift, or free shipping by order number"),
           [S]: partial("Free products are a rewards category"),
           [L]: partial("Rewards on the $399 plan"),
-          [K]: unknown("9"),
+          [K]: text("A different discount after N cycles"),
         }),
         row("boxes", "Subscription boxes", {
           [A]: text("Fixed bundles and build-a-box"),
@@ -528,30 +530,6 @@ export const subscriptionCompare: CompareTable = {
           [L]: text("In the overview"),
           [K]: text("Build-a-box on the plan"),
         }),
-        row("upsell-tools", "Upsell tools", {
-          [A]: text("Checkout add-ons"),
-          [R]: text("On Starter, included in $25", "7"),
-          [P]: partial("In the overview"),
-          [S]: unknown("9"),
-          [L]: partial("Portal upsell on $99; profiles on $399"),
-          [K]: partial("In automated journeys"),
-        }, { more: true }),
-        row("shipping-reward", "Free shipping as a reward", {
-          [A]: yes,
-          [R]: unknown("9"),
-          [P]: partial("Rewards category on the listing"),
-          [S]: partial("Free shipping is a rewards category"),
-          [L]: unknown("9"),
-          [K]: unknown("9"),
-        }, { more: true }),
-        row("gift-reward", "Free gift after N orders", {
-          [A]: text("By variant id, after N cycles"),
-          [R]: unknown("9"),
-          [P]: partial("Gifts in the overview"),
-          [S]: partial("Free products are a rewards category"),
-          [L]: unknown("9"),
-          [K]: unknown("9"),
-        }, { more: true }),
       ],
     },
     {
@@ -563,19 +541,11 @@ export const subscriptionCompare: CompareTable = {
       rows: [
         row("emails", "Transactional subscription emails", {
           [A]: text("14 templates, each can be turned off"),
-          [R]: unknown("9"),
+          [R]: text("Templates you can edit, with a portal link"),
           [P]: text("Built-in emails on the free plan"),
-          [S]: partial("Renewal reminder on the $5.95 plan"),
+          [S]: text("Renewal and invoice emails"),
           [L]: text("Customer alerts on the free plan"),
           [K]: partial("Automated journeys on the $599 plan"),
-        }),
-        row("email-domain", "Custom sending domain", {
-          [A]: yes,
-          [R]: unknown("9"),
-          [P]: partial("On the $100 plan"),
-          [S]: unknown("9"),
-          [L]: unknown("9"),
-          [K]: unknown("9"),
         }),
         row("dashboard", "Analytics dashboard", {
           [A]: text("Active, paused, cancelled, failed, AOV, next 7 days"),
@@ -588,10 +558,10 @@ export const subscriptionCompare: CompareTable = {
         row("reports", "Billing reports you can export", {
           [A]: text("Success, failed, queued, skipped"),
           [R]: unknown("9"),
-          [P]: partial("Weekly summary on the $10 plan"),
-          [S]: partial("Global statistics on the $5.95 plan"),
-          [L]: unknown("9"),
-          [K]: unknown("9"),
+          [P]: text("Forecast and order reports, export by email"),
+          [S]: text("Payment calendar: completed, pending, failed, skipped"),
+          [L]: text("Order, churn, and inventory reports"),
+          [K]: text("Data export in the dashboard"),
         }),
         row("klaviyo", "Klaviyo", {
           [A]: text("Lifecycle events, private API key"),
@@ -603,36 +573,12 @@ export const subscriptionCompare: CompareTable = {
         }, { hint: "Competitor yes means Klaviyo is named under Works with." }),
         row("omnisend", "Omnisend", {
           [A]: text("Same style of lifecycle events as Klaviyo"),
-          [R]: unknown("3"),
-          [P]: unknown("3"),
-          [S]: unknown("3"),
+          [R]: text("Started, updated, cancelled, activated"),
+          [P]: text("API key in the app"),
+          [S]: unknown("9"),
           [L]: yes,
-          [K]: unknown("3"),
+          [K]: text("Lifecycle events, including a failed payment"),
         }),
-        row("email-html", "Custom email HTML", {
-          [A]: yes,
-          [R]: unknown("9"),
-          [P]: unknown("9"),
-          [S]: unknown("9"),
-          [L]: partial("One-click email actions on the $99 plan"),
-          [K]: unknown("9"),
-        }, { more: true }),
-        row("card-expiring", "Card-expiring notice", {
-          [A]: text("Klaviyo event, and dunning email"),
-          [R]: unknown("9"),
-          [P]: unknown("9"),
-          [S]: unknown("9"),
-          [L]: unknown("9"),
-          [K]: unknown("9"),
-        }, { more: true }),
-        row("loyaltylion", "LoyaltyLion", {
-          [A]: text("Points for subscribers"),
-          [R]: unknown("3"),
-          [P]: unknown("3"),
-          [S]: unknown("3"),
-          [L]: partial("Loyalty apps named as a group"),
-          [K]: unknown("3"),
-        }, { more: true }),
       ],
     },
     {
@@ -643,36 +589,28 @@ export const subscriptionCompare: CompareTable = {
       caption: "Moving subscribers, and the other tools named in public docs.",
       rows: [
         row("migrate", "Help moving subscribers from another app", {
-          [A]: partial("CSV from Recharge and Appstle", "8"),
+          [A]: partial("CSV from Recharge and Appstle. Cards do not come across.", "8"),
           [R]: partial("Hands-on implementation on the $499 plan"),
           [P]: text("Hands-on migration on the free plan"),
-          [S]: unknown("9"),
+          [S]: text("Manual, CSV, or API. Some cards can move."),
           [L]: unknown("9"),
           [K]: text("Zero-downtime migration"),
-        }),
-        row("cards", "Payment cards come across in the import", {
-          [A]: no,
-          [R]: unknown("9"),
-          [P]: unknown("9"),
-          [S]: unknown("9"),
-          [L]: unknown("9"),
-          [K]: unknown("9"),
-        }, { hint: "On AppFox, customers add a card again. The docs are explicit." }),
+        }, { hint: "On AppFox, customers add a card again. Seal can move cards from Stripe, Braintree, Authorize.net, or PayPal Express." }),
         row("flow", "Shopify Flow", {
           [A]: partial("On the listing, not in the integrations docs", "3"),
           [R]: yes,
           [P]: yes,
-          [S]: unknown("3"),
-          [L]: unknown("3"),
+          [S]: unknown("9"),
+          [L]: unknown("9"),
           [K]: yes,
-        }, { hint: "Yes means the listing's Works with line names Flow." }),
+        }, { hint: "Yes means the listing's Works with line names Flow. Loop's own Flows product is a separate tool." }),
         row("pos", "Sell a subscription on Shopify POS", {
           [A]: text("POS tile, Shopify Payments, POS 10.15+"),
           [R]: partial("Works with Shopify POS", "3"),
           [P]: partial("Works with Shopify POS", "3"),
           [S]: partial("Works with Shopify POS", "3"),
-          [L]: unknown("3"),
-          [K]: unknown("3"),
+          [L]: unknown("9"),
+          [K]: unknown("9"),
         }),
         row("api", "API for your own tools", {
           [A]: text("External API and MCP, on the free install"),
@@ -680,7 +618,7 @@ export const subscriptionCompare: CompareTable = {
           [P]: partial("APIs by request on the $100 plan"),
           [S]: text("Full API and webhooks on the free plan"),
           [L]: partial("Admin and storefront APIs on the $399 plan"),
-          [K]: unknown("9"),
+          [K]: text("API and webhooks"),
         }),
         row("gorgias", "Gorgias", {
           [A]: no,
@@ -692,43 +630,19 @@ export const subscriptionCompare: CompareTable = {
         }),
         row("zapier", "Zapier", {
           [A]: yes,
-          [R]: unknown("3"),
+          [R]: yes,
           [P]: yes,
-          [S]: unknown("3"),
-          [L]: unknown("3"),
-          [K]: unknown("3"),
-        }),
-        row("pagefly", "PageFly", {
-          [A]: text("Works with, on the listing"),
-          [R]: unknown("3"),
-          [P]: yes,
-          [S]: yes,
-          [L]: unknown("3"),
-          [K]: unknown("3"),
-        }, { more: true }),
-        row("cordial", "Cordial", {
-          [A]: yes,
-          [R]: unknown("3"),
-          [P]: unknown("3"),
-          [S]: unknown("3"),
-          [L]: unknown("3"),
-          [K]: unknown("3"),
-        }, { more: true }),
-        row("sidekick", "Shopify Sidekick", {
-          [A]: text("Ask a question, jump to the page"),
-          [R]: unknown("9"),
-          [P]: unknown("9"),
           [S]: unknown("9"),
-          [L]: unknown("9"),
+          [L]: text("Pause, skip, or reschedule from a Zap"),
           [K]: unknown("9"),
-        }, { more: true }),
+        }),
         row("sms", "SMS", {
           [A]: no,
           [R]: partial("Concierge SMS on the $499 plan"),
           [P]: partial("SMS notifications on the $10 plan"),
           [S]: unknown("9"),
-          [L]: unknown("3"),
-          [K]: unknown("3"),
+          [L]: text("Through Attentive or Postscript"),
+          [K]: unknown("9"),
         }, { more: true }),
       ],
     },
@@ -741,17 +655,17 @@ export const subscriptionCompare: CompareTable = {
       rows: [
         row("support-hours", "Support promise on the listing", {
           [A]: text("Email support in the docs"),
-          [R]: unknown("9"),
+          [R]: text("Live chat 6am–6pm PT, weekdays"),
           [P]: text("24/7 on every plan, including free"),
           [S]: text("Support team, hours not stated"),
           [L]: partial("24×7 Slack on the $399 plan"),
-          [K]: unknown("9"),
+          [K]: text("Live chat 9am–5pm ET, weekdays"),
         }),
         row("implementation", "Hands-on setup", {
           [A]: partial("Listing says white-glove; docs are a CSV import", "8"),
           [R]: partial("On the $499 plan"),
           [P]: text("Hands-on migration on the free plan"),
-          [S]: unknown("9"),
+          [S]: text("You run a CSV, the API, or a manual recreate"),
           [L]: partial("Dedicated CSM on the $399 plan"),
           [K]: text("Migration named on the plan"),
         }),
@@ -788,28 +702,20 @@ export const subscriptionCompare: CompareTable = {
           [K]: text("243 reviews, a Recharge company"),
         }),
         row("checkout-links", "One-click checkout links", {
-          [A]: unknown("9"),
-          [R]: unknown("9"),
+          [A]: text("Variant and selling plan. Optional email and Shop Pay."),
+          [R]: text("Copy a checkout link from the product"),
           [P]: partial("On the $100 plan"),
-          [S]: partial("On the $9.95 plan"),
+          [S]: text("Quick Checkout Wizard"),
           [L]: partial("On the $99 plan"),
-          [K]: partial("Quick actions on the plan"),
+          [K]: text("Variant and selling plan"),
         }, { more: true }),
         row("inventory", "Inventory forecast", {
-          [A]: unknown("9"),
-          [R]: unknown("9"),
-          [P]: partial("On the $10 plan"),
-          [S]: unknown("9"),
-          [L]: unknown("9"),
-          [K]: unknown("9"),
-        }, { more: true }),
-        row("referral", "Referral program", {
           [A]: no,
-          [R]: partial("On the $499 plan"),
-          [P]: partial("Referrals are a loyalty category"),
-          [S]: unknown("9"),
-          [L]: unknown("9"),
-          [K]: unknown("9"),
+          [R]: text("Out-of-stock rules. A unit forecast is not described."),
+          [P]: text("Next 7, 30, 90, and 365 days"),
+          [S]: text("Next 7, 30, and 60 days"),
+          [L]: text("Projected quantity in Analytics"),
+          [K]: text("Queued units by SKU, plus a forecast"),
         }, { more: true }),
       ],
     },
@@ -817,11 +723,11 @@ export const subscriptionCompare: CompareTable = {
   faq: [
     {
       q: "You make AppFox. Why should I trust this table?",
-      a: "Treat it as a vendor page with the sources linked at the bottom. The AppFox column was checked against the product on 10 October 2026, using the public product docs and the App Store listing. Competitor columns are from their public App Store listings the same day. Where a listing did not confirm a feature, the cell is a question mark. We also say, in plain language, when another app is the better fit.",
+      a: "Treat it as a vendor page with the sources linked at the bottom. The AppFox column was checked against the product on 10 October 2026. Competitor columns were checked the same day against each app's public help center, pricing page, and feature pages. Where those pages do not say, the cell is a question mark. We also say, in plain language, when another app is the better fit.",
     },
     {
       q: "What does AppFox Subscriptions not do yet?",
-      a: "There is no multi-step cancel-flow builder, no SMS, no Gorgias app, and no referral program. A shopper does not get a $0 trial: intro pricing is a lower price for the first cycles, then the normal discount. Payment cards do not move when you import from Recharge or Appstle. Customer skip is not a clean yes, because two of our own docs disagree. The retry schedule for failed cards is set by the app. The current listing has 1 review and no Built for Shopify badge.",
+      a: "There is no multi-step cancel-flow builder, no SMS, no Gorgias app, no referral program, and no inventory forecast. A shopper does not get a $0 trial: intro pricing is a lower price for the first cycles, then the normal discount. Payment cards do not move when you import from Recharge or Appstle. Customer skip is not a clean yes, because two of our own docs disagree. The retry schedule for failed cards is set by the app. The current listing has 1 review and no Built for Shopify badge.",
     },
     {
       q: "Is the app actually free?",
@@ -841,7 +747,7 @@ export const subscriptionCompare: CompareTable = {
     },
     {
       q: "Why is a cell a question mark?",
-      a: "We did not find it in the App Store listing bullets or in a doc we opened on 10 October 2026. A Works with line is marked as such. A category tag alone is a question mark, not a yes. If you know a public page that confirms a cell, email support and we will check it.",
+      a: "We did not find it in the public help center, pricing page, or feature page we opened on 10 October 2026. A Works with line is marked as such. A category tag alone is not a yes. If you know a public page that confirms a cell, email support and we will check it.",
     },
     {
       q: "Do you mark missing features as In development?",
@@ -868,6 +774,25 @@ export const subscriptionCompare: CompareTable = {
     { label: "Seal Subscriptions App Store listing", url: "https://apps.shopify.com/seal-subscriptions" },
     { label: "Loop Subscriptions App Store listing", url: "https://apps.shopify.com/loop-subscriptions" },
     { label: "Skio App Store listing", url: "https://apps.shopify.com/skio" },
+    { label: "Recharge: customer portal settings", url: "https://support.getrecharge.com/hc/en-us/articles/38143430119191-Configuring-customer-portal-settings" },
+    { label: "Recharge: prepaid subscriptions", url: "https://support.getrecharge.com/hc/en-us/articles/32581132524055-Offering-prepaid-subscriptions" },
+    { label: "Recharge: direct checkout links", url: "https://support.getrecharge.com/hc/en-us/articles/10599255959191-Creating-direct-checkout-links" },
+    { label: "Recharge: contacting support", url: "https://support.getrecharge.com/hc/en-us/articles/360008830153-Contacting-Recharge-Support" },
+    { label: "Recharge pricing", url: "https://getrecharge.com/pricing/" },
+    { label: "Appstle: customer portal", url: "https://intercom.help/appstle/en/articles/15410881-set-up-your-customer-portal" },
+    { label: "Appstle: analytics and reports", url: "https://intercom.help/appstle/en/articles/8392402-analytics-and-reports" },
+    { label: "Appstle: Omnisend", url: "https://intercom.help/appstle/en/articles/8048469-how-to-integrate-omnisend-with-appstle-subscriptions" },
+    { label: "Seal Subscriptions manual", url: "https://www.sealsubscriptions.com/articles/manual" },
+    { label: "Seal: editing subscriptions", url: "https://www.sealsubscriptions.com/article/editing-subscriptions" },
+    { label: "Loop: customer portal", url: "https://help.loopwork.co/en/articles/12707618-customer-portal" },
+    { label: "Loop: selling plans", url: "https://help.loopwork.co/en/articles/12674241-selling-plans" },
+    { label: "Loop: anchor day billing", url: "https://help.loopwork.co/en/articles/12716835-anchor-day-billing" },
+    { label: "Loop: reports", url: "https://help.loopwork.co/en/articles/12742177-reports" },
+    { label: "Skio: selling plans", url: "https://help.skio.com/docs/getting-started-with-selling-plans" },
+    { label: "Skio: customer portal", url: "https://help.skio.com/docs/customer-portal-v3-overview" },
+    { label: "Skio: one-click checkout", url: "https://help.skio.com/docs/one-click-checkout-buy-now" },
+    { label: "Skio: forecasting", url: "https://help.skio.com/docs/forecasting-dashboard" },
+    { label: "Skio: support hours", url: "https://help.skio.com/docs/how-to-get-help-with-skio" },
   ],
 };
 
@@ -953,7 +878,7 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
       },
       {
         q: "You make AppFox. Is this page biased?",
-        a: "Yes, it is our page. The Recharge cells are from the public listing on 10 October 2026, and the AppFox cells are from our product docs the same day. Where Recharge is the better fit, the section above says so. Unconfirmed cells stay as a question mark.",
+        a: "Yes, it is our page. The Recharge cells are from public Recharge docs on 10 October 2026, and the AppFox cells are from our product the same day. Where Recharge is the better fit, the section above says so. Unconfirmed cells stay as a question mark.",
       },
     ],
   },
@@ -1002,7 +927,7 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
       {
         title: "Product swap is included here, and gated there",
         description:
-          "This is a place we do more on the free install: swap, build-a-box, and the API are not waiting on a $30 or $100 plan. Their $100 plan still names address sync and checkout links we have not confirmed.",
+          "This is a place we do more on the free install: swap, build-a-box, and the API are not waiting on a $30 or $100 plan. Their help center describes address changes in the portal. Checkout links are named on the $100 plan.",
       },
       {
         title: "Cards still do not move",
@@ -1025,7 +950,7 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
       },
       {
         q: "Is this page biased?",
-        a: "It is our page. Appstle's column is from the public listing on 10 October 2026. We say they win on reviews, the badge, and support. Question marks are features that listing did not confirm.",
+        a: "It is our page. Appstle's column is from public Appstle docs on 10 October 2026. We say they win on reviews, the badge, and support. Question marks are features those docs do not cover.",
       },
     ],
   },
@@ -1093,11 +1018,11 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
       },
       {
         q: "What does Seal publish that AppFox does not?",
-        a: "A cancel flow on the $9.95 plan, passwordless portal login on the $5.95 plan, 18 languages, and the Built for Shopify badge. We have not confirmed build-a-box or Omnisend for Seal, so those cells stay as question marks.",
+        a: "A cancel flow on the $9.95 plan, a magic link in subscription emails, 18 languages, and the Built for Shopify badge. Build-a-box and Omnisend are not in the Seal manual we read, so those cells stay as question marks.",
       },
       {
         q: "Is this comparison biased?",
-        a: "It is written by AppFox. Seal's cells come from the public listing on 10 October 2026. The page says Seal wins on proof, languages, and the low-priced cancel flow.",
+        a: "It is written by AppFox. Seal's cells come from the public manual and help pages on 10 October 2026. The page says Seal wins on proof, languages, and the low-priced cancel flow.",
       },
     ],
   },
@@ -1144,9 +1069,9 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
           "Loop names that on the $399 plan, with a dedicated manager. Our docs say email support.",
       },
       {
-        title: "Prepaid is confirmed for us, and only on their $399 plan",
+        title: "Prepaid is in their help center, and the listing puts it on the $399 plan",
         description:
-          "We do ship prepaid. We do not ship their prepaid-plus-gifts package, user permissions, or the admin API. Those are $399 lines we have not matched.",
+          "We do ship prepaid. Their help center describes paying up front for several deliveries. The App Store listing puts that on the $399 plan. We do not ship their prepaid-plus-gifts package or the admin API.",
       },
       {
         title: "We have not confirmed a Loop import file",
@@ -1169,7 +1094,7 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
       },
       {
         q: "Is this page biased?",
-        a: "Yes. Loop's column is the public listing on 10 October 2026. We say they win on cancel flows, dunning controls, and a clearer paid ladder. Cells we could not confirm are question marks.",
+        a: "Yes. Loop's column is the public help center on 10 October 2026. We say they win on cancel flows, dunning controls, and a clearer paid ladder. Cells we could not confirm are question marks.",
       },
     ],
   },
@@ -1221,9 +1146,9 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
           "Skio names it. AppFox uses the Shopify customer account. There is no separate magic link in our portal docs.",
       },
       {
-        title: "A lot of Skio's day-to-day portal is still a question mark",
+        title: "We do not have their forecast or their support hours",
         description:
-          "The listing does not itemize skip, swap, frequency change, or card update. We left those as question marks instead of assuming the portal does all of them.",
+          "Skio's help center describes queued units by SKU and live chat on weekdays, 9am to 5pm ET. We do not publish an inventory forecast, and our docs point at email support.",
       },
     ],
     faq: [
@@ -1241,7 +1166,7 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
       },
       {
         q: "Is this page biased?",
-        a: "Yes. Skio's column is the public listing on 10 October 2026. We say they win on the cancel flow, passwordless login, and reviews. We do not fill gaps with guesses.",
+        a: "Yes. Skio's column is the public help center on 10 October 2026. We say they win on the cancel flow, passwordless login, and reviews. We do not fill gaps with guesses.",
       },
     ],
   },

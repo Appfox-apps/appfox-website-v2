@@ -208,8 +208,8 @@ export function SubscriptionVsArticle({ page }: { page: SubscriptionVsPage }) {
             </div>
             <p className="mt-8 text-sm text-ink-500">
               AppFox column checked against the product on {subscriptionCompare.checked}.{" "}
-              {competitorName} checked against the public listing the same day. A question mark
-              means that source did not confirm the cell.
+              {competitorName} checked against public docs the same day. A question mark means those
+              pages do not say.
             </p>
             <ColumnCheckNotes vendors={vendors} />
             <CompareFootnotes notes={subscriptionCompare.footnotes} />
