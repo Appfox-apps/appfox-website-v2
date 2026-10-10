@@ -88,7 +88,7 @@ export default function ProductBundlesPricingPage() {
               <SectionSlug
                 no="01"
                 label="PRICING"
-                caption="AppFox Product Bundles · free to start"
+                caption="Appfox Product Bundles · free to start"
               />
             </div>
 
@@ -126,7 +126,7 @@ export default function ProductBundlesPricingPage() {
                 href="/product-bundles"
                 className="text-brand-700 underline decoration-brand-300 underline-offset-2 transition-colors hover:decoration-brand-700"
               >
-                AppFox Product Bundles
+                Appfox Product Bundles
               </Link>{" "}
               is free to install with unlimited bundles, all bundle types, and full analytics. Most
               stores never need to upgrade. Weighing us against{" "}
@@ -228,7 +228,7 @@ export default function ProductBundlesPricingPage() {
               <div className="card-tinted flex flex-col items-start justify-between gap-5 rounded-2xl border p-7 sm:flex-row sm:items-center sm:p-8">
                 <div>
                   <p className="till text-[0.8125rem] uppercase tracking-[0.12em] text-ink-500">
-                    Also from AppFox
+                    Also from Appfox
                   </p>
                   <p className="mt-2 text-lg font-semibold text-ink-900">
                     Order Editing &amp; Upsell starts free, with paid plans from $19/mo.
@@ -246,7 +246,7 @@ export default function ProductBundlesPricingPage() {
               <div className="card-tinted flex flex-col items-start justify-between gap-5 rounded-2xl border p-7 sm:flex-row sm:items-center sm:p-8">
                 <div>
                   <p className="till text-[0.8125rem] uppercase tracking-[0.12em] text-ink-500">
-                    Also from AppFox
+                    Also from Appfox
                   </p>
                   <p className="mt-2 text-lg font-semibold text-ink-900">
                     Subscription is free for now, with every feature included.

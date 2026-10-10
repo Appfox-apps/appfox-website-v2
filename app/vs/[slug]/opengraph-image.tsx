@@ -7,7 +7,7 @@ export const contentType = "image/png";
 
 /**
  * `alt` must be a static string export, so the per-competitor alt text
- * ("AppFox vs {name} - Shopify order editing comparison") is supplied via
+ * ("Appfox vs {name} - Shopify order editing comparison") is supplied via
  * generateImageMetadata instead.
  */
 export function generateImageMetadata({ params }: { params: { slug: string } }) {
@@ -17,7 +17,7 @@ export function generateImageMetadata({ params }: { params: { slug: string } }) 
     return [
       {
         id: "comparison",
-        alt: `${name} alternative - AppFox Product Bundles vs ${name}`,
+        alt: `${name} alternative - Appfox Product Bundles vs ${name}`,
         size: { width: 1200, height: 630 },
         contentType: "image/png",
       },
@@ -34,7 +34,7 @@ export function generateImageMetadata({ params }: { params: { slug: string } }) 
   return [
     {
       id: "comparison",
-      alt: `AppFox vs ${name} - ${topic} comparison`,
+      alt: `Appfox vs ${name} - ${topic} comparison`,
       size: { width: 1200, height: 630 },
       contentType: "image/png",
     },

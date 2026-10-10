@@ -30,7 +30,7 @@ const CLUSTERS: Cluster[] = [
     headline: "The choice, right where they add to cart",
     narrative: (
       <>
-        AppFox Subscription puts a subscribe-and-save option on your product pages - your fonts,
+        Appfox Subscription puts a subscribe-and-save option on your product pages - your fonts,
         your colors, no theme surgery. Shoppers pick one-time or a recurring plan without leaving
         the page, and the discount you set is right there next to the price. Pick a template,
         match your branding, publish. Setup takes about five minutes, and it works with PageFly
@@ -84,7 +84,7 @@ const CLUSTERS: Cluster[] = [
     headline: "Subscribers who manage themselves",
     narrative: (
       <>
-        The fastest way to lose a subscriber is to make them email you to change anything. AppFox
+        The fastest way to lose a subscriber is to make them email you to change anything. Appfox
         gives customers a self-service portal in their account: skip a delivery, pause, swap
         products, change frequency, update their card, or cancel - on their own. Most cancellations
         start as &quot;I just need to skip a month,&quot; and the portal makes skip and pause the
@@ -109,7 +109,7 @@ const CLUSTERS: Cluster[] = [
     narrative: (
       <>
         Replenishment, curated boxes, memberships, access subscriptions, digital products,
-        services, and bundles - physical or digital, if it recurs, AppFox models it. And it plays
+        services, and bundles - physical or digital, if it recurs, Appfox models it. And it plays
         well with the tools you already run: Shopify Checkout and customer accounts, Shopify Flow,
         and integrations with Klaviyo, PageFly, and Loyalty Lion. Migrating from another
         subscription app? Bring your subscribers along.
@@ -136,7 +136,7 @@ const CLUSTERS: Cluster[] = [
         >
           MCP server
         </Link>{" "}
-        for developers - read subscription data in Cursor, Claude, and VS Code with AppFox API keys
+        for developers - read subscription data in Cursor, Claude, and VS Code with Appfox API keys
       </>,
       <>
         Assisted migration from apps like{" "}

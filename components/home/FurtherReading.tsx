@@ -59,7 +59,7 @@ export function FurtherReading() {
           <SectionSlug no="10" label="COMPARED" caption="The differences live in the details." />
         </Reveal>
         <Reveal>
-          <h2 className="mt-8 max-w-2xl">See how AppFox compares.</h2>
+          <h2 className="mt-8 max-w-2xl">See how Appfox compares.</h2>
         </Reveal>
 
         <ul className="mt-8 max-w-4xl">
@@ -69,7 +69,7 @@ export function FurtherReading() {
                 <IndexRow
                   href={`/vs/${c.slug}`}
                   numeral={String(i + 1).padStart(2, "0")}
-                  title={`AppFox vs ${c.shortName}`}
+                  title={`Appfox vs ${c.shortName}`}
                   action="READ"
                 />
               </Reveal>

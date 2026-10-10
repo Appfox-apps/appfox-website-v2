@@ -36,7 +36,7 @@ export default function OrderEditingFeaturesPage() {
             >
               An order isn&apos;t finished when the customer pays - that&apos;s when the address
               typos surface, the size regrets kick in, and the &quot;actually, add one more&quot;
-              emails start. AppFox Order Editing &amp; Upsell turns all of it into a self-service
+              emails start. Appfox Order Editing &amp; Upsell turns all of it into a self-service
               flow that follows your rules, settles its own payments, and sells a little more
               along the way. Here&apos;s the full tour.
             </p>
@@ -49,7 +49,7 @@ export default function OrderEditingFeaturesPage() {
         {/* ── Final CTA - variant B (money) ──────────────────── */}
         <CtaBand
           headline="Every cancel-and-reorder edit burns 1.5–2.9% in fees"
-          body="AppFox edits orders in place on the original payment - and turns the edit screen into your highest-attention upsell placement. Try it free for 14 days, no card required."
+          body="Appfox edits orders in place on the original payment - and turns the edit screen into your highest-attention upsell placement. Try it free for 14 days, no card required."
           primaryLabel="Start free trial"
           primaryHref={site.installUrl}
           secondaryLabel="See pricing"

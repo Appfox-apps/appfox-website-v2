@@ -68,7 +68,7 @@ export async function generateMetadata({
   if (!competitor) return {};
   const path = `/vs/${competitor.slug}`;
   return {
-    // metaTitle already contains "AppFox" - skip the "| AppFox" template
+    // metaTitle already contains "Appfox" - skip the "| Appfox" template
     title: { absolute: competitor.metaTitle },
     description: competitor.metaDescription,
     alternates: { canonical: path },
@@ -90,7 +90,7 @@ function categoryTokens(category: string): string[] {
 }
 
 /**
- * Two thematic siblings from the same AppFox app's comparison set, nearest
+ * Two thematic siblings from the same Appfox app's comparison set, nearest
  * by category: exact category matches first, then shared category words,
  * data order breaking ties.
  */
@@ -156,7 +156,7 @@ export default async function ComparisonPage({
       { "@type": "ListItem", position: 1, name: "Home", item: site.url },
       { "@type": "ListItem", position: 2, name: "Compare", item: `${site.url}/vs` },
       // Last item: current page - no "item" property per Google's guidelines
-      { "@type": "ListItem", position: 3, name: `AppFox vs ${competitor.shortName}` },
+      { "@type": "ListItem", position: 3, name: `Appfox vs ${competitor.shortName}` },
     ],
   };
 
@@ -200,7 +200,7 @@ export default async function ComparisonPage({
                   /
                 </li>
                 <li aria-current="page" className="text-ink-700">
-                  AppFox vs {competitor.shortName}
+                  Appfox vs {competitor.shortName}
                 </li>
               </ol>
             </nav>

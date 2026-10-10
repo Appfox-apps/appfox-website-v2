@@ -12,8 +12,8 @@ import { site } from "@/lib/site";
  */
 export const subscriptionFaqs: { q: string; a: string }[] = [
   {
-    q: "How much does AppFox Subscription cost?",
-    a: "Nothing, for now. AppFox Subscription is free for now with every feature unlocked - analytics, bundling, branded emails and the API included - no cap on active subscriptions, and 0% transaction fees. No card required.",
+    q: "How much does Appfox Subscription cost?",
+    a: "Nothing, for now. Appfox Subscription is free for now with every feature unlocked - analytics, bundling, branded emails and the API included - no cap on active subscriptions, and 0% transaction fees. No card required.",
   },
   {
     q: "Does it use Shopify's native checkout?",
@@ -29,7 +29,7 @@ export const subscriptionFaqs: { q: string; a: string }[] = [
   },
   {
     q: "Wasn't this app called Trust Subscriptions?",
-    a: "Same app, new name. Trust Subscriptions joined the AppFox family and is now AppFox Subscription - existing merchants, subscriptions, and settings carry over unchanged, and the app keeps its App Store review history.",
+    a: "Same app, new name. Trust Subscriptions joined the Appfox family and is now Appfox Subscription - existing merchants, subscriptions, and settings carry over unchanged, and the app keeps its App Store review history.",
   },
   {
     q: "Can I migrate from another subscription app?",
@@ -41,11 +41,11 @@ export const subscriptionFaqs: { q: string; a: string }[] = [
   },
   {
     q: "Do you have MCP for developers?",
-    a: "Yes. AppFox Subscription has a hosted MCP (Model Context Protocol) server that lets store developers and agencies connect Cursor, Claude Desktop, or VS Code to read subscription contracts, selling plans, failed billing, and upcoming renewals directly from their AI IDE - using the same API keys as the REST API. The MCP docs live at subscriptions-docs.getappfox.com/api/mcp.",
+    a: "Yes. Appfox Subscription has a hosted MCP (Model Context Protocol) server that lets store developers and agencies connect Cursor, Claude Desktop, or VS Code to read subscription contracts, selling plans, failed billing, and upcoming renewals directly from their AI IDE - using the same API keys as the REST API. The MCP docs live at subscriptions-docs.getappfox.com/api/mcp.",
   },
   {
-    q: "Does AppFox work with Shopify Sidekick?",
-    a: "Yes. Shopify Sidekick (Shopify's admin AI assistant) integrates with AppFox Subscription so merchants can ask natural-language questions about their subscriptions and jump straight to the right page - no extra setup, included with install. Try asking Sidekick: \"How many paused subscriptions do I have?\" or \"Find Jane Smith's subscription\" or \"Which subscriptions failed billing?\" or \"Show me subscriptions renewing this week.\" Read more at subscriptions-docs.getappfox.com/sidekick.",
+    q: "Does Appfox work with Shopify Sidekick?",
+    a: "Yes. Shopify Sidekick (Shopify's admin AI assistant) integrates with Appfox Subscription so merchants can ask natural-language questions about their subscriptions and jump straight to the right page - no extra setup, included with install. Try asking Sidekick: \"How many paused subscriptions do I have?\" or \"Find Jane Smith's subscription\" or \"Which subscriptions failed billing?\" or \"Show me subscriptions renewing this week.\" Read more at subscriptions-docs.getappfox.com/sidekick.",
   },
 ];
 

@@ -59,7 +59,7 @@ const postCatalog: Post[] = [
     category: "GUIDE",
     date: "2026-09-25",
     author: "Allan Vu, BOGOS (guest post)",
-    metaTitle: "How to Create Mix-and-Match Bundles on Shopify (2026) | AppFox",
+    metaTitle: "How to Create Mix-and-Match Bundles on Shopify (2026) | Appfox",
     metaDescription: "Build a mix-and-match bundle on Shopify: the free native collection-plus-discount method, a true bundle-app builder, margin-safe pricing, placement, and AOV tracking.",
     body: [
       {
@@ -508,7 +508,7 @@ const postCatalog: Post[] = [
       },
       {
         type: "p",
-        text: "It depends on the app, so confirm POS and subscription compatibility before you commit — some bundle apps support both. And if you want customers to receive their build-your-own box on repeat, you can stack the bundle with a dedicated subscriptions app such as AppFox Subscriptions (apps.shopify.com/appfox-subscriptions) to turn a one-time bundle into recurring replenishment revenue. AppFox Subscriptions is free for now with every feature unlocked, charges 0% transaction fees, and includes free white-glove migration from Recharge, Appstle, Seal, or Subscription Plus.",
+        text: "It depends on the app, so confirm POS and subscription compatibility before you commit — some bundle apps support both. And if you want customers to receive their build-your-own box on repeat, you can stack the bundle with a dedicated subscriptions app such as Appfox Subscriptions (apps.shopify.com/appfox-subscriptions) to turn a one-time bundle into recurring replenishment revenue. Appfox Subscriptions is free for now with every feature unlocked, charges 0% transaction fees, and includes free white-glove migration from Recharge, Appstle, Seal, or Subscription Plus.",
       },
     ],
   },
@@ -518,8 +518,8 @@ const postCatalog: Post[] = [
     excerpt: "Compare 7 Shopify product customization apps for 2026 — features, pricing, strengths, and who each fits best. Product customization apps extend beyond standard variants to let customers add text, upload files, and personalize products before checkout.",
     category: "GUIDE",
     date: "2026-09-23",
-    author: "The AppFox Team",
-    metaTitle: "7 Best Shopify Product Customization Apps (2026) | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "7 Best Shopify Product Customization Apps (2026) | Appfox",
     metaDescription: "Compare 7 Shopify product customization apps for 2026 — features, pricing, strengths, and who each fits. Easify, EasyFlow, Hulk, Qstomizer, and more.",
     body: [
       {
@@ -1198,7 +1198,7 @@ const postCatalog: Post[] = [
       },
       {
         type: "p",
-        text: "If you're looking to offer recurring purchases, discover [AppFox Subscriptions](https://apps.shopify.com/appfox-subscriptions) to learn how subscription options can complement your Shopify product offerings.",
+        text: "If you're looking to offer recurring purchases, discover [Appfox Subscriptions](https://apps.shopify.com/appfox-subscriptions) to learn how subscription options can complement your Shopify product offerings.",
       },
       {
         type: "p",
@@ -1213,8 +1213,8 @@ const postCatalog: Post[] = [
       "Publishing a self-service edit link takes an afternoon. Deciding which edits run automatically, how close to your fulfillment cutoff they're still allowed, and what happens when a price increase can't collect takes longer - and skipping that work is what actually costs the first month of orders.",
     category: "GUIDE",
     date: "2026-09-19",
-    author: "The AppFox Team",
-    metaTitle: "How to Launch Self-Service Order Editing on Shopify | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "How to Launch Self-Service Order Editing on Shopify | Appfox",
     metaDescription:
       "Turning on self-service order editing takes minutes. Here's what actually needs deciding first - edit types, fulfillment cutoffs, and payment fallbacks - and a launch sequence that survives the first real edit request.",
     body: [
@@ -1261,10 +1261,10 @@ const postCatalog: Post[] = [
           "Turn on an audit trail before the first edit runs, not after the first dispute - a timestamped record of what changed, who approved it, and what was charged is what actually settles a chargeback in the merchant's favor",
         ],
       },
-      { type: "h2", text: "Where this lives in AppFox Order Editing" },
+      { type: "h2", text: "Where this lives in Appfox Order Editing" },
       {
         type: "p",
-        text: "AppFox's eligibility engine is built to answer the cutoff and risk questions before a merchant has to guess at them - edit windows, fulfillment cutoffs, and per-action rules are set once, per edit type, instead of as one blanket toggle for the whole flow. A same-price swap can auto-apply while an address change or a total increase routes to the approval queue, and any rule can change later without touching the parts already working. Price differences run through Shopify's own Order Editing API, so a failed payment on an upcharge doesn't leave the order in a half-applied state - the edit holds until the charge actually clears. Every edit, approved or auto-applied, lands in an audit timeline with what changed and what was charged, which is the record a merchant actually needs the day a customer disputes a charge months later.",
+        text: "Appfox's eligibility engine is built to answer the cutoff and risk questions before a merchant has to guess at them - edit windows, fulfillment cutoffs, and per-action rules are set once, per edit type, instead of as one blanket toggle for the whole flow. A same-price swap can auto-apply while an address change or a total increase routes to the approval queue, and any rule can change later without touching the parts already working. Price differences run through Shopify's own Order Editing API, so a failed payment on an upcharge doesn't leave the order in a half-applied state - the edit holds until the charge actually clears. Every edit, approved or auto-applied, lands in an audit timeline with what changed and what was charged, which is the record a merchant actually needs the day a customer disputes a charge months later.",
       },
       {
         type: "p",
@@ -1279,8 +1279,8 @@ const postCatalog: Post[] = [
       "Norrland Roastery sells a build-your-own coffee gift box as a Shopify native bundle. A customer wants to swap just the syrup inside it after checkout - but the order-edit portal only sees one bundle line, not the three products a Cart Transform function packed inside it.",
     category: "PLAYBOOK",
     date: "2026-09-15",
-    author: "The AppFox Team",
-    metaTitle: "Shopify Order Edit and Native Bundles: Why Components Are Locked | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "Shopify Order Edit and Native Bundles: Why Components Are Locked | Appfox",
     metaDescription:
       "A Shopify native bundle built with a Cart Transform function checks out as one line item, so Shopify's Order Editing API can't touch a single component inside it. Here's why swapping one item in a native bundle after purchase doesn't work like editing a normal line item, and how to design around it.",
     body: [
@@ -1327,14 +1327,14 @@ const postCatalog: Post[] = [
           "Track how often customers attempt an edit on a bundle line and bounce off it - a build-your-own bundle with a high post-purchase edit-attempt rate on one particular component (syrup flavor, in Norrland's case) is a signal that component belongs on the storefront's pre-checkout picker with clearer guidance, not just in the post-purchase queue",
         ],
       },
-      { type: "h2", text: "Where this lives in AppFox Order Editing" },
+      { type: "h2", text: "Where this lives in Appfox Order Editing" },
       {
         type: "p",
-        text: "AppFox Order Editing's eligibility engine checks what kind of line item it's looking at before offering an edit action, which is what lets it treat a Cart Transform bundle line differently from an ordinary product line rather than presenting a swap screen the underlying API can't fulfill. A bundle line can still be cancelled or have its quantity adjusted as a whole, in place, through Shopify's native Order Editing API, with the price and any partial refund settled automatically the same way any other edit is. What it can't do - because no app can, this is a limit of the API bundles are built on, not a gap in any one edit tool - is reach inside the bundle and swap a single component while leaving the rest untouched.",
+        text: "Appfox Order Editing's eligibility engine checks what kind of line item it's looking at before offering an edit action, which is what lets it treat a Cart Transform bundle line differently from an ordinary product line rather than presenting a swap screen the underlying API can't fulfill. A bundle line can still be cancelled or have its quantity adjusted as a whole, in place, through Shopify's native Order Editing API, with the price and any partial refund settled automatically the same way any other edit is. What it can't do - because no app can, this is a limit of the API bundles are built on, not a gap in any one edit tool - is reach inside the bundle and swap a single component while leaving the rest untouched.",
       },
       {
         type: "p",
-        text: "What AppFox does instead is make the boundary visible rather than silent: a bundle line is labeled as a bundle in the edit portal, the actions offered on it are limited to what the API actually supports, and a request that needs a real component swap can be routed straight to the approval queue with a note for whoever picks it up, instead of leaving a customer staring at a line item with no syrup to click on.",
+        text: "What Appfox does instead is make the boundary visible rather than silent: a bundle line is labeled as a bundle in the edit portal, the actions offered on it are limited to what the API actually supports, and a request that needs a real component swap can be routed straight to the approval queue with a note for whoever picks it up, instead of leaving a customer staring at a line item with no syrup to click on.",
       },
       {
         type: "p",
@@ -1349,8 +1349,8 @@ const postCatalog: Post[] = [
       "Fernwood Pantry builds a three-jar subscription bundle by taking its one-time \"save $6\" bundle price and stacking a 15% subscribe-and-save discount on top of it. Both discounts are reasonable on their own. Stacked on a box that now ships alone every cycle instead of riding inside a bigger one-time cart, they quietly eat the margin down to almost nothing.",
     category: "GUIDE",
     date: "2026-09-08",
-    author: "The AppFox Team",
-    metaTitle: "How to Bundle Products Into a Shopify Subscription Box | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "How to Bundle Products Into a Shopify Subscription Box | Appfox",
     metaDescription:
       "A Shopify subscription bundle isn't a one-time bundle discount with a recurring charge bolted on - the discount compounds every cycle and the box ships alone, not inside a bigger cart. Here's how to price and structure a bundled subscription box correctly.",
     body: [
@@ -1401,10 +1401,10 @@ const postCatalog: Post[] = [
           "Review bundle margin against actual fulfillment data after the first full cycle, not just at launch - a combination that pencils out on paper can still be wrong once real packaging weight and real carrier zones are in it",
         ],
       },
-      { type: "h2", text: "Where this lives in AppFox Subscription" },
+      { type: "h2", text: "Where this lives in Appfox Subscription" },
       {
         type: "p",
-        text: "Product bundles are one of the subscription models AppFox Subscription supports directly, alongside replenishment, curated boxes, memberships, and digital products - so a bundled box runs on the same subscribe-and-save widget, recurring billing, and self-service portal as any other plan, with 0% transaction fees, and the app is free for now with no cap on active subscriptions. What AppFox won't do is decide what a bundle costs to ship alone or where its margin floor should sit - that math depends on your own packaging and carrier rates, and it has to happen before the bundle discount and the subscription discount get combined into one checkout price. Subscription analytics breaks revenue out in enough detail to check whether a bundled plan is actually holding its margin in practice, and custom shipping profiles let a bundle that ships alone carry its own real shipping cost instead of inheriting an assumption built for a single-item plan.",
+        text: "Product bundles are one of the subscription models Appfox Subscription supports directly, alongside replenishment, curated boxes, memberships, and digital products - so a bundled box runs on the same subscribe-and-save widget, recurring billing, and self-service portal as any other plan, with 0% transaction fees, and the app is free for now with no cap on active subscriptions. What Appfox won't do is decide what a bundle costs to ship alone or where its margin floor should sit - that math depends on your own packaging and carrier rates, and it has to happen before the bundle discount and the subscription discount get combined into one checkout price. Subscription analytics breaks revenue out in enough detail to check whether a bundled plan is actually holding its margin in practice, and custom shipping profiles let a bundle that ships alone carry its own real shipping cost instead of inheriting an assumption built for a single-item plan.",
       },
       {
         type: "p",
@@ -1419,8 +1419,8 @@ const postCatalog: Post[] = [
       "A candle brand discounts its subscription box 20% because a competitor advertises the same number, and six weeks later finds it's shipping some renewals for less than they cost to fill. The discount wasn't the problem. Nobody had priced the box against what it actually costs to ship alone, every cycle, before writing the discount into checkout.",
     category: "GUIDE",
     date: "2026-09-05",
-    author: "The AppFox Team",
-    metaTitle: "How to Price a Shopify Subscription Box | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "How to Price a Shopify Subscription Box | Appfox",
     metaDescription:
       "Pricing a Shopify subscription box isn't the same math as pricing a one-time sale - the discount, the shipping cost, and the margin all repeat every cycle. Here's a framework for pricing one correctly before your first subscriber signs up.",
     body: [
@@ -1471,10 +1471,10 @@ const postCatalog: Post[] = [
           "Set a floor: the lowest price a box can renew at and still clear cost after the discount, the processing fee, and one skipped or swapped cycle - and treat anything below that floor as a decision to lose money on purpose, not an accident",
         ],
       },
-      { type: "h2", text: "Where this lives in AppFox Subscription" },
+      { type: "h2", text: "Where this lives in Appfox Subscription" },
       {
         type: "p",
-        text: "AppFox Subscription runs the mechanics once the price is set - subscribe-and-save discounts and recurring billing on Shopify's native checkout, free for now with no cap on active subscriptions and 0% transaction fees. What it won't do is calculate your landed cost per box or tell you what discount your margin can actually absorb - that math depends on a merchant's own product cost, packaging, and carrier rates, none of which live inside a subscription app. Subscription analytics breaks revenue and active subscriptions out by cohort, which is the view that shows whether a pricing decision is holding up in practice rather than just on a spreadsheet. Custom shipping profiles let a merchant price and fulfill different frequencies distinctly instead of running every cadence through one shipping assumption that only fits one of them.",
+        text: "Appfox Subscription runs the mechanics once the price is set - subscribe-and-save discounts and recurring billing on Shopify's native checkout, free for now with no cap on active subscriptions and 0% transaction fees. What it won't do is calculate your landed cost per box or tell you what discount your margin can actually absorb - that math depends on a merchant's own product cost, packaging, and carrier rates, none of which live inside a subscription app. Subscription analytics breaks revenue and active subscriptions out by cohort, which is the view that shows whether a pricing decision is holding up in practice rather than just on a spreadsheet. Custom shipping profiles let a merchant price and fulfill different frequencies distinctly instead of running every cadence through one shipping assumption that only fits one of them.",
       },
       {
         type: "p",
@@ -1489,8 +1489,8 @@ const postCatalog: Post[] = [
       "A home-goods brand buys order editing software expecting the ticket count to drop by roughly the number of edits it processes. Six weeks later the support queue is thinner, the P&L has a new line item, and nobody on the team can say with a number whether the app paid for itself - because ticket deflection was never the only line that moved.",
     category: "REVENUE",
     date: "2026-07-13",
-    author: "The AppFox Team",
-    metaTitle: "Shopify Order Editing ROI: How to Calculate the Payback | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "Shopify Order Editing ROI: How to Calculate the Payback | Appfox",
     metaDescription:
       "Support ticket deflection is the number everyone quotes for self-service order editing ROI, and it's only one of the two savings actually in play. Here's how to calculate the real payback on a Shopify order editing app - deflected tickets plus preserved payment fees, worked through with real math.",
     body: [
@@ -1551,14 +1551,14 @@ const postCatalog: Post[] = [
           "Recalculate quarterly, not once - order-change volume moves with your catalog and your return policy, and a payback number from launch month gets stale fast if nobody revisits it",
         ],
       },
-      { type: "h2", text: "Where this lives in AppFox Order Editing" },
+      { type: "h2", text: "Where this lives in Appfox Order Editing" },
       {
         type: "p",
         text: "The analytics dashboard, on the Starter plan and above, reports edit volume broken out by edit type - address, quantity, variant swap, cancellation - which is exactly the split this calculation needs to separate straightforward deflections from the edits that would have previously forced a cancel-and-reorder. Every edit applies in place through Shopify's native Order Editing API, so the fee-preservation side of the math isn't an estimate of what the app should be saving - it's what happens on every qualifying edit by default, whether or not anyone ever builds the spreadsheet to prove it.",
       },
       {
         type: "p",
-        text: "What AppFox doesn't do is pull ticket data from your helpdesk or run this calculation for you - the pre-launch baseline, the fully-loaded cost per ticket, and the average order value all have to come from a merchant's own tools, the same way they would for any ROI case a finance team builds by hand. The dashboard supplies the edit-volume side of the equation; the helpdesk tags supply the other, and the two only turn into a payback number when someone puts them in the same spreadsheet.",
+        text: "What Appfox doesn't do is pull ticket data from your helpdesk or run this calculation for you - the pre-launch baseline, the fully-loaded cost per ticket, and the average order value all have to come from a merchant's own tools, the same way they would for any ROI case a finance team builds by hand. The dashboard supplies the edit-volume side of the equation; the helpdesk tags supply the other, and the two only turn into a payback number when someone puts them in the same spreadsheet.",
       },
       {
         type: "p",
@@ -1573,8 +1573,8 @@ const postCatalog: Post[] = [
       "A pet-food subscription's renewal run fails nine out of every hundred cards on the first attempt, and the team writes off all nine as canceled-by-nonpayment. A single retry three days later would have quietly recovered most of them - the card wasn't broken, it was just empty on the wrong afternoon.",
     category: "GUIDE",
     date: "2026-07-05",
-    author: "The AppFox Team",
-    metaTitle: "Shopify Subscription Dunning Schedule: Recover Failed Payments | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "Shopify Subscription Dunning Schedule: Recover Failed Payments | Appfox",
     metaDescription:
       "Most failed Shopify subscription renewals aren't a customer who wants to quit - they're a card that was temporarily empty. Here's how to build a dunning schedule, timed and worded by decline type, that recovers those payments instead of losing the subscriber.",
     body: [
@@ -1621,14 +1621,14 @@ const postCatalog: Post[] = [
           "Set a real, disclosed final date after which the subscription actually cancels, and hold to it - a dunning sequence that keeps retrying indefinitely with no stated end trains subscribers to ignore every message in it, including the one that matters",
         ],
       },
-      { type: "h2", text: "Where this lives in AppFox Subscription" },
+      { type: "h2", text: "Where this lives in Appfox Subscription" },
       {
         type: "p",
-        text: "AppFox Subscription retries a failed renewal automatically rather than leaving it as a single dead attempt, and merchants can replace the default dunning template with custom HTML per message in the sequence - which is where the day-zero heads-up and the final-notice warning stop being the same email with a different subject line. That's the part of the schedule a merchant actually controls: how many attempts run, roughly how they're spaced, and what each one says.",
+        text: "Appfox Subscription retries a failed renewal automatically rather than leaving it as a single dead attempt, and merchants can replace the default dunning template with custom HTML per message in the sequence - which is where the day-zero heads-up and the final-notice warning stop being the same email with a different subject line. That's the part of the schedule a merchant actually controls: how many attempts run, roughly how they're spaced, and what each one says.",
       },
       {
         type: "p",
-        text: "What AppFox doesn't do is classify a decline as soft or hard on a merchant's behalf - the code a processor returns varies by gateway and bank, and reading it reliably enough to skip retries on a genuine hard decline is a judgment call tied to a merchant's own processor, not something the app can generalize across every store it runs on. That's worth reviewing directly with a payment processor before leaning on retry count alone to decide when to stop asking a card and start asking the subscriber for a new one.",
+        text: "What Appfox doesn't do is classify a decline as soft or hard on a merchant's behalf - the code a processor returns varies by gateway and bank, and reading it reliably enough to skip retries on a genuine hard decline is a judgment call tied to a merchant's own processor, not something the app can generalize across every store it runs on. That's worth reviewing directly with a payment processor before leaning on retry count alone to decide when to stop asking a card and start asking the subscriber for a new one.",
       },
       {
         type: "p",
@@ -1643,8 +1643,8 @@ const postCatalog: Post[] = [
       "An engineer builds subscription billing directly on Shopify's Selling Plans API to skip an app's per-subscriber fee, and the first cohort renews without a hitch. The retries, the self-service portal, and the churn dashboard - the parts of a subscription program that actually take the maintenance - are the parts that ship later, one support ticket at a time.",
     category: "GUIDE",
     date: "2026-06-26",
-    author: "The AppFox Team",
-    metaTitle: "Shopify Subscriptions API vs. a Subscription App: Build or Buy | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "Shopify Subscriptions API vs. a Subscription App: Build or Buy | Appfox",
     metaDescription:
       "Shopify's Selling Plans API can power a custom subscription build, but renewals are the easy three weeks. Here's what a build-vs-buy decision actually costs once retries, self-service, and analytics enter the picture, and how to weigh a custom build against a subscription app.",
     body: [
@@ -1691,10 +1691,10 @@ const postCatalog: Post[] = [
           "Revisit the decision at a real inflection point - a subscriber count where support tickets start competing with the engineering roadmap - rather than only at launch, since the right answer at 40 subscribers and at 4,000 isn't the same one",
         ],
       },
-      { type: "h2", text: "Where this lives in AppFox Subscription" },
+      { type: "h2", text: "Where this lives in Appfox Subscription" },
       {
         type: "p",
-        text: "AppFox Subscription runs on the same Shopify Checkout and Selling Plans APIs a custom build would use - subscribers pay on the checkout they already trust, and nothing about the underlying billing is different from what an in-house build produces. What ships built-in instead of scoped separately is the rest of it: automatic retries on a failed renewal, a customer portal where a subscriber can skip, pause, swap, update a card, or cancel without a ticket, and subscription analytics - churn, MRR, plan performance. AppFox Subscription is free for now, with no cap on active subscriptions and 0% transaction fees, which is enough room to compare a real cohort against a custom build's actual maintenance cost before either one has scaled past the point where switching is easy.",
+        text: "Appfox Subscription runs on the same Shopify Checkout and Selling Plans APIs a custom build would use - subscribers pay on the checkout they already trust, and nothing about the underlying billing is different from what an in-house build produces. What ships built-in instead of scoped separately is the rest of it: automatic retries on a failed renewal, a customer portal where a subscriber can skip, pause, swap, update a card, or cancel without a ticket, and subscription analytics - churn, MRR, plan performance. Appfox Subscription is free for now, with no cap on active subscriptions and 0% transaction fees, which is enough room to compare a real cohort against a custom build's actual maintenance cost before either one has scaled past the point where switching is easy.",
       },
       {
         type: "p",
@@ -1713,8 +1713,8 @@ const postCatalog: Post[] = [
       "A coffee subscription brand closes the month with 40 cancellations against 500 active subscribers and reports 8% churn to the board - a number that's arithmetically correct and still tells nobody whether the program is actually healthy. Churn rate isn't hard to calculate. It's easy to calculate several different ways and never notice you've changed the formula.",
     category: "GUIDE",
     date: "2026-06-15",
-    author: "The AppFox Team",
-    metaTitle: "Shopify Subscription Churn Rate: How to Calculate It | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "Shopify Subscription Churn Rate: How to Calculate It | Appfox",
     metaDescription:
       "How to calculate Shopify subscription churn rate correctly - voluntary vs. involuntary, logo vs. revenue churn, denominator timing - plus benchmark ranges by category so you know what a good churn rate actually looks like.",
     body: [
@@ -1779,14 +1779,14 @@ const postCatalog: Post[] = [
           "Contract length and price - annual or higher-commitment plans nearly always churn slower than month-to-month, low-price ones, so comparing across plan types with a single number hides more than it shows",
         ],
       },
-      { type: "h2", text: "Where this lives in AppFox Subscription" },
+      { type: "h2", text: "Where this lives in Appfox Subscription" },
       {
         type: "p",
-        text: "AppFox Subscription retries a failed renewal payment automatically over the days after a decline, instead of letting a temporarily-expired card register as an immediate cancellation - which is the single biggest lever most merchants have for pulling involuntary churn out of a blended number in the first place. Subscription analytics tracks active, paused, and canceled counts over time, which is the raw material for building whichever churn calculation actually fits a program - store-wide, by plan, by cohort.",
+        text: "Appfox Subscription retries a failed renewal payment automatically over the days after a decline, instead of letting a temporarily-expired card register as an immediate cancellation - which is the single biggest lever most merchants have for pulling involuntary churn out of a blended number in the first place. Subscription analytics tracks active, paused, and canceled counts over time, which is the raw material for building whichever churn calculation actually fits a program - store-wide, by plan, by cohort.",
       },
       {
         type: "p",
-        text: "What AppFox doesn't do is decide the definition for you - it doesn't publish an industry benchmark, tag every cancellation with a reason, or pick logo churn over revenue churn on a merchant's behalf. Those are category and business decisions that vary too much from one subscription program to the next to bake into the app. What AppFox's side of this gives a merchant is the underlying counts, cleanly separated from paused and involuntary noise, so the definition someone chooses can actually be applied consistently instead of reconstructed by hand from an export every time someone asks for the number.",
+        text: "What Appfox doesn't do is decide the definition for you - it doesn't publish an industry benchmark, tag every cancellation with a reason, or pick logo churn over revenue churn on a merchant's behalf. Those are category and business decisions that vary too much from one subscription program to the next to bake into the app. What Appfox's side of this gives a merchant is the underlying counts, cleanly separated from paused and involuntary noise, so the definition someone chooses can actually be applied consistently instead of reconstructed by hand from an export every time someone asks for the number.",
       },
       {
         type: "p",
@@ -1801,8 +1801,8 @@ const postCatalog: Post[] = [
       "A coffee roaster's subscriber skips her next bag three days before it's due - the portal confirms it instantly. Two days later she gets a Klaviyo email warning her card is about to be charged for a renewal that no longer exists, and cancels the whole subscription rather than trust the portal a second time.",
     category: "PLAYBOOK",
     date: "2026-05-30",
-    author: "The AppFox Team",
-    metaTitle: "Why a Skipped Shopify Subscription Still Triggers a Klaviyo Reminder | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "Why a Skipped Shopify Subscription Still Triggers a Klaviyo Reminder | Appfox",
     metaDescription:
       "A subscriber skips her Shopify subscription renewal, but her Klaviyo flow still emails a charge reminder for a date that no longer applies. Here's why skip events and billing events sync differently - and how to keep a reminder flow honest.",
     body: [
@@ -1853,14 +1853,14 @@ const postCatalog: Post[] = [
           "Test the flow the way a subscriber actually uses it - skip a real test subscription two days before a scheduled reminder and see what actually lands in the inbox, not just what the flow diagram says should happen",
         ],
       },
-      { type: "h2", text: "Where this lives in AppFox Subscription" },
+      { type: "h2", text: "Where this lives in Appfox Subscription" },
       {
         type: "p",
-        text: "AppFox's Klaviyo integration forwards skip, pause, swap, and cancel as their own events, not just renewal-charged and payment-failed, so a flow built to react to a skip can listen for the skip instead of guessing at it from an absence. Every one of those portal actions also pushes the subscriber's updated next-billing date the moment it changes, rather than waiting for the next charge to re-sync it.",
+        text: "Appfox's Klaviyo integration forwards skip, pause, swap, and cancel as their own events, not just renewal-charged and payment-failed, so a flow built to react to a skip can listen for the skip instead of guessing at it from an absence. Every one of those portal actions also pushes the subscriber's updated next-billing date the moment it changes, rather than waiting for the next charge to re-sync it.",
       },
       {
         type: "p",
-        text: "AppFox doesn't build the reminder flow itself - the sequence, the copy, the timing are still whatever a merchant designs in Klaviyo. What the integration is responsible for is making sure the events and the date it's built on stay current the instant a subscriber acts in the portal, so a flow a merchant already trusts is reading what actually happened, not what happened to be true the last time something got charged.",
+        text: "Appfox doesn't build the reminder flow itself - the sequence, the copy, the timing are still whatever a merchant designs in Klaviyo. What the integration is responsible for is making sure the events and the date it's built on stay current the instant a subscriber acts in the portal, so a flow a merchant already trusts is reading what actually happened, not what happened to be true the last time something got charged.",
       },
       {
         type: "p",
@@ -1875,8 +1875,8 @@ const postCatalog: Post[] = [
       "A supplement brand builds a Black Friday landing page in PageFly for its flagship subscription bundle. The page looks perfect - except the subscribe-and-save toggle that sits on every ordinary product page is nowhere on it, and nobody touched a setting to make that happen.",
     category: "PLAYBOOK",
     date: "2026-05-14",
-    author: "The AppFox Team",
-    metaTitle: "Subscribe & Save Widget Missing on a PageFly Page | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "Subscribe & Save Widget Missing on a PageFly Page | Appfox",
     metaDescription:
       "A Shopify subscribe-and-save widget can render perfectly on your default product template and go missing on a PageFly-built landing page. Here's why page builders skip theme app blocks, and how to get the widget back before traffic runs.",
     body: [
@@ -1927,10 +1927,10 @@ const postCatalog: Post[] = [
           "Once a working setup is found, template it, so the fix travels to the next campaign page automatically instead of getting rediscovered by whoever builds the next one under a deadline",
         ],
       },
-      { type: "h2", text: "Where this lives in AppFox Subscription" },
+      { type: "h2", text: "Where this lives in Appfox Subscription" },
       {
         type: "p",
-        text: "AppFox Subscription's widget ships as a theme app extension, which is what lets it drop onto a default Online Store 2.0 product template with no code and no theme surgery - and that same mechanism is what carries it cleanly onto a PageFly page built as a customization of that template. What it doesn't do on its own is appear on a PageFly page built as an entirely separate canvas, for the same structural reason no theme-app-extension widget does: that canvas isn't running the theme's section-and-block system the extension depends on. AppFox integrates with PageFly specifically because this gap is common enough to plan for rather than discover mid-campaign, and subscription analytics can be filtered by landing page, which turns \"this page's take rate looks low\" from a guess into something a merchant can catch before a campaign's budget is spent finding out the hard way.",
+        text: "Appfox Subscription's widget ships as a theme app extension, which is what lets it drop onto a default Online Store 2.0 product template with no code and no theme surgery - and that same mechanism is what carries it cleanly onto a PageFly page built as a customization of that template. What it doesn't do on its own is appear on a PageFly page built as an entirely separate canvas, for the same structural reason no theme-app-extension widget does: that canvas isn't running the theme's section-and-block system the extension depends on. Appfox integrates with PageFly specifically because this gap is common enough to plan for rather than discover mid-campaign, and subscription analytics can be filtered by landing page, which turns \"this page's take rate looks low\" from a guess into something a merchant can catch before a campaign's budget is spent finding out the hard way.",
       },
       {
         type: "p",
@@ -1942,13 +1942,13 @@ const postCatalog: Post[] = [
     slug: "automate-shopify-subscription-retention-with-shopify-flow",
     title: "How to Automate Shopify Subscription Retention Workflows With Shopify Flow",
     excerpt:
-      "A failed card that finally lapses after three retries disappears into the billing log the moment it resolves - unless something's listening. Shopify Flow turns AppFox Subscription's renewal, pause, and cancellation events into triggers, so a churn moment gets routed and acted on instead of surfacing six weeks later as a number on a report.",
+      "A failed card that finally lapses after three retries disappears into the billing log the moment it resolves - unless something's listening. Shopify Flow turns Appfox Subscription's renewal, pause, and cancellation events into triggers, so a churn moment gets routed and acted on instead of surfacing six weeks later as a number on a report.",
     category: "GUIDE",
     date: "2026-04-20",
-    author: "The AppFox Team",
-    metaTitle: "Automate Shopify Subscription Retention with Shopify Flow | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "Automate Shopify Subscription Retention with Shopify Flow | Appfox",
     metaDescription:
-      "Shopify Flow can turn AppFox Subscription's renewal, pause, and cancellation events into automatic retention workflows - alerts, tags, and win-back triggers - instead of relying on someone to notice churn in a dashboard.",
+      "Shopify Flow can turn Appfox Subscription's renewal, pause, and cancellation events into automatic retention workflows - alerts, tags, and win-back triggers - instead of relying on someone to notice churn in a dashboard.",
     body: [
       {
         type: "p",
@@ -1961,7 +1961,7 @@ const postCatalog: Post[] = [
       { type: "h2", text: "What Shopify Flow actually does with a subscription event" },
       {
         type: "p",
-        text: "AppFox Subscription's auto-renewal engine already retries a failed payment automatically, and the customer portal already lets a subscriber skip a delivery, pause, swap products, or cancel without ever opening a ticket. What none of that does on its own is tell anyone else it happened. Shopify Flow is the layer that listens for those moments - a renewal, a pause, a final failed retry, a cancellation - and turns them into action elsewhere in the store: a Slack alert, a customer tag, a wait-and-recheck sequence, a note pushed into whatever tool actually runs retention.",
+        text: "Appfox Subscription's auto-renewal engine already retries a failed payment automatically, and the customer portal already lets a subscriber skip a delivery, pause, swap products, or cancel without ever opening a ticket. What none of that does on its own is tell anyone else it happened. Shopify Flow is the layer that listens for those moments - a renewal, a pause, a final failed retry, a cancellation - and turns them into action elsewhere in the store: a Slack alert, a customer tag, a wait-and-recheck sequence, a note pushed into whatever tool actually runs retention.",
       },
       {
         type: "ul",
@@ -1997,10 +1997,10 @@ const postCatalog: Post[] = [
         type: "p",
         text: "None of this means wiring Flow to fire on absolutely everything a subscription does. A successful renewal on a subscriber's second or third cycle doesn't need a Slack ping - that's the system working as intended, and flooding a channel with routine renewals just trains everyone to stop reading it. Save the automation for the moments that are actually decisions: a final payment failure, a cancellation, a pause that's run long past when it should have ended. Flow's value here is in surfacing the events worth a human noticing, not in making noise about the ones that don't need one.",
       },
-      { type: "h2", text: "Where this lives in AppFox Subscription" },
+      { type: "h2", text: "Where this lives in Appfox Subscription" },
       {
         type: "p",
-        text: "AppFox Subscription's own retry logic and customer portal already handle the mechanics - a failed card gets retried automatically, and a subscriber can skip, pause, swap, or cancel without ever opening a ticket. Shopify Flow sits on top of that, turning the same events the portal already tracks into triggers a workflow can act on, so building a retention flow means routing decisions you're already making, not rebuilding subscription logic a second time inside Flow. Wire it in through the same Shopify Flow connection that sits alongside the Klaviyo and Loyalty Lion integrations, and every automated step lands next to the portal's own subscription history - so a win-back discount that fired overnight is exactly as traceable as one a support agent applied by hand.",
+        text: "Appfox Subscription's own retry logic and customer portal already handle the mechanics - a failed card gets retried automatically, and a subscriber can skip, pause, swap, or cancel without ever opening a ticket. Shopify Flow sits on top of that, turning the same events the portal already tracks into triggers a workflow can act on, so building a retention flow means routing decisions you're already making, not rebuilding subscription logic a second time inside Flow. Wire it in through the same Shopify Flow connection that sits alongside the Klaviyo and Loyalty Lion integrations, and every automated step lands next to the portal's own subscription history - so a win-back discount that fired overnight is exactly as traceable as one a support agent applied by hand.",
       },
       {
         type: "p",
@@ -2015,8 +2015,8 @@ const postCatalog: Post[] = [
       "Turning on a subscribe-and-save widget takes an afternoon. Deciding what a subscriber can do without a support ticket, how deep the discount runs, and what happens when a renewal card gets declined takes longer - and skipping that work is what actually costs a program its first cohort.",
     category: "GUIDE",
     date: "2026-04-12",
-    author: "The AppFox Team",
-    metaTitle: "How to Launch a Shopify Subscription Program the Right Way | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "How to Launch a Shopify Subscription Program the Right Way | Appfox",
     metaDescription:
       "Launching a Shopify subscription program is more than switching on a widget. Here's what actually needs deciding before your first subscriber signs up, and a launch sequence that survives the first renewal.",
     body: [
@@ -2063,10 +2063,10 @@ const postCatalog: Post[] = [
           "Cap the number of plans and frequencies at launch, and expand once you can see which ones subscribers actually pick, instead of guessing upfront and maintaining variants nobody chooses",
         ],
       },
-      { type: "h2", text: "Where this lives in AppFox Subscription" },
+      { type: "h2", text: "Where this lives in Appfox Subscription" },
       {
         type: "p",
-        text: "AppFox Subscription is free for now, with no cap on active subscriptions and 0% transaction fees, which is plenty of runway to run the sequence above against a real cohort before compounding decisions across thousands of subscribers. The subscribe-and-save widgets and templates are pre-built, so the one-afternoon part of launching stays exactly that short. The customer self-service portal - skip, pause, swap, cancel - ships as part of the core app rather than something to add once the first support ticket makes the case for it, so a narrow initial catalog can still offer full self-service from the first signup. The recurring billing engine retries a failed renewal automatically instead of treating the first decline as the end of the relationship, and subscription analytics shows churn and revenue by cohort, so the decision to expand past that first slice of the catalog is made from what actually happened rather than a guess made twice.",
+        text: "Appfox Subscription is free for now, with no cap on active subscriptions and 0% transaction fees, which is plenty of runway to run the sequence above against a real cohort before compounding decisions across thousands of subscribers. The subscribe-and-save widgets and templates are pre-built, so the one-afternoon part of launching stays exactly that short. The customer self-service portal - skip, pause, swap, cancel - ships as part of the core app rather than something to add once the first support ticket makes the case for it, so a narrow initial catalog can still offer full self-service from the first signup. The recurring billing engine retries a failed renewal automatically instead of treating the first decline as the end of the relationship, and subscription analytics shows churn and revenue by cohort, so the decision to expand past that first slice of the catalog is made from what actually happened rather than a guess made twice.",
       },
       {
         type: "p",
@@ -2081,8 +2081,8 @@ const postCatalog: Post[] = [
       "A skincare subscriber gets a genuine review request after her first box and leaves five stars - then gets the identical ask again after every renewal that follows, same product, same email, forever. Her subscription didn't do anything wrong; the review app just can't tell a fourth renewal from a first-time purchase.",
     category: "PLAYBOOK",
     date: "2026-03-24",
-    author: "The AppFox Team",
-    metaTitle: "Why a Shopify Subscription Renewal Triggers a Review Request | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "Why a Shopify Subscription Renewal Triggers a Review Request | Appfox",
     metaDescription:
       "A Shopify subscription renewal creates a normal order, so review apps like Judge.me and Loox ask for a review on every box, not just the first. Here's why that happens, and how to stop the repeat ask before it costs you the subscriber's inbox.",
     body: [
@@ -2129,14 +2129,14 @@ const postCatalog: Post[] = [
           "Watch unsubscribe rate for subscribers specifically, separate from one-time customers - a gap that only shows up on the subscriber segment is usually a repeat-ask problem, not a content problem",
         ],
       },
-      { type: "h2", text: "Where this lives in AppFox Subscription" },
+      { type: "h2", text: "Where this lives in Appfox Subscription" },
       {
         type: "p",
-        text: "AppFox tags every order a subscription contract creates - the first order and every renewal after it - so the difference between this subscriber's very first purchase and renewal number four of the same plan is something an order tag, not a guess about timing, can answer. That same subscription status - active, on its Nth renewal, paused, canceled - is available through AppFox's Klaviyo integration too, not just as order data, so a flow (a review request included, if it's built in Klaviyo rather than a dedicated review app) has a real property to filter against instead of inferring intent from how many orders happened to land.",
+        text: "Appfox tags every order a subscription contract creates - the first order and every renewal after it - so the difference between this subscriber's very first purchase and renewal number four of the same plan is something an order tag, not a guess about timing, can answer. That same subscription status - active, on its Nth renewal, paused, canceled - is available through Appfox's Klaviyo integration too, not just as order data, so a flow (a review request included, if it's built in Klaviyo rather than a dedicated review app) has a real property to filter against instead of inferring intent from how many orders happened to land.",
       },
       {
         type: "p",
-        text: "What AppFox doesn't do is reach into a third-party review app's own trigger logic - Judge.me's send rules, Loox's delay timer, and Yotpo's request cadence all live entirely on that app's side, outside anything a subscription app can set from its end. What AppFox's tagging does is make sure the signal those apps need - is this order a first purchase or a renewal - actually exists somewhere they can read it, instead of leaving every review-request integration to treat a subscriber's tenth box exactly like a stranger's first.",
+        text: "What Appfox doesn't do is reach into a third-party review app's own trigger logic - Judge.me's send rules, Loox's delay timer, and Yotpo's request cadence all live entirely on that app's side, outside anything a subscription app can set from its end. What Appfox's tagging does is make sure the signal those apps need - is this order a first purchase or a renewal - actually exists somewhere they can read it, instead of leaving every review-request integration to treat a subscriber's tenth box exactly like a stranger's first.",
       },
       {
         type: "p",
@@ -2151,8 +2151,8 @@ const postCatalog: Post[] = [
       "A subscriber earns points on the first checkout the moment it clears, then watches the balance sit still through renewal after renewal. The loyalty app isn't broken - it's still waiting for a checkout event a recurring billing engine never sends.",
     category: "PLAYBOOK",
     date: "2026-02-03",
-    author: "The AppFox Team",
-    metaTitle: "Shopify Subscription Loyalty Points: Why Renewals Get Skipped | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "Shopify Subscription Loyalty Points: Why Renewals Get Skipped | Appfox",
     metaDescription:
       "Loyalty points that work fine on the first checkout often stop accruing once a Shopify subscription starts renewing on its own. Here's why recurring orders and loyalty apps drift apart, and how to keep points and subscriptions in sync.",
     body: [
@@ -2198,10 +2198,10 @@ const postCatalog: Post[] = [
           "Spot-check a live subscription through two or three renewal cycles before assuming the integration is catching every order it should.",
         ],
       },
-      { type: "h2", text: "Where this lives in AppFox Subscription" },
+      { type: "h2", text: "Where this lives in Appfox Subscription" },
       {
         type: "p",
-        text: "AppFox Subscription's recurring billing runs through Shopify's native checkout infrastructure and produces standard Shopify orders on every renewal - not a side ledger the rest of your stack has to be taught to read. That's what makes the app's direct LoyaltyLion integration able to sit on the same order events a first-time checkout produces, rather than needing a separate workaround for renewals.",
+        text: "Appfox Subscription's recurring billing runs through Shopify's native checkout infrastructure and produces standard Shopify orders on every renewal - not a side ledger the rest of your stack has to be taught to read. That's what makes the app's direct LoyaltyLion integration able to sit on the same order events a first-time checkout produces, rather than needing a separate workaround for renewals.",
       },
       {
         type: "p",
@@ -2220,8 +2220,8 @@ const postCatalog: Post[] = [
       "A curated box is a promise you make once, at signup. A build-a-box subscription is a promise you keep every cycle. Here's how to tell which one your subscribers actually want - and what breaks in the back end if you switch without planning for it.",
     category: "PLAYBOOK",
     date: "2026-01-21",
-    author: "The AppFox Team",
-    metaTitle: "Build-A-Box vs. Curated Shopify Subscription Boxes | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "Build-A-Box vs. Curated Shopify Subscription Boxes | Appfox",
     metaDescription:
       "A build-a-box subscription lets Shopify subscribers pick their own items each cycle instead of receiving a merchant-curated selection. Here's how to tell when curation has hit its ceiling, and what a build-a-box model actually costs in inventory and ops complexity before you switch.",
     body: [
@@ -2279,7 +2279,7 @@ const postCatalog: Post[] = [
       },
       {
         type: "p",
-        text: "AppFox Subscription supports both models on the same subscription engine: a merchant-curated box for the programs where the selling point is trusted taste, and bundling with build-a-box picks for the programs where subscribers want the wheel in their own hands - configured per plan, not bolted on as a workaround. The subscribe-and-save widget shows subscribers whichever version applies to what they're signing up for, and the customer portal is where a build-a-box subscriber makes their picks for the next cycle the same way they'd skip or pause - self-service, no ticket, no waiting on a merchant to open a spreadsheet.",
+        text: "Appfox Subscription supports both models on the same subscription engine: a merchant-curated box for the programs where the selling point is trusted taste, and bundling with build-a-box picks for the programs where subscribers want the wheel in their own hands - configured per plan, not bolted on as a workaround. The subscribe-and-save widget shows subscribers whichever version applies to what they're signing up for, and the customer portal is where a build-a-box subscriber makes their picks for the next cycle the same way they'd skip or pause - self-service, no ticket, no waiting on a merchant to open a spreadsheet.",
       },
       {
         type: "p",
@@ -2294,8 +2294,8 @@ const postCatalog: Post[] = [
       "Skip and pause fix timing problems - too much product, a trip, a tight month. They do nothing for a subscriber who got the wrong flavor, the wrong size, or an item they never wanted in the box. Here's why swap is the churn lever most subscription portals build last, and it costs the least to offer.",
     category: "PLAYBOOK",
     date: "2026-01-18",
-    author: "The AppFox Team",
-    metaTitle: "Shopify Subscription Swaps: Why They Cut Cancellations | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "Shopify Subscription Swaps: Why They Cut Cancellations | Appfox",
     metaDescription:
       "Skip and pause solve timing problems. When a Shopify subscriber gets the wrong flavor, size, or item, only a self-service swap keeps the subscription - not a discount.",
     body: [
@@ -2345,7 +2345,7 @@ const postCatalog: Post[] = [
       { type: "h2", text: "Where this lives in the portal" },
       {
         type: "p",
-        text: "This is what AppFox Subscription's customer portal is built to handle alongside skip, pause, and cancel: subscribers can swap the product, variant, or size in an upcoming shipment themselves, on their own schedule, without a support ticket. The swap keeps the subscription's existing subscribe-and-save rate and billing cadence intact - changing what ships isn't supposed to mean restarting the discount clock or re-entering payment details, and a portal that makes it feel that way pushes subscribers back toward cancel out of sheer friction.",
+        text: "This is what Appfox Subscription's customer portal is built to handle alongside skip, pause, and cancel: subscribers can swap the product, variant, or size in an upcoming shipment themselves, on their own schedule, without a support ticket. The swap keeps the subscription's existing subscribe-and-save rate and billing cadence intact - changing what ships isn't supposed to mean restarting the discount clock or re-entering payment details, and a portal that makes it feel that way pushes subscribers back toward cancel out of sheer friction.",
       },
       {
         type: "p",
@@ -2375,8 +2375,8 @@ const postCatalog: Post[] = [
       "Most subscribe-and-save programs launch on a discount pulled from a competitor's product page, not their own margin. Here's why that borrowed number quietly costs more than it earns, and how tiered pricing, trial periods, and a self-service portal do more of the retention work than another five points off.",
     category: "REVENUE",
     date: "2026-01-18",
-    author: "The AppFox Team",
-    metaTitle: "How Much Should You Discount a Shopify Subscription? | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "How Much Should You Discount a Shopify Subscription? | Appfox",
     metaDescription:
       "Most Shopify subscribe-and-save programs copy a competitor's discount rate. Here's how to size a subscription discount around your own margin, tiered pricing, trial periods, and portal flexibility instead.",
     body: [
@@ -2414,7 +2414,7 @@ const postCatalog: Post[] = [
       { type: "h2", text: "Building in flexibility before reaching for margin" },
       {
         type: "p",
-        text: "A flat percentage off is the easiest discount to set up and the hardest one to walk back, which is exactly why it's worth treating as a last resort rather than a starting point. AppFox Subscription supports percentage or fixed discounts, tiered pricing, and trial periods specifically so the acquisition offer and the ongoing rate don't have to be the same decision - a lighter discount on the first box, a deeper one at a longer commitment tier, and a trial period that does some of the persuading without permanently discounting every renewal that follows.",
+        text: "A flat percentage off is the easiest discount to set up and the hardest one to walk back, which is exactly why it's worth treating as a last resort rather than a starting point. Appfox Subscription supports percentage or fixed discounts, tiered pricing, and trial periods specifically so the acquisition offer and the ongoing rate don't have to be the same decision - a lighter discount on the first box, a deeper one at a longer commitment tier, and a trial period that does some of the persuading without permanently discounting every renewal that follows.",
       },
       {
         type: "p",
@@ -2444,8 +2444,8 @@ const postCatalog: Post[] = [
       "Most subscription portals only have one exit built well: cancel. When a temporary reason - too much product, a tight month, a trip - has nowhere else to go, it gets treated like a permanent one, and a subscriber who just needed a break ends up gone for good.",
     category: "PLAYBOOK",
     date: "2026-01-17",
-    author: "The AppFox Team",
-    metaTitle: "Reduce Shopify Subscription Cancellations: Skip & Pause vs. Cancel | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "Reduce Shopify Subscription Cancellations: Skip & Pause vs. Cancel | Appfox",
     metaDescription:
       "Cancel-only subscription portals turn temporary reasons into permanent losses. Here's why skip and pause reduce Shopify subscription cancellations more than discounts do.",
     body: [
@@ -2511,7 +2511,7 @@ const postCatalog: Post[] = [
       { type: "h2", text: "Where this lives in the customer portal" },
       {
         type: "p",
-        text: "This is exactly what AppFox Subscription's customer portal is built to separate out - subscribers can skip an upcoming delivery, pause the whole plan, swap what's in it, or cancel outright, all self-service, without a support ticket for any of the first three. The portal doesn't need to guess which one a subscriber means; it just needs to make all three genuinely visible and equally easy to reach, instead of quietly designing the page so cancel is the fastest path out.",
+        text: "This is exactly what Appfox Subscription's customer portal is built to separate out - subscribers can skip an upcoming delivery, pause the whole plan, swap what's in it, or cancel outright, all self-service, without a support ticket for any of the first three. The portal doesn't need to guess which one a subscriber means; it just needs to make all three genuinely visible and equally easy to reach, instead of quietly designing the page so cancel is the fastest path out.",
       },
       {
         type: "p",
@@ -2541,8 +2541,8 @@ const postCatalog: Post[] = [
       "Most subscription teams build their retention playbook around the cancel button. The bigger leak is quieter - a card expires or a bank declines a routine charge, the subscriber never clicks anything, and they're just gone.",
     category: "REVENUE",
     date: "2026-01-17",
-    author: "The AppFox Team",
-    metaTitle: "Involuntary Churn on Shopify: Stop Losing Subscribers to Failed Payments | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "Involuntary Churn on Shopify: Stop Losing Subscribers to Failed Payments | Appfox",
     metaDescription:
       "Involuntary churn from failed payments quietly outpaces voluntary cancellations on most Shopify subscription programs. Here's why it happens and how automatic retries and self-service card updates fix it.",
     body: [
@@ -2584,7 +2584,7 @@ const postCatalog: Post[] = [
       {
         type: "ul",
         items: [
-          "Retry the charge automatically over the following days, not once - AppFox Subscription retries a failed renewal payment on its own, so a temporarily declined card gets more than one chance to clear before the subscription is treated as lost",
+          "Retry the charge automatically over the following days, not once - Appfox Subscription retries a failed renewal payment on its own, so a temporarily declined card gets more than one chance to clear before the subscription is treated as lost",
           "Give the subscriber a way to fix the actual problem themselves - an expired or declined card needs a new card, not a discount code or an apology email, and the customer portal is where that update belongs",
           "Tell the subscriber the charge failed, in plain language, instead of letting the subscription go quiet - most people don't ignore a payment problem; they never heard about it",
           "Keep the subscription active through the retry window rather than canceling on the first decline, so a subscriber who fixes their card two days later doesn't come back to a subscription that's already gone",
@@ -2593,7 +2593,7 @@ const postCatalog: Post[] = [
       { type: "h2", text: "Where a self-service portal earns its keep" },
       {
         type: "p",
-        text: "This is exactly the gap a subscriber-facing portal is built to close. AppFox Subscription's customer portal lets a subscriber update their payment details, skip a delivery, or pause the plan on their own, in their account - the same portal that already handles \"I want to skip next month\" is where \"my card changed\" gets fixed too, without a support ticket and without anyone on your team noticing the charge failed in the first place.",
+        text: "This is exactly the gap a subscriber-facing portal is built to close. Appfox Subscription's customer portal lets a subscriber update their payment details, skip a delivery, or pause the plan on their own, in their account - the same portal that already handles \"I want to skip next month\" is where \"my card changed\" gets fixed too, without a support ticket and without anyone on your team noticing the charge failed in the first place.",
       },
       {
         type: "p",
@@ -2627,7 +2627,7 @@ const postCatalog: Post[] = [
       "Most stores pick an edit window - 24 hours, 12 hours, \"until it ships\" - by gut feel, then leave it alone. The right number isn't a guess. It comes from your actual pick-to-ship time, and it's really two settings, not one.",
     category: "PLAYBOOK",
     date: "2026-01-09",
-    author: "The AppFox Team",
+    author: "The Appfox Team",
     metaTitle: "How Long Should a Shopify Order-Edit Window Be? A Practical Guide",
     metaDescription:
       "A Shopify order-edit window set by gut feel either closes too early or stays open past your fulfillment cutoff. Here's how to size it from actual pick-to-ship time, and why it needs a second, operational cutoff behind it.",
@@ -2708,7 +2708,7 @@ const postCatalog: Post[] = [
       "Turn on self-service editing and the next question is immediate: what happens the first time a customer swaps in a $400 item? Most of that fear is solved by sorting edits into two buckets, not by reviewing everything.",
     category: "PLAYBOOK",
     date: "2026-01-09",
-    author: "The AppFox Team",
+    author: "The Appfox Team",
     metaTitle: "Which Order Edits Should Auto-Approve on Shopify?",
     metaDescription:
       "Not every self-service order edit carries the same risk. Learn how to split Shopify order changes into auto-approve and human-review buckets, and set the thresholds that matter.",
@@ -2803,7 +2803,7 @@ const postCatalog: Post[] = [
       "Shopify has no built-in way for shoppers to change an order after checkout. Here's why those tickets pile up - and the cleanest way to hand the edit back to the customer.",
     category: "GUIDE",
     date: "2025-12-16",
-    author: "The AppFox Team",
+    author: "The Appfox Team",
     metaTitle: "How to Let Shopify Customers Edit Their Orders After Checkout",
     metaDescription:
       "Shopify can't let customers edit orders out of the box. Compare the workarounds - manual edits, cancel-and-reorder, self-service - and pick the one that keeps your fees.",
@@ -2862,7 +2862,7 @@ const postCatalog: Post[] = [
       "Support volume that scales with order volume is a tax on growth. A look at where order-change tickets actually come from, and how to remove them at the source.",
     category: "PLAYBOOK",
     date: "2025-12-12",
-    author: "The AppFox Team",
+    author: "The Appfox Team",
     metaTitle: "How to Reduce Order-Change Support Tickets on Shopify",
     metaDescription:
       "Order-change tickets scale with your order volume. Here's how to cut them at the source with self-service editing, eligibility rules, and fewer manual touches.",
@@ -2908,7 +2908,7 @@ const postCatalog: Post[] = [
       "The moment after checkout is the highest-attention window you get - and most stores waste it on emails that get ignored. A simpler place to make the offer.",
     category: "REVENUE",
     date: "2025-12-07",
-    author: "The AppFox Team",
+    author: "The Appfox Team",
     metaTitle: "Post-Purchase Upsells That Convert on Shopify",
     metaDescription:
       "Post-purchase emails get ignored and thank-you pages get closed. Learn why the order-edit flow is the best place to upsell, and how one-click adds keep your fees.",
@@ -2954,8 +2954,8 @@ const postCatalog: Post[] = [
       "Ridgeline Outfitters picked the order-editing app with the longest feature list and the lowest sticker price, live within the hour. A month later, margin was down and support tickets hadn't moved - because the two questions that actually decide that outcome never came up in the demo.",
     category: "GUIDE",
     date: "2026-09-21",
-    author: "The AppFox Team",
-    metaTitle: "How to Evaluate a Shopify Order Editing App | AppFox",
+    author: "The Appfox Team",
+    metaTitle: "How to Evaluate a Shopify Order Editing App | Appfox",
     metaDescription:
       "Choosing a Shopify order editing app on feature-list length and sticker price misses the two questions that actually decide the outcome: how it edits the order, and what happens when a charge fails. Here's the checklist that catches it first.",
     body: [
@@ -3003,10 +3003,10 @@ const postCatalog: Post[] = [
           "Name the specific integrations your operation already depends on - a help-desk sidebar, a workflow-automation tool - and ask whether that exact integration exists today, not whether the app supports \"integrations\" in general",
         ],
       },
-      { type: "h2", text: "Where this lives in AppFox Order Editing" },
+      { type: "h2", text: "Where this lives in Appfox Order Editing" },
       {
         type: "p",
-        text: "AppFox edits orders in place through Shopify's native Order Editing API - it never cancels and recreates one, so the original order number, payment, and history stay intact and Shopify Payments fees are charged once, not twice. When an edit raises the total, the payment request runs and the edit holds on a failed charge rather than applying anyway; when it lowers the total, the refund settles automatically. Approval rules are set per edit type through the eligibility engine, so a same-price swap can auto-apply while an address change or total increase routes to a queue, and every edit - approved or auto-applied - lands in a timestamped audit timeline on the order itself. The free plan includes the eligibility engine and approval queue, not a stripped preview of them; upsell recommendations and advanced analytics are the parts that sit on the Growth and Pro plans, and the pricing page says so rather than leaving it for a support ticket to surface.",
+        text: "Appfox edits orders in place through Shopify's native Order Editing API - it never cancels and recreates one, so the original order number, payment, and history stay intact and Shopify Payments fees are charged once, not twice. When an edit raises the total, the payment request runs and the edit holds on a failed charge rather than applying anyway; when it lowers the total, the refund settles automatically. Approval rules are set per edit type through the eligibility engine, so a same-price swap can auto-apply while an address change or total increase routes to a queue, and every edit - approved or auto-applied - lands in a timestamped audit timeline on the order itself. The free plan includes the eligibility engine and approval queue, not a stripped preview of them; upsell recommendations and advanced analytics are the parts that sit on the Growth and Pro plans, and the pricing page says so rather than leaving it for a support ticket to surface.",
       },
       {
         type: "p",
@@ -3032,7 +3032,7 @@ const partnerPostSlugs = [
 ] as const;
 
 /**
- * Focused, evergreen coverage of the three AppFox products. These articles
+ * Focused, evergreen coverage of the three Appfox products. These articles
  * answer distinct high-intent merchant questions without publishing every
  * narrow variation of the same topic.
  */

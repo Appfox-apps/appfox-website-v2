@@ -19,7 +19,7 @@ import { FurtherReading } from "@/components/home/FurtherReading";
 import { FaqSection, homeFaqs } from "@/components/home/FaqSection";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Shopify Order Editing App - Self-Service + Upsells | AppFox",
+  title: "Shopify Order Editing App - Self-Service + Upsells | Appfox",
   description:
     "Give every Shopify order a self-service edit link - address fixes, size swaps, cancellations - plus one-click upsells in the flow. Install free in 5 minutes.",
   path: "/order-editing",

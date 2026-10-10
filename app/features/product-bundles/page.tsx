@@ -10,7 +10,7 @@ export const metadata = routeMeta.featuresProductBundles;
 const bundlesApp = getApp("product-bundles")!;
 
 /**
- * /features/product-bundles - the full tour for AppFox Product Bundles.
+ * /features/product-bundles - the full tour for Appfox Product Bundles.
  * Compact cream hero, then the four feature clusters as alternating split
  * sections, closed by the CTA band.
  */
@@ -48,7 +48,7 @@ export default function ProductBundlesFeaturesPage() {
         {/* ── Final CTA ──────────────────────────────────────── */}
         <CtaBand
           headline="Turn one item into three, and three into five"
-          body="Install AppFox Product Bundles, create your first bundle, and watch your average order value climb. Setup takes about 5 minutes."
+          body="Install Appfox Product Bundles, create your first bundle, and watch your average order value climb. Setup takes about 5 minutes."
           primaryLabel="Install free on Shopify"
           primaryHref={bundlesApp.installUrl}
           secondaryLabel="Compare alternatives"

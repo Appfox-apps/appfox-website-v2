@@ -14,7 +14,7 @@ import { site } from "@/lib/site";
 export const pricingFaqs: { q: string; a: string }[] = [
   {
     q: "How does the free trial work?",
-    a: "Every paid plan starts with a 14-day free trial, and we don't ask for a card to begin. Use the full plan for two weeks; if it isn't earning its fee in saved tickets and added revenue, walk away - or drop down to the Free plan and keep using AppFox at no cost.",
+    a: "Every paid plan starts with a 14-day free trial, and we don't ask for a card to begin. Use the full plan for two weeks; if it isn't earning its fee in saved tickets and added revenue, walk away - or drop down to the Free plan and keep using Appfox at no cost.",
   },
   {
     q: "What's actually included in the Free plan?",
@@ -131,7 +131,7 @@ export function PricingFaq() {
             <p className="mt-8 text-ink-500">
               Still shortlisting?{" "}
               <Link href="/vs" className={answerLink}>
-                See how AppFox compares
+                See how Appfox compares
               </Link>{" "}
               to seven other order editing and upsell apps.
             </p>

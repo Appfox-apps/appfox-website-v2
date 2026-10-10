@@ -21,8 +21,8 @@ const subscriptionApp = getApp("subscription")!;
 /** The questions everyone asks about an app that is free for now. */
 export const subscriptionPricingFaqs: { q: string; a: string }[] = [
   {
-    q: "Is AppFox Subscription really free?",
-    a: "Yes. AppFox Subscription is free for now - no monthly fee, no trial clock, no card required, and no plan to choose. Every feature is unlocked, including analytics, bundles and build-a-box, custom emails, and the External API.",
+    q: "Is Appfox Subscription really free?",
+    a: "Yes. Appfox Subscription is free for now - no monthly fee, no trial clock, no card required, and no plan to choose. Every feature is unlocked, including analytics, bundles and build-a-box, custom emails, and the External API.",
   },
   {
     q: "Is there a limit on active subscriptions?",
@@ -30,11 +30,11 @@ export const subscriptionPricingFaqs: { q: string; a: string }[] = [
   },
   {
     q: "Are there transaction fees on renewals?",
-    a: "No. Renewals bill through Shopify's own checkout and payment infrastructure, so you pay only your normal Shopify payment processing. AppFox takes 0% of your recurring revenue.",
+    a: "No. Renewals bill through Shopify's own checkout and payment infrastructure, so you pay only your normal Shopify payment processing. Appfox takes 0% of your recurring revenue.",
   },
   {
     q: "What if paid plans come back?",
-    a: "AppFox Subscription bills through Shopify App Pricing, so any future paid plan would need your approval in Shopify before a charge is made. Merchants already on a paid plan keep it as it is.",
+    a: "Appfox Subscription bills through Shopify App Pricing, so any future paid plan would need your approval in Shopify before a charge is made. Merchants already on a paid plan keep it as it is.",
   },
 ];
 
@@ -97,7 +97,7 @@ export default function SubscriptionPricingPage() {
               <SectionSlug
                 no="01"
                 label="PRICING"
-                caption="AppFox Subscription · free for now"
+                caption="Appfox Subscription · free for now"
               />
             </div>
 
@@ -134,7 +134,7 @@ export default function SubscriptionPricingPage() {
                 href="/subscription"
                 className="text-brand-700 underline decoration-brand-300 underline-offset-2 transition-colors hover:decoration-brand-700"
               >
-                AppFox Subscription
+                Appfox Subscription
               </Link>{" "}
               is free for now: every feature unlocked, no limit on active subscriptions, and 0%
               transaction fees, so the recurring revenue stays yours.
@@ -193,7 +193,7 @@ export default function SubscriptionPricingPage() {
             <div className="card-tinted flex flex-col items-start justify-between gap-5 rounded-2xl border p-7 sm:flex-row sm:items-center sm:p-8">
               <div>
                 <p className="till text-[0.8125rem] uppercase tracking-[0.12em] text-ink-500">
-                  Also from AppFox
+                  Also from Appfox
                 </p>
                 <p className="mt-2 text-lg font-semibold text-ink-900">
                   Order Editing &amp; Upsell starts free, with paid plans from $19/mo.

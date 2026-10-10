@@ -108,7 +108,7 @@ export function Footer() {
             <div className="flex items-center gap-2.5">
               <Image 
                 src="/images/brand/appfox-icon.png" 
-                alt="AppFox" 
+                alt="Appfox" 
                 width={32} 
                 height={32}
                 className="rounded-lg"
@@ -192,7 +192,7 @@ export function Footer() {
 
         <div className="mt-10 pt-8 border-t border-(--color-night-edge) flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="till text-xs text-mist-on-night/70">
-            © {new Date().getFullYear()} AppFox · Made for Shopify merchants
+            © {new Date().getFullYear()} Appfox · Made for Shopify merchants
           </p>
           <p className="till text-xs text-mist-on-night/70">{site.supportEmail}</p>
         </div>
@@ -204,7 +204,7 @@ export function Footer() {
           className="font-display font-[560] text-center leading-none text-night-raised"
           style={{ fontSize: "13vw", fontVariationSettings: '"SOFT" 60, "WONK" 0' }}
         >
-          AppFox
+          Appfox
         </p>
       </div>
     </footer>

@@ -2,7 +2,7 @@
  * Subscription integrations and partner apps - the "Works with" ecosystem.
  * Partnership shortlist from Subscription app partnership bot (2026-09-11).
  * Each entry describes a complementary service or native integration that
- * pairs with AppFox Subscription.
+ * pairs with Appfox Subscription.
  */
 
 export type IntegrationEntry = {
@@ -11,7 +11,7 @@ export type IntegrationEntry = {
   category: string;
   /** Merchant-facing outcome (what it unlocks) */
   description: string;
-  /** "native" if built-in to AppFox, "partner" if works-with-via-Shopify */
+  /** "native" if built-in to Appfox, "partner" if works-with-via-Shopify */
   type: "native" | "partner";
   /** External URL only if verified and clean */
   href?: string;
@@ -96,7 +96,7 @@ export const subscriptionIntegrations: IntegrationEntry[] = [
     name: "Push Bundle",
     category: "bundles",
     description:
-      "Build-a-box / mix-and-match bundles with volume discounts and free gifts — pairs with AppFox selling plans for BYOB + subscribe & save.",
+      "Build-a-box / mix-and-match bundles with volume discounts and free gifts — pairs with Appfox selling plans for BYOB + subscribe & save.",
     type: "partner",
     href: "https://apps.shopify.com/push-bundle?utm_medium=appfox-website&utm_source=push-bundle-partnership&utm_campaign=push-bundle",
     logoSrc: "/images/integrations/push-bundle.png",
@@ -113,7 +113,7 @@ export const subscriptionIntegrations: IntegrationEntry[] = [
   },
   {
     slug: "appfox-bundles",
-    name: "AppFox Product Bundles",
+    name: "Appfox Product Bundles",
     category: "bundles",
     description:
       "Combine subscriptions with product bundles - let subscribers save more when they bundle recurring items together.",
@@ -122,7 +122,7 @@ export const subscriptionIntegrations: IntegrationEntry[] = [
   },
   {
     slug: "appfox-order-editing",
-    name: "AppFox Order Editing & Upsell",
+    name: "Appfox Order Editing & Upsell",
     category: "bundles",
     description:
       "Let subscribers edit upcoming orders or add one-time items to a renewal - self-service upsells inside the customer portal.",

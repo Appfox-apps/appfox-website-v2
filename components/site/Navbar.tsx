@@ -41,7 +41,7 @@ const COMPARE_GROUPS = [
   { label: "Product Bundles", competitors: competitorsForApp("product-bundles") },
 ];
 
-/** Routes whose install CTA should point at AppFox Subscription. */
+/** Routes whose install CTA should point at Appfox Subscription. */
 const SUBSCRIPTION_PATHS = new Set([
   "/subscription",
   "/subscription/compare",
@@ -50,7 +50,7 @@ const SUBSCRIPTION_PATHS = new Set([
   ...competitorsForApp("subscription").map((c) => `/vs/${c.slug}`),
 ]);
 
-/** Routes whose install CTA should point at AppFox Product Bundles. */
+/** Routes whose install CTA should point at Appfox Product Bundles. */
 const BUNDLES_PATHS = new Set([
   "/product-bundles",
   "/features/product-bundles",
@@ -91,13 +91,13 @@ export function Navbar() {
             {/* Logo */}
             <Link
               href="/"
-              aria-label="AppFox home"
+              aria-label="Appfox home"
               onClick={() => setMobileOpen(false)}
               className="flex items-center gap-2.5"
             >
               <Image
                 src="/images/brand/appfox-icon.png"
-                alt="AppFox"
+                alt="Appfox"
                 width={28}
                 height={28}
                 className="rounded-lg"

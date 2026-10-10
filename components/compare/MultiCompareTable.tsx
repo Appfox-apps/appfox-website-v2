@@ -16,7 +16,7 @@ import {
  * replace `components/vs/ComparisonTable.tsx`.
  *
  * Feature header and body cells share `.compare-feature-col` so the
- * sticky first column cannot overhang the AppFox column. Sticky header
+ * sticky first column cannot overhang the Appfox column. Sticky header
  * `top` uses `--compare-sticky-top`; cells are fully opaque.
  */
 
@@ -118,7 +118,7 @@ export function MultiCompareTable({
   section,
   vendors,
   className = "",
-  productName = "AppFox Product Bundles",
+  productName = "Appfox Product Bundles",
 }: {
   section: CompareSection;
   vendors: CompareVendor[];

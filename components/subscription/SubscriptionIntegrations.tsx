@@ -119,7 +119,7 @@ export function SubscriptionIntegrations() {
         </Reveal>
         <Reveal delay={80}>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-500">
-            AppFox Subscription connects to your marketing, loyalty, and automation tools - native
+            Appfox Subscription connects to your marketing, loyalty, and automation tools - native
             integrations where they matter, Shopify-compatible everywhere else. No subscription
             lives alone.
           </p>
@@ -138,7 +138,7 @@ export function SubscriptionIntegrations() {
               Ready to build your subscription stack?
             </h3>
             <p className="mt-3 text-base text-ink-600">
-              Install AppFox Subscription free and connect the tools that matter to your business.
+              Install Appfox Subscription free and connect the tools that matter to your business.
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a

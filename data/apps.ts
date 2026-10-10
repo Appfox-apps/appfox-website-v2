@@ -1,5 +1,5 @@
 /**
- * The AppFox app catalog - one entry per Shopify app we ship. Navbar,
+ * The Appfox app catalog - one entry per Shopify app we ship. Navbar,
  * Footer, /apps, and llms.txt all render from this list, so adding an app
  * here is the single step that makes the site aware of it.
  */
@@ -26,7 +26,7 @@ export type AppEntry = {
 export const apps: AppEntry[] = [
   {
     slug: "order-editing",
-    name: "AppFox Order Editing & Upsell",
+    name: "Appfox Order Editing & Upsell",
     shortName: "Order Editing",
     tagline: "Customers fix their own orders - on rules you set",
     description:
@@ -43,7 +43,7 @@ export const apps: AppEntry[] = [
   },
   {
     slug: "subscription",
-    name: "AppFox Subscription",
+    name: "Appfox Subscription",
     shortName: "Subscription",
     tagline: "Turn one-time buyers into subscribers",
     description:
@@ -60,7 +60,7 @@ export const apps: AppEntry[] = [
   },
   {
     slug: "product-bundles",
-    name: "AppFox Product Bundles",
+    name: "Appfox Product Bundles",
     shortName: "Product Bundles",
     tagline: "Boost AOV with bundles and volume discounts",
     description:

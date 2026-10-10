@@ -92,7 +92,7 @@ export default function SubscriptionComparePage() {
             </nav>
 
             <h1 className="enter-rise mt-5 max-w-5xl">
-              AppFox <span className="wonk">vs</span> {titleTail}
+              Appfox <span className="wonk">vs</span> {titleTail}
             </h1>
             <p
               className="enter-fade-rise mt-6 max-w-[70ch] text-lg leading-relaxed text-ink-700"
@@ -166,7 +166,7 @@ export default function SubscriptionComparePage() {
               <MultiCompareTable
                 section={section}
                 vendors={subscriptionCompare.vendors}
-                productName="AppFox Subscriptions"
+                productName="Appfox Subscriptions"
                 className="mt-8"
               />
             </div>
@@ -176,7 +176,7 @@ export default function SubscriptionComparePage() {
         <section id="sources" className="py-16 sm:py-20">
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
             <p className="text-sm text-ink-500">
-              AppFox column checked against the product on {subscriptionCompare.checked}. Competitor
+              Appfox column checked against the product on {subscriptionCompare.checked}. Competitor
               columns were checked the same day against each app&apos;s public help center, pricing
               page, and feature pages. A question mark means those pages do not say. Pricing and
               features may change.
@@ -272,7 +272,7 @@ export default function SubscriptionComparePage() {
               <SectionSlug
                 no="08"
                 label="ONE TO ONE"
-                caption="The same table, AppFox against one app."
+                caption="The same table, Appfox against one app."
               />
             </Reveal>
             <Reveal>

@@ -33,7 +33,7 @@ export default function BlogIndexPage() {
     "@context": "https://schema.org",
     "@type": "Blog",
     "@id": `${site.url}/blog#blog`,
-    name: "AppFox Blog",
+    name: "Appfox Blog",
     url: `${site.url}/blog`,
     publisher: { "@id": `${site.url}/#organization` },
     blogPost: posts.map((p) => ({

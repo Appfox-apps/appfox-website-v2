@@ -1,8 +1,8 @@
 /**
- * AppFox Subscription pricing - the website-side mirror of the app's plan
+ * Appfox Subscription pricing - the website-side mirror of the app's plan
  * registry (`subscriptions-remix/app/lib/plan-features.ts`).
  *
- * AppFox Subscription is FREE FOR NOW: the app's `APP_IS_FREE` switch unlocks
+ * Appfox Subscription is FREE FOR NOW: the app's `APP_IS_FREE` switch unlocks
  * every feature for every new install, with no active-subscription cap and no
  * paid plan to pick. Merchants who were already on a paid plan keep it
  * unchanged, but no paid plans are offered publicly, so none are listed here.
@@ -12,7 +12,7 @@
  * that render it.
  */
 
-/** True while AppFox Subscription is free for every new install. */
+/** True while Appfox Subscription is free for every new install. */
 export const SUBSCRIPTION_IS_FREE = true;
 
 /** Short label used in nav, cards and metadata. */

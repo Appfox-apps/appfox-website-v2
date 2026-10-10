@@ -32,7 +32,7 @@ const CLUSTERS: Cluster[] = [
     headline: "Editing where your customers already are",
     narrative: (
       <>
-        AppFox lives on your thank-you page and order status page - the page Shopify already links
+        Appfox lives on your thank-you page and order status page - the page Shopify already links
         from every order confirmation email. There&apos;s no separate app to find, no login, no
         account creation, no support thread: the customer is looking at their order, and the edit
         controls are right there. Because both pages are part of your store&apos;s checkout, the
@@ -67,7 +67,7 @@ const CLUSTERS: Cluster[] = [
     headline: "Self-service for them, control for you",
     narrative: (
       <>
-        The fear with customer editing is the order your warehouse already picked. AppFox&apos;s
+        The fear with customer editing is the order your warehouse already picked. Appfox&apos;s
         eligibility engine evaluates every order against your edit windows (say, 24 hours),
         fulfillment cutoffs, and per-action rules - and edits that don&apos;t qualify are never
         shown, so customers can&apos;t request what you can&apos;t grant. For everything else, you
@@ -92,7 +92,7 @@ const CLUSTERS: Cluster[] = [
     headline: "Edits that don’t break your books",
     narrative: (
       <>
-        AppFox edits orders in place through Shopify&apos;s native Order Editing API - it never
+        Appfox edits orders in place through Shopify&apos;s native Order Editing API - it never
         cancels and reorders. That means the original order number, payment, and history stay
         intact, customers never sit through a second checkout, and you never forfeit the Shopify
         Payments fees of 1.5–2.9% that{" "}
@@ -124,7 +124,7 @@ const CLUSTERS: Cluster[] = [
     narrative: (
       <>
         A customer reviewing their order is the most engaged shopper you have - payment on file,
-        intent proven minutes ago. AppFox places your upsell offers inside that moment and adds
+        intent proven minutes ago. Appfox places your upsell offers inside that moment and adds
         accepted offers to the existing order with one click. Then the analytics dashboard shows
         you exactly what the whole loop is doing: what customers fix, what they buy, and how fast
         your team clears the queue.

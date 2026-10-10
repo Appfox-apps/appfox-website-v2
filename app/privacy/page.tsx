@@ -53,8 +53,8 @@ export default function PrivacyPage() {
           </p>
 
           <p className="mt-8 text-ink-700 leading-relaxed">
-            AppFox (&ldquo;we&rdquo;, &ldquo;us&rdquo;) makes Shopify apps: {site.appName}, which
-            lets customers edit their own orders and adds post-purchase upsells, and AppFox
+            Appfox (&ldquo;we&rdquo;, &ldquo;us&rdquo;) makes Shopify apps: {site.appName}, which
+            lets customers edit their own orders and adds post-purchase upsells, and Appfox
             Subscription, which powers recurring subscriptions. This policy explains what data
             our apps touch, why, and what happens to it. We have tried to keep it in plain
             language - if anything is unclear, email{" "}
@@ -66,7 +66,7 @@ export default function PrivacyPage() {
 
           <Section no="01" title="What this policy covers">
             <p>
-              This policy covers the AppFox apps installed from the Shopify App Store - the
+              This policy covers the Appfox apps installed from the Shopify App Store - the
               customer-facing editing on your store&rsquo;s thank-you and order status pages, the
               subscription widgets and customer portal - and this marketing website. It
               does not cover Shopify itself or other apps you install - those have their own
@@ -75,11 +75,11 @@ export default function PrivacyPage() {
           </Section>
 
           <Section no="02" title="Information we collect from merchants">
-            <p>When you install AppFox, we receive from Shopify:</p>
+            <p>When you install Appfox, we receive from Shopify:</p>
             <ul className="list-disc pl-5 space-y-1.5">
               <li>Your store name, store domain, and the email address on the store account.</li>
               <li>Your Shopify plan and store settings needed to configure the app.</li>
-              <li>Your AppFox plan, billing status, and app configuration choices.</li>
+              <li>Your Appfox plan, billing status, and app configuration choices.</li>
             </ul>
           </Section>
 
@@ -117,7 +117,7 @@ export default function PrivacyPage() {
 
           <Section no="06" title="Sharing and subprocessors">
             <p>
-              We share data only with the service providers required to run AppFox - cloud
+              We share data only with the service providers required to run Appfox - cloud
               hosting and infrastructure providers, and email delivery for transactional messages
               like edit confirmations. If you connect an optional integration (for example a
               helpdesk or Slack), we share only what that integration needs and only after you
@@ -127,11 +127,11 @@ export default function PrivacyPage() {
 
           <Section no="07" title="Data retention and deletion on uninstall">
             <p>
-              When you uninstall AppFox, Shopify notifies us and we delete your store&rsquo;s data
+              When you uninstall Appfox, Shopify notifies us and we delete your store&rsquo;s data
               from our systems within 30 days, except where a short retention period is required
               by law or for billing records. We also honor Shopify&rsquo;s mandatory data-erasure
               requests for individual customers - when a customer asks your store to delete their
-              data, the corresponding records held by AppFox are deleted too.
+              data, the corresponding records held by Appfox are deleted too.
             </p>
           </Section>
 
@@ -155,7 +155,7 @@ export default function PrivacyPage() {
 
           <Section no="10" title="Your rights and your customers' rights">
             <p>
-              For your customers&rsquo; data, you are the data controller and AppFox acts as a
+              For your customers&rsquo; data, you are the data controller and Appfox acts as a
               processor - we act on your instructions, given through the app and through
               Shopify&rsquo;s privacy webhooks. If you or your customers exercise rights under
               GDPR, CCPA, or similar laws (access, correction, deletion, portability), we will
@@ -166,7 +166,7 @@ export default function PrivacyPage() {
 
           <Section no="11" title="Children">
             <p>
-              AppFox is a business tool for merchants and is not directed at children. We do not
+              Appfox is a business tool for merchants and is not directed at children. We do not
               knowingly collect data from anyone under 16, beyond order records your store
               lawfully holds.
             </p>

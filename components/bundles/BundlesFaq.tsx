@@ -11,7 +11,7 @@ import { SectionSlug } from "@/components/site/SectionSlug";
 export const bundlesFaqs: { q: string; a: string }[] = [
   {
     q: "What types of bundles can I create?",
-    a: "AppFox supports fixed bundles (curated product sets with preset discounts), mix-and-match bundles (customers choose from a selection), volume discounts (buy more, save more), quantity breaks (tiered pricing), and BOGO offers. You can combine products across collections, variants, and inventory locations.",
+    a: "Appfox supports fixed bundles (curated product sets with preset discounts), mix-and-match bundles (customers choose from a selection), volume discounts (buy more, save more), quantity breaks (tiered pricing), and BOGO offers. You can combine products across collections, variants, and inventory locations.",
   },
   {
     q: "Do bundles work with my existing theme?",
@@ -27,7 +27,7 @@ export const bundlesFaqs: { q: string; a: string }[] = [
   },
   {
     q: "What happens if a bundled product is out of stock?",
-    a: "AppFox syncs with Shopify inventory in real time. If a product in a fixed bundle goes out of stock, the bundle becomes unavailable until inventory is restored. For mix-and-match bundles, out-of-stock items are hidden from the selection automatically.",
+    a: "Appfox syncs with Shopify inventory in real time. If a product in a fixed bundle goes out of stock, the bundle becomes unavailable until inventory is restored. For mix-and-match bundles, out-of-stock items are hidden from the selection automatically.",
   },
   {
     q: "Can I run bundle promotions alongside discount codes?",

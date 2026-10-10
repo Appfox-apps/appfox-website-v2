@@ -13,7 +13,7 @@ const appListJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   "@id": `${site.url}/#apps`,
-  name: "AppFox apps for Shopify",
+  name: "Appfox apps for Shopify",
   itemListElement: apps.map((app, i) => ({
     "@type": "ListItem",
     position: i + 1,

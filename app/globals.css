@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ════════════════════════════════════════════════════════════════
-   AppFox - "Storefront" design system
+   Appfox - "Storefront" design system
    Electric violet on cool lavender · grotesk display, mono voice
    (Derived from the app's own Shopify listing)
    ════════════════════════════════════════════════════════════════ */
@@ -576,7 +576,7 @@ html.js [data-open] .accordion-content {
 }
 
 /* Feature column: one width for header and body so sticky cells cannot
-   overhang the AppFox column. No extra shadow. */
+   overhang the Appfox column. No extra shadow. */
 .compare-feature-col {
   width: 16rem;
   min-width: 16rem;
