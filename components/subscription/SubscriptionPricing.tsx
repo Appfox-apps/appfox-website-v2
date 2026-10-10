@@ -41,9 +41,9 @@ export function SubscriptionPricing() {
             </Reveal>
             <Reveal delay={100}>
               <p className="mt-5 max-w-lg text-lg leading-relaxed text-ink-500">
-                AppFox Subscription is free for now. Every store gets the full app - analytics,
+                Appfox Subscription is free for now. Every store gets the full app - analytics,
                 bundling, branded emails and the API included - with no cap on active
-                subscriptions, and AppFox never takes a cut of your renewals.
+                subscriptions, and Appfox never takes a cut of your renewals.
               </p>
             </Reveal>
 

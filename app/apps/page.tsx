@@ -11,9 +11,9 @@ import { site } from "@/lib/site";
 import { apps } from "@/data/apps";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Shopify Apps by AppFox - Order Editing & Subscriptions",
+  title: "Shopify Apps by Appfox - Order Editing & Subscriptions",
   description:
-    "Every AppFox app for Shopify in one place: self-service order editing with post-purchase upsells, and recurring subscriptions. Both install in minutes.",
+    "Every Appfox app for Shopify in one place: self-service order editing with post-purchase upsells, and recurring subscriptions. Both install in minutes.",
   path: "/apps",
 });
 
@@ -88,7 +88,7 @@ export default function AppsPage() {
               className="enter-fade-rise mt-6 max-w-[58ch] text-xl leading-[1.55] text-ink-700"
               style={{ animationDelay: "140ms" }}
             >
-              AppFox builds Shopify apps for the whole order journey - subscriptions that start
+              Appfox builds Shopify apps for the whole order journey - subscriptions that start
               on the product page, product bundles that boost average order value, plus fixing and
               growing orders after checkout. Pick one, or run all three.
             </p>

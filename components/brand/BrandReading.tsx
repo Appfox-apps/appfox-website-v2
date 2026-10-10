@@ -83,7 +83,7 @@ export function BrandReading() {
               <IndexRow
                 href="/vs"
                 numeral={String(displayedPostsCount + 2).padStart(2, "0")}
-                title="How AppFox compares to the alternatives"
+                title="How Appfox compares to the alternatives"
                 action="VIEW ALL"
               />
             </Reveal>

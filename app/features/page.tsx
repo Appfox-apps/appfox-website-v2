@@ -122,7 +122,7 @@ export default function FeaturesHubPage() {
               className="enter-fade-rise mt-6 max-w-[58ch] text-xl leading-[1.55] text-ink-700"
               style={{ animationDelay: "140ms" }}
             >
-              Three AppFox apps cover the whole order journey - subscriptions that start on the
+              Three Appfox apps cover the whole order journey - subscriptions that start on the
               product page, bundles that boost average order value, and orders customers fix and grow
               themselves after checkout. Take the full tour of whichever fits.
             </p>

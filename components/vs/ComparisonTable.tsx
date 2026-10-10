@@ -7,8 +7,8 @@ import { DrawTick } from "./DrawTick";
 /**
  * §8 comparison table. Desktop (md+): a single ledger card with a sticky
  * cream-glass header row pinned beneath the condensed navbar (60px); the
- * AppFox column is tinted brand-50 with brand-200 side rails. Below md the
- * same data renders as stacked per-feature cards, AppFox value first -
+ * Appfox column is tinted brand-50 with brand-200 side rails. Below md the
+ * same data renders as stacked per-feature cards, Appfox value first -
  * both variants are server-rendered and toggled with responsive classes.
  *
  * Checks are hand-drawn ticks (`.draw-path`, staggered per row); competitor
@@ -75,7 +75,7 @@ export function ComparisonTable({
       <div className="card hidden overflow-clip md:block">
         <table className="w-full border-separate border-spacing-0 text-left">
           <caption className="sr-only">
-            Feature comparison between AppFox and {competitor.shortName}
+            Feature comparison between Appfox and {competitor.shortName}
           </caption>
           <thead>
             <tr>
@@ -137,7 +137,7 @@ export function ComparisonTable({
         </table>
       </div>
 
-      {/* ── Mobile: stacked per-feature cards, AppFox first ── */}
+      {/* ── Mobile: stacked per-feature cards, Appfox first ── */}
       <div className="space-y-3 md:hidden">
         {rows.map((row, i) => (
           <div key={row.feature} className="card p-5">

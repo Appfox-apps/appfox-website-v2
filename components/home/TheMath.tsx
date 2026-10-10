@@ -116,7 +116,7 @@ function OldWayPanel() {
   );
 }
 
-/* ── Right panel - with AppFox (success-tinted, stamped APPROVED) ── */
+/* ── Right panel - with Appfox (success-tinted, stamped APPROVED) ── */
 
 function AppFoxPanel() {
   return (
@@ -144,7 +144,7 @@ function AppFoxPanel() {
       </span>
 
       <div className="relative flex h-full flex-col">
-        <h3 style={{ color: "var(--color-cream-on-night)" }}>With AppFox</h3>
+        <h3 style={{ color: "var(--color-cream-on-night)" }}>With Appfox</h3>
         <p className="till mt-4 text-[0.9375rem] text-cream-on-night">
           edit in place <span className="text-success">→</span> fees preserved{" "}
           <span className="text-success">→</span> deltas auto-settle

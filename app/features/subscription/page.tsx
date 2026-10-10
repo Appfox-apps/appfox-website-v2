@@ -10,7 +10,7 @@ export const metadata = routeMeta.featuresSubscription;
 const subscriptionApp = getApp("subscription")!;
 
 /**
- * /features/subscription - the full tour for AppFox Subscription. Compact
+ * /features/subscription - the full tour for Appfox Subscription. Compact
  * cream hero, then the four feature clusters as alternating split sections,
  * closed by the CTA band. Light throughout until the band's perforation.
  */
@@ -35,7 +35,7 @@ export default function SubscriptionFeaturesPage() {
               className="enter-fade-rise mt-6 max-w-[65ch] text-xl leading-[1.55] text-ink-700"
               style={{ animationDelay: "140ms" }}
             >
-              Recurring revenue shouldn&apos;t mean recurring admin. AppFox Subscription handles the
+              Recurring revenue shouldn&apos;t mean recurring admin. Appfox Subscription handles the
               widgets, the billing, and the customer questions - on Shopify&apos;s native checkout,
               free to start - so you handle the product. Here&apos;s the full tour.
             </p>

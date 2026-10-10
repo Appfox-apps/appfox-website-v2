@@ -384,7 +384,7 @@ export function PortalDemo() {
           <span className={styles.toastBar} />
           <div>
             <p className={styles.toastApp}>
-              AppFox
+              Appfox
               <span className={styles.toastTag}>APP</span>
             </p>
             <p className={`till ${styles.toastMsg}`}>#1042 edited · +$24.00 upsell</p>

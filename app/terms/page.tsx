@@ -53,8 +53,8 @@ export default function TermsPage() {
           </p>
 
           <p className="mt-8 text-ink-700 leading-relaxed">
-            These terms govern your use of AppFox&rsquo;s Shopify apps - {site.appName}{" "}
-            and AppFox Subscription (together &ldquo;AppFox&rdquo;, the &ldquo;service&rdquo;) - and
+            These terms govern your use of Appfox&rsquo;s Shopify apps - {site.appName}{" "}
+            and Appfox Subscription (together &ldquo;Appfox&rdquo;, the &ldquo;service&rdquo;) - and
             the related websites we provide. They are written to be read - if anything is
             unclear, email{" "}
             <a className="text-brand-500 underline underline-offset-2" href={`mailto:${site.supportEmail}`}>
@@ -65,7 +65,7 @@ export default function TermsPage() {
 
           <Section no="01" title="Agreement to these terms">
             <p>
-              By installing AppFox from the Shopify App Store or using the service, you agree to
+              By installing Appfox from the Shopify App Store or using the service, you agree to
               these terms on behalf of the business that operates the store. If you do not agree,
               do not install or use the service.
             </p>
@@ -73,7 +73,7 @@ export default function TermsPage() {
 
           <Section no="02" title="The service">
             <p>
-              AppFox provides self-service order editing for your customers, merchant-side
+              Appfox provides self-service order editing for your customers, merchant-side
               controls such as eligibility rules and an approval queue, post-purchase upsells,
               recurring subscriptions with a customer self-service portal, and related analytics
               and integrations. We may improve or change features over time; we will not
@@ -83,7 +83,7 @@ export default function TermsPage() {
 
           <Section no="03" title="Your account">
             <p>
-              You need an active Shopify store to use AppFox, and you must have the authority to
+              You need an active Shopify store to use Appfox, and you must have the authority to
               bind that business. You are responsible for the staff accounts you allow into the
               app and for keeping access to your store secure.
             </p>
@@ -121,7 +121,7 @@ export default function TermsPage() {
 
           <Section no="07" title="Order edits and your customers">
             <p>
-              AppFox executes edits according to the rules you configure - edit windows,
+              Appfox executes edits according to the rules you configure - edit windows,
               cutoffs, approval requirements. You remain responsible for your store&rsquo;s own
               policies and legal obligations to your customers, including fulfillment, refunds,
               taxes, and consumer-protection rules in the places you sell. Review your eligibility
@@ -169,7 +169,7 @@ export default function TermsPage() {
           <Section no="12" title="Governing law">
             <p>
               {/* TODO(launch): counsel to set jurisdiction before publishing */}
-              These terms are governed by the laws of the jurisdiction in which AppFox is
+              These terms are governed by the laws of the jurisdiction in which Appfox is
               established, without regard to conflict-of-law rules, and disputes will be resolved
               in the courts of that jurisdiction. This section will be finalized with a named
               jurisdiction before launch.

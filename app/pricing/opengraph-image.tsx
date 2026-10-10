@@ -1,6 +1,6 @@
 import { brandOgImage } from "@/lib/og";
 
-export const alt = "AppFox pricing - two apps, plans from $0 - no hidden meters";
+export const alt = "Appfox pricing - two apps, plans from $0 - no hidden meters";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

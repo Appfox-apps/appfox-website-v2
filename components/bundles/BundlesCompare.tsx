@@ -38,11 +38,11 @@ export function BundlesCompare() {
                 numeral="00"
                 title={
                   <>
-                    AppFox <span className="wonk text-marigold-700">vs</span> five bundle apps
+                    Appfox <span className="wonk text-marigold-700">vs</span> five bundle apps
                   </>
                 }
                 category="Multi-competitor table"
-                framing="Feature columns for AppFox, Kaching, Fast Bundle, Bundler, Simple Bundles, and Shopify Bundles. Public sources, checked October 2026."
+                framing="Feature columns for Appfox, Kaching, Fast Bundle, Bundler, Simple Bundles, and Shopify Bundles. Public sources, checked October 2026."
                 action="OPEN TABLE"
               />
             </Reveal>

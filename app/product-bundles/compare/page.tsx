@@ -99,7 +99,7 @@ export default function ProductBundlesComparePage() {
             </nav>
 
             <h1 className="enter-rise mt-5 max-w-4xl">
-              AppFox <span className="wonk text-marigold-700">vs</span> {titleTail}
+              Appfox <span className="wonk text-marigold-700">vs</span> {titleTail}
             </h1>
             <p
               className="enter-fade-rise mt-6 max-w-[62ch] text-xl leading-[1.55] text-ink-700"

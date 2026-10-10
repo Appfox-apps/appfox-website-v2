@@ -62,7 +62,7 @@ export function BrandHero() {
               className="enter-fade-rise mx-auto mt-6 max-w-[58ch] text-xl leading-[1.55] text-ink-700 lg:mx-0"
               style={{ animationDelay: "140ms" }}
             >
-              AppFox builds Shopify apps that turn orders into growth - customers subscribe
+              Appfox builds Shopify apps that turn orders into growth - customers subscribe
               right from your product page, fix their own orders, and add to them after
               checkout. Fewer tickets, bigger orders, recurring revenue.
             </p>

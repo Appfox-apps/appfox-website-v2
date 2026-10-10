@@ -35,7 +35,7 @@ const FEATURES: { title: string; copy: string; caption: string; href?: string }[
   },
   {
     title: "Plays well with your stack",
-    copy: "Works with Shopify Checkout, customer accounts, and Shopify Flow, and integrates with Klaviyo, PageFly, and Loyalty Lion. Merchants ask subscription questions in Shopify Sidekick and jump straight to the right page. Developers can connect Cursor, Claude, or VS Code with MCP and AppFox API keys. Migrating from another subscription app? Bring your subscribers along.",
+    copy: "Works with Shopify Checkout, customer accounts, and Shopify Flow, and integrates with Klaviyo, PageFly, and Loyalty Lion. Merchants ask subscription questions in Shopify Sidekick and jump straight to the right page. Developers can connect Cursor, Claude, or VS Code with MCP and Appfox API keys. Migrating from another subscription app? Bring your subscribers along.",
     caption: "klaviyo · pagefly · sidekick · mcp · shopify flow",
     href: "/subscription/integrations",
   },
@@ -53,7 +53,7 @@ export function SubscriptionFeatures() {
         </Reveal>
         <Reveal delay={80}>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-500">
-            Recurring revenue shouldn&apos;t mean recurring admin. AppFox Subscription handles the
+            Recurring revenue shouldn&apos;t mean recurring admin. Appfox Subscription handles the
             widgets, the billing, and the customer questions - you handle the product.
           </p>
         </Reveal>

@@ -15,7 +15,7 @@ export function pageMetadata({
   title: string;
   description: string;
   path: string;
-  /** skip the "| AppFox" template (for titles that already contain AppFox) */
+  /** skip the "| Appfox" template (for titles that already contain Appfox) */
   absoluteTitle?: boolean;
 }): Metadata {
   return {
@@ -33,9 +33,9 @@ export function pageMetadata({
 
 export const routeMeta = {
   features: pageMetadata({
-    title: "Features - AppFox Apps for Shopify",
+    title: "Features - Appfox Apps for Shopify",
     description:
-      "The full feature tour for every AppFox app: self-service order editing with in-flow upsells, and recurring subscriptions with a customer portal. Start free.",
+      "The full feature tour for every Appfox app: self-service order editing with in-flow upsells, and recurring subscriptions with a customer portal. Start free.",
     path: "/features",
   }),
   featuresOrderEditing: pageMetadata({
@@ -57,9 +57,9 @@ export const routeMeta = {
     path: "/features/product-bundles",
   }),
   pricing: pageMetadata({
-    title: "Pricing - AppFox Apps for Shopify",
+    title: "Pricing - Appfox Apps for Shopify",
     description:
-      "Pricing for every AppFox app: Order Editing & Upsell from $0 with paid plans from $19/mo, and AppFox Subscription free for now with every feature included.",
+      "Pricing for every Appfox app: Order Editing & Upsell from $0 with paid plans from $19/mo, and Appfox Subscription free for now with every feature included.",
     path: "/pricing",
   }),
   pricingOrderEditing: pageMetadata({
@@ -71,32 +71,32 @@ export const routeMeta = {
   pricingSubscription: pageMetadata({
     title: "Subscription App Pricing - Free for Now on Shopify",
     description:
-      "AppFox Subscription is free for now: every feature unlocked, no cap on active subscriptions, and 0% transaction fees. No plan to pick, no card required.",
+      "Appfox Subscription is free for now: every feature unlocked, no cap on active subscriptions, and 0% transaction fees. No plan to pick, no card required.",
     path: "/pricing/subscription",
   }),
   pricingProductBundles: pageMetadata({
     title: "Product Bundles Pricing - Free to Start for Shopify",
     description:
-      "AppFox Product Bundles is free to install with unlimited bundles, volume discounts, and analytics. Upgrade as your bundle program grows.",
+      "Appfox Product Bundles is free to install with unlimited bundles, volume discounts, and analytics. Upgrade as your bundle program grows.",
     path: "/pricing/product-bundles",
   }),
   vs: pageMetadata({
     title: "Compare Shopify Order Editing, Subscription & Bundle Apps",
     description:
-      "Side-by-side comparisons of AppFox and Shopify order editing, subscription, and product bundle apps - pricing, features, and honest trade-offs. Start free.",
+      "Side-by-side comparisons of Appfox and Shopify order editing, subscription, and product bundle apps - pricing, features, and honest trade-offs. Start free.",
     path: "/vs",
   }),
   subscriptionCompare: pageMetadata({
-    title: "AppFox vs Recharge, Appstle, Seal, Loop & Skio",
+    title: "Appfox vs Recharge, Appstle, Seal, Loop & Skio",
     description:
-      "Honest side-by-side of AppFox Subscriptions vs Recharge, Appstle, Seal, Loop, and Skio. Free for new installs, public listings, checked 10 October 2026.",
+      "Honest side-by-side of Appfox Subscriptions vs Recharge, Appstle, Seal, Loop, and Skio. Free for new installs, public listings, checked 10 October 2026.",
     path: "/subscription/compare",
     absoluteTitle: true,
   }),
   productBundlesCompare: pageMetadata({
     title: "Best Shopify Bundle Apps Compared (2026)",
     description:
-      "Honest table of AppFox Product Bundles vs Kaching, Fast Bundle, Bundler, Simple Bundles, Shopify Bundles, Wide Bundles, and Rebolt. Public sources, checked October 2026.",
+      "Honest table of Appfox Product Bundles vs Kaching, Fast Bundle, Bundler, Simple Bundles, Shopify Bundles, Wide Bundles, and Rebolt. Public sources, checked October 2026.",
     path: "/product-bundles/compare",
     absoluteTitle: true,
   }),
@@ -109,13 +109,13 @@ export const routeMeta = {
   privacy: pageMetadata({
     title: "Privacy Policy",
     description:
-      "How AppFox handles merchant and customer data across order editing, subscriptions, approvals, and analytics. Read the policy or email support@getappfox.com.",
+      "How Appfox handles merchant and customer data across order editing, subscriptions, approvals, and analytics. Read the policy or email support@getappfox.com.",
     path: "/privacy",
   }),
   terms: pageMetadata({
     title: "Terms of Service",
     description:
-      "The terms that govern your use of AppFox's Shopify apps for order editing, upsells, and subscriptions - billing, trials, and acceptable use. Questions? Email support@getappfox.com.",
+      "The terms that govern your use of Appfox's Shopify apps for order editing, upsells, and subscriptions - billing, trials, and acceptable use. Questions? Email support@getappfox.com.",
     path: "/terms",
   }),
 } satisfies Record<string, Metadata>;

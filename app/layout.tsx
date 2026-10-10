@@ -20,8 +20,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    template: "%s | AppFox",
-    default: "AppFox - Shopify Apps for Order Editing, Upsells & Subscriptions",
+    template: "%s | Appfox",
+    default: "Appfox - Shopify Apps for Order Editing, Upsells & Subscriptions",
   },
   description:
     "Shopify apps for the whole order journey: self-service order editing with one-click upsells, and subscriptions that start right on the product page. Install free in 5 minutes.",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    siteName: "AppFox",
+    siteName: "Appfox",
     locale: "en_US",
     url: "/",
   },

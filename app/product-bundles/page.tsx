@@ -76,7 +76,7 @@ export default function ProductBundlesPage() {
         <BundlesCompare />
         <CtaBand
           headline="Turn one item into three, and three into five"
-          body="Install AppFox Product Bundles, create your first bundle, and watch your average order value climb. Setup takes about 5 minutes. The free plan never expires."
+          body="Install Appfox Product Bundles, create your first bundle, and watch your average order value climb. Setup takes about 5 minutes. The free plan never expires."
           primaryHref={bundlesApp.installUrl}
           secondaryLabel="Compare alternatives"
           secondaryHref="/product-bundles/compare"

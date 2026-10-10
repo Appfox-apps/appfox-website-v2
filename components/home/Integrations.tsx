@@ -119,7 +119,7 @@ function SlackVignette() {
         </div>
         <div className="min-w-0">
           <p className="flex items-baseline gap-1.5">
-            <span className="text-[11px] font-bold text-ink-900">AppFox</span>
+            <span className="text-[11px] font-bold text-ink-900">Appfox</span>
             <span className="rounded-sm bg-paper-sunken px-1 text-[8px] font-semibold tracking-wide text-ink-500">
               APP
             </span>

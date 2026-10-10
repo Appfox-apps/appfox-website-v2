@@ -102,7 +102,7 @@ export default function PricingHubPage() {
               className="enter-fade-rise mt-6 max-w-[58ch] text-xl leading-[1.55] text-ink-700"
               style={{ animationDelay: "140ms" }}
             >
-              All three AppFox apps start at $0 and none takes a cut of your revenue - no per-edit
+              All three Appfox apps start at $0 and none takes a cut of your revenue - no per-edit
               fees, no transaction fees on renewals, no revenue caps. Here&apos;s each app&apos;s
               pricing in full.
             </p>

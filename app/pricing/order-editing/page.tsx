@@ -97,10 +97,10 @@ export default function OrderEditingPricingPage() {
             <div className="card-tinted flex flex-col items-start justify-between gap-5 rounded-2xl border p-7 sm:flex-row sm:items-center sm:p-8">
               <div>
                 <p className="till text-[0.8125rem] uppercase tracking-[0.12em] text-ink-500">
-                  Also from AppFox
+                  Also from Appfox
                 </p>
                 <p className="mt-2 text-lg font-semibold text-ink-900">
-                  AppFox Subscription starts free, with paid plans from $10/mo.
+                  Appfox Subscription starts free, with paid plans from $10/mo.
                 </p>
                 <p className="mt-1 text-[0.9375rem] text-ink-700">
                   Recurring billing, subscribe &amp; save, and a customer portal - free for your

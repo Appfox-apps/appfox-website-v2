@@ -5,8 +5,8 @@
  * TODO(launch): confirm `url` points at the production domain.
  */
 export const site = {
-  name: "AppFox",
-  appName: "AppFox Order Editing & Upsell",
+  name: "Appfox",
+  appName: "Appfox Order Editing & Upsell",
   shortDescription:
     "Self-service order editing and post-purchase upsells for Shopify. Customers fix their own orders; you keep the revenue.",
   url: "https://getappfox.com",

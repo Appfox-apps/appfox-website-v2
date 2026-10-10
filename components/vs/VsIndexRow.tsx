@@ -1,14 +1,14 @@
 import Link from "next/link";
 
 /**
- * "AppFox vs {shortName}" title with the "vs" set as the single italic
+ * "Appfox vs {shortName}" title with the "vs" set as the single italic
  * display word in marigold - the h1 pattern of every /vs page, reused
  * at index-row scale.
  */
 export function VsTitle({ shortName }: { shortName: string }) {
   return (
     <>
-      AppFox <span className="wonk text-marigold-700">vs</span> {shortName}
+      Appfox <span className="wonk text-marigold-700">vs</span> {shortName}
     </>
   );
 }

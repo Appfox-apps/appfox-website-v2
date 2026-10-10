@@ -52,7 +52,7 @@ export function BundlesFeatures() {
         <Reveal delay={80}>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-500">
             Product bundles turn one item into three, quantity breaks reward bigger orders, and
-            mix-and-match lets customers build their perfect set. AppFox makes it easy.
+            mix-and-match lets customers build their perfect set. Appfox makes it easy.
           </p>
         </Reveal>
 

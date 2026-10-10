@@ -152,11 +152,11 @@ export function SubscriptionVsArticle({ page }: { page: SubscriptionVsPage }) {
               <SectionSlug
                 no="02"
                 label="WHAT WE DON'T DO YET"
-                caption="Gaps on the AppFox side of this page."
+                caption="Gaps on the Appfox side of this page."
               />
             </Reveal>
             <Reveal>
-              <h2 className="mt-8 max-w-2xl">What AppFox does not do yet</h2>
+              <h2 className="mt-8 max-w-2xl">What Appfox does not do yet</h2>
             </Reveal>
             <div className="mt-10 grid gap-5 md:grid-cols-2">
               <StaggerGroup step={80}>
@@ -188,7 +188,7 @@ export function SubscriptionVsArticle({ page }: { page: SubscriptionVsPage }) {
               />
             </Reveal>
             <Reveal>
-              <h2 className="mt-8 max-w-2xl">AppFox and {competitorName}</h2>
+              <h2 className="mt-8 max-w-2xl">Appfox and {competitorName}</h2>
             </Reveal>
             <div className="mt-10 space-y-12">
               {subscriptionCompare.sections.map((section) => (
@@ -200,14 +200,14 @@ export function SubscriptionVsArticle({ page }: { page: SubscriptionVsPage }) {
                   <MultiCompareTable
                     section={section}
                     vendors={vendors}
-                    productName="AppFox Subscriptions"
+                    productName="Appfox Subscriptions"
                     className="mt-4"
                   />
                 </div>
               ))}
             </div>
             <p className="mt-8 text-sm text-ink-500">
-              AppFox column checked against the product on {subscriptionCompare.checked}.{" "}
+              Appfox column checked against the product on {subscriptionCompare.checked}.{" "}
               {competitorName} checked against public docs the same day. A question mark means those
               pages do not say.
             </p>

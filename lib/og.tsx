@@ -47,7 +47,7 @@ export function firstClause(text: string, max = 90): string {
   return `${trimmed.replace(/[\s,.:]+$/, "")}…`;
 }
 
-/** "AppFox" wordmark with the marigold full stop. */
+/** "Appfox" wordmark with the marigold full stop. */
 function OgWordmark({ fontSize = 40 }: { fontSize?: number }) {
   const dot = Math.round(fontSize * 0.2);
   return (
@@ -61,7 +61,7 @@ function OgWordmark({ fontSize = 40 }: { fontSize?: number }) {
           color: CREAM,
         }}
       >
-        AppFox
+        Appfox
       </span>
       <div
         style={{
@@ -177,7 +177,7 @@ export function brandOgImage(headline: string): ImageResponse {
   );
 }
 
-/** Layout B - /vs/[slug] comparison pages. AppFox vs {competitor} split. */
+/** Layout B - /vs/[slug] comparison pages. Appfox vs {competitor} split. */
 export function vsOgImage(competitor: {
   shortName: string;
   framing: string;
@@ -218,7 +218,7 @@ export function vsOgImage(competitor: {
             width: "100%",
           }}
         >
-          {/* Split row: AppFox · VS · competitor name (text only) */}
+          {/* Split row: Appfox · VS · competitor name (text only) */}
           <div
             style={{
               display: "flex",

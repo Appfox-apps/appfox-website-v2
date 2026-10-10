@@ -19,27 +19,27 @@ export function GET(): Response {
       title: "Home",
       path: "/",
       description:
-        "Brand overview - all three AppFox apps for Shopify, what each does, and why merchants run them together.",
+        "Brand overview - all three Appfox apps for Shopify, what each does, and why merchants run them together.",
     },
     {
       title: "Apps",
       path: "/apps",
-      description: "All AppFox apps for Shopify in one place - Order Editing, Subscription, and Product Bundles.",
+      description: "All Appfox apps for Shopify in one place - Order Editing, Subscription, and Product Bundles.",
     },
     {
-      title: "AppFox Order Editing & Upsell",
+      title: "Appfox Order Editing & Upsell",
       path: "/order-editing",
       description:
         "Product overview - self-service editing on the thank-you and order status pages, eligibility rules, approval queue, and in-flow upsells.",
     },
     {
-      title: "AppFox Subscription",
+      title: "Appfox Subscription",
       path: "/subscription",
       description:
         "Shopify subscription app, free for now - subscribe-and-save widgets, auto-renewal billing on native checkout, and a self-service customer portal.",
     },
     {
-      title: "AppFox Product Bundles",
+      title: "Appfox Product Bundles",
       path: "/product-bundles",
       description:
         "Shopify product bundles app - unlimited bundles, volume discounts, quantity breaks, BOGO offers, and mix-and-match deals with theme-friendly widgets.",
@@ -91,13 +91,13 @@ export function GET(): Response {
       title: "Subscriptions comparison table",
       path: "/subscription/compare",
       description:
-        "Multi-competitor table: AppFox Subscriptions vs Recharge, Appstle, Seal, Loop, and Skio. Public docs, checked 10 October 2026.",
+        "Multi-competitor table: Appfox Subscriptions vs Recharge, Appstle, Seal, Loop, and Skio. Public docs, checked 10 October 2026.",
     },
     {
       title: "Best Shopify bundle apps compared",
       path: "/product-bundles/compare",
       description:
-        "Hub table of AppFox Product Bundles vs Kaching, Fast Bundle, Bundler, Simple Bundles, and Shopify Bundles, plus one-to-one alternative pages for Wide Bundles and Rebolt. Public sources, checked October 2026.",
+        "Hub table of Appfox Product Bundles vs Kaching, Fast Bundle, Bundler, Simple Bundles, and Shopify Bundles, plus one-to-one alternative pages for Wide Bundles and Rebolt. Public sources, checked October 2026.",
     },
     {
       title: "Comparison hub",
@@ -115,7 +115,7 @@ export function GET(): Response {
 
 > Shopify apps for the whole order journey - self-service order editing, post-purchase upsells, product bundles, and subscriptions.
 
-${site.name} makes three Shopify apps: ${site.appName} (self-service order editing with in-flow upsells), AppFox Subscription (recurring subscriptions on Shopify's native checkout with a free plan, formerly Trust Subscriptions), and AppFox Product Bundles (product bundles, volume discounts, and BOGO offers).
+${site.name} makes three Shopify apps: ${site.appName} (self-service order editing with in-flow upsells), Appfox Subscription (recurring subscriptions on Shopify's native checkout with a free plan, formerly Trust Subscriptions), and Appfox Product Bundles (product bundles, volume discounts, and BOGO offers).
 
 ${site.appName} is a Shopify app that lets customers edit their own orders right on the store's thank-you page and order status page, with post-purchase upsells in the same flow. Customers fix a shipping address, swap a variant, change quantities, add or remove items, or cancel - all within rules the merchant sets (edit windows, fulfillment cutoffs, per-action eligibility). Sensitive changes route through a merchant approval queue; everything else applies automatically. Edits happen in place through Shopify's native Order Editing API rather than cancel-and-reorder, and the edit flow doubles as an upsell surface with one-click product offers.
 
@@ -135,13 +135,13 @@ ${site.appName} is a Shopify app that lets customers edit their own orders right
 
 No per-edit fees or revenue caps on paid plans.
 
-## AppFox Subscription
+## Appfox Subscription
 
-AppFox Subscription (formerly Trust Subscriptions) is a Shopify subscription app. Merchants add subscribe-and-save widgets to product pages, and customers pay through Shopify's native checkout with auto-renewal on the schedule they picked. A self-service customer portal handles skips, pauses, swaps, payment updates, and cancellations. Supports replenishment, subscription boxes, memberships, digital products, and bundles, with discounts, trials, and tiered pricing. Integrates with Klaviyo, PageFly, Loyalty Lion, and Shopify Flow. Shopify Sidekick (admin AI assistant) integration lets merchants ask natural-language questions about subscriptions and jump to the right page. For developers: hosted MCP (Model Context Protocol) server connects Cursor, Claude Desktop, and VS Code to read subscription data with AppFox API keys. Rated 5.0/5 from 1 review on the Shopify App Store.
+Appfox Subscription (formerly Trust Subscriptions) is a Shopify subscription app. Merchants add subscribe-and-save widgets to product pages, and customers pay through Shopify's native checkout with auto-renewal on the schedule they picked. A self-service customer portal handles skips, pauses, swaps, payment updates, and cancellations. Supports replenishment, subscription boxes, memberships, digital products, and bundles, with discounts, trials, and tiered pricing. Integrates with Klaviyo, PageFly, Loyalty Lion, and Shopify Flow. Shopify Sidekick (admin AI assistant) integration lets merchants ask natural-language questions about subscriptions and jump to the right page. For developers: hosted MCP (Model Context Protocol) server connects Cursor, Claude Desktop, and VS Code to read subscription data with Appfox API keys. Rated 5.0/5 from 1 review on the Shopify App Store.
 
 ### Subscription pricing
 
-AppFox Subscription is free for now. Every new install gets every feature at $0, with no plan to pick and no cap on active subscriptions:
+Appfox Subscription is free for now. Every new install gets every feature at $0, with no plan to pick and no cap on active subscriptions:
 
 ${SUBSCRIPTION_FREE_FEATURES.map((f) => `- ${f}`).join("\n")}
 

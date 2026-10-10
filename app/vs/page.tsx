@@ -11,7 +11,7 @@ import { routeMeta } from "@/lib/seo";
 export const metadata: Metadata = routeMeta.vs;
 
 /**
- * /vs - comparison hub, one ruled editorial index per AppFox app.
+ * /vs - comparison hub, one ruled editorial index per Appfox app.
  * Light throughout until the CTA band's perforation.
  */
 
@@ -33,7 +33,7 @@ export default function ComparisonHubPage() {
             >
               Comparisons
             </p>
-            <h1 className="enter-rise mt-4 max-w-3xl">Compare AppFox to the alternatives</h1>
+            <h1 className="enter-rise mt-4 max-w-3xl">Compare Appfox to the alternatives</h1>
             <p
               className="enter-fade-rise mt-6 max-w-[70ch] text-lg leading-relaxed text-ink-700"
               style={{ animationDelay: "140ms" }}
@@ -42,7 +42,7 @@ export default function ComparisonHubPage() {
               differences live in the details: how edits actually happen, what the pricing meters
               (edits, subscribers, bundle sales), and how much control the merchant keeps. These
               comparisons lay those details out side by side, plainly. Where a competitor is
-              genuinely strong, we say so; where the trade-offs favor AppFox, we show our work.
+              genuinely strong, we say so; where the trade-offs favor Appfox, we show our work.
             </p>
           </div>
         </section>
@@ -96,7 +96,7 @@ export default function ComparisonHubPage() {
                     numeral="00"
                     title={
                       <>
-                        AppFox <span className="wonk text-marigold-700">vs</span> five subscription apps
+                        Appfox <span className="wonk text-marigold-700">vs</span> five subscription apps
                       </>
                     }
                     category="Multi-competitor table"
@@ -140,7 +140,7 @@ export default function ComparisonHubPage() {
                     numeral="00"
                     title={
                       <>
-                        AppFox <span className="wonk text-marigold-700">vs</span> five bundle apps
+                        Appfox <span className="wonk text-marigold-700">vs</span> five bundle apps
                       </>
                     }
                     category="Multi-competitor table"
@@ -167,7 +167,7 @@ export default function ComparisonHubPage() {
 
         {/* CTA band - previous section is light paper. */}
         <CtaBand
-          headline="However you compare it, every AppFox app starts at $0"
+          headline="However you compare it, every Appfox app starts at $0"
           body="Order Editing's free plan never expires. Subscription is free for now. Product Bundles is free, no limits. Five-minute setups, no cards required."
           primaryLabel="Get Order Editing"
           secondaryLabel="Get Product Bundles"

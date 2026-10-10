@@ -163,7 +163,7 @@ export function PainSection() {
 
             <Reveal delay={200}>
               <p className="mt-8 max-w-[65ch] text-ink-700">
-                AppFox removes all three. Customers self-serve inside your rules, addresses get
+                Appfox removes all three. Customers self-serve inside your rules, addresses get
                 validated, and edits happen in place - so the fees stay yours.
               </p>
             </Reveal>

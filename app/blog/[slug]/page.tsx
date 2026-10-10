@@ -25,7 +25,7 @@ export async function generateMetadata({
   if (!post) return {};
   const path = `/blog/${post.slug}`;
   return {
-    // metaTitle is a full headline - skip the "| AppFox" template
+    // metaTitle is a full headline - skip the "| Appfox" template
     title: { absolute: post.metaTitle },
     description: post.metaDescription,
     alternates: { canonical: path },
@@ -146,7 +146,7 @@ export default async function BlogPostPage({
 
             <Reveal delay={80}>
               <p className="mt-14 max-w-[68ch] border-t border-paper-edge pt-6 text-ink-700">
-                AppFox lets Shopify customers fix their own orders - addresses, sizes,
+                Appfox lets Shopify customers fix their own orders - addresses, sizes,
                 cancellations - right on your thank-you and order status pages, with one-click
                 upsells built in.{" "}
                 <Link

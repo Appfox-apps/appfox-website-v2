@@ -2,7 +2,7 @@ import { Reveal, StaggerGroup } from "@/components/ui/Reveal";
 import { SectionSlug } from "@/components/site/SectionSlug";
 
 /**
- * NO. 01 - THE HOUSE RULES. What holds across every AppFox app -
+ * NO. 01 - THE HOUSE RULES. What holds across every Appfox app -
  * the reasons to trust the brand, not one product's feature list.
  */
 

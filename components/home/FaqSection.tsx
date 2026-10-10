@@ -15,11 +15,11 @@ import { site } from "@/lib/site";
 export const homeFaqs: { q: string; a: string }[] = [
   {
     q: "Can customers edit their orders on Shopify after checkout?",
-    a: 'Not by default - Shopify has no built-in way for customers to change an order once it\'s placed, which is why "can I change my order?" tickets exist. An order editing app like AppFox lets customers fix addresses, swap variants, change quantities, add or remove items, or cancel - right on your thank-you and order status pages, within rules you set.',
+    a: 'Not by default - Shopify has no built-in way for customers to change an order once it\'s placed, which is why "can I change my order?" tickets exist. An order editing app like Appfox lets customers fix addresses, swap variants, change quantities, add or remove items, or cancel - right on your thank-you and order status pages, within rules you set.',
   },
   {
     q: "How do post-purchase upsells work?",
-    a: "When a customer opens their order to edit it, AppFox shows the offers you've set up right inside the edit flow. One click adds the product to their existing order - no second checkout, no new order number - and any price difference is charged automatically through Shopify. They're already focused on their order, so it's the highest-attention moment after the sale.",
+    a: "When a customer opens their order to edit it, Appfox shows the offers you've set up right inside the edit flow. One click adds the product to their existing order - no second checkout, no new order number - and any price difference is charged automatically through Shopify. They're already focused on their order, so it's the highest-attention moment after the sale.",
   },
   {
     q: "Do customers need an account or login to edit an order?",
@@ -27,11 +27,11 @@ export const homeFaqs: { q: string; a: string }[] = [
   },
   {
     q: "What happens once an order is fulfilled, or my edit window closes?",
-    a: 'Nothing - and that\'s the point. AppFox checks your edit windows, fulfillment cutoffs, and per-action rules before showing anything, so an edit that\'s no longer allowed simply never appears. Customers can\'t request what they can\'t see - no awkward "sorry, too late" email.',
+    a: 'Nothing - and that\'s the point. Appfox checks your edit windows, fulfillment cutoffs, and per-action rules before showing anything, so an edit that\'s no longer allowed simply never appears. Customers can\'t request what they can\'t see - no awkward "sorry, too late" email.',
   },
   {
     q: "Who pays the difference when an edit changes the order total?",
-    a: "It settles automatically. If the new total is higher - a pricier variant, an added item, an upsell - the customer pays the difference through Shopify's payment request flow. If it's lower, AppFox issues a partial refund. No manual invoices, no spreadsheet math.",
+    a: "It settles automatically. If the new total is higher - a pricier variant, an added item, an upsell - the customer pays the difference through Shopify's payment request flow. If it's lower, Appfox issues a partial refund. No manual invoices, no spreadsheet math.",
   },
   {
     q: "Can customers abuse self-service order editing?",
@@ -39,11 +39,11 @@ export const homeFaqs: { q: string; a: string }[] = [
   },
   {
     q: "Why does in-place editing matter?",
-    a: 'Some tools "edit" orders by canceling the original and creating a new one. That forfeits Shopify Payments fees of 1.5–2.9% per edit - fees Shopify doesn\'t return - and sends the customer through checkout again. AppFox edits the original order in place using Shopify\'s native Order Editing API, so the order number, payment, and fees all stay intact.',
+    a: 'Some tools "edit" orders by canceling the original and creating a new one. That forfeits Shopify Payments fees of 1.5–2.9% per edit - fees Shopify doesn\'t return - and sends the customer through checkout again. Appfox edits the original order in place using Shopify\'s native Order Editing API, so the order number, payment, and fees all stay intact.',
   },
   {
     q: "How long does setup take, and which plans does it work on?",
-    a: "About 5 minutes, with no code. AppFox works on all Shopify plans, the Free tier is genuinely free (50 edits a month), and paid plans include a 14-day trial with no card required.",
+    a: "About 5 minutes, with no code. Appfox works on all Shopify plans, the Free tier is genuinely free (50 edits a month), and paid plans include a 14-day trial with no card required.",
   },
 ];
 
@@ -60,7 +60,7 @@ const linkedAnswers: Record<number, React.ReactNode> = {
       Not by default - Shopify has no built-in way for customers to change an order once
       it&apos;s placed, which is why &quot;can I change my order?&quot; tickets exist. An{" "}
       <Link href="/features/order-editing" className={answerLink}>
-        order editing app like AppFox
+        order editing app like Appfox
       </Link>{" "}
       lets customers fix addresses, swap variants, change quantities, add or remove items, or
       cancel - right on your thank-you and order status pages, within rules you set.
@@ -74,7 +74,7 @@ const linkedAnswers: Record<number, React.ReactNode> = {
         cancel-and-reorder
       </Link>{" "}
       edit - fees Shopify doesn&apos;t return - and sends the customer through checkout again.
-      AppFox edits the original order in place using Shopify&apos;s native Order Editing API, so
+      Appfox edits the original order in place using Shopify&apos;s native Order Editing API, so
       the order number, payment, and fees all stay intact.
     </>
   ),
