@@ -9,7 +9,22 @@ import { UNCLEAR_NOTE, type CompareCell } from "@/data/bundle-compare";
  *
  * Marks match ComparisonTable: hand-drawn ticks, ink-300 em-dash (never
  * a red X), and `.till` mono at 0.875rem for any written value.
+ * A footnote superscript renders only when the cell sets `note`.
  */
+function FootnoteRef({ id }: { id?: string }) {
+  if (!id) return null;
+  return (
+    <sup className="ml-0.5">
+      <a
+        href={`#compare-note-${id}`}
+        className="till text-[0.625rem] font-medium text-ink-500 hover:text-brand-700"
+      >
+        {id}
+      </a>
+    </sup>
+  );
+}
+
 export function CompareCellValue({
   cell,
   highlight = false,
@@ -38,9 +53,15 @@ export function CompareCellValue({
       <span className="inline-flex flex-col items-center gap-1">
         <DrawTick className="h-5 w-5 text-success" delay={delay} />
         {cell.label ? (
-          <span className={written}>{cell.label}</span>
+          <span className={written}>
+            {cell.label}
+            <FootnoteRef id={cell.note} />
+          </span>
         ) : (
-          <span className="sr-only">Yes</span>
+          <span className="sr-only">
+            Yes
+            <FootnoteRef id={cell.note} />
+          </span>
         )}
       </span>
     );
@@ -53,9 +74,15 @@ export function CompareCellValue({
           -
         </span>
         {cell.label ? (
-          <span className="till text-[0.875rem] leading-snug text-ink-500">{cell.label}</span>
+          <span className="till text-[0.875rem] leading-snug text-ink-500">
+            {cell.label}
+            <FootnoteRef id={cell.note} />
+          </span>
         ) : (
-          <span className="sr-only">No</span>
+          <span className="sr-only">
+            No
+            <FootnoteRef id={cell.note} />
+          </span>
         )}
       </span>
     );
@@ -91,9 +118,19 @@ export function CompareCellValue({
 
   if (cell.kind === "via") {
     return (
-      <span className={written}>via {cell.label ?? "other"}</span>
+      <span className={written}>
+        via {cell.label ?? "other"}
+        <FootnoteRef id={cell.note} />
+      </span>
     );
   }
 
-  return <span className={written}>{cell.label ?? "Partial"}</span>;
+  const unconfirmed = cell.label === "?";
+  return (
+    <span className={written}>
+      {cell.label ?? "Partial"}
+      {unconfirmed ? <span className="sr-only"> Not confirmed.</span> : null}
+      <FootnoteRef id={cell.note} />
+    </span>
+  );
 }

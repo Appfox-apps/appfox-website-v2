@@ -86,6 +86,13 @@ export const routeMeta = {
       "Side-by-side comparisons of AppFox and Shopify order editing, subscription, and product bundle apps - pricing, features, and honest trade-offs. Start free.",
     path: "/vs",
   }),
+  subscriptionCompare: pageMetadata({
+    title: "AppFox vs Recharge, Appstle, Seal, Loop & Skio",
+    description:
+      "Honest side-by-side of AppFox Subscriptions vs Recharge, Appstle, Seal, Loop, and Skio. Free for new installs, public listings, checked 10 October 2026.",
+    path: "/subscription/compare",
+    absoluteTitle: true,
+  }),
   productBundlesCompare: pageMetadata({
     title: "Best Shopify Bundle Apps Compared (2026)",
     description:

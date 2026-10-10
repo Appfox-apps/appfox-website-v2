@@ -118,10 +118,13 @@ export function MultiCompareTable({
   section,
   vendors,
   className = "",
+  productName = "AppFox Product Bundles",
 }: {
   section: CompareSection;
   vendors: CompareVendor[];
   className?: string;
+  /** Screen-reader caption. Defaults to the Product Bundles wording. */
+  productName?: string;
 }) {
   const showUnclearNote = sectionHasUnclear(
     section,
@@ -165,7 +168,7 @@ export function MultiCompareTable({
             className={`w-full table-fixed border-separate border-spacing-0 text-left ${wide ? "min-w-[58rem]" : ""}`}
           >
             <caption className="sr-only">
-              {section.title}: AppFox Product Bundles compared with {names}
+              {section.title}: {productName} compared with {names}
             </caption>
             <colgroup>
               <col className="compare-feature-col" />

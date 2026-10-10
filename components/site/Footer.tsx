@@ -16,6 +16,7 @@ const SUBSCRIPTION_LINKS = [
   { label: "Features", href: "/features/subscription" },
   { label: "Integrations", href: "/subscription/integrations" },
   { label: "Pricing", href: "/pricing/subscription" },
+  { label: "Compare", href: "/subscription/compare" },
   { label: "How it works", href: "/subscription#how-it-works" },
   { label: "FAQ", href: "/subscription#faq" },
 ];
@@ -32,7 +33,7 @@ const BUNDLES_LINKS = [
 const COMPARE_LINKS = [
   { label: "All comparisons", href: "/vs" },
   { label: "Order editing apps", href: "/vs#order-editing" },
-  { label: "Subscription apps", href: "/vs#subscription" },
+  { label: "Subscription apps", href: "/subscription/compare" },
   { label: "Product bundle apps", href: "/product-bundles/compare" },
 ];
 

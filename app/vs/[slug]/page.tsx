@@ -18,6 +18,8 @@ import {
   getBundleAlternative,
 } from "@/data/bundle-compare";
 import { BundlesAlternativePage } from "@/components/compare/BundlesAlternativePage";
+import { getSubscriptionVs } from "@/data/subscription-compare";
+import { SubscriptionVsArticle } from "@/components/subscription/SubscriptionVsArticle";
 import { getApp } from "@/data/apps";
 import { site } from "@/lib/site";
 
@@ -32,6 +34,21 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const subscriptionVs = getSubscriptionVs(slug);
+  if (subscriptionVs) {
+    const path = `/vs/${subscriptionVs.slug}`;
+    return {
+      title: { absolute: subscriptionVs.metaTitle },
+      description: subscriptionVs.metaDescription,
+      alternates: { canonical: path },
+      openGraph: {
+        title: subscriptionVs.metaTitle,
+        description: subscriptionVs.metaDescription,
+        url: path,
+        type: "website",
+      },
+    };
+  }
   const alternative = getBundleAlternative(slug);
   if (alternative) {
     const path = `/vs/${alternative.slug}`;
@@ -110,6 +127,10 @@ export default async function ComparisonPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  const subscriptionVs = getSubscriptionVs(slug);
+  if (subscriptionVs) {
+    return <SubscriptionVsArticle page={subscriptionVs} />;
+  }
   if (getBundleAlternative(slug)) {
     return <BundlesAlternativePage slug={slug} />;
   }

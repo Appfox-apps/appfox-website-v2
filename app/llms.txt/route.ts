@@ -88,6 +88,12 @@ export function GET(): Response {
       description: "Free to install with unlimited bundles, all bundle types, and full analytics.",
     },
     {
+      title: "Subscriptions comparison table",
+      path: "/subscription/compare",
+      description:
+        "Multi-competitor table: AppFox Subscriptions vs Recharge, Appstle, Seal, Loop, and Skio. Public docs, checked 10 October 2026.",
+    },
+    {
       title: "Best Shopify bundle apps compared",
       path: "/product-bundles/compare",
       description:
@@ -131,7 +137,7 @@ No per-edit fees or revenue caps on paid plans.
 
 ## AppFox Subscription
 
-AppFox Subscription (formerly Trust Subscriptions) is a Shopify subscription app. Merchants add subscribe-and-save widgets to product pages, and customers pay through Shopify's native checkout with auto-renewal on the schedule they picked. A self-service customer portal handles skips, pauses, swaps, payment updates, and cancellations. Supports replenishment, subscription boxes, memberships, digital products, and bundles, with discounts, trials, and tiered pricing. Integrates with Klaviyo, PageFly, Loyalty Lion, and Shopify Flow. Shopify Sidekick (admin AI assistant) integration lets merchants ask natural-language questions about subscriptions and jump to the right page. For developers: hosted MCP (Model Context Protocol) server connects Cursor, Claude Desktop, and VS Code to read subscription data with AppFox API keys. Rated 4.2/5 on the Shopify App Store.
+AppFox Subscription (formerly Trust Subscriptions) is a Shopify subscription app. Merchants add subscribe-and-save widgets to product pages, and customers pay through Shopify's native checkout with auto-renewal on the schedule they picked. A self-service customer portal handles skips, pauses, swaps, payment updates, and cancellations. Supports replenishment, subscription boxes, memberships, digital products, and bundles, with discounts, trials, and tiered pricing. Integrates with Klaviyo, PageFly, Loyalty Lion, and Shopify Flow. Shopify Sidekick (admin AI assistant) integration lets merchants ask natural-language questions about subscriptions and jump to the right page. For developers: hosted MCP (Model Context Protocol) server connects Cursor, Claude Desktop, and VS Code to read subscription data with AppFox API keys. Rated 5.0/5 from 1 review on the Shopify App Store.
 
 ### Subscription pricing
 

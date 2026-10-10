@@ -37,11 +37,11 @@ const softwareApplicationJsonLd = {
     price: "0",
     priceCurrency: "USD",
   },
-  // Sourced from the live App Store listing's public reviews.
+  // Live App Store listing, checked 10 October 2026: 5.0 from 1 review.
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: "4.2",
-    ratingCount: 20,
+    ratingValue: "5.0",
+    reviewCount: 1,
     bestRating: "5",
   },
   featureList: [

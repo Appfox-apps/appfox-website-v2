@@ -37,7 +37,7 @@ export function SubscriptionHero() {
           <InView className="relative z-10">
             <p className="enter-fade-rise" style={{ animationDelay: "60ms" }}>
               <span className="till inline-flex items-center rounded-lg border border-paper-edge bg-paper-raised px-3 py-1.5 text-[0.8125rem] text-marigold-700 shadow-(--shadow-card)">
-                4.2★ on the Shopify App Store · Free to install
+                5.0★ from 1 review on the Shopify App Store · Free to install
               </span>
             </p>
 
