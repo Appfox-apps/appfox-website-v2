@@ -172,9 +172,10 @@ export default function ProductBundlesComparePage() {
         <section id="sources" className="py-16 sm:py-20">
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
             <p className="text-sm text-ink-500">
-              Checked {bundleCompare.checked}. Comparison based on publicly available information.
-              Pricing and features may change. Unverified items are marked &ldquo;Not listed&rdquo; or
-              &ldquo;Listed&rdquo; rather than guessed.
+              AppFox column checked against the product on {bundleCompare.checked}. Competitor
+              columns are from public listings, checked October 2026. Pricing and features may
+              change. Unverified competitor items stay &ldquo;Not listed&rdquo; or
+              &ldquo;Listed&rdquo; rather than guessed. AppFox POS is still Not listed.
             </p>
             <p className="mt-4 till text-[0.75rem] uppercase tracking-[0.14em] text-ink-500">
               Sources
@@ -287,7 +288,7 @@ export default function ProductBundlesComparePage() {
 
         <CtaBand
           headline="The offer types most stores run, on a free install"
-          body="Volume discounts, mix-and-match, BOGO, and theme widgets. Four reviews, no POS, English only — if that is a deal-breaker, the table above says so."
+          body="Volume discounts, mix-and-match, BOGO, FBT, gifts, A/B tests, and seven storefront languages on a free install. Four reviews and no verified POS — if that is a deal-breaker, the table above says so."
           primaryHref={bundlesApp.installUrl}
           secondaryLabel="Product Bundles overview"
           secondaryHref="/product-bundles"

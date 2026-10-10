@@ -5,12 +5,13 @@
  * `CompareTable`) are product-agnostic so a Subscriptions table can reuse
  * them later. The `bundleCompare` export is the Product Bundles dataset.
  *
- * Facts were checked against public listings in October 2026. App Store
- * category tags are treated as "Listed", not independently verified
- * product behavior. Install counts are omitted — Shopify does not publish
- * them. AppFox claims are limited to apps.shopify.com/trust-bundles and
- * getappfox.com Product Bundles pages. The private app repo was not
- * accessible, so unverified listing tags stay "Listed".
+ * Competitor cells were checked against public listings in October 2026.
+ * App Store category tags on competitor listings stay "Listed", not
+ * independently verified product behavior. Install counts are omitted —
+ * Shopify does not publish them.
+ *
+ * The AppFox column was checked against bundles-app-new main (08ad87e)
+ * on 9 October 2026. POS remains unverified ("Not listed").
  *
  * In development / Planned cell kinds exist for a later public roadmap.
  * No Product Bundles roadmap statuses have been supplied, so AppFox gaps
@@ -107,10 +108,10 @@ function row(
 
 export const bundleCompare: CompareTable = {
   product: "product-bundles",
-  checked: "October 2026",
+  checked: "9 October 2026",
   title: "AppFox vs Kaching, Fast Bundle, Bundler, Simple Bundles & Shopify Bundles",
   intro:
-    "This is a vendor page. AppFox Product Bundles is free to install and lists volume discounts, fixed bundles, mix-and-match, and BOGO — with 5.0 from 4 reviews and no Built for Shopify badge. Kaching, Fast Bundle, Bundler, and Simple Bundles have hundreds to thousands of reviews, POS or kitting that we do not list, and (except Bundler's flat tiers) a bill that often meters additional revenue. Shopify Bundles is the free first-party app for fixed kits only. Cells we could not verify from a public listing are marked Listed or Not listed, not guessed. Wide Bundles and Rebolt are on the one-to-one /vs pages; they are not in this table.",
+    "This is a vendor page. AppFox Product Bundles is free to install and ships volume discounts, fixed bundles, mix-and-match, BOGO, frequently bought together, free gifts, checkbox add-ons, A/B tests, scheduled countdown offers, and seven built-in storefront languages — with 5.0 from 4 reviews and no Built for Shopify badge. Kaching, Fast Bundle, Bundler, and Simple Bundles have hundreds to thousands of reviews, POS or kitting we do not claim, and (except Bundler's flat tiers) a bill that often meters additional revenue. Shopify Bundles is the free first-party app for fixed kits only. The AppFox column was checked against the product on 9 October 2026; competitor cells we could not verify from a public listing stay Listed or Not listed. Wide Bundles and Rebolt are on the one-to-one /vs pages; they are not in this table.",
   vendors: [
     {
       id: V.appfox,
@@ -250,9 +251,11 @@ export const bundleCompare: CompareTable = {
         ),
         row(
           "languages",
-          "Storefront languages (listing)",
+          "Storefront languages",
           {
-            [V.appfox]: text("English"),
+            [V.appfox]: text(
+              "7 built-in (EN, DE, ES, FR, IT, NL, PT-BR) + any Shopify locale via Translations",
+            ),
             [V.kaching]: text("9 languages"),
             [V.fast]: text("10 languages"),
             [V.bundler]: text("17 languages"),
@@ -329,7 +332,7 @@ export const bundleCompare: CompareTable = {
           [V.shopify]: no,
         }),
         row("fbt", "Frequently bought together", {
-          [V.appfox]: listed,
+          [V.appfox]: yes,
           [V.kaching]: yes,
           [V.fast]: partial("AI FBT on paid plans"),
           [V.bundler]: absent,
@@ -337,7 +340,7 @@ export const bundleCompare: CompareTable = {
           [V.shopify]: no,
         }),
         row("combo-sku", "Bundle as a product (combo SKU)", {
-          [V.appfox]: absent,
+          [V.appfox]: no,
           [V.kaching]: listed,
           [V.fast]: yes,
           [V.bundler]: absent,
@@ -345,7 +348,7 @@ export const bundleCompare: CompareTable = {
           [V.shopify]: yes,
         }),
         row("gifts", "Free gifts", {
-          [V.appfox]: partial("Gifts listed"),
+          [V.appfox]: yes,
           [V.kaching]: yes,
           [V.fast]: listed,
           [V.bundler]: listed,
@@ -356,7 +359,7 @@ export const bundleCompare: CompareTable = {
           "addons",
           "Product add-ons",
           {
-            [V.appfox]: absent,
+            [V.appfox]: { kind: "yes", label: "Checkbox add-ons, optional discount" },
             [V.kaching]: listed,
             [V.fast]: yes,
             [V.bundler]: listed,
@@ -369,7 +372,7 @@ export const bundleCompare: CompareTable = {
           "multipacks",
           "Multipacks",
           {
-            [V.appfox]: listed,
+            [V.appfox]: { kind: "yes", label: "Quantity breaks on one product" },
             [V.kaching]: listed,
             [V.fast]: listed,
             [V.bundler]: listed,
@@ -395,7 +398,7 @@ export const bundleCompare: CompareTable = {
           "ai-suggest",
           "AI bundle suggestions",
           {
-            [V.appfox]: absent,
+            [V.appfox]: no,
             [V.kaching]: absent,
             [V.fast]: partial("AI FBT, paid"),
             [V.bundler]: absent,
@@ -457,7 +460,10 @@ export const bundleCompare: CompareTable = {
           "stack-codes",
           "Stacks with Shopify discount codes",
           {
-            [V.appfox]: partial("Most codes; store settings"),
+            [V.appfox]: {
+              kind: "yes",
+              label: "Per bundle: combines with order / product / shipping discounts",
+            },
             [V.kaching]: listed,
             [V.fast]: listed,
             [V.bundler]: listed,
@@ -508,7 +514,10 @@ export const bundleCompare: CompareTable = {
           [V.shopify]: via("Theme product template"),
         }),
         row("layouts", "Multiple layouts / design studio", {
-          [V.appfox]: absent,
+          [V.appfox]: {
+            kind: "yes",
+            label: "4 layouts, 3 badge styles, brand presets, saved templates",
+          },
           [V.kaching]: yes,
           [V.fast]: listed,
           [V.bundler]: listed,
@@ -516,7 +525,7 @@ export const bundleCompare: CompareTable = {
           [V.shopify]: no,
         }),
         row("progress", "Progress bars", {
-          [V.appfox]: absent,
+          [V.appfox]: partial("Step indicator on Build-a-Box page"),
           [V.kaching]: yes,
           [V.fast]: listed,
           [V.bundler]: listed,
@@ -527,7 +536,7 @@ export const bundleCompare: CompareTable = {
           "custom-css",
           "Custom CSS / HTML",
           {
-            [V.appfox]: absent,
+            [V.appfox]: partial("Custom CSS (no HTML)"),
             [V.kaching]: yes,
             [V.fast]: listed,
             [V.bundler]: listed,
@@ -540,7 +549,7 @@ export const bundleCompare: CompareTable = {
           "landing",
           "Custom landing pages",
           {
-            [V.appfox]: absent,
+            [V.appfox]: partial("Hosted Build-a-Box page (mix & match)"),
             [V.kaching]: listed,
             [V.fast]: listed,
             [V.bundler]: partial("From $9.99/mo"),
@@ -553,7 +562,7 @@ export const bundleCompare: CompareTable = {
           "page-builders",
           "Page-builder / cart-drawer connectors",
           {
-            [V.appfox]: absent,
+            [V.appfox]: no,
             [V.kaching]: listed,
             [V.fast]: partial("PageFly, GemPages, UpCart"),
             [V.bundler]: listed,
@@ -580,7 +589,7 @@ export const bundleCompare: CompareTable = {
           [V.shopify]: yes,
         }),
         row("cart", "Cart / cart-drawer offer", {
-          [V.appfox]: listed,
+          [V.appfox]: yes,
           [V.kaching]: listed,
           [V.fast]: listed,
           [V.bundler]: listed,
@@ -588,7 +597,7 @@ export const bundleCompare: CompareTable = {
           [V.shopify]: via("Cart line of the bundle product"),
         }),
         row("checkout", "Checkout upsells", {
-          [V.appfox]: absent,
+          [V.appfox]: no,
           [V.kaching]: listed,
           [V.fast]: listed,
           [V.bundler]: listed,
@@ -596,7 +605,7 @@ export const bundleCompare: CompareTable = {
           [V.shopify]: no,
         }),
         row("post-purchase", "Post-purchase / thank-you upsells", {
-          [V.appfox]: absent,
+          [V.appfox]: no,
           [V.kaching]: listed,
           [V.fast]: listed,
           [V.bundler]: partial("Funnel upsells, paid"),
@@ -607,7 +616,7 @@ export const bundleCompare: CompareTable = {
           "channels",
           "Shop app / headless channels",
           {
-            [V.appfox]: absent,
+            [V.appfox]: no,
             [V.kaching]: absent,
             [V.fast]: absent,
             [V.bundler]: absent,
@@ -620,7 +629,7 @@ export const bundleCompare: CompareTable = {
           "complete-bundle",
           "Complete-the-bundle cart upsell",
           {
-            [V.appfox]: absent,
+            [V.appfox]: partial("Cart upsell banner"),
             [V.kaching]: listed,
             [V.fast]: listed,
             [V.bundler]: listed,
@@ -639,7 +648,7 @@ export const bundleCompare: CompareTable = {
       caption: "Recommendations, gifts, and campaign chrome.",
       rows: [
         row("ai-fbt", "AI / frequently-bought-together", {
-          [V.appfox]: listed,
+          [V.appfox]: partial("Manual, collection or Shopify recommendations"),
           [V.kaching]: yes,
           [V.fast]: partial("AI FBT on paid plans"),
           [V.bundler]: absent,
@@ -647,7 +656,7 @@ export const bundleCompare: CompareTable = {
           [V.shopify]: no,
         }),
         row("merch-gifts", "Free gifts / gift wrap", {
-          [V.appfox]: partial("Gifts listed"),
+          [V.appfox]: { kind: "yes", label: "Gifts; wrap via checkbox add-on" },
           [V.kaching]: yes,
           [V.fast]: listed,
           [V.bundler]: listed,
@@ -655,7 +664,7 @@ export const bundleCompare: CompareTable = {
           [V.shopify]: no,
         }),
         row("countdown", "Countdown / time-limited offers", {
-          [V.appfox]: absent,
+          [V.appfox]: { kind: "yes", label: "Start/end schedule + countdown timer" },
           [V.kaching]: listed,
           [V.fast]: listed,
           [V.bundler]: listed,
@@ -663,7 +672,7 @@ export const bundleCompare: CompareTable = {
           [V.shopify]: no,
         }),
         row("spend-meter", "Spend / progress meters", {
-          [V.appfox]: absent,
+          [V.appfox]: no,
           [V.kaching]: yes,
           [V.fast]: listed,
           [V.bundler]: listed,
@@ -674,7 +683,7 @@ export const bundleCompare: CompareTable = {
           "gift-wrap",
           "Gift wrap add-on",
           {
-            [V.appfox]: absent,
+            [V.appfox]: via("Checkbox add-on"),
             [V.kaching]: yes,
             [V.fast]: absent,
             [V.bundler]: absent,
@@ -701,7 +710,7 @@ export const bundleCompare: CompareTable = {
           [V.shopify]: partial("In Bundles app + Analytics"),
         }),
         row("ab", "A/B testing", {
-          [V.appfox]: listed,
+          [V.appfox]: { kind: "yes", label: "Weighted variants, pick a winner" },
           [V.kaching]: yes,
           [V.fast]: listed,
           [V.bundler]: absent,
@@ -716,22 +725,6 @@ export const bundleCompare: CompareTable = {
           [V.simple]: listed,
           [V.shopify]: partial("Sales, orders, top bundles"),
         }),
-        row(
-          "ab-ui",
-          "Published testing UI on the marketing site",
-          {
-            [V.appfox]: no,
-            [V.kaching]: listed,
-            [V.fast]: absent,
-            [V.bundler]: no,
-            [V.simple]: no,
-            [V.shopify]: no,
-          },
-          {
-            more: true,
-            hint: "AppFox's listing tags A/B testing; getappfox.com does not document a comparable testing UI.",
-          },
-        ),
       ],
     },
     {
@@ -739,10 +732,12 @@ export const bundleCompare: CompareTable = {
       no: "07",
       title: "Localization",
       label: "LOCALIZATION",
-      caption: "What the App Store listing says about languages.",
+      caption: "Built-in languages and Shopify locale fallback.",
       rows: [
-        row("lang-count", "Storefront languages (listing)", {
-          [V.appfox]: text("English"),
+        row("lang-count", "Storefront languages", {
+          [V.appfox]: text(
+            "7 built-in (EN, DE, ES, FR, IT, NL, PT-BR) + any Shopify locale via Translations",
+          ),
           [V.kaching]: text("9 languages"),
           [V.fast]: text("10 languages"),
           [V.bundler]: text("17 languages"),
@@ -758,7 +753,7 @@ export const bundleCompare: CompareTable = {
           [V.shopify]: yes,
         }),
         row("multi-currency", "Multi-currency", {
-          [V.appfox]: listed,
+          [V.appfox]: { kind: "yes", label: "Shopper's currency, live market prices" },
           [V.kaching]: yes,
           [V.fast]: listed,
           [V.bundler]: listed,
@@ -783,7 +778,7 @@ export const bundleCompare: CompareTable = {
           [V.shopify]: yes,
         }),
         row("kitting", "Component SKU / kitting for fulfillment", {
-          [V.appfox]: absent,
+          [V.appfox]: no,
           [V.kaching]: absent,
           [V.fast]: via("Bundle-as-product"),
           [V.bundler]: absent,
@@ -791,7 +786,7 @@ export const bundleCompare: CompareTable = {
           [V.shopify]: yes,
         }),
         row("3pl", "3PL / WMS / ERP inventory sync", {
-          [V.appfox]: absent,
+          [V.appfox]: no,
           [V.kaching]: absent,
           [V.fast]: absent,
           [V.bundler]: absent,
@@ -799,7 +794,7 @@ export const bundleCompare: CompareTable = {
           [V.shopify]: via("Shopify inventory"),
         }),
         row("flow", "Shopify Flow", {
-          [V.appfox]: absent,
+          [V.appfox]: no,
           [V.kaching]: listed,
           [V.fast]: listed,
           [V.bundler]: listed,
@@ -810,7 +805,7 @@ export const bundleCompare: CompareTable = {
           "hydrogen",
           "Hydrogen / headless",
           {
-            [V.appfox]: absent,
+            [V.appfox]: no,
             [V.kaching]: absent,
             [V.fast]: absent,
             [V.bundler]: absent,
@@ -823,7 +818,7 @@ export const bundleCompare: CompareTable = {
           "sub-apps",
           "Subscription-app integrations",
           {
-            [V.appfox]: absent,
+            [V.appfox]: no,
             [V.kaching]: listed,
             [V.fast]: partial("Standard+"),
             [V.bundler]: listed,
@@ -883,8 +878,8 @@ export const bundleCompare: CompareTable = {
           [V.simple]: partial("Bundles & orders on free"),
           [V.shopify]: no,
         }),
-        row("support", "Support channel (listing)", {
-          [V.appfox]: text("Email"),
+        row("support", "Support channel", {
+          [V.appfox]: text("In-app live chat + email"),
           [V.kaching]: text("Live chat + email"),
           [V.fast]: listed,
           [V.bundler]: listed,
@@ -903,7 +898,7 @@ export const bundleCompare: CompareTable = {
           "live-chat",
           "Live chat support",
           {
-            [V.appfox]: no,
+            [V.appfox]: yes,
             [V.kaching]: yes,
             [V.fast]: listed,
             [V.bundler]: listed,
@@ -944,23 +939,23 @@ export const bundleCompare: CompareTable = {
   faq: [
     {
       q: "You make AppFox. Why should I trust this table?",
-      a: "You shouldn't take our word alone. Every cell is from a public App Store listing, help center, or vendor pricing page, checked in October 2026. Where a listing only tags a category (A/B testing, FBT, gifts on AppFox), we write Listed — not yes. Where we could not find the feature, we write Not listed or no. Sources are linked at the bottom. We also say, in plain language, when a competitor is the better fit.",
+      a: "You shouldn't take our word alone. The AppFox column was checked against the product on 9 October 2026 (bundles-app-new main, 08ad87e). Competitor cells are from public App Store listings, help centers, or vendor pricing pages, checked in October 2026. Where a competitor listing only tags a category, we write Listed — not yes. POS on AppFox stays Not listed because we have not verified it. Sources are linked at the bottom. We also say, in plain language, when a competitor is the better fit.",
     },
     {
       q: "AppFox has four reviews. Is that a real risk?",
-      a: "Yes. Kaching has 6,243 reviews, Fast Bundle 3,533, Bundler 2,719. Four reviews and no Built for Shopify badge is a fair reason to pick someone else, especially on a Plus store that has to justify the install. Price is the AppFox case, not tenure.",
+      a: "Yes. Kaching has 6,243 reviews, Fast Bundle 3,533, Bundler 2,719. Four reviews and no Built for Shopify badge is a fair reason to pick someone else, especially on a Plus store that has to justify the install. Price and the verified feature set are the AppFox case, not tenure.",
     },
     {
       q: "When is each competitor the better choice?",
-      a: "Shopify Bundles — a fixed kit or multipack with component inventory and zero third-party apps. Simple Bundles — kitting, 3PL, packing slips, POS, Flow. Kaching — POS, layouts, progress bars, live chat, and 6,000+ reviews. Fast Bundle — AI frequently-bought-together and bundle-as-product. Bundler — volume discounts and POS on a genuinely useful free plan, or mix-and-match at a flat $9.99. AppFox — those same core offer types on a free install, if you can live with a younger widget and English only.",
+      a: "Shopify Bundles — a fixed kit or multipack with component inventory and zero third-party apps. Simple Bundles — kitting, 3PL, packing slips, POS, Flow. Kaching — POS, spend meters, and 6,000+ reviews. Fast Bundle — AI frequently-bought-together and bundle-as-product. Bundler — volume discounts and POS on a genuinely useful free plan, or mix-and-match at a flat $9.99. AppFox — the same core offer types plus FBT, gifts, add-ons, A/B tests, seven built-in languages, and live chat, on a free install, if a younger review base is acceptable.",
     },
     {
       q: "Does AppFox have POS, 3PL, or AI recommendations?",
-      a: "Not on the public listing. Works with is Checkout and Shopify Admin. We do not list POS, 3PL / WMS, component kitting, or an AI recommender. If those are the job, this table should send you to Simple Bundles, Shopify Bundles, Kaching, or Fast Bundle — not us.",
+      a: "POS is still Not listed — we have not verified it in the product. 3PL / WMS and component kitting are no. There is no AI bundle-suggester; frequently bought together is manual, from a collection, or from Shopify recommendations. If POS, warehouse kits, or an AI recommender is the job, this table should send you to Simple Bundles, Shopify Bundles, Kaching, or Fast Bundle — not us.",
     },
     {
-      q: "Why are some AppFox cells “Listed” instead of yes?",
-      a: "The Shopify listing tags A/B testing, frequently bought together, and gifts. We could not open the private app repo to verify those surfaces, and getappfox.com does not document a testing UI or an AI recommender. Listed means the tag exists; it is not a claim that the feature matches Kaching or Fast Bundle.",
+      q: "How was the AppFox column checked?",
+      a: "AppFox column checked against the product on 9 October 2026. Competitor columns were not re-checked against their source code; those cells still follow public listings, with Listed or Not listed where we could not verify behavior.",
     },
     {
       q: "Can I run Shopify Bundles and AppFox together?",
