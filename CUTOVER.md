@@ -236,7 +236,7 @@ npm run build && npm run start
 npm run check-docs-redirects -- check --base http://127.0.0.1:3000
 ```
 
-That sends the legacy `Host` header to the local server. It cannot prove the new pages return 200 until step 3 is done, because Mintlify still 404s `*.mintlify.site/<basePath>` until the subpath is enabled.
+That sends the legacy `Host` header to the local server. It cannot prove the new pages return 200 until step 3 is done, because Mintlify still 404s `*.mintlify.site/<basePath>` until the subpath is enabled. A POST to `<base>/_mintlify/api/v1/e` is forwarded either way. Until that route exists, Mintlify answers it with 405. That 405 is the upstream, not this Next app refusing the method. After the docs pages return 200, the same POST must not be 405.
 
 ### 10. Watch one real partner URL
 

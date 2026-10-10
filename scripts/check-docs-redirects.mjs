@@ -170,7 +170,13 @@ function expectedLocation(docsSite, pathname, search) {
 }
 
 function urlsMatch(actual, expected) {
-  const left = new URL(actual);
+  if (!actual || !expected) return false;
+  let left;
+  try {
+    left = new URL(actual);
+  } catch {
+    return false;
+  }
   const right = new URL(expected);
   const leftQuery = [...left.searchParams.entries()].sort().toString();
   const rightQuery = [...right.searchParams.entries()].sort().toString();
@@ -199,8 +205,9 @@ async function mapPool(items, limit, worker) {
 
 function isProxied(response) {
   if (headerValue(response.headers, "x-mint-proxy-version")) return true;
-  if (headerValue(response.headers, "x-mint-proxy")) return true;
-  return false;
+  if (headerValue(response.headers, "x-mintlify-client-version")) return true;
+  const matched = headerValue(response.headers, "x-matched-path");
+  return matched.includes("/_sites/");
 }
 
 async function checkRedirect(base, docsSite, pathname, search, viaDns) {
@@ -324,7 +331,7 @@ async function check(args) {
     let slashNote = `${slashed.status} ${slashed.location || "(no location)"}`;
     let slashOk = slashed.ok || urlsMatch(slashed.location, expectedLocation(docsSite, "/getting-started", ""));
     if (!slashOk && slashed.status === 308 && slashed.location) {
-      const nextUrl = new URL(slashed.location, `${docsConfig.canonicalOrigin}/`);
+      const nextUrl = new URL(slashed.location, viaDns ? `https://${docsSite.legacyHost}/` : base);
       const follow = await checkRedirect(base, docsSite, nextUrl.pathname, nextUrl.search, viaDns);
       slashOk = follow.ok;
       slashNote += `; then ${follow.status} ${follow.location || "(no location)"}`;
@@ -333,7 +340,8 @@ async function check(args) {
     if (!slashOk) failures.push(`${docsSite.legacyHost}/getting-started/ did not end at the unsuffixed docs URL`);
   }
 
-  console.log("POST analytics probe (must be proxied, not handled by this Next app):");
+  const pagesReady = [...counts.values()].every((bucket) => bucket.total > 0 && bucket.page === bucket.total);
+  console.log("POST analytics probe (the method must be forwarded to Mintlify):");
   for (const docsSite of docsConfig.sites) {
     const response = await requestOnce({
       protocol: base.protocol,
@@ -350,12 +358,18 @@ async function check(args) {
     });
     const proxied = isProxied(response);
     const app404 = response.body.includes("Wrong address");
-    const ok = proxied && !app404 && response.status !== 405;
+    // Before the Mintlify base path exists, the upstream slug handler answers
+    // POST with 405. That still proves this server forwarded the method.
+    // Once the docs pages return 200, a 405 here means analytics is blocked.
+    const blockedAfterCutover = pagesReady && response.status === 405;
+    const ok = proxied && !app404 && !blockedAfterCutover;
     console.log(
       `  POST ${docsSite.basePath}/_mintlify/api/v1/e -> ${response.status}${proxied ? " proxied" : " not proxied"}${app404 ? " (this app's 404)" : ""}`,
     );
     if (!ok) {
-      failures.push(`POST ${docsSite.basePath}/_mintlify/api/v1/e was not proxied (status ${response.status})`);
+      failures.push(
+        `POST ${docsSite.basePath}/_mintlify/api/v1/e ${proxied ? "was proxied" : "was not proxied"} (status ${response.status})`,
+      );
     }
   }
 
