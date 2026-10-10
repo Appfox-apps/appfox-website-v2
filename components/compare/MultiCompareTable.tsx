@@ -20,6 +20,8 @@ import {
  *
  * Visual contract matches ComparisonTable. Sticky header `top` uses
  * `--compare-sticky-top` so the row clears the floating island nav.
+ * Header cells are fully opaque (no alpha, no backdrop-blur); a
+ * ::before mask fills the gap under the nav so rows cannot show through.
  */
 
 function VendorHead({ vendor }: { vendor: CompareVendor }) {
@@ -167,9 +169,10 @@ export function MultiCompareTable({
   // Hub tables use overflow-x-auto below lg, which would slide a sticky
   // thead under the nav. Pin the thead on lg+ only; the compact vendor
   // bar covers small screens. Two-column pages keep overflow-clip + sticky.
+  // Opaque head + ::before mask live in .compare-sticky-head (globals.css).
   const stickyTh = wide
-    ? "lg:sticky lg:top-[var(--compare-sticky-top)] z-10 py-4 backdrop-blur-[10px]"
-    : "sticky top-[var(--compare-sticky-top)] z-10 py-4 backdrop-blur-[10px]";
+    ? "compare-sticky-head lg:sticky lg:top-[var(--compare-sticky-top)] z-20 py-4"
+    : "compare-sticky-head sticky top-[var(--compare-sticky-top)] z-20 py-4";
   const names = vendors
     .filter((v) => !v.highlight)
     .map((v) => v.shortName)
@@ -196,18 +199,20 @@ export function MultiCompareTable({
       }
     >
       {wide ? (
-        <div className="sticky top-[var(--compare-sticky-top)] z-20 mb-2 flex gap-2 overflow-x-auto rounded-xl border border-paper-edge bg-paper/90 px-3 py-2 backdrop-blur-[10px] lg:hidden">
-          {vendors.map((vendor) => (
-            <span
-              key={vendor.id}
-              className={`till shrink-0 text-[0.6875rem] ${
-                vendor.highlight ? "font-semibold text-brand-700" : "text-ink-500"
-              }`}
-            >
-              {vendor.shortName}
-              {vendor.priceChip ? ` · ${vendor.priceChip}` : ""}
-            </span>
-          ))}
+        <div className="compare-sticky-bar sticky top-[var(--compare-sticky-top)] z-20 mb-2 rounded-xl border border-paper-edge lg:hidden">
+          <div className="flex gap-2 overflow-x-auto px-3 py-2">
+            {vendors.map((vendor) => (
+              <span
+                key={vendor.id}
+                className={`till shrink-0 text-[0.6875rem] ${
+                  vendor.highlight ? "font-semibold text-brand-700" : "text-ink-500"
+                }`}
+              >
+                {vendor.shortName}
+                {vendor.priceChip ? ` · ${vendor.priceChip}` : ""}
+              </span>
+            ))}
+          </div>
         </div>
       ) : null}
       {/*
@@ -216,7 +221,13 @@ export function MultiCompareTable({
         Below lg the hub table still needs a sideways scroller; the
         compact vendor bar above stays pinned below the nav.
       */}
-      <div className={wide ? "card overflow-clip max-lg:overflow-x-auto" : "card overflow-clip"}>
+      <div
+        className={
+          wide
+            ? "card isolate overflow-clip max-lg:overflow-x-auto"
+            : "card isolate overflow-clip"
+        }
+      >
         <table
           className={`w-full border-separate border-spacing-0 text-left ${wide ? "min-w-[58rem]" : ""}`}
         >
@@ -227,7 +238,7 @@ export function MultiCompareTable({
             <tr>
               <th
                 scope="col"
-                className={`${stickyTh} ${wide ? "compare-sticky-col" : ""} border-b border-paper-edge bg-paper/85 px-5 text-left lg:px-7`}
+                className={`${stickyTh} ${wide ? "compare-sticky-col" : ""} border-b border-paper-edge px-5 text-left lg:px-7`}
               >
                 <span className="till text-[0.75rem] font-medium uppercase tracking-[0.14em] text-ink-500">
                   Feature
@@ -239,8 +250,8 @@ export function MultiCompareTable({
                   scope="col"
                   className={`${stickyTh} border-b px-4 text-center ${
                     vendor.highlight
-                      ? "border-x border-b-brand-200 border-x-brand-200 bg-brand-50/90"
-                      : "border-paper-edge bg-paper/85"
+                      ? "compare-sticky-head--brand border-x border-b-brand-200 border-x-brand-200"
+                      : "border-paper-edge"
                   }`}
                 >
                   <VendorHead vendor={vendor} />

@@ -581,7 +581,8 @@ html.js [data-compare-more]:not([data-open]) [data-compare-extra] {
   display: none;
 }
 
-/* Pin the feature column on horizontal scroll without cells bleeding through. */
+/* Pin the feature column on horizontal scroll without cells bleeding through.
+   Stack: nav (z-50) > sticky thead (20/21) > sticky first column (3) > body. */
 .compare-sticky-col {
   position: sticky;
   left: 0;
@@ -592,12 +593,34 @@ html.js [data-compare-more]:not([data-open]) [data-compare-extra] {
     12px 0 14px -10px rgba(27, 24, 38, 0.22);
 }
 thead .compare-sticky-col {
-  z-index: 5;
-  background: color-mix(in srgb, var(--color-paper) 85%, transparent);
-  backdrop-filter: blur(10px);
+  z-index: 21;
+  background: var(--color-paper-raised);
 }
 tr:hover .compare-sticky-col {
   background: var(--color-paper-sunken);
+}
+
+/* Opaque sticky header + upward mask so scrolled rows never show through
+   or above the thead (including the gap under the floating nav). */
+.compare-sticky-head {
+  background-color: var(--color-paper-raised);
+}
+.compare-sticky-head--brand {
+  background-color: var(--color-brand-50);
+}
+.compare-sticky-head::before,
+.compare-sticky-bar::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  bottom: 100%;
+  height: var(--compare-sticky-top);
+  background-color: inherit;
+  pointer-events: none;
+}
+.compare-sticky-bar {
+  background-color: var(--color-paper-raised);
 }
 @media (prefers-reduced-motion: no-preference) {
   html.js .accordion-panel {
