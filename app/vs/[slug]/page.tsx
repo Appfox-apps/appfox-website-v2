@@ -261,8 +261,8 @@ export default async function ComparisonPage({
             <ComparisonTable competitor={competitor} className="mt-10" />
 
             <p className="mt-5 text-sm text-ink-500">
-              Comparison based on publicly available information as of {checkedLabel}. Pricing and
-              features may change. Unverified items are marked &ldquo;Not listed&rdquo; or
+              Checked {checkedLabel}. Comparison based on publicly available information. Pricing
+              and features may change. Unverified items are marked &ldquo;Not listed&rdquo; or
               &ldquo;Listed&rdquo; rather than guessed.
             </p>
             {competitor.sources?.length ? (
@@ -290,7 +290,7 @@ export default async function ComparisonPage({
         </section>
 
         {hasHonesty ? (
-          <section className="py-16 sm:py-24">
+          <section id="where-they-win" className="py-16 sm:py-24">
             <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
               <Reveal variant="none">
                 <SectionSlug
