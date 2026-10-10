@@ -167,6 +167,7 @@ export default function SubscriptionComparePage() {
                 section={section}
                 vendors={subscriptionCompare.vendors}
                 productName="AppFox Subscriptions"
+                collapseExtra
                 className="mt-8"
               />
             </div>

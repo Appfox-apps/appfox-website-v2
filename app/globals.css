@@ -575,6 +575,13 @@ html.js [data-open] .accordion-content {
   opacity: 1;
 }
 
+/* Extra comparison rows stay in the HTML. They hide only when JS is on
+   and the section has not been opened. Product Bundles does not set
+   data-compare-more, so those tables are unchanged. */
+html.js [data-compare-more]:not([data-open]) [data-compare-extra] {
+  display: none;
+}
+
 /* Feature column: one width for header and body so sticky cells cannot
    overhang the AppFox column. No extra shadow. */
 .compare-feature-col {
