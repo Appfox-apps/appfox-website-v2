@@ -99,6 +99,14 @@ export function SubscriptionPricing() {
                     See pricing details
                   </Link>
                 </div>
+                <p className="mt-4 text-sm text-ink-500">
+                  <Link
+                    href="/subscription/compare"
+                    className="font-medium text-brand-700 underline decoration-brand-300 underline-offset-[3px] hover:decoration-brand-600"
+                  >
+                    Compare Recharge, Appstle, Seal, Loop, and Skio
+                  </Link>
+                </p>
               </article>
             </Reveal>
           </div>

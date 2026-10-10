@@ -215,7 +215,7 @@ export default function SubscriptionPricingPage() {
           body="Install free, drop the widget on your product pages, and let auto-renewal do the collecting. Every feature is unlocked and there's no cap on active subscriptions."
           primaryHref={subscriptionApp.installUrl}
           secondaryLabel="Compare subscription apps"
-          secondaryHref="/vs#subscription"
+          secondaryHref="/subscription/compare"
           from="paper"
         />
       </main>

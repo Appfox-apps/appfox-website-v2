@@ -84,14 +84,28 @@ export default function ComparisonHubPage() {
               <SectionSlug
                 no="02"
                 label="SUBSCRIPTION"
-                caption={`${subscriptionComps.length} comparisons, flat plans vs metered.`}
+                caption="One table, then a page per app."
               />
             </Reveal>
 
             <ul className="mt-2 max-w-5xl divide-y divide-paper-edge border-b border-paper-edge">
               <StaggerGroup step={70}>
+                <Reveal as="li" index={0}>
+                  <VsIndexRow
+                    href="/subscription/compare"
+                    numeral="00"
+                    title={
+                      <>
+                        AppFox <span className="wonk text-marigold-700">vs</span> five subscription apps
+                      </>
+                    }
+                    category="Multi-competitor table"
+                    framing="Recharge, Appstle, Seal, Loop, and Skio in one table, including where they win. Public listings, checked 10 October 2026."
+                    action="OPEN TABLE"
+                  />
+                </Reveal>
                 {subscriptionComps.map((c, i) => (
-                  <Reveal key={c.slug} as="li" index={i}>
+                  <Reveal key={c.slug} as="li" index={i + 1}>
                     <VsIndexRow
                       href={`/vs/${c.slug}`}
                       numeral={String(i + 1).padStart(2, "0")}

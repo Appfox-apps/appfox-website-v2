@@ -544,10 +544,10 @@ export const competitors: Competitor[] = [
     tagline:
       "Recharge is the enterprise heavyweight of Shopify subscriptions. AppFox Subscription covers the core jobs - widgets, recurring billing, customer portal - and is free for now.",
     framing:
-      "Recharge is a deep, enterprise-grade subscription platform with pricing to match; the comparison comes down to whether you need that depth, or whether recurring billing on Shopify's native checkout at a fraction of the price does the job.",
-    metaTitle: "AppFox vs Recharge: Shopify Subscription Apps Compared",
+      "Recharge starts at $25/mo for the first 50 subscribers, then $99 or $499 plus a cut of renewals, with 3,132 reviews. AppFox is free for new installs. Recharge is the better fit when you need cancel-save, benchmarks, or an implementation team.",
+    metaTitle: "Recharge alternative | AppFox Subscriptions",
     metaDescription:
-      "Recharge starts at $99/mo plus transaction fees; AppFox Subscription is free for now, with every feature and 0% transaction fees. Compare and install free.",
+      "Recharge alternative for Shopify: AppFox Subscriptions is free for new installs and takes 0% of renewals. See the Recharge plans, where Recharge is the better fit, and what we do not do yet.",
     intro:
       "Recharge is the biggest name in Shopify subscriptions, and for complex enterprise programs - custom workflows, bundles logic, API-heavy builds - its depth is real. But that depth is priced in: a monthly platform fee plus a cut of every recurring transaction. AppFox Subscription takes the other path: subscribe-and-save widgets, auto-renewal on Shopify's native checkout, and a self-service customer portal - free for now with every feature unlocked, no subscription cap, and 0% transaction fees. For most stores adding subscriptions, that's the whole job.",
     bestFor:
@@ -591,7 +591,7 @@ export const competitors: Competitor[] = [
     faq: [
       {
         q: "Can I migrate from Recharge to AppFox Subscription?",
-        a: "Yes. Existing subscription contracts can be brought over, and support will walk through the migration with you before you switch. Most stores complete the move without customers noticing anything beyond a heads-up email.",
+        a: "A Recharge CSV can be imported. The import creates new contracts, and payment cards do not come across. Customers add a card again. The rendered comparison page has the full version of this answer.",
       },
       {
         q: "How does AppFox pricing compare to Recharge's $99+/month?",
@@ -612,10 +612,10 @@ export const competitors: Competitor[] = [
     tagline:
       "Appstle packs every subscription feature into tiered plans. AppFox Subscription keeps the essentials simple - and keeps them cheap.",
     framing:
-      "Appstle is famously feature-dense with plans that unlock more as you pay more; the trade-off is complexity, and whether the features you actually use justify the settings maze.",
-    metaTitle: "AppFox vs Appstle: Shopify Subscription Apps Compared",
+      "Appstle is free until $500 a month in subscription revenue, then $10, $30, or $100, with 8,975 reviews and a Built for Shopify badge. Build-a-box sits on the $30 plan. AppFox includes it on a free install, and has one review.",
+    metaTitle: "Appstle alternative | AppFox Subscriptions",
     metaDescription:
-      "Appstle gates features across paid tiers; AppFox Subscription is free for now, with every feature unlocked - widgets, recurring billing, customer portal and more. Compare.",
+      "Appstle alternative for Shopify: AppFox Subscriptions is free for new installs with build-a-box included. Appstle has 8,975 reviews and puts build-a-box on the $30 plan. See the gaps.",
     intro:
       "Appstle has earned its following by shipping an enormous feature list at aggressive prices. If you want every lever - loyalty perks, build-a-box, cancellation flows - it's all in there somewhere, spread across plan tiers and a dense settings surface. AppFox Subscription is the simpler bet: the features nearly every subscription program actually runs on - widgets, auto-renewal, subscribe-and-save discounts, a customer portal - free for now, with every feature unlocked and no plan ladder to climb.",
     bestFor:
@@ -663,7 +663,7 @@ export const competitors: Competitor[] = [
       },
       {
         q: "Can I switch from Appstle without losing subscribers?",
-        a: "Yes. Existing contracts can be migrated, and support helps with the move. Because AppFox uses Shopify's native subscription APIs, customer payment methods stay with Shopify - not with the app you're leaving.",
+        a: "An Appstle CSV can be imported. Payment cards do not come across. Customers add a card again.",
       },
       {
         q: "Is AppFox Subscription's free offer limited like Appstle's free tier?",
@@ -680,10 +680,10 @@ export const competitors: Competitor[] = [
     tagline:
       "Seal made its name as the budget-friendly subscription app. AppFox Subscription goes one better - on Shopify's native checkout, free for now.",
     framing:
-      "Seal wins fans with honest low pricing and a generous free tier; AppFox is free for now, so the comparison comes down to checkout, portal, and support.",
-    metaTitle: "AppFox vs Seal Subscriptions: Compared for Shopify",
+      "Seal is free for 50 subscriptions, then $5.95, $9.95, or $24.95, with 0% transaction fees, 3,139 reviews, and a Built for Shopify badge. AppFox has no subscriber cap, one review, and nine languages against Seal's eighteen.",
+    metaTitle: "Seal Subscriptions alternative | AppFox Subscriptions",
     metaDescription:
-      "Seal starts free with low flat tiers; AppFox Subscription is free for now and bills on Shopify's native checkout with 0% transaction fees and 24/7 support. Compare.",
+      "Seal Subscriptions alternative for Shopify: Seal is free for 50 subscriptions, then $5.95, with 0% fees and 3,139 reviews. AppFox is free for new installs with no subscriber cap. Compare the gaps.",
     intro:
       "Seal Subscriptions is a genuinely likeable app: transparent pricing, a real free tier, and a founder-run feel that merchants trust. If you're comparing paid plans, Seal is one of the cheapest. AppFox Subscription goes further - free for now with every feature unlocked - with billing on Shopify's native checkout, 0% transaction fees on every plan, and a portal customers work out on their own.",
     bestFor:
@@ -725,11 +725,11 @@ export const competitors: Competitor[] = [
     faq: [
       {
         q: "Seal and AppFox cost about the same - what's the difference?",
-        a: "AppFox is free for now, and the bigger difference is the stack: AppFox bills through Shopify's native checkout and subscription APIs (contracts and payment methods live with Shopify, not the app), charges 0% transaction fees, and staffs 24/7 support.",
+        a: "AppFox is free for new installs and takes 0% of renewals. Seal's listing has 3,139 reviews, a Built for Shopify badge, and 18 languages. The rendered comparison page is the source of truth.",
       },
       {
         q: "Can I move my Seal subscribers to AppFox?",
-        a: "Yes. Subscription contracts can be migrated with support's help, and because billing runs on Shopify's native APIs, customer payment details stay with Shopify throughout the move.",
+        a: "Our import docs name Recharge and Appstle CSVs, not Seal. Do not assume a Seal file drops in. When a file does import, payment cards do not come across.",
       },
       {
         q: "What does Seal do better?",
@@ -746,10 +746,10 @@ export const competitors: Competitor[] = [
     tagline:
       "Loop leans into retention flows and dashboards for scaling brands. AppFox Subscription keeps recurring revenue simple - and cheap.",
     framing:
-      "Loop pitches itself to scaling DTC brands with gamified retention and analytics on paid tiers; the question is whether you need a retention suite, or subscriptions that simply run.",
-    metaTitle: "AppFox vs Loop Subscriptions: Compared for Shopify",
+      "Loop is free for 50 active subscriptions, then $99 plus 1% or $399 plus 0.75%. Cancel flows and 15-retry dunning sit on the $99 plan. AppFox is free for new installs without that cap, and without the cancel-flow builder.",
+    metaTitle: "Loop Subscriptions alternative | AppFox Subscriptions",
     metaDescription:
-      "Loop's retention suite sits on paid tiers; AppFox Subscription is free for now - recurring billing, widgets, and a customer portal. Compare.",
+      "Loop Subscriptions alternative for Shopify: Loop is free for 50 active subscriptions, then $99 plus 1%. AppFox is free for new installs with no cap, and without Loop's cancel flows.",
     intro:
       "Loop Subscriptions courts scaling DTC brands: slick dashboards, gamified cancellation flows, and retention experiments - with the meaningful pieces on paid tiers that grow alongside your order volume. AppFox Subscription is the free-for-now alternative for the core job: subscribe-and-save on your product pages, auto-renewal through Shopify's checkout, and a portal where customers manage themselves. Start free, grow without a subscription cap, and add retention theater only if you ever actually need it.",
     bestFor:
@@ -795,11 +795,54 @@ export const competitors: Competitor[] = [
       },
       {
         q: "Can I migrate from Loop to AppFox Subscription?",
-        a: "Yes. Contracts migrate with support's help, and because AppFox uses Shopify's native subscription APIs, your customers' payment methods and renewal schedules carry over cleanly.",
+        a: "Our import docs name Recharge and Appstle, not Loop. Payment cards do not come across on the imports we do document.",
       },
       {
         q: "Who should stay on Loop?",
         a: "Large DTC brands actively running retention experiments - A/B-tested cancellation flows, win-back campaigns, cohort dashboards - will use what Loop charges for. If subscriptions are a revenue line rather than a lab, AppFox covers it for a flat few dollars a month.",
+      },
+    ],
+  },
+  {
+    app: "subscription",
+    slug: "skio",
+    name: "Skio",
+    shortName: "Skio",
+    category: "Subscriptions",
+    tagline:
+      "Skio is $599 a month plus 1% and 20¢, with a cancel-flow builder. AppFox Subscriptions is free for new installs and does not have that builder.",
+    framing:
+      "Skio, a Recharge company, is $599/mo plus 1% and 20¢, with a cancel-flow builder, build-a-box, and 243 reviews. There is no free plan on the listing. AppFox is the free install, without that cancel flow.",
+    metaTitle: "Skio alternative | AppFox Subscriptions",
+    metaDescription:
+      "Skio alternative for Shopify: Skio is $599 a month plus 1% and 20¢, with a cancel-flow builder and build-a-box. AppFox Subscriptions is free for new installs and does not have that cancel flow.",
+    intro:
+      "Skio's public plan is $599 a month plus 1% and 20¢. That plan names a portal, passwordless login, a multi-step cancel flow, build-a-box, and migration. AppFox is free for new installs and does not have the cancel-flow builder. The full table is on this page.",
+    bestFor:
+      "Stores that want Skio's cancel-flow builder and can pay $599 a month before the transaction fee.",
+    whyAppfox: [
+      {
+        title: "Free for a new install",
+        description:
+          "Skio's listing has one plan at $599 a month plus 1% and 20¢. AppFox has no app bill for a new install and takes 0% of renewals.",
+      },
+    ],
+    comparison: [
+      { feature: "Price for a new install", appfox: "Free for new installs", competitor: "$599/mo" },
+      { feature: "Multi-step cancel flow", appfox: false, competitor: true },
+    ],
+    whereTheyWin: [
+      {
+        title: "Cancel-flow builder on the only plan",
+        description:
+          "Skio names a multi-step cancel flow, passwordless login, and build-a-box on the $599 plan. AppFox has build-a-box and does not have the cancel flow.",
+      },
+    ],
+    checked: "10 October 2026",
+    faq: [
+      {
+        q: "Is AppFox a Skio alternative?",
+        a: "On price, yes. On the cancel-flow builder and 243 reviews, no. The page at this URL is rendered from the subscriptions comparison table.",
       },
     ],
   },

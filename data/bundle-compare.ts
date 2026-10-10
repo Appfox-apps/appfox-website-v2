@@ -33,6 +33,11 @@ export type CompareCell = {
   kind: CompareCellKind;
   /** Shown for text / via / partial, or as a caption on yes/no. */
   label?: string;
+  /**
+   * Footnote id, rendered as a superscript. Omitted on Product Bundles
+   * cells, so that table's output does not change.
+   */
+  note?: string;
 };
 
 export type CompareVendor = {
@@ -47,6 +52,11 @@ export type CompareVendor = {
   href?: string;
   /** When false, the vendor is on one-to-one pages only, not the hub table. */
   inHub?: boolean;
+  /**
+   * Per-column check sentence, e.g. "Checked against the product on 10 Oct 2026".
+   * Omitted on Product Bundles vendors.
+   */
+  checked?: string;
 };
 
 /** Per-competitor alternative page — same table cells, unique SEO + summary. */
@@ -103,6 +113,8 @@ export type CompareTable = {
   };
   faq: CompareFaq[];
   sources: CompareSource[];
+  /** Optional. Product Bundles does not set this. */
+  footnotes?: { id: string; text: string }[];
 };
 
 /** Tooltip / footnote for unclear competitor (and unverified AppFox) cells. */

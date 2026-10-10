@@ -88,6 +88,12 @@ export function GET(): Response {
       description: "Free to install with unlimited bundles, all bundle types, and full analytics.",
     },
     {
+      title: "Subscriptions comparison table",
+      path: "/subscription/compare",
+      description:
+        "Multi-competitor table: AppFox Subscriptions vs Recharge, Appstle, Seal, Loop, and Skio. Public docs, checked 10 October 2026.",
+    },
+    {
       title: "Best Shopify bundle apps compared",
       path: "/product-bundles/compare",
       description:

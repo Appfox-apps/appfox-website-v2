@@ -44,6 +44,7 @@ const COMPARE_GROUPS = [
 /** Routes whose install CTA should point at AppFox Subscription. */
 const SUBSCRIPTION_PATHS = new Set([
   "/subscription",
+  "/subscription/compare",
   "/features/subscription",
   "/pricing/subscription",
   ...competitorsForApp("subscription").map((c) => `/vs/${c.slug}`),
