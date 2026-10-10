@@ -164,7 +164,12 @@ export function MultiCompareTable({
     vendors.map((v) => v.id),
   );
   const wide = vendors.length > 3;
-  const stickyTh = "sticky top-[var(--compare-sticky-top)] z-10 py-4 backdrop-blur-[10px]";
+  // Hub tables use overflow-x-auto below lg, which would slide a sticky
+  // thead under the nav. Pin the thead on lg+ only; the compact vendor
+  // bar covers small screens. Two-column pages keep overflow-clip + sticky.
+  const stickyTh = wide
+    ? "lg:sticky lg:top-[var(--compare-sticky-top)] z-10 py-4 backdrop-blur-[10px]"
+    : "sticky top-[var(--compare-sticky-top)] z-10 py-4 backdrop-blur-[10px]";
   const names = vendors
     .filter((v) => !v.highlight)
     .map((v) => v.shortName)
@@ -190,7 +195,28 @@ export function MultiCompareTable({
         </>
       }
     >
-      <div className={wide ? "card overflow-x-auto overflow-y-clip" : "card overflow-clip"}>
+      {wide ? (
+        <div className="sticky top-[var(--compare-sticky-top)] z-20 mb-2 flex gap-2 overflow-x-auto rounded-xl border border-paper-edge bg-paper/90 px-3 py-2 backdrop-blur-[10px] lg:hidden">
+          {vendors.map((vendor) => (
+            <span
+              key={vendor.id}
+              className={`till shrink-0 text-[0.6875rem] ${
+                vendor.highlight ? "font-semibold text-brand-700" : "text-ink-500"
+              }`}
+            >
+              {vendor.shortName}
+              {vendor.priceChip ? ` · ${vendor.priceChip}` : ""}
+            </span>
+          ))}
+        </div>
+      ) : null}
+      {/*
+        overflow-clip (not overflow-x-auto) keeps thead sticky on the
+        viewport — same reason ComparisonTable uses overflow-clip.
+        Below lg the hub table still needs a sideways scroller; the
+        compact vendor bar above stays pinned below the nav.
+      */}
+      <div className={wide ? "card overflow-clip max-lg:overflow-x-auto" : "card overflow-clip"}>
         <table
           className={`w-full border-separate border-spacing-0 text-left ${wide ? "min-w-[58rem]" : ""}`}
         >
