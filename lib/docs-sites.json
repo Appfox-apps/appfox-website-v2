@@ -1,0 +1,19 @@
+{
+  "canonicalOrigin": "https://getappfox.com",
+  "sites": [
+    {
+      "id": "subscriptions",
+      "legacyHost": "subscriptions-docs.getappfox.com",
+      "basePath": "/subscription/docs",
+      "mintlifyOrigin": "https://appfox-subscriptions.mintlify.site",
+      "sitemapUrl": "https://subscriptions-docs.getappfox.com/sitemap.xml"
+    },
+    {
+      "id": "bundles",
+      "legacyHost": "bundles-docs.getappfox.com",
+      "basePath": "/product-bundles/docs",
+      "mintlifyOrigin": "https://appfox-bundles.mintlify.site",
+      "sitemapUrl": "https://bundles-docs.getappfox.com/sitemap.xml"
+    }
+  ]
+}
