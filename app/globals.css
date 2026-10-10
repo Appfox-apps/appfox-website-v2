@@ -575,22 +575,27 @@ html.js [data-open] .accordion-content {
   opacity: 1;
 }
 
-/* Multi-competitor "More features" rows: expanded without JS so crawlers
-   and no-JS users still see every cell. html.js hides them until open. */
-html.js [data-compare-more]:not([data-open]) [data-compare-extra] {
-  display: none;
+/* Feature column: one width for header and body so sticky cells cannot
+   overhang the AppFox column. No extra shadow. */
+.compare-feature-col {
+  width: 16rem;
+  min-width: 16rem;
+  max-width: 16rem;
+  box-sizing: border-box;
 }
 
-/* Pin the feature column on horizontal scroll without cells bleeding through.
+/* Pin the feature column on horizontal scroll.
    Stack: nav (z-50) > sticky thead (20/21) > sticky first column (3) > body. */
 .compare-sticky-col {
   position: sticky;
   left: 0;
   z-index: 3;
+  width: 16rem;
+  min-width: 16rem;
+  max-width: 16rem;
+  box-sizing: border-box;
   background: var(--color-paper-raised);
-  box-shadow:
-    6px 0 0 0 var(--color-paper-raised),
-    12px 0 14px -10px rgba(27, 24, 38, 0.22);
+  box-shadow: none;
 }
 thead .compare-sticky-col {
   z-index: 21;

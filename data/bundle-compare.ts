@@ -70,7 +70,7 @@ export type CompareRow = {
   feature: string;
   hint?: string;
   cells: Record<string, CompareCell>;
-  /** When true, the row sits behind "More {section} features (N)". */
+  /** Grouping hint from research notes. All rows render in the table. */
   more?: boolean;
 };
 
@@ -1129,14 +1129,6 @@ export const bundleCompare: CompareTable = {
     { label: "Rebolt Upsell & Bundles App Store listing", url: "https://apps.shopify.com/bundle-products-by-thimatic" },
   ],
 };
-
-export function primaryRows(section: CompareSection): CompareRow[] {
-  return section.rows.filter((r) => !r.more);
-}
-
-export function moreRows(section: CompareSection): CompareRow[] {
-  return section.rows.filter((r) => r.more);
-}
 
 export function sectionHasUnclear(section: CompareSection, vendorIds?: string[]): boolean {
   return section.rows.some((r) =>

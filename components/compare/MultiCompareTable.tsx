@@ -1,10 +1,8 @@
 import Link from "next/link";
 import { Wordmark } from "@/components/site/Wordmark";
+import { InView } from "@/components/ui/InView";
 import { CompareCellValue } from "./CompareCellValue";
-import { CompareMoreShell } from "./CompareMoreShell";
 import {
-  moreRows,
-  primaryRows,
   sectionHasUnclear,
   UNCLEAR_NOTE,
   type CompareRow,
@@ -14,15 +12,16 @@ import {
 
 /**
  * Multi-competitor feature table. Server-rendered HTML (`<table>`, `th`
- * scope, caption). Extra rows stay in the DOM for crawlers; a small
- * client shell toggles visibility. Do not replace
- * `components/vs/ComparisonTable.tsx`.
+ * scope, caption). Every row is visible — no expand/collapse. Do not
+ * replace `components/vs/ComparisonTable.tsx`.
  *
- * Visual contract matches ComparisonTable. Sticky header `top` uses
- * `--compare-sticky-top` so the row clears the floating island nav.
- * Header cells are fully opaque (no alpha, no backdrop-blur); a
- * ::before mask fills the gap under the nav so rows cannot show through.
+ * Feature header and body cells share `.compare-feature-col` so the
+ * sticky first column cannot overhang the AppFox column. Sticky header
+ * `top` uses `--compare-sticky-top`; cells are fully opaque.
  */
+
+const FEATURE_COL =
+  "compare-feature-col px-5 text-left lg:px-7";
 
 function VendorHead({ vendor }: { vendor: CompareVendor }) {
   const inner = (
@@ -74,7 +73,7 @@ function FeatureCell({
   return (
     <th
       scope="row"
-      className={`min-w-[12.5rem] max-w-[16rem] px-5 py-3.5 text-left text-[0.9375rem] font-normal text-ink-700 lg:px-7 ${
+      className={`${FEATURE_COL} py-3.5 text-[0.9375rem] font-normal text-ink-700 ${
         sticky ? "compare-sticky-col" : ""
       } ${borderTop ? "border-t border-paper-edge" : ""}`}
     >
@@ -115,41 +114,6 @@ function DataCell({
   );
 }
 
-function SectionRows({
-  rows,
-  vendors,
-  extra = false,
-  stickyFeature,
-}: {
-  rows: CompareRow[];
-  vendors: CompareVendor[];
-  extra?: boolean;
-  stickyFeature: boolean;
-}) {
-  return (
-    <>
-      {rows.map((row, i) => (
-        <tr
-          key={row.id}
-          data-compare-extra={extra || undefined}
-          className="transition-colors duration-150 hover:bg-paper-sunken"
-        >
-          <FeatureCell row={row} sticky={stickyFeature} borderTop={i > 0 || extra} />
-          {vendors.map((vendor) => (
-            <DataCell
-              key={vendor.id}
-              row={row}
-              vendor={vendor}
-              index={i}
-              borderTop={i > 0 || extra}
-            />
-          ))}
-        </tr>
-      ))}
-    </>
-  );
-}
-
 export function MultiCompareTable({
   section,
   vendors,
@@ -159,17 +123,11 @@ export function MultiCompareTable({
   vendors: CompareVendor[];
   className?: string;
 }) {
-  const primary = primaryRows(section);
-  const extra = moreRows(section);
   const showUnclearNote = sectionHasUnclear(
     section,
     vendors.map((v) => v.id),
   );
   const wide = vendors.length > 3;
-  // Hub tables use overflow-x-auto below lg, which would slide a sticky
-  // thead under the nav. Pin the thead on lg+ only; the compact vendor
-  // bar covers small screens. Two-column pages keep overflow-clip + sticky.
-  // Opaque head + ::before mask live in .compare-sticky-head (globals.css).
   const stickyTh = wide
     ? "compare-sticky-head lg:sticky lg:top-[var(--compare-sticky-top)] z-20 py-4"
     : "compare-sticky-head sticky top-[var(--compare-sticky-top)] z-20 py-4";
@@ -179,25 +137,7 @@ export function MultiCompareTable({
     .join(", ");
 
   return (
-    <CompareMoreShell
-      extraCount={extra.length}
-      sectionTitle={section.title}
-      className={className}
-      footnote={
-        <>
-          {showUnclearNote ? (
-            <p className="mt-3 text-sm text-ink-500">
-              <span className="till">?</span> {UNCLEAR_NOTE}
-            </p>
-          ) : null}
-          {wide ? (
-            <p className="mt-3 md:hidden till text-[0.75rem] text-ink-500">
-              Scroll sideways to see every app.
-            </p>
-          ) : null}
-        </>
-      }
-    >
+    <InView threshold={0.05} className={className}>
       {wide ? (
         <div className="compare-sticky-bar sticky top-[var(--compare-sticky-top)] z-20 mb-2 rounded-xl border border-paper-edge lg:hidden">
           <div className="flex gap-2 overflow-x-auto px-3 py-2">
@@ -216,57 +156,80 @@ export function MultiCompareTable({
         </div>
       ) : null}
       {/*
-        overflow-clip (not overflow-x-auto) keeps thead sticky on the
-        viewport — same reason ComparisonTable uses overflow-clip.
-        Below lg the hub table still needs a sideways scroller; the
-        compact vendor bar above stays pinned below the nav.
+        Card clips to its radius. Horizontal scroll (hub, <lg) lives on an
+        inner wrapper so sticky left cells cannot paint past the corner.
       */}
-      <div
-        className={
-          wide
-            ? "card isolate overflow-clip max-lg:overflow-x-auto"
-            : "card isolate overflow-clip"
-        }
-      >
-        <table
-          className={`w-full border-separate border-spacing-0 text-left ${wide ? "min-w-[58rem]" : ""}`}
-        >
-          <caption className="sr-only">
-            {section.title}: AppFox Product Bundles compared with {names}
-          </caption>
-          <thead>
-            <tr>
-              <th
-                scope="col"
-                className={`${stickyTh} ${wide ? "compare-sticky-col" : ""} border-b border-paper-edge px-5 text-left lg:px-7`}
-              >
-                <span className="till text-[0.75rem] font-medium uppercase tracking-[0.14em] text-ink-500">
-                  Feature
-                </span>
-              </th>
+      <div className="card isolate overflow-clip">
+        <div className={wide ? "max-lg:overflow-x-auto" : undefined}>
+          <table
+            className={`w-full table-fixed border-separate border-spacing-0 text-left ${wide ? "min-w-[58rem]" : ""}`}
+          >
+            <caption className="sr-only">
+              {section.title}: AppFox Product Bundles compared with {names}
+            </caption>
+            <colgroup>
+              <col className="compare-feature-col" />
               {vendors.map((vendor) => (
-                <th
-                  key={vendor.id}
-                  scope="col"
-                  className={`${stickyTh} border-b px-4 text-center ${
-                    vendor.highlight
-                      ? "compare-sticky-head--brand border-x border-b-brand-200 border-x-brand-200"
-                      : "border-paper-edge"
-                  }`}
-                >
-                  <VendorHead vendor={vendor} />
-                </th>
+                <col key={vendor.id} />
               ))}
-            </tr>
-          </thead>
-          <tbody>
-            <SectionRows rows={primary} vendors={vendors} stickyFeature={wide} />
-            {extra.length > 0 ? (
-              <SectionRows rows={extra} vendors={vendors} extra stickyFeature={wide} />
-            ) : null}
-          </tbody>
-        </table>
+            </colgroup>
+            <thead>
+              <tr>
+                <th
+                  scope="col"
+                  className={`${stickyTh} ${FEATURE_COL} ${wide ? "compare-sticky-col" : ""} border-b border-paper-edge`}
+                >
+                  <span className="till text-[0.75rem] font-medium uppercase tracking-[0.14em] text-ink-500">
+                    Feature
+                  </span>
+                </th>
+                {vendors.map((vendor) => (
+                  <th
+                    key={vendor.id}
+                    scope="col"
+                    className={`${stickyTh} border-b px-4 text-center ${
+                      vendor.highlight
+                        ? "compare-sticky-head--brand border-x border-b-brand-200 border-x-brand-200"
+                        : "border-paper-edge"
+                    }`}
+                  >
+                    <VendorHead vendor={vendor} />
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {section.rows.map((row, i) => (
+                <tr
+                  key={row.id}
+                  className="transition-colors duration-150 hover:bg-paper-sunken"
+                >
+                  <FeatureCell row={row} sticky={wide} borderTop={i > 0} />
+                  {vendors.map((vendor) => (
+                    <DataCell
+                      key={vendor.id}
+                      row={row}
+                      vendor={vendor}
+                      index={i}
+                      borderTop={i > 0}
+                    />
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </CompareMoreShell>
+      {showUnclearNote ? (
+        <p className="mt-3 text-sm text-ink-500">
+          <span className="till">?</span> {UNCLEAR_NOTE}
+        </p>
+      ) : null}
+      {wide ? (
+        <p className="mt-3 md:hidden till text-[0.75rem] text-ink-500">
+          Scroll sideways to see every app.
+        </p>
+      ) : null}
+    </InView>
   );
 }
