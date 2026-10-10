@@ -201,7 +201,6 @@ export function SubscriptionVsArticle({ page }: { page: SubscriptionVsPage }) {
                     section={section}
                     vendors={vendors}
                     productName="AppFox Subscriptions"
-                    collapseExtra
                     className="mt-4"
                   />
                 </div>

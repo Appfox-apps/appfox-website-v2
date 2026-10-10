@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Wordmark } from "@/components/site/Wordmark";
 import { InView } from "@/components/ui/InView";
 import { CompareCellValue } from "./CompareCellValue";
-import { CompareMoreToggle } from "./CompareMoreToggle";
 import {
   sectionHasUnclear,
   UNCLEAR_NOTE,
@@ -120,18 +119,12 @@ export function MultiCompareTable({
   vendors,
   className = "",
   productName = "AppFox Product Bundles",
-  collapseExtra = false,
 }: {
   section: CompareSection;
   vendors: CompareVendor[];
   className?: string;
   /** Screen-reader caption. Defaults to the Product Bundles wording. */
   productName?: string;
-  /**
-   * Hide rows marked `more` until the reader opens them. Off by default so
-   * the Product Bundles table keeps every row visible.
-   */
-  collapseExtra?: boolean;
 }) {
   const showUnclearNote = sectionHasUnclear(
     section,
@@ -145,7 +138,6 @@ export function MultiCompareTable({
     .filter((v) => !v.highlight)
     .map((v) => v.shortName)
     .join(", ");
-  const extraCount = collapseExtra ? section.rows.filter((row) => row.more).length : 0;
 
   return (
     <InView threshold={0.05} className={className}>
@@ -170,10 +162,7 @@ export function MultiCompareTable({
         Card clips to its radius. Horizontal scroll (hub, <lg) lives on an
         inner wrapper so sticky left cells cannot paint past the corner.
       */}
-      <div
-        className="card isolate overflow-clip"
-        {...(collapseExtra ? { "data-compare-more": "" } : {})}
-      >
+      <div className="card isolate overflow-clip">
         <div className={wide ? "max-lg:overflow-x-auto" : undefined}>
           <table
             className={`w-full table-fixed border-separate border-spacing-0 text-left ${wide ? "min-w-[58rem]" : ""}`}
@@ -217,7 +206,6 @@ export function MultiCompareTable({
                 <tr
                   key={row.id}
                   className="transition-colors duration-150 hover:bg-paper-sunken"
-                  {...(collapseExtra && row.more ? { "data-compare-extra": "" } : {})}
                 >
                   <FeatureCell row={row} sticky={wide} borderTop={i > 0} />
                   {vendors.map((vendor) => (
@@ -234,11 +222,6 @@ export function MultiCompareTable({
             </tbody>
           </table>
         </div>
-        {extraCount > 0 ? (
-          <div className="border-t border-paper-edge px-5 py-3">
-            <CompareMoreToggle count={extraCount} label={section.title.toLowerCase()} />
-          </div>
-        ) : null}
       </div>
       {showUnclearNote ? (
         <p className="mt-3 text-sm text-ink-500">
