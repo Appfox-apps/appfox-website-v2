@@ -566,6 +566,25 @@ html.js [data-open] .accordion-content {
 html.js [data-compare-more]:not([data-open]) [data-compare-extra] {
   display: none;
 }
+
+/* Pin the feature column on horizontal scroll without cells bleeding through. */
+.compare-sticky-col {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  background: var(--color-paper-raised);
+  box-shadow:
+    6px 0 0 0 var(--color-paper-raised),
+    12px 0 14px -10px rgba(27, 24, 38, 0.22);
+}
+thead .compare-sticky-col {
+  z-index: 5;
+  background: color-mix(in srgb, var(--color-paper-raised) 95%, transparent);
+  backdrop-filter: blur(10px);
+}
+tr:hover .compare-sticky-col {
+  background: var(--color-paper-sunken);
+}
 @media (prefers-reduced-motion: no-preference) {
   html.js .accordion-panel {
     transition: grid-template-rows 300ms var(--ease-out-soft);

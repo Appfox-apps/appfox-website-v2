@@ -76,7 +76,7 @@ function FeatureCell({
     <th
       scope="row"
       className={`min-w-[11.5rem] max-w-[14rem] px-4 py-3.5 text-left text-[0.875rem] font-normal text-ink-700 lg:px-5 ${
-        sticky ? "sticky left-0 z-[2] bg-paper-raised" : ""
+        sticky ? "compare-sticky-col" : ""
       } ${borderTop ? "border-t border-paper-edge" : ""}`}
     >
       <span className="block leading-snug">{row.feature}</span>
@@ -180,7 +180,7 @@ export function MultiCompareTable({
             <tr>
               <th
                 scope="col"
-                className={`${stickyTh} sticky left-0 z-20 border-b border-paper-edge bg-paper-raised/95 px-4 text-left lg:px-5`}
+                className={`${stickyTh} compare-sticky-col border-b border-paper-edge px-4 text-left lg:px-5`}
               >
                 <span className="till text-[0.75rem] font-medium uppercase tracking-[0.14em] text-ink-500">
                   Feature
