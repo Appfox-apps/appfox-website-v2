@@ -7,9 +7,14 @@
  * and inventory forecast were confirmed in the product code: the admin route
  * app/routes/app.quick-checkout.tsx builds a checkout link for a variant and
  * a selling plan, with optional email prefill and Shop Pay, and there is no
- * inventory-forecast code. The billing doc matches APP_IS_FREE: free for new
- * installs, 0% transaction fees, every feature unlocked. A merchant already
- * on a paid plan keeps it.
+ * inventory-forecast code. The importer (app/routes/app.import.tsx and
+ * app/lib/csv-import.server.ts) takes an Appstle export and creates each
+ * contract with that row's existing Shopify payment method, so cards saved
+ * in Shopify come across. Cards held outside Shopify do not. There is no
+ * Recharge file import; those moves are handled with our help. The billing
+ * doc matches APP_IS_FREE: free for new installs, 0% transaction fees, every
+ * feature unlocked. A merchant already on a paid plan keeps it. Support is
+ * live chat and email, not 24/7. The listing is 5.0 from 1 review.
  *
  * Competitor cells were checked the same day against public help centers,
  * docs, pricing pages, and feature pages, then the App Store listing where
@@ -168,7 +173,7 @@ export const subscriptionCompare: CompareTable = {
     },
     {
       id: "8",
-      text: "The App Store listing says free white-glove migration. The product docs describe a CSV import you run yourself. Payment cards do not come across.",
+      text: "The self-serve import takes an Appstle export and attaches each row's existing Shopify payment method, so cards saved in Shopify come across and customers do not re-enter them. Cards held outside Shopify, such as on an older Recharge checkout, need customers to add them again. There is no Recharge file import. Recharge moves are handled with our help. The App Store listing also says free white-glove migration.",
     },
     {
       id: "9",
@@ -589,13 +594,13 @@ export const subscriptionCompare: CompareTable = {
       caption: "Moving subscribers, and the other tools named in public docs.",
       rows: [
         row("migrate", "Help moving subscribers from another app", {
-          [A]: partial("CSV from Recharge and Appstle. Cards do not come across.", "8"),
+          [A]: partial("Appstle import keeps Shopify-saved cards. Recharge is with our help.", "8"),
           [R]: partial("Hands-on implementation on the $499 plan"),
           [P]: text("Hands-on migration on the free plan"),
           [S]: text("Manual, CSV, or API. Some cards can move."),
           [L]: unknown("9"),
           [K]: text("Zero-downtime migration"),
-        }, { hint: "On AppFox, customers add a card again. Seal can move cards from Stripe, Braintree, Authorize.net, or PayPal Express." }),
+        }, { hint: "Payment methods saved in Shopify come across. Cards held outside Shopify need customers to add them again. Seal can move some cards from Stripe, Braintree, Authorize.net, or PayPal Express." }),
         row("flow", "Shopify Flow", {
           [A]: partial("On the listing, not in the integrations docs", "3"),
           [R]: yes,
@@ -654,7 +659,7 @@ export const subscriptionCompare: CompareTable = {
       caption: "Who the listing is written for, and what support it promises.",
       rows: [
         row("support-hours", "Support promise on the listing", {
-          [A]: text("Email support in the docs"),
+          [A]: text("Live chat and email. Not 24/7."),
           [R]: text("Live chat 6am–6pm PT, weekdays"),
           [P]: text("24/7 on every plan, including free"),
           [S]: text("Support team, hours not stated"),
@@ -662,7 +667,7 @@ export const subscriptionCompare: CompareTable = {
           [K]: text("Live chat 9am–5pm ET, weekdays"),
         }),
         row("implementation", "Hands-on setup", {
-          [A]: partial("Listing says white-glove; docs are a CSV import", "8"),
+          [A]: partial("Listing says white-glove. File import is Appstle only.", "8"),
           [R]: partial("On the $499 plan"),
           [P]: text("Hands-on migration on the free plan"),
           [S]: text("You run a CSV, the API, or a manual recreate"),
@@ -727,7 +732,7 @@ export const subscriptionCompare: CompareTable = {
     },
     {
       q: "What does AppFox Subscriptions not do yet?",
-      a: "There is no multi-step cancel-flow builder, no SMS, no Gorgias app, no referral program, and no inventory forecast. A shopper does not get a $0 trial: intro pricing is a lower price for the first cycles, then the normal discount. Payment cards do not move when you import from Recharge or Appstle. Customer skip is not a clean yes, because two of our own docs disagree. The retry schedule for failed cards is set by the app. The current listing has 1 review and no Built for Shopify badge.",
+      a: "There is no multi-step cancel-flow builder, no SMS, no Gorgias app, no referral program, and no inventory forecast. A shopper does not get a $0 trial: intro pricing is a lower price for the first cycles, then the normal discount. Payment methods saved in Shopify come across on an Appstle import. Cards held outside Shopify need customers to add them again. There is no Recharge file import; those moves are with our help. Customer skip is not a clean yes, because two of our own docs disagree. The retry schedule for failed cards is set by the app. The current listing has 1 review and no Built for Shopify badge.",
     },
     {
       q: "Is the app actually free?",
@@ -739,7 +744,7 @@ export const subscriptionCompare: CompareTable = {
     },
     {
       q: "Can I move subscribers from Recharge or Appstle?",
-      a: "The docs describe a CSV import from Recharge and from Appstle, plus a sync for Shopify subscription contracts. The import creates new AppFox contracts. Payment cards do not transfer. You send customers a link to add a card. The App Store listing also says free white-glove migration, including from Seal. The docs we checked name Recharge and Appstle CSVs, not a done-for-you project plan.",
+      a: "An Appstle export can be imported. Each new contract uses that row's Shopify payment method, so cards saved in Shopify come across and customers do not re-enter them. Cards held outside Shopify need customers to add them again. There is no Recharge file import. Recharge moves are handled with our help. The App Store listing also says free white-glove migration, including from Seal.",
     },
     {
       q: "When is another app the better fit?",
@@ -838,7 +843,7 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
       {
         title: "Hands-on implementation",
         description:
-          "Hands-on implementation is a $499 plan line. Our docs describe a CSV import you run, not a staffed migration project.",
+          "Hands-on implementation is a $499 plan line. We do not offer a Recharge file you upload yourself. Recharge moves are handled with our help.",
       },
     ],
     whatWeDont: [
@@ -848,9 +853,9 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
           "Intro pricing is a lower price for the first billing cycles, then the plan's normal discount. The docs say that is not a free trial.",
       },
       {
-        title: "Cards do not move",
+        title: "No Recharge file import",
         description:
-          "A Recharge CSV can be imported. Payment cards cannot. Customers add a card again before the next renewal.",
+          "There is no self-serve Recharge import. Those moves are handled with our help. Cards held outside Shopify, including an older Recharge checkout, need customers to add them again. Payment methods saved in Shopify come across.",
       },
       {
         title: "Skip is not a clean yes",
@@ -874,7 +879,7 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
       },
       {
         q: "Can I move Recharge subscribers to AppFox?",
-        a: "The docs describe a Recharge CSV import. It creates new contracts. Cards do not transfer. You email customers a link to add a card. The listing also says free white-glove help. The docs we checked describe the CSV, not a project plan.",
+        a: "There is no Recharge file import. Recharge moves are handled with our help, not as a file you upload yourself. Payment methods saved in Shopify come across. Cards held outside Shopify need customers to add them again. The listing also says free white-glove help.",
       },
       {
         q: "You make AppFox. Is this page biased?",
@@ -900,12 +905,12 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
       {
         title: "24/7 support on the free plan",
         description:
-          "Every Appstle plan, including free, says 24/7 human support. Our docs point at email support. A single App Store review mentions reaching a person. We are not calling that 24/7.",
+          "Every Appstle plan, including free, says 24/7 human support. We include live chat and email for every store. That is not 24/7.",
       },
       {
         title: "Hands-on migration on the free plan",
         description:
-          "Appstle names hands-on migration on the free plan. Our docs describe a CSV you upload. The listing's white-glove line is ahead of that doc.",
+          "Appstle names hands-on migration on the free plan. Our self-serve import is an Appstle export. Recharge moves are handled with our help. The listing's white-glove line covers that help.",
       },
       {
         title: "A free tier with a revenue cap, and shopper trials",
@@ -930,9 +935,9 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
           "This is a place we do more on the free install: swap, build-a-box, and the API are not waiting on a $30 or $100 plan. Their help center describes address changes in the portal. Checkout links are named on the $100 plan.",
       },
       {
-        title: "Cards still do not move",
+        title: "Cards held outside Shopify",
         description:
-          "An Appstle CSV can be imported. Customers add a payment card again.",
+          "An Appstle export can be imported. Payment methods saved in Shopify come across, and customers do not re-enter them. Cards held outside Shopify need customers to add them again.",
       },
     ],
     faq: [
@@ -946,7 +951,7 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
       },
       {
         q: "Can I move Appstle subscribers to AppFox?",
-        a: "Yes, as a CSV import described in our docs. New contracts are created. Payment cards do not come across.",
+        a: "Yes. The import takes an Appstle export and creates each contract with that row's Shopify payment method, so cards saved in Shopify come across. Cards held outside Shopify need customers to add them again.",
       },
       {
         q: "Is this page biased?",
@@ -999,7 +1004,7 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
       {
         title: "We have not confirmed a Seal import",
         description:
-          "Our docs name Recharge and Appstle CSVs. The App Store listing says migration from Seal as well. We are not marking a Seal CSV as yes until the docs name it.",
+          "The self-serve import is an Appstle export. The App Store listing also says migration from Seal. We are not marking a Seal file as something you upload yourself until the import names that format.",
       },
       {
         title: "Their free plan is capped. Ours is not. That cuts both ways.",
@@ -1066,7 +1071,7 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
       {
         title: "No 24×7 Slack",
         description:
-          "Loop names that on the $399 plan, with a dedicated manager. Our docs say email support.",
+          "Loop names that on the $399 plan, with a dedicated manager. We include live chat and email, not a 24×7 Slack channel.",
       },
       {
         title: "Prepaid is in their help center, and the listing puts it on the $399 plan",
@@ -1076,7 +1081,7 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
       {
         title: "We have not confirmed a Loop import file",
         description:
-          "Our import docs name Recharge and Appstle. Loop is not named. Do not assume a Loop CSV drops in.",
+          "The self-serve import is an Appstle export. Loop is not named, and there is no Recharge file import. Do not assume a Loop file drops in.",
       },
     ],
     faq: [
@@ -1121,7 +1126,7 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
       {
         title: "Migration is a plan line, not a footnote",
         description:
-          "Zero-downtime migration is named on the plan. Our docs describe a CSV, and they say cards do not move. We have not confirmed that Skio moves cards either.",
+          "Zero-downtime migration is named on the plan. Our self-serve import is an Appstle export: payment methods saved in Shopify come across, and cards held outside Shopify need customers to add them again. We have not confirmed that Skio moves cards.",
       },
       {
         title: "It sits next to Recharge",
@@ -1138,7 +1143,7 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
       {
         title: "We are not a $599 product with a CSM story",
         description:
-          "The Skio reviews talk about a named manager. Our docs tell you to email support. Do not expect that operating model.",
+          "The Skio reviews talk about a named manager. Support here is live chat and email. Do not expect that operating model.",
       },
       {
         title: "Passwordless login is theirs",
@@ -1148,7 +1153,7 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
       {
         title: "We do not have their forecast or their support hours",
         description:
-          "Skio's help center describes queued units by SKU and live chat on weekdays, 9am to 5pm ET. We do not publish an inventory forecast, and our docs point at email support.",
+          "Skio's help center describes queued units by SKU and live chat on weekdays, 9am to 5pm ET. We do not publish an inventory forecast. Support here is live chat and email, not 24/7.",
       },
     ],
     faq: [

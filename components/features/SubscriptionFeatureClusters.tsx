@@ -145,10 +145,10 @@ const CLUSTERS: Cluster[] = [
           className="font-medium text-brand-700 underline decoration-brand-300 underline-offset-[3px] transition-colors hover:decoration-brand-600"
         >
           Recharge
-        </Link>{" "}
-        - payment methods stay with Shopify
+        </Link>
+        . Payment methods saved in Shopify come across; cards held outside Shopify need customers to add them again.
       </>,
-      <>24/7 support, included for every store</>,
+      <>Live chat and email support, included for every store</>,
     ],
     visual: <ModelsVisual />,
   },

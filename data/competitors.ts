@@ -591,7 +591,7 @@ export const competitors: Competitor[] = [
     faq: [
       {
         q: "Can I migrate from Recharge to AppFox Subscription?",
-        a: "A Recharge CSV can be imported. The import creates new contracts, and payment cards do not come across. Customers add a card again. The rendered comparison page has the full version of this answer.",
+        a: "There is no Recharge file import. Recharge moves are handled with our help. Payment methods saved in Shopify come across. Cards held outside Shopify need customers to add them again. The rendered comparison page has the full version of this answer.",
       },
       {
         q: "How does AppFox pricing compare to Recharge's $99+/month?",
@@ -639,7 +639,7 @@ export const competitors: Competitor[] = [
       {
         title: "Support without a tier gate",
         description:
-          "24/7 support comes with the app - not reserved for higher plans.",
+          "Live chat and email come with the app. That is not 24/7, and it is not reserved for a higher plan.",
       },
     ],
     comparison: [
@@ -654,7 +654,7 @@ export const competitors: Competitor[] = [
       { feature: "Loyalty & cancellation-save flows", appfox: "Basics included", competitor: "On higher tiers" },
       { feature: "Setup complexity", appfox: "Minutes", competitor: "Dense settings surface" },
       { feature: "Klaviyo integration", appfox: true, competitor: true },
-      { feature: "24/7 support on the free plan", appfox: true, competitor: "Varies by tier" },
+      { feature: "Support on the free plan", appfox: "Live chat and email", competitor: "24/7 on every plan" },
     ],
     faq: [
       {
@@ -663,7 +663,7 @@ export const competitors: Competitor[] = [
       },
       {
         q: "Can I switch from Appstle without losing subscribers?",
-        a: "An Appstle CSV can be imported. Payment cards do not come across. Customers add a card again.",
+        a: "An Appstle export can be imported. Payment methods saved in Shopify come across. Cards held outside Shopify need customers to add them again.",
       },
       {
         q: "Is AppFox Subscription's free offer limited like Appstle's free tier?",
@@ -687,7 +687,7 @@ export const competitors: Competitor[] = [
     intro:
       "Seal Subscriptions is a genuinely likeable app: transparent pricing, a real free tier, and a founder-run feel that merchants trust. If you're comparing paid plans, Seal is one of the cheapest. AppFox Subscription goes further - free for now with every feature unlocked - with billing on Shopify's native checkout, 0% transaction fees on every plan, and a portal customers work out on their own.",
     bestFor:
-      "Stores that want budget-friendly subscriptions on Shopify's native checkout, with support that answers around the clock.",
+      "Stores that want budget-friendly subscriptions on Shopify's native checkout, with live chat and email included.",
     whyAppfox: [
       {
         title: "Free for now, 0% transaction fees",
@@ -720,7 +720,7 @@ export const competitors: Competitor[] = [
       { feature: "Trials, tiered & custom pricing", appfox: true, competitor: true },
       { feature: "Subscription boxes & bundles", appfox: true, competitor: true },
       { feature: "Klaviyo integration", appfox: true, competitor: true },
-      { feature: "24/7 support", appfox: true, competitor: "Business-hours leaning" },
+      { feature: "Support", appfox: "Live chat and email", competitor: "Hours not stated" },
     ],
     faq: [
       {
@@ -729,7 +729,7 @@ export const competitors: Competitor[] = [
       },
       {
         q: "Can I move my Seal subscribers to AppFox?",
-        a: "Our import docs name Recharge and Appstle CSVs, not Seal. Do not assume a Seal file drops in. When a file does import, payment cards do not come across.",
+        a: "The self-serve import is an Appstle export, not a Seal file. Payment methods saved in Shopify come across. Cards held outside Shopify need customers to add them again.",
       },
       {
         q: "What does Seal do better?",
@@ -795,7 +795,7 @@ export const competitors: Competitor[] = [
       },
       {
         q: "Can I migrate from Loop to AppFox Subscription?",
-        a: "Our import docs name Recharge and Appstle, not Loop. Payment cards do not come across on the imports we do document.",
+        a: "The self-serve import is an Appstle export, not a Loop file. Payment methods saved in Shopify come across. Cards held outside Shopify need customers to add them again.",
       },
       {
         q: "Who should stay on Loop?",
