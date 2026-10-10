@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { SectionSlug } from "@/components/site/SectionSlug";
 import { Reveal, StaggerGroup } from "@/components/ui/Reveal";
-import { competitors } from "@/data/competitors";
+import { competitorsForApp } from "@/data/competitors";
+
+const orderEditingComps = competitorsForApp("order-editing");
 
 /**
  * §5.12 Further Reading - light · `NO. 10 - COMPARED`.
@@ -62,7 +64,7 @@ export function FurtherReading() {
 
         <ul className="mt-8 max-w-4xl">
           <StaggerGroup step={60}>
-            {competitors.map((c, i) => (
+            {orderEditingComps.map((c, i) => (
               <Reveal key={c.slug} as="li" index={i}>
                 <IndexRow
                   href={`/vs/${c.slug}`}
@@ -72,10 +74,10 @@ export function FurtherReading() {
                 />
               </Reveal>
             ))}
-            <Reveal as="li" index={competitors.length}>
+            <Reveal as="li" index={orderEditingComps.length}>
               <IndexRow
                 href="/vs"
-                numeral={String(competitors.length + 1).padStart(2, "0")}
+                numeral={String(orderEditingComps.length + 1).padStart(2, "0")}
                 title="All comparisons"
                 action="VIEW ALL"
               />

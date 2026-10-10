@@ -11,6 +11,7 @@ import { BundlesFeatures } from "@/components/bundles/BundlesFeatures";
 import { BundlesHowItWorks } from "@/components/bundles/BundlesHowItWorks";
 import { BundlesPricing } from "@/components/bundles/BundlesPricing";
 import { BundlesFaq, bundlesFaqs } from "@/components/bundles/BundlesFaq";
+import { BundlesCompare } from "@/components/bundles/BundlesCompare";
 
 const bundlesApp = getApp("product-bundles")!;
 
@@ -72,13 +73,14 @@ export default function ProductBundlesPage() {
         <BundlesHowItWorks />
         <BundlesPricing />
         <BundlesFaq />
+        <BundlesCompare />
         <CtaBand
           headline="Turn one item into three, and three into five"
           body="Install AppFox Product Bundles, create your first bundle, and watch your average order value climb. Setup takes about 5 minutes. The free plan never expires."
           primaryHref={bundlesApp.installUrl}
-          secondaryLabel="Compare plans"
-          secondaryHref="/pricing/product-bundles"
-          from="sunken"
+          secondaryLabel="Compare alternatives"
+          secondaryHref="/product-bundles/compare"
+          from="paper"
         />
       </main>
       <Footer />

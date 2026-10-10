@@ -189,7 +189,9 @@ export function vsOgImage(competitor: {
   const kicker =
     competitor.app === "subscription"
       ? "SHOPIFY SUBSCRIPTIONS · COMPARED"
-      : "SHOPIFY ORDER EDITING · COMPARED";
+      : competitor.app === "product-bundles"
+        ? "SHOPIFY PRODUCT BUNDLES · COMPARED"
+        : "SHOPIFY ORDER EDITING · COMPARED";
 
   return new ImageResponse(
     (

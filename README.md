@@ -21,7 +21,8 @@ npm run lint
 | --- | --- |
 | `lib/site.ts` | **Single source of truth** for domain, install URL, support email, pricing. Update here at launch. |
 | `lib/seo.ts` | Per-route titles, descriptions, canonicals |
-| `data/competitors.ts` | All comparison-page content (7 competitors) |
+| `data/competitors.ts` | Comparison-page content (order editing, subscriptions, product bundles) |
+| `data/bundle-competitors.ts` | Product Bundles vs-page records and public sources |
 | `app/` | Routes: `/`, `/features`, `/pricing`, `/vs`, `/vs/[slug]`, `/privacy`, `/terms`, plus `sitemap.ts`, `robots.ts`, `llms.txt`, per-route `opengraph-image.tsx` |
 | `components/site/` | Navbar, Footer, CTA band, section furniture |
 | `components/home/` | Home page sections, incl. the animated `PortalDemo` hero |

@@ -51,8 +51,8 @@ export default function ProductBundlesFeaturesPage() {
           body="Install AppFox Product Bundles, create your first bundle, and watch your average order value climb. Setup takes about 5 minutes."
           primaryLabel="Install free on Shopify"
           primaryHref={bundlesApp.installUrl}
-          secondaryLabel="See pricing"
-          secondaryHref="/pricing/product-bundles"
+          secondaryLabel="Compare alternatives"
+          secondaryHref="/product-bundles/compare"
           from="paper"
         />
       </main>

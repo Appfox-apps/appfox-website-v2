@@ -1,13 +1,14 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 import { competitors } from "@/data/competitors";
+import { bundleAlternativeSlugs } from "@/data/bundle-compare";
 import { posts } from "@/data/posts";
 
 /**
  * Bump when marketing content meaningfully changes. A perpetually-fresh
  * build-time date would teach crawlers to ignore lastModified entirely.
  */
-const CONTENT_UPDATED = new Date("2026-06-10");
+const CONTENT_UPDATED = new Date("2026-10-10");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = CONTENT_UPDATED;
@@ -18,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/order-editing`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${site.url}/subscription`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${site.url}/product-bundles`, lastModified, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${site.url}/product-bundles/compare`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${site.url}/features`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${site.url}/features/order-editing`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${site.url}/features/subscription`, lastModified, changeFrequency: "monthly", priority: 0.9 },
@@ -32,8 +34,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/terms`, lastModified, changeFrequency: "yearly", priority: 0.2 },
   ];
 
-  const comparisonRoutes: MetadataRoute.Sitemap = competitors.map((c) => ({
-    url: `${site.url}/vs/${c.slug}`,
+  const comparisonSlugs = new Set([
+    ...competitors.map((c) => c.slug),
+    ...bundleAlternativeSlugs(),
+  ]);
+  const comparisonRoutes: MetadataRoute.Sitemap = [...comparisonSlugs].map((slug) => ({
+    url: `${site.url}/vs/${slug}`,
     lastModified,
     changeFrequency: "monthly",
     priority: 0.7,
