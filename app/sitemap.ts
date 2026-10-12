@@ -57,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const docsRoutes: MetadataRoute.Sitemap = docsUrlList.urls.flatMap((entry) => {
     const docsSite = docsSites.find((item) => item.id === entry.siteId);
-    if (!docsSite) return [];
+    if (!docsSite?.enabled) return [];
     const parsed = entry.lastmod ? new Date(entry.lastmod) : lastModified;
     return [
       {

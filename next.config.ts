@@ -7,6 +7,8 @@ import {
 import docsConfig from "./lib/docs-sites.json";
 import { assertDocsBasePathsDoNotClash } from "./lib/docs-route-guard";
 
+const activeDocsSites = docsConfig.sites.filter((docsSite) => docsSite.enabled);
+
 const nextConfig: NextConfig = {
   // Stray lockfiles in $HOME and ~/Desktop/code make Next infer the wrong
   // workspace root (and watch far too many files); pin it to this repo.
@@ -30,7 +32,7 @@ const nextConfig: NextConfig = {
   // browsers reattach them. `/` is its own rule because `/:path*` does not
   // match the root on every Next version.
   async redirects() {
-    const docsRedirects = docsConfig.sites.flatMap((docsSite) => [
+    const docsRedirects = activeDocsSites.flatMap((docsSite) => [
       {
         source: "/",
         has: [{ type: "host" as const, value: docsSite.legacyHost }],
@@ -63,9 +65,9 @@ const nextConfig: NextConfig = {
   // Root /_mintlify, /mintlify-assets, and /api/request are intentionally
   // absent: those paths can only point at one Mintlify project.
   async rewrites() {
-    assertDocsBasePathsDoNotClash(path.join(__dirname, "app"), docsConfig.sites);
+    assertDocsBasePathsDoNotClash(path.join(__dirname, "app"), activeDocsSites);
     return {
-      beforeFiles: docsConfig.sites.flatMap((docsSite) => [
+      beforeFiles: activeDocsSites.flatMap((docsSite) => [
         {
           source: docsSite.basePath,
           destination: `${docsSite.mintlifyOrigin}${docsSite.basePath}`,

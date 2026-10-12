@@ -3,6 +3,7 @@
   "sites": [
     {
       "id": "subscriptions",
+      "enabled": true,
       "legacyHost": "subscriptions-docs.getappfox.com",
       "basePath": "/subscription/docs",
       "mintlifyOrigin": "https://appfox-subscriptions.mintlify.site",
@@ -10,6 +11,7 @@
     },
     {
       "id": "bundles",
+      "enabled": false,
       "legacyHost": "bundles-docs.getappfox.com",
       "basePath": "/product-bundles/docs",
       "mintlifyOrigin": "https://appfox-bundles.mintlify.site",
