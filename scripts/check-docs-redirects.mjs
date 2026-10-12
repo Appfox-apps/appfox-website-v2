@@ -183,6 +183,10 @@ function urlsMatch(actual, expected) {
   return left.origin === right.origin && left.pathname === right.pathname && leftQuery === rightQuery && left.hash === right.hash;
 }
 
+function enabledSites() {
+  return docsConfig.sites.filter((docsSite) => docsSite.enabled);
+}
+
 function siteById(id) {
   const docsSite = docsConfig.sites.find((item) => item.id === id);
   if (!docsSite) throw new Error(`Unknown docs site ${id}`);
@@ -265,11 +269,15 @@ async function check(args) {
   }
   const base = new URL(args[baseIndex + 1]);
   const viaDns = args.includes("--via-dns");
-  const entries = loadList();
+  const active = enabledSites();
+  const activeIds = new Set(active.map((docsSite) => docsSite.id));
+  const entries = loadList().filter((entry) => activeIds.has(entry.siteId));
   const failures = [];
+  const skipped = docsConfig.sites.filter((docsSite) => !docsSite.enabled).map((docsSite) => docsSite.id);
 
   console.log(`301 checks via ${viaDns ? "live legacy DNS" : `Host header against ${base.origin}`}`);
   console.log(`200 checks against ${base.origin}`);
+  if (skipped.length > 0) console.log(`skipping disabled sites: ${skipped.join(", ")}`);
 
   const results = await mapPool(entries, 6, async (entry) => {
     const docsSite = siteById(entry.siteId);
@@ -309,7 +317,7 @@ async function check(args) {
     counts.set(result.entry.siteId, bucket);
   }
 
-  for (const docsSite of docsConfig.sites) {
+  for (const docsSite of active) {
     const bucket = counts.get(docsSite.id) ?? { total: 0, redirect: 0, query: 0, page: 0, proxied404: 0 };
     console.log(
       `${docsSite.id}: ${bucket.redirect}/${bucket.total} 301, ${bucket.query}/${bucket.total} query preserved, ${bucket.page}/${bucket.total} new URLs 200` +
@@ -318,7 +326,7 @@ async function check(args) {
   }
 
   console.log("Extra probes:");
-  for (const docsSite of docsConfig.sites) {
+  for (const docsSite of active) {
     const unknown = await checkRedirect(base, docsSite, "/not-a-real-docs-page", "?ref=partner", viaDns);
     console.log(
       `  ${docsSite.legacyHost}/not-a-real-docs-page?ref=partner -> ${unknown.status} ${unknown.location || "(no location)"}`,
@@ -342,7 +350,7 @@ async function check(args) {
 
   const pagesReady = [...counts.values()].every((bucket) => bucket.total > 0 && bucket.page === bucket.total);
   console.log("POST analytics probe (the method must be forwarded to Mintlify):");
-  for (const docsSite of docsConfig.sites) {
+  for (const docsSite of active) {
     const response = await requestOnce({
       protocol: base.protocol,
       hostname: base.hostname,

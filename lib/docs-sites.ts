@@ -4,8 +4,9 @@ import { site } from "./site";
 /**
  * Mintlify docs served under folders on the apex.
  *
- * Edit `basePath` in lib/docs-sites.json to move a docs site. Redirects,
- * rewrites, the sitemap, and scripts/check-docs-redirects.mjs all read it.
+ * Edit `basePath` in lib/docs-sites.json to move a docs site. Set `enabled`
+ * to false to skip that site's rewrites, host 301s, sitemap URLs, and the
+ * redirect check. Turning bundles on later is that one field.
  * Subscriptions stays singular (`/subscription/docs`) so it sits next to the
  * existing /subscription page.
  *
@@ -16,6 +17,7 @@ import { site } from "./site";
 
 export type DocsSite = {
   id: string;
+  enabled: boolean;
   legacyHost: string;
   basePath: string;
   mintlifyOrigin: string;
