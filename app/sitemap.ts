@@ -3,6 +3,8 @@ import { site } from "@/lib/site";
 import { competitors } from "@/data/competitors";
 import { bundleAlternativeSlugs } from "@/data/bundle-compare";
 import { posts } from "@/data/posts";
+import docsUrlList from "@/data/docs-url-list.json";
+import { docsPublicUrl, docsSites } from "@/lib/docs-sites";
 
 /**
  * Bump when marketing content meaningfully changes. A perpetually-fresh
@@ -53,5 +55,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...comparisonRoutes, ...blogRoutes];
+  const docsRoutes: MetadataRoute.Sitemap = docsUrlList.urls.flatMap((entry) => {
+    const docsSite = docsSites.find((item) => item.id === entry.siteId);
+    if (!docsSite) return [];
+    const parsed = entry.lastmod ? new Date(entry.lastmod) : lastModified;
+    return [
+      {
+        url: docsPublicUrl(docsSite.basePath, entry.path),
+        lastModified: Number.isNaN(parsed.getTime()) ? lastModified : parsed,
+        changeFrequency: "weekly",
+        priority: entry.path === "/" ? 0.6 : 0.5,
+      },
+    ];
+  });
+
+  return [...staticRoutes, ...comparisonRoutes, ...blogRoutes, ...docsRoutes];
 }

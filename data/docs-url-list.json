@@ -1,0 +1,399 @@
+{
+  "generatedAt": "2026-10-10T15:05:14.912Z",
+  "sources": [
+    {
+      "id": "subscriptions",
+      "sitemapUrl": "https://subscriptions-docs.getappfox.com/sitemap.xml"
+    },
+    {
+      "id": "bundles",
+      "sitemapUrl": "https://bundles-docs.getappfox.com/sitemap.xml"
+    }
+  ],
+  "urls": [
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com",
+      "path": "/",
+      "lastmod": "2026-10-10T14:46:08.079Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/api/bundles-api",
+      "path": "/api/bundles-api",
+      "lastmod": "2026-10-10T14:46:08.093Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/bundles/bogo",
+      "path": "/bundles/bogo",
+      "lastmod": "2026-10-10T14:46:08.091Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/bundles/classic",
+      "path": "/bundles/classic",
+      "lastmod": "2026-10-10T14:46:08.081Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/bundles/fixed",
+      "path": "/bundles/fixed",
+      "lastmod": "2026-10-10T14:46:08.076Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/bundles/mix-and-match",
+      "path": "/bundles/mix-and-match",
+      "lastmod": "2026-10-10T14:46:08.077Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/bundles/overview",
+      "path": "/bundles/overview",
+      "lastmod": "2026-10-10T14:46:08.084Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/bundles/volume-discount",
+      "path": "/bundles/volume-discount",
+      "lastmod": "2026-10-10T14:46:08.092Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/dashboard/ab-testing",
+      "path": "/dashboard/ab-testing",
+      "lastmod": "2026-10-10T14:46:08.078Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/dashboard/analytics",
+      "path": "/dashboard/analytics",
+      "lastmod": "2026-10-10T14:46:08.093Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/dashboard/home",
+      "path": "/dashboard/home",
+      "lastmod": "2026-10-10T14:46:08.094Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/dashboard/manage-bundles",
+      "path": "/dashboard/manage-bundles",
+      "lastmod": "2026-10-10T14:46:08.082Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/dashboard/orders",
+      "path": "/dashboard/orders",
+      "lastmod": "2026-10-10T14:46:08.082Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/getting-started",
+      "path": "/getting-started",
+      "lastmod": "2026-10-10T14:46:08.090Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/help/faq",
+      "path": "/help/faq",
+      "lastmod": "2026-10-10T14:46:08.078Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/help/support",
+      "path": "/help/support",
+      "lastmod": "2026-10-10T14:46:08.084Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/help/troubleshooting",
+      "path": "/help/troubleshooting",
+      "lastmod": "2026-10-10T14:46:08.086Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/onboarding-wizard",
+      "path": "/onboarding-wizard",
+      "lastmod": "2026-10-10T14:46:08.095Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/settings/api-and-mcp",
+      "path": "/settings/api-and-mcp",
+      "lastmod": "2026-10-10T14:46:08.083Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/settings/custom-css",
+      "path": "/settings/custom-css",
+      "lastmod": "2026-10-10T14:46:08.080Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/settings/judge-me",
+      "path": "/settings/judge-me",
+      "lastmod": "2026-10-10T14:46:08.085Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/settings/klaviyo",
+      "path": "/settings/klaviyo",
+      "lastmod": "2026-10-10T14:46:08.094Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/storefront/cart-upsell-banner",
+      "path": "/storefront/cart-upsell-banner",
+      "lastmod": "2026-10-10T14:46:08.091Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/storefront/customize-appearance",
+      "path": "/storefront/customize-appearance",
+      "lastmod": "2026-10-10T14:46:08.085Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/storefront/product-page-widget",
+      "path": "/storefront/product-page-widget",
+      "lastmod": "2026-10-10T14:46:08.081Z"
+    },
+    {
+      "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/use-cases",
+      "path": "/use-cases",
+      "lastmod": "2026-10-10T14:46:08.080Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com",
+      "path": "/",
+      "lastmod": "2026-10-10T14:14:43.391Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/active-subscriber-tag",
+      "path": "/active-subscriber-tag",
+      "lastmod": "2026-10-10T14:14:43.379Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/add-ons",
+      "path": "/add-ons",
+      "lastmod": "2026-10-10T14:14:43.383Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/api/authentication",
+      "path": "/api/authentication",
+      "lastmod": "2026-10-10T14:14:43.378Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/api/contracts",
+      "path": "/api/contracts",
+      "lastmod": "2026-10-10T14:14:43.381Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/api/mcp",
+      "path": "/api/mcp",
+      "lastmod": "2026-10-10T14:14:43.384Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/api/overview",
+      "path": "/api/overview",
+      "lastmod": "2026-10-10T14:14:43.372Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/api/quickstart",
+      "path": "/api/quickstart",
+      "lastmod": "2026-10-10T14:14:43.380Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/automations",
+      "path": "/automations",
+      "lastmod": "2026-10-10T14:14:43.379Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/bill-monthly-deliver-bimonthly",
+      "path": "/bill-monthly-deliver-bimonthly",
+      "lastmod": "2026-10-10T14:14:43.371Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/build-a-box",
+      "path": "/build-a-box",
+      "lastmod": "2026-10-10T14:14:43.370Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/bundles",
+      "path": "/bundles",
+      "lastmod": "2026-10-10T14:14:43.374Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/create-manual-subscription",
+      "path": "/create-manual-subscription",
+      "lastmod": "2026-10-10T14:14:43.375Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/customers",
+      "path": "/customers",
+      "lastmod": "2026-10-10T14:14:43.392Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/dashboard",
+      "path": "/dashboard",
+      "lastmod": "2026-10-10T14:14:43.390Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/emails",
+      "path": "/emails",
+      "lastmod": "2026-10-10T14:14:43.373Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/failed-payments",
+      "path": "/failed-payments",
+      "lastmod": "2026-10-10T14:14:43.386Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/features/subscription-rewards",
+      "path": "/features/subscription-rewards",
+      "lastmod": "2026-10-10T14:14:43.367Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/getting-started",
+      "path": "/getting-started",
+      "lastmod": "2026-10-10T14:14:43.377Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/integrations",
+      "path": "/integrations",
+      "lastmod": "2026-10-10T14:14:43.385Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/matrixify",
+      "path": "/matrixify",
+      "lastmod": "2026-10-10T14:14:43.386Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/offers",
+      "path": "/offers",
+      "lastmod": "2026-10-10T14:14:43.382Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/omnisend",
+      "path": "/omnisend",
+      "lastmod": "2026-10-10T14:14:43.393Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/plans",
+      "path": "/plans",
+      "lastmod": "2026-10-10T14:14:43.371Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/pos",
+      "path": "/pos",
+      "lastmod": "2026-10-10T14:14:43.392Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/prepaid-orders",
+      "path": "/prepaid-orders",
+      "lastmod": "2026-10-10T14:14:43.394Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/reports",
+      "path": "/reports",
+      "lastmod": "2026-10-10T14:14:43.366Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/settings",
+      "path": "/settings",
+      "lastmod": "2026-10-10T14:14:43.384Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/settings/billing",
+      "path": "/settings/billing",
+      "lastmod": "2026-10-10T14:14:43.369Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/settings/import",
+      "path": "/settings/import",
+      "lastmod": "2026-10-10T14:14:43.387Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/settings/moving-from-previous-app",
+      "path": "/settings/moving-from-previous-app",
+      "lastmod": "2026-10-10T14:14:43.368Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/sidekick",
+      "path": "/sidekick",
+      "lastmod": "2026-10-10T14:14:43.377Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/storefront/add-manage-subscriptions",
+      "path": "/storefront/add-manage-subscriptions",
+      "lastmod": "2026-10-10T14:14:43.367Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/storefront/customer-portal",
+      "path": "/storefront/customer-portal",
+      "lastmod": "2026-10-10T14:14:43.369Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/storefront/quick-checkout",
+      "path": "/storefront/quick-checkout",
+      "lastmod": "2026-10-10T14:14:43.375Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/storefront/widget",
+      "path": "/storefront/widget",
+      "lastmod": "2026-10-10T14:14:43.373Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/subscriptions",
+      "path": "/subscriptions",
+      "lastmod": "2026-10-10T14:14:43.381Z"
+    },
+    {
+      "siteId": "subscriptions",
+      "legacyUrl": "https://subscriptions-docs.getappfox.com/use-cases",
+      "path": "/use-cases",
+      "lastmod": "2026-10-10T14:14:43.394Z"
+    }
+  ]
+}
