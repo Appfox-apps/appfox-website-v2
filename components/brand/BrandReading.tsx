@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { SectionSlug } from "@/components/site/SectionSlug";
 import { Reveal, StaggerGroup } from "@/components/ui/Reveal";
-import { posts, formatPostDate } from "@/data/posts";
+import { posts } from "@/data/posts";
 
 /**
  * NO. 02 - THE LEDGER. Dotted-leader index rows (same grammar as the
@@ -18,7 +18,7 @@ function IndexRow({
   href: string;
   numeral: string;
   title: string;
-  action: string;
+  action?: string;
 }) {
   return (
     <Link href={href} className="group flex items-baseline gap-3 py-4 sm:gap-5 sm:py-5">
@@ -36,7 +36,11 @@ function IndexRow({
         className="till whitespace-nowrap text-[0.8125rem] text-ink-500 transition-colors duration-200 group-hover:text-ink-900"
         aria-hidden="true"
       >
-        {action}{" "}
+        {action ? (
+          <>
+            {action}{" "}
+          </>
+        ) : null}
         <span className="inline-block transition-transform duration-200 group-hover:translate-x-[3px]">
           →
         </span>
@@ -67,7 +71,6 @@ export function BrandReading() {
                   href={`/blog/${p.slug}`}
                   numeral={String(i + 1).padStart(2, "0")}
                   title={p.title}
-                  action={formatPostDate(p.date).toUpperCase()}
                 />
               </Reveal>
             ))}
