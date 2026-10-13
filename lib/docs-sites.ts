@@ -6,13 +6,14 @@ import { site } from "./site";
  *
  * Edit `basePath` in lib/docs-sites.json to move a docs site. Set `enabled`
  * to false to skip that site's rewrites, host 301s, sitemap URLs, and the
- * redirect check. Turning bundles on later is that one field.
+ * redirect check. A second enabled site fails the build (see below).
  * Subscriptions stays singular (`/subscription/docs`) so it sits next to the
  * existing /subscription page.
  *
- * Only those base paths are proxied. Root `/_mintlify/*` and
- * `/mintlify-assets/*` are shared by every Mintlify project, so one rewrite
- * cannot serve both docs sites. See CUTOVER.md.
+ * Root `/mintlify-assets/*` and `/_mintlify/*` are proxied to the single
+ * enabled site (the live HTML loads CSS and JS from `/mintlify-assets`).
+ * Those paths are not this site's `/_next`. Enabling a second site fails
+ * the build, because one rewrite cannot serve both projects. See CUTOVER.md.
  */
 
 export type DocsSite = {
