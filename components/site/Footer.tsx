@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { site } from "@/lib/site";
+import { enabledDocsNavItems, isDocsPath } from "@/lib/docs-nav";
 import { Wordmark } from "./Wordmark";
 
 const ORDER_EDITING_LINKS = [
@@ -36,6 +37,12 @@ const COMPARE_LINKS = [
   { label: "Subscription apps", href: "/subscription/compare" },
   { label: "Product bundle apps", href: "/product-bundles/compare" },
 ];
+
+/** Same destinations as the header Docs menu. Hidden entirely when none are live. */
+const DOCS_LINKS = enabledDocsNavItems().map((item) => ({
+  label: item.label,
+  href: item.href,
+}));
 
 const AI_SUMMARY_PROMPT = encodeURIComponent(
   `Please summarize ${site.name} for me based on this page: ${site.url}/llms.txt`
@@ -79,6 +86,23 @@ const AI_ASSISTANTS: { name: string; href: string; iconPath: string }[] = [
   },
 ];
 
+function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+  const className = "hover:text-cream-on-night transition-colors duration-700";
+  // Docs folders are proxied to Mintlify. A full page load is required.
+  if (isDocsPath(href)) {
+    return (
+      <a href={href} className={className}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={className}>
+      {children}
+    </Link>
+  );
+}
+
 function LinkColumn({ heading, links }: { heading: string; links: { label: string; href: string }[] }) {
   return (
     <div>
@@ -88,9 +112,7 @@ function LinkColumn({ heading, links }: { heading: string; links: { label: strin
       <ul className="space-y-3 text-sm">
         {links.map((l) => (
           <li key={l.href}>
-            <Link href={l.href} className="hover:text-cream-on-night transition-colors duration-700">
-              {l.label}
-            </Link>
+            <FooterLink href={l.href}>{l.label}</FooterLink>
           </li>
         ))}
       </ul>
@@ -133,6 +155,7 @@ export function Footer() {
           <LinkColumn heading="Subscription" links={SUBSCRIPTION_LINKS} />
           <LinkColumn heading="Product Bundles" links={BUNDLES_LINKS} />
           <LinkColumn heading="Compare" links={COMPARE_LINKS} />
+          {DOCS_LINKS.length > 0 ? <LinkColumn heading="Docs" links={DOCS_LINKS} /> : null}
 
           <div>
             <p className="till text-xs uppercase tracking-[0.12em] text-marigold-300 mb-5">

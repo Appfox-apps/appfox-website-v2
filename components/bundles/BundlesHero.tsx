@@ -1,5 +1,6 @@
 import { getApp } from "@/data/apps";
 import { InView } from "@/components/ui/InView";
+import { docsNavItem } from "@/lib/docs-nav";
 
 /**
  * Product Bundles hero - same "Counter" grammar as the subscription hero:
@@ -8,6 +9,7 @@ import { InView } from "@/components/ui/InView";
  */
 
 const bundlesApp = getApp("product-bundles")!;
+const bundlesDocs = docsNavItem("bundles");
 
 /** Hand-drawn tick - never a ✓ character. */
 function Tick({ delay }: { delay: string }) {
@@ -75,7 +77,7 @@ export function BundlesHero() {
             </p>
 
             <div
-              className="enter-fade-rise mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
+              className="enter-fade-rise mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
               style={{ animationDelay: "220ms" }}
             >
               <a href={bundlesApp.installUrl} className="btn-primary">
@@ -84,6 +86,11 @@ export function BundlesHero() {
               <a href="#how-it-works" className="btn-secondary">
                 See how it works
               </a>
+              {bundlesDocs ? (
+                <a href={bundlesDocs.href} className="btn-secondary">
+                  Read the docs
+                </a>
+              ) : null}
             </div>
 
             <p
