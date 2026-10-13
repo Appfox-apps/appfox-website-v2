@@ -9,7 +9,7 @@ Move the subscriptions Mintlify site onto the apex without breaking partner link
 
 The path after `/subscription/docs` is the same path as today. Query strings are kept by the 301. Browsers reattach fragments themselves; the server never sees them.
 
-Base paths live in [`lib/docs-sites.json`](lib/docs-sites.json). Changing a `basePath` there updates the redirects, the rewrites, the sitemap, and the check script. Set `enabled` to false to skip that site. Turning bundles on later is that one field.
+Base paths live in [`lib/docs-sites.json`](lib/docs-sites.json). Changing a `basePath` there updates the redirects, the rewrites, the sitemap, and the check script. Set `enabled` to false to skip that site. Only one site may be enabled: the root `/mintlify-assets` and `/_mintlify` rewrites belong to that site, and the build fails if two sites are enabled.
 
 This file is the manual work. The repo already contains the subscriptions rewrites, the subscriptions host 301s, the subscriptions sitemap entries, and `scripts/check-docs-redirects.mjs`.
 
@@ -25,7 +25,12 @@ The proxy is an external rewrite. Next (`changeOrigin`) and Vercel both send the
 
 Those rewrites forward every method. Mintlify records analytics with `POST <base>/_mintlify/api/v1/e`, which is inside the folder, so it is proxied.
 
-Root `/_mintlify/*`, `/mintlify-assets/*`, and `/api/request` are not proxied. Mintlify's single-site Vercel example uses those root paths, and each one can point at only one project. With two projects on one domain, a root rewrite would send the other project's assets and API calls to the wrong site.
+The live subscriptions HTML loads CSS, JS, fonts, and favicons from the root path `/mintlify-assets/_next/static/...` (for example `/mintlify-assets/_next/static/chunks/1ddb69276dca9f27.css`). That is not this site's `/_next`. While exactly one docs site is enabled, `beforeFiles` also proxies:
+
+- `/mintlify-assets/:path+` → that site's `mintlifyOrigin`
+- `/_mintlify/:path*` → that site's `mintlifyOrigin`
+
+Those two prefixes can point at only one Mintlify project. `next.config.ts` fails the build if two sites are enabled, so bundles cannot be turned on until its assets are prefixed under `/product-bundles/docs` or Mintlify allows a split. `/llms.txt` and `/sitemap.xml` stay on this app.
 
 Host 301s (status `301`, not Next's default 308), one rule for `/` and one for `/:path*`, only for enabled sites:
 
@@ -110,19 +115,13 @@ It must be 200 before you continue.
 
 ### 4. Check that assets are prefixed with the base path
 
-Mintlify's single-site proxy docs also rewrite root `/mintlify-assets/*` and `/_mintlify/*`. Those root rewrites are intentionally absent, so a second project can be added later. After the base path is on, the HTML at the Mintlify host must not reference those root paths.
+The subscriptions HTML currently references root `/mintlify-assets/...`. That is expected for this single-project cutover: the root rewrite sends those requests to `appfox-subscriptions`. Confirm a stylesheet returns 200 on the apex:
 
 ```bash
-curl -sL https://appfox-subscriptions.mintlify.site/subscription/docs \
-  | grep -oE '/mintlify-assets[^"'\'' ]*|/_mintlify[^"'\'' ]*' \
-  | sort -u
+curl -sI "https://www.getappfox.com/mintlify-assets/_next/static/chunks/1ddb69276dca9f27.css"
 ```
 
-Stop the cutover if any URL starts with `/mintlify-assets` or `/_mintlify` and is not under `/subscription/docs`. Those root URLs would 404 on getappfox.com, or, if a root rewrite were added, one project would steal the other's assets. Ask Mintlify to prefix them, then re-run this check.
-
-Also confirm analytics stays inside the folder. The page should post to `/subscription/docs/_mintlify/api/v1/e`, not to `/_mintlify/api/v1/e` at the domain root.
-
-A prefixed asset looks like `/subscription/docs/mintlify-assets/...` or `/subscription/docs/_mintlify/...`. That is fine: the `:match*` rewrite already forwards it.
+Expect 200 and `content-type: text/css`. A 404 means the root rewrite is missing. Do not add a second root rewrite for bundles. Enabling bundles while it is still `enabled: false` is blocked in code; the build fails if two sites are enabled, because `/mintlify-assets` and `/_mintlify` can belong to only one project.
 
 ### 5. Confirm the apex folder
 
@@ -244,7 +243,7 @@ Do not use Change of address. That tool is only for moving a whole domain proper
 
 ## Bundles later
 
-Mintlify only lets one project per org claim `getappfox.com`. Subscriptions takes that claim in the steps above. When support allows `appfox-bundles` to use the same domain, turn bundles on with one line in `lib/docs-sites.json`:
+Mintlify only lets one project per org claim `getappfox.com`. Subscriptions takes that claim in the steps above. When support allows `appfox-bundles` to use the same domain, bundles assets must be prefixed under `/product-bundles/docs` before you turn it on. Setting `"enabled": true` while subscriptions is also enabled fails the build, because both would claim `/mintlify-assets` and `/_mintlify`. After that is solved, the flag is:
 
 ```json
 "enabled": true
@@ -254,7 +253,7 @@ Deploy that change. It adds the `/product-bundles/docs` rewrites, the `bundles-d
 
 1. In [Appfox-apps/bundles-app-new](https://github.com/Appfox-apps/bundles-app-new) `help-docs/docs.json`, set `seo.metatags.canonical` to `https://getappfox.com/product-bundles/docs` (no trailing slash). Replace hardcoded `bundles-docs.getappfox.com` with `getappfox.com/product-bundles/docs`. Deploy the docs project.
 2. On Mintlify project `appfox-bundles`, enable **Host at** for `getappfox.com` with base path `/product-bundles/docs`. Leave `bundles-docs.getappfox.com` attached. Confirm `https://bundles-docs.getappfox.com/getting-started` is still 200, then `https://appfox-bundles.mintlify.site/product-bundles/docs/getting-started` is 200.
-3. Run the asset grep from step 4 against `https://appfox-bundles.mintlify.site/product-bundles/docs`. Stop if any `/mintlify-assets` or `/_mintlify` URL is not under `/product-bundles/docs`. Do not add a root rewrite.
+3. Run the asset check against `https://appfox-bundles.mintlify.site/product-bundles/docs`. If the HTML still requests root `/mintlify-assets` or `/_mintlify`, do not set bundles `enabled: true`. The build fails while two sites are enabled, because those root paths already belong to subscriptions. Ask Mintlify to prefix bundles assets under `/product-bundles/docs` first.
 4. Confirm `https://getappfox.com/product-bundles/docs/getting-started` is 200.
 5. Add `bundles-docs.getappfox.com` to this Vercel project (Production). Change only that CNAME from `cname.mintlify.builders` to the Vercel CNAME from step 7 (`25427e4e7b9a36eb.vercel-dns-016.com`, or whatever the dashboard shows). Leave `@` and `www` alone.
 6. Run `npm run check-docs-redirects -- check --base https://getappfox.com --via-dns`. It now checks both enabled sites.
@@ -275,6 +274,6 @@ Stop at the earliest step that went wrong. Later steps are what make the old sub
 
 **Apex primary change caused a problem.** In Vercel Domains, set `www.getappfox.com` as the redirect target again so the apex 307s to www, which was the previous behavior.
 
-**Assets 404 after a successful 301.** The HTML check in step 4 failed or was skipped. Roll DNS back if partner links are what load the broken pages. Do not add a root `/mintlify-assets` rewrite that points at only one Mintlify host.
+**Docs page is unstyled.** `/mintlify-assets/_next/static/...` should be 200 from the subscriptions Mintlify host via the root rewrite. If it 404s, the rewrite is not deployed. Do not point that rewrite at a second project.
 
 The code in this PR only affects `subscriptions-docs.getappfox.com` and `/subscription/docs`. Revert the deployment if that folder is serving the wrong project or a marketing URL under it is missing. You do not need to revert it to restore the old host, as long as DNS points back at `cname.mintlify.builders` and Mintlify still has that custom domain.

@@ -5,7 +5,11 @@ import {
   legacyBundleSlugs,
 } from "./data/legacyBundleRedirects";
 import docsConfig from "./lib/docs-sites.json";
-import { assertDocsBasePathsDoNotClash } from "./lib/docs-route-guard";
+import {
+  assertDocsBasePathsDoNotClash,
+  assertSingleEnabledDocsSiteOwnsRootAssets,
+  mintlifyRootAssetRewrites,
+} from "./lib/docs-route-guard";
 
 const activeDocsSites = docsConfig.sites.filter((docsSite) => docsSite.enabled);
 
@@ -62,21 +66,28 @@ const nextConfig: NextConfig = {
   // External rewrites use the destination host (Next sets changeOrigin; Vercel
   // does the same at the edge). The incoming Host is not forwarded.
   // Every method is proxied, including POST {base}/_mintlify/api/v1/e.
-  // Root /_mintlify, /mintlify-assets, and /api/request are intentionally
-  // absent: those paths can only point at one Mintlify project.
+  // The live docs HTML also requests CSS and JS from the root path
+  // /mintlify-assets/_next/static/... (not this app's /_next). Those root
+  // paths, plus /_mintlify, are proxied only when exactly one site is enabled.
+  // Two enabled sites fail the build: the paths can point at only one project.
   async rewrites() {
-    assertDocsBasePathsDoNotClash(path.join(__dirname, "app"), activeDocsSites);
+    const appDir = path.join(__dirname, "app");
+    assertDocsBasePathsDoNotClash(appDir, activeDocsSites);
+    const assetOwner = assertSingleEnabledDocsSiteOwnsRootAssets(appDir, activeDocsSites);
     return {
-      beforeFiles: activeDocsSites.flatMap((docsSite) => [
-        {
-          source: docsSite.basePath,
-          destination: `${docsSite.mintlifyOrigin}${docsSite.basePath}`,
-        },
-        {
-          source: `${docsSite.basePath}/:match*`,
-          destination: `${docsSite.mintlifyOrigin}${docsSite.basePath}/:match*`,
-        },
-      ]),
+      beforeFiles: [
+        ...mintlifyRootAssetRewrites(assetOwner),
+        ...activeDocsSites.flatMap((docsSite) => [
+          {
+            source: docsSite.basePath,
+            destination: `${docsSite.mintlifyOrigin}${docsSite.basePath}`,
+          },
+          {
+            source: `${docsSite.basePath}/:match*`,
+            destination: `${docsSite.mintlifyOrigin}${docsSite.basePath}/:match*`,
+          },
+        ]),
+      ],
     };
   },
 };
