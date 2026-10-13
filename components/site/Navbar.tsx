@@ -7,9 +7,25 @@ import { usePathname } from "next/navigation";
 import { site } from "@/lib/site";
 import { competitorsForApp } from "@/data/competitors";
 import { apps } from "@/data/apps";
+import { enabledDocsNavItems, isDocsPath, type DocsNavItem } from "@/lib/docs-nav";
 import { Wordmark } from "./Wordmark";
 
 const NAV_LINKS = [{ label: "Blog", href: "/blog" }];
+
+/** Enabled docs only. Product Bundles appears here when its flag is turned on. */
+const DOCS_NAV = enabledDocsNavItems();
+
+const MOBILE_LINKS = [
+  { label: "Apps", href: "/apps" },
+  { label: "Features", href: "/features" },
+  { label: "Pricing", href: "/pricing" },
+  ...DOCS_NAV.map((item) => ({
+    label: DOCS_NAV.length === 1 ? "Docs" : item.label,
+    href: item.href,
+  })),
+  { label: "Blog", href: "/blog" },
+  { label: "Compare", href: "/vs" },
+];
 
 const FEATURES_LINKS = [
   { label: "Order Editing & Upsell", detail: "Self-service edits + upsells", href: "/features/order-editing" },
@@ -58,6 +74,51 @@ const BUNDLES_PATHS = new Set([
   "/product-bundles/compare",
   ...competitorsForApp("product-bundles").map((c) => `/vs/${c.slug}`),
 ]);
+
+/**
+ * Docs menu. Same hover card as Apps. Each row is a plain anchor: these
+ * paths are rewritten to Mintlify and must load as a full document.
+ * One live site still uses the menu so the second site can appear in place.
+ */
+function DocsDesktopNav({ items }: { items: readonly DocsNavItem[] }) {
+  if (items.length === 0) return null;
+
+  return (
+    <div className="relative group">
+      <a
+        href={items[0].href}
+        className="inline-flex items-center gap-1 text-sm font-medium text-ink-700 hover:text-brand-700 transition-colors duration-700"
+        aria-haspopup="true"
+      >
+        Docs
+        <svg
+          aria-hidden="true"
+          className="w-3 h-3 transition-transform duration-700 group-hover:rotate-180"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </a>
+      <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 transition-all duration-700">
+        <div className="card w-72 p-2 shadow-(--shadow-raised)">
+          {items.map((item) => (
+            <a
+              key={item.id}
+              href={item.href}
+              className="flex flex-col gap-0.5 px-3 py-2.5 rounded-lg hover:bg-brand-50 transition-colors duration-700"
+            >
+              <span className="text-sm font-medium text-ink-900">{item.label}</span>
+              <span className="till text-xs text-ink-500">{item.detail}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 /** The navbar install CTA follows the app the visitor is reading about. */
 function installUrlForPath(pathname: string): string {
@@ -156,6 +217,8 @@ export function Navbar() {
                 Pricing
               </Link>
 
+              <DocsDesktopNav items={DOCS_NAV} />
+
               <Link
                 href="/blog"
                 className="text-sm font-medium text-ink-700 hover:text-brand-700 transition-colors duration-700"
@@ -203,30 +266,42 @@ export function Navbar() {
       {mobileOpen && (
         <div className="md:hidden fixed inset-0 z-40 bg-black/80 backdrop-blur-3xl">
           <nav className="flex flex-col items-center justify-center h-full px-6" aria-label="Mobile">
-            {[
-              { label: "Apps", href: "/apps" },
-              { label: "Features", href: "/features" },
-              { label: "Pricing", href: "/pricing" },
-              { label: "Blog", href: "/blog" },
-              { label: "Compare", href: "/vs" },
-            ].map((link, i) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="enter-fade-rise font-display font-semibold text-5xl text-white py-4 opacity-0"
-                style={{
-                  animationDelay: `${i * 60}ms`,
-                  animation: "enter-fade-rise 800ms var(--ease-out-soft) both",
-                }}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {MOBILE_LINKS.map((link, i) => {
+              const className =
+                "enter-fade-rise font-display font-semibold text-5xl text-white text-center py-4 opacity-0";
+              const style = {
+                animationDelay: `${i * 60}ms`,
+                animation: "enter-fade-rise 800ms var(--ease-out-soft) both",
+              };
+              if (isDocsPath(link.href)) {
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={className}
+                    style={style}
+                  >
+                    {link.label}
+                  </a>
+                );
+              }
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={className}
+                  style={style}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <div
               className="mt-8 flex flex-col gap-4 opacity-0"
               style={{
-                animationDelay: "300ms",
+                animationDelay: `${MOBILE_LINKS.length * 60}ms`,
                 animation: "enter-fade-rise 800ms var(--ease-out-soft) both",
               }}
             >
