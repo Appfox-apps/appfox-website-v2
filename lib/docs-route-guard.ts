@@ -42,39 +42,111 @@ export function listAppRoutes(appDir: string): string[] {
 }
 
 /**
- * Shared Mintlify paths that are not under a docs base path. The live
- * subscriptions HTML loads CSS and JS from `/mintlify-assets/_next/static/...`.
- * `/_mintlify` is the analytics and assistant API. Neither prefix is `/_next`.
+ * Shared Mintlify paths that are not under a docs base path. The live HTML
+ * loads CSS and JS from `/mintlify-assets/_next/static/...`, not from
+ * `{basePath}/mintlify-assets`. `/_mintlify` is the analytics, search, and
+ * assistant API. Neither prefix is this site's `/_next`.
+ *
+ * Both projects request those same root paths. A stylesheet URL does not say
+ * which project it belongs to. Favicon URLs do: they contain the Mintlify
+ * project slug (`/mintlify-assets/_mintlify/favicons/appfox-bundles/...`) and
+ * the other origin answers 403. Page-initiated requests send the docs URL as
+ * Referer. Fonts loaded from a stylesheet send the stylesheet URL instead, and
+ * the `/_next` client files are content-addressed, so either origin can serve
+ * them. Anything still ambiguous is rewritten to the probe route, which tries
+ * each enabled origin.
  */
-export const MINTLIFY_ROOT_ASSET_REWRITES = [
-  { source: "/mintlify-assets/:path+", destinationPath: "/mintlify-assets/:path+" },
-  { source: "/_mintlify/:path*", destinationPath: "/_mintlify/:path*" },
-] as const;
+export const MINTLIFY_ROOT_ASSET_PREFIXES = ["/mintlify-assets", "/_mintlify"] as const;
 
-const MINTLIFY_ROOT_ASSET_PREFIXES = ["/mintlify-assets", "/_mintlify"] as const;
+/** Internal route that tries each Mintlify origin. Must stay last in the rewrite list. */
+export const MINTLIFY_ROOT_ASSET_PROBE_PREFIX = "/api/mintlify-root-asset";
 
-type RootAssetOwner = {
+type DocsAssetSite = {
   id: string;
   enabled: boolean;
+  basePath: string;
   mintlifyOrigin: string;
 };
 
+type HeaderHas = {
+  type: "header";
+  key: "referer";
+  value: string;
+};
+
+export type MintlifyRootAssetRewrite = {
+  source: string;
+  destination: string;
+  has?: HeaderHas[];
+};
+
+/** Host label of a `*.mintlify.site` origin, for example `appfox-bundles`. */
+export function mintlifyProjectSlug(mintlifyOrigin: string): string {
+  let hostname: string;
+  try {
+    hostname = new URL(mintlifyOrigin).hostname;
+  } catch {
+    throw new Error(`Docs mintlifyOrigin is not a URL: ${mintlifyOrigin}`);
+  }
+  const slug = hostname.split(".")[0] ?? "";
+  if (!/^[a-z0-9-]+$/.test(slug)) {
+    throw new Error(`Docs mintlify host ${hostname} has no usable project slug`);
+  }
+  return slug;
+}
+
 /**
- * Root asset paths can point at only one Mintlify project. The single enabled
- * site owns them. Two enabled sites would both claim the same paths, so the
- * build fails instead of proxying the wrong project's CSS and API.
+ * Next anchors this as `^value$` against the whole Referer header.
+ * The path must be the docs base path or a page under it, on any host.
  */
-export function assertSingleEnabledDocsSiteOwnsRootAssets<T extends RootAssetOwner>(
-  appDir: string,
+export function docsRefererHeaderPattern(basePath: string): string {
+  const escaped = basePath.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return `https?://[^/]+${escaped}(?:/[^?#]*)?(?:\\?[^#]*)?`;
+}
+
+export function isSharedMintlifyClientAsset(pathname: string): boolean {
+  return pathname === "/mintlify-assets/_next" || pathname.startsWith("/mintlify-assets/_next/");
+}
+
+/**
+ * The Mintlify project that owns this root asset request, when the path or
+ * the Referer says so. Null means the caller should try the enabled origins.
+ */
+export function mintlifyRootAssetOwner<T extends DocsAssetSite>(
+  pathname: string,
+  referer: string | null,
   sites: readonly T[],
 ): T | null {
   const enabled = sites.filter((docsSite) => docsSite.enabled);
-  if (enabled.length > 1) {
-    throw new Error(
-      `Root Mintlify paths ${MINTLIFY_ROOT_ASSET_PREFIXES.join(", ")} can belong to only one enabled docs site. Enabled: ${enabled.map((docsSite) => docsSite.id).join(", ")}.`,
-    );
-  }
+  const segments = pathname.split("/").filter(Boolean);
+  const bySlug = enabled.filter((docsSite) => segments.includes(mintlifyProjectSlug(docsSite.mintlifyOrigin)));
+  if (bySlug.length === 1) return bySlug[0];
 
+  let refererPath: string | null = null;
+  if (referer) {
+    try {
+      refererPath = new URL(referer).pathname;
+    } catch {
+      refererPath = null;
+    }
+  }
+  if (!refererPath) return null;
+
+  const byReferer = enabled
+    .filter(
+      (docsSite) => refererPath === docsSite.basePath || refererPath.startsWith(`${docsSite.basePath}/`),
+    )
+    .sort((a, b) => b.basePath.length - a.basePath.length);
+  if (byReferer.length === 0) return null;
+  if (byReferer.length > 1 && byReferer[0].basePath.length === byReferer[1].basePath.length) return null;
+  return byReferer[0];
+}
+
+/**
+ * Root `/mintlify-assets` and `/_mintlify` must not hide an App Router page
+ * or this site's `/_next`. Several enabled docs sites may share the prefixes.
+ */
+export function assertMintlifyRootAssetPathsDoNotClash(appDir: string): void {
   const routes = listAppRoutes(appDir);
   const siteAssetPrefix: string = "/_next";
   for (const prefix of MINTLIFY_ROOT_ASSET_PREFIXES) {
@@ -91,16 +163,60 @@ export function assertSingleEnabledDocsSiteOwnsRootAssets<T extends RootAssetOwn
       }
     }
   }
-
-  return enabled[0] ?? null;
 }
 
-export function mintlifyRootAssetRewrites(owner: RootAssetOwner | null) {
-  if (!owner) return [];
-  return MINTLIFY_ROOT_ASSET_REWRITES.map((rewrite) => ({
-    source: rewrite.source,
-    destination: `${owner.mintlifyOrigin}${rewrite.destinationPath}`,
-  }));
+/**
+ * beforeFiles external rewrites return on the first match, so the specific
+ * rules stay above the shared-client fallback and the probe.
+ */
+export function mintlifyRootAssetRewrites<T extends DocsAssetSite>(
+  sites: readonly T[],
+): MintlifyRootAssetRewrite[] {
+  const enabled = sites.filter((docsSite) => docsSite.enabled);
+  const rewrites: MintlifyRootAssetRewrite[] = [];
+
+  for (const docsSite of enabled) {
+    const slug = mintlifyProjectSlug(docsSite.mintlifyOrigin);
+    const faviconPath = `/mintlify-assets/_mintlify/favicons/${slug}/:path*`;
+    rewrites.push({
+      source: faviconPath,
+      destination: `${docsSite.mintlifyOrigin}${faviconPath}`,
+    });
+  }
+
+  for (const docsSite of enabled) {
+    const has: HeaderHas[] = [
+      { type: "header", key: "referer", value: docsRefererHeaderPattern(docsSite.basePath) },
+    ];
+    rewrites.push({
+      source: "/mintlify-assets/:path+",
+      has,
+      destination: `${docsSite.mintlifyOrigin}/mintlify-assets/:path+`,
+    });
+    rewrites.push({
+      source: "/_mintlify/:path*",
+      has,
+      destination: `${docsSite.mintlifyOrigin}/_mintlify/:path*`,
+    });
+  }
+
+  const shared = enabled[0];
+  if (!shared) return rewrites;
+
+  rewrites.push({
+    source: "/mintlify-assets/_next/:path+",
+    destination: `${shared.mintlifyOrigin}/mintlify-assets/_next/:path+`,
+  });
+  rewrites.push({
+    source: "/mintlify-assets/:path+",
+    destination: `${MINTLIFY_ROOT_ASSET_PROBE_PREFIX}/mintlify-assets/:path+`,
+  });
+  rewrites.push({
+    source: "/_mintlify/:path*",
+    destination: `${MINTLIFY_ROOT_ASSET_PROBE_PREFIX}/_mintlify/:path*`,
+  });
+
+  return rewrites;
 }
 
 /**

@@ -133,6 +133,12 @@
     },
     {
       "siteId": "bundles",
+      "legacyUrl": "https://bundles-docs.getappfox.com/settings/emails",
+      "path": "/settings/emails",
+      "lastmod": "2026-10-13T09:55:40.171Z"
+    },
+    {
+      "siteId": "bundles",
       "legacyUrl": "https://bundles-docs.getappfox.com/settings/judge-me",
       "path": "/settings/judge-me",
       "lastmod": "2026-10-10T14:46:08.085Z"

@@ -11,7 +11,7 @@
     },
     {
       "id": "bundles",
-      "enabled": false,
+      "enabled": true,
       "legacyHost": "bundles-docs.getappfox.com",
       "basePath": "/product-bundles/docs",
       "mintlifyOrigin": "https://appfox-bundles.mintlify.site",

@@ -7,7 +7,7 @@ import {
 import docsConfig from "./lib/docs-sites.json";
 import {
   assertDocsBasePathsDoNotClash,
-  assertSingleEnabledDocsSiteOwnsRootAssets,
+  assertMintlifyRootAssetPathsDoNotClash,
   mintlifyRootAssetRewrites,
 } from "./lib/docs-route-guard";
 
@@ -68,15 +68,16 @@ const nextConfig: NextConfig = {
   // Every method is proxied, including POST {base}/_mintlify/api/v1/e.
   // The live docs HTML also requests CSS and JS from the root path
   // /mintlify-assets/_next/static/... (not this app's /_next). Those root
-  // paths, plus /_mintlify, are proxied only when exactly one site is enabled.
-  // Two enabled sites fail the build: the paths can point at only one project.
+  // paths, plus /_mintlify, are shared by every enabled site. Rewrites send
+  // each request to the project named in the path, else the project named by
+  // the Referer, else the shared client files, else a probe that tries origins.
   async rewrites() {
     const appDir = path.join(__dirname, "app");
     assertDocsBasePathsDoNotClash(appDir, activeDocsSites);
-    const assetOwner = assertSingleEnabledDocsSiteOwnsRootAssets(appDir, activeDocsSites);
+    assertMintlifyRootAssetPathsDoNotClash(appDir);
     return {
       beforeFiles: [
-        ...mintlifyRootAssetRewrites(assetOwner),
+        ...mintlifyRootAssetRewrites(activeDocsSites),
         ...activeDocsSites.flatMap((docsSite) => [
           {
             source: docsSite.basePath,
