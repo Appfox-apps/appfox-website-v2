@@ -2,6 +2,7 @@ import Link from "next/link";
 import { apps, getApp } from "@/data/apps";
 import { InView } from "@/components/ui/InView";
 import { Reveal, StaggerGroup } from "@/components/ui/Reveal";
+import { ImageReveal } from "@/components/ui/ImageReveal";
 
 /**
  * The front-of-house shelf: one large card per app, each with a mini
@@ -55,7 +56,7 @@ export function AppShowcase() {
                     <h2 className="mt-4 !text-3xl sm:!text-4xl">{app.name}</h2>
                     <p className="mt-2 text-base font-medium text-brand-700">{app.tagline}</p>
 
-                    <div className="mt-6">{VIGNETTES[app.slug]}</div>
+                    <ImageReveal className="mt-6">{VIGNETTES[app.slug]}</ImageReveal>
 
                     <ul className="mt-6 space-y-2.5 border-t border-paper-edge pt-6">
                       {app.highlights.slice(0, 3).map((h, j) => (

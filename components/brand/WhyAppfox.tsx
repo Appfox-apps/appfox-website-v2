@@ -1,4 +1,5 @@
 import { Reveal, StaggerGroup } from "@/components/ui/Reveal";
+import { Scribble } from "@/components/ui/Scribble";
 import { SectionSlug } from "@/components/site/SectionSlug";
 
 /**
@@ -6,9 +7,10 @@ import { SectionSlug } from "@/components/site/SectionSlug";
  * the reasons to trust the brand, not one product's feature list.
  */
 
-const RULES: { title: string; copy: string }[] = [
+const RULES: { title: string; mark?: string; copy: string }[] = [
   {
     title: "Native Shopify APIs, no hacks",
+    mark: "no hacks",
     copy: "Orders edit in place through Shopify's Order Editing API; subscriptions bill through Shopify Checkout. No cancel-and-reorder tricks, no checkout detours, no lost payment fees.",
   },
   {
@@ -17,6 +19,7 @@ const RULES: { title: string; copy: string }[] = [
   },
   {
     title: "Five-minute setup, no code",
+    mark: "no code",
     copy: "Widgets and edit links drop in from the app - your branding, no theme surgery. If you can install a Shopify app, you're done before the coffee cools.",
   },
   {
@@ -24,6 +27,19 @@ const RULES: { title: string; copy: string }[] = [
     copy: "One team behind both apps, reachable at the same address on every page. Migrations, edge cases, weird themes - bring them.",
   },
 ];
+
+/** Wraps the rule's `mark` phrase (if any) in a drawn-on scribble underline. */
+function renderTitle({ title, mark }: { title: string; mark?: string }) {
+  const at = mark ? title.indexOf(mark) : -1;
+  if (!mark || at < 0) return title;
+  return (
+    <>
+      {title.slice(0, at)}
+      <Scribble delay={400}>{mark}</Scribble>
+      {title.slice(at + mark.length)}
+    </>
+  );
+}
 
 export function WhyAppfox() {
   return (
@@ -33,7 +49,7 @@ export function WhyAppfox() {
           <SectionSlug no="01" label="THE HOUSE RULES" caption="True of every app we ship" />
         </Reveal>
         <Reveal>
-          <h2 className="mt-8 max-w-2xl">Different apps. Same standards.</h2>
+          <h2 className="mt-8 max-w-2xl">Different apps. <Scribble>Same standards.</Scribble></h2>
         </Reveal>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -49,7 +65,7 @@ export function WhyAppfox() {
                       {i + 1}
                     </span>
                   </span>
-                  <h3 className="mt-5 text-xl">{rule.title}</h3>
+                  <h3 className="mt-5 text-xl">{renderTitle(rule)}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-ink-700">{rule.copy}</p>
                 </article>
               </Reveal>

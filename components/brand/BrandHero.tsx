@@ -1,5 +1,6 @@
 import { apps } from "@/data/apps";
 import { HeroOrderDemo } from "@/components/brand/HeroOrderDemo";
+import { RotatingWords } from "@/components/ui/RotatingWords";
 import { FoxMascot } from "@/components/site/FoxMascot";
 
 /**
@@ -28,34 +29,15 @@ export function BrandHero() {
               </span>
             </p>
 
-            <h1 className="enter-rise mx-auto mt-6 max-w-4xl hero-gradient lg:mx-0 lg:text-[3.75rem] xl:text-[4.25rem]">
-              Grow revenue from{" "}
-              <span className="wonk relative inline-block" style={{
-                background: "linear-gradient(to right, var(--color-brand-600), var(--color-brand-400))",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}>
-                every order
-                {/* Hand-drawn marigold underline, draws on at ~600ms */}
-                <svg
-                  className="absolute -bottom-[0.04em] left-0 h-[0.2em] w-full"
-                  viewBox="0 0 100 12"
-                  preserveAspectRatio="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M2 8.5C20 5 38 9.5 56 7 72 4.8 88 7.5 98 5.5"
-                    fill="none"
-                    stroke="var(--color-marigold-300)"
-                    strokeWidth={5}
-                    strokeLinecap="round"
-                    pathLength={400}
-                    className="draw-path is-visible"
-                    style={{ "--draw-delay": "600ms" } as React.CSSProperties}
-                  />
-                </svg>
-              </span>
+            <h1 className="enter-rise mx-auto mt-6 max-w-4xl lg:mx-0 lg:text-[3.75rem] xl:text-[4.25rem]">
+              {/* hero-gradient lives on this span, not the h1: a parent background-clip:text
+                mis-paints the rotating words' glyphs */}
+              <span className="hero-gradient">Grow revenue from</span>{" "}
+              <RotatingWords
+                words={["every order", "every checkout", "every customer"]}
+                underline
+                wordClassName="wonk text-brand-gradient"
+              />
             </h1>
 
             <p
@@ -71,7 +53,7 @@ export function BrandHero() {
               className="enter-fade-rise mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start"
               style={{ animationDelay: "220ms" }}
             >
-              <a href="#apps" className="btn-primary">
+              <a href="#apps" className="btn-primary btn-jiggle">
                 Explore the apps
               </a>
             </div>
