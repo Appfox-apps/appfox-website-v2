@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 
 /**
- * Cycles through `words` in place. All words share one grid cell, so the
- * container is as wide as the longest word and the layout never shifts.
- * Only the active word is exposed to assistive tech; with
- * prefers-reduced-motion the first word stays put.
+ * Cycles through `words` in place. Words share one grid cell; once JS is
+ * on, inactive words are taken out of flow so the active word sizes the
+ * cell. Only the active word is exposed to assistive tech; with
+ * prefers-reduced-motion (live, via a change listener) the first word stays put.
  *
  * `underline` draws the hand-drawn marigold scribble under each word as it
  * enters (reuses the site's `.draw-path` machinery).
@@ -28,9 +28,23 @@ export function RotatingWords({
 
   useEffect(() => {
     if (words.length < 2) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const id = window.setInterval(() => setActive((i) => (i + 1) % words.length), interval);
-    return () => window.clearInterval(id);
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let timer: number | undefined;
+    const sync = () => {
+      window.clearInterval(timer);
+      if (mq.matches) {
+        // Reduced motion shows only the first word (CSS), so keep it active
+        setActive(0);
+        return;
+      }
+      timer = window.setInterval(() => setActive((i) => (i + 1) % words.length), interval);
+    };
+    sync();
+    mq.addEventListener("change", sync);
+    return () => {
+      window.clearInterval(timer);
+      mq.removeEventListener("change", sync);
+    };
   }, [words.length, interval]);
 
   return (

@@ -467,6 +467,15 @@ h3 {
     transition: opacity 600ms var(--ease-out-soft), transform 600ms var(--ease-out-soft),
       filter 600ms var(--ease-out-soft), visibility 0s linear 600ms;
   }
+  /* Inactive words leave the flow so only the active word sizes the cell
+     (a long hidden word can't force a blank wrapped line on mobile) */
+  html.js .rotating-word:not(.is-active) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    white-space: nowrap;
+    pointer-events: none;
+  }
   html.js .rotating-word.is-active {
     opacity: 1;
     transform: none;
@@ -816,6 +825,7 @@ tr:hover .compare-sticky-col {
 
 /* Rotating words: all words stack in one grid cell so width = longest word */
 .rotating-words {
+  position: relative;
   display: inline-grid;
   vertical-align: bottom;
 }
