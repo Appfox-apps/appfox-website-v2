@@ -456,6 +456,60 @@ h3 {
     animation: enter-fade-rise 700ms var(--ease-out-soft) both;
   }
 
+  /* - Rotating words (in-place headline cycle; words share one grid cell) - */
+  html.js .rotating-word {
+    opacity: 0;
+    transform: translateY(0.45em);
+    filter: blur(6px);
+    /* visibility (not just opacity) so a parent's background-clip:text,
+       e.g. .hero-gradient on the h1, ignores the inactive words' glyphs */
+    visibility: hidden;
+    transition: opacity 600ms var(--ease-out-soft), transform 600ms var(--ease-out-soft),
+      filter 600ms var(--ease-out-soft), visibility 0s linear 600ms;
+  }
+  /* Inactive words leave the flow so only the active word sizes the cell
+     (a long hidden word can't force a blank wrapped line on mobile) */
+  html.js .rotating-word:not(.is-active) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  html.js .rotating-word.is-active {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    visibility: visible;
+    transition-delay: 150ms, 150ms, 150ms, 0s;
+  }
+  html.js .rotating-word.is-active .draw-path {
+    animation: draw-line 900ms var(--ease-out-soft) forwards;
+    animation-delay: var(--draw-delay, 0ms);
+  }
+
+  /* - Image reveal (soft wipe + blur-to-sharp) - */
+  html.js .image-reveal-inner {
+    clip-path: inset(0 0 100% 0 round 16px);
+    filter: blur(10px) saturate(0.7);
+    transform: scale(1.04);
+    transition: clip-path 1000ms var(--ease-glide), filter 1000ms var(--ease-out-soft),
+      transform 1200ms var(--ease-out-soft);
+  }
+  html.js .image-reveal-left .image-reveal-inner {
+    clip-path: inset(0 100% 0 0 round 16px);
+  }
+  html.js .image-reveal.is-visible .image-reveal-inner {
+    clip-path: inset(0 0 0 0 round 16px);
+    filter: none;
+    transform: none;
+  }
+
+  /* - Jiggle button (springy wobble on hover) - */
+  .btn-jiggle:hover {
+    animation: jiggle 600ms var(--ease-spring);
+  }
+
   /* - Stamps (APPROVED / SELF-SERVED) - */
   html.js .stamp-in {
     opacity: 0;
@@ -662,6 +716,14 @@ tr:hover .compare-sticky-col {
 
 /* ── Keyframes ──────────────────────────────────────────── */
 
+@keyframes jiggle {
+  0% { transform: translateY(-1px) rotate(0); }
+  25% { transform: translateY(-2px) rotate(-2.5deg) scale(1.03); }
+  50% { transform: translateY(-1px) rotate(2deg) scale(1.03); }
+  75% { transform: translateY(-1px) rotate(-1deg); }
+  100% { transform: translateY(-1px) rotate(0); }
+}
+
 @keyframes enter-rise {
   from {
     transform: translateY(14px);
@@ -759,4 +821,29 @@ tr:hover .compare-sticky-col {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Rotating words: all words stack in one grid cell so width = longest word */
+.rotating-words {
+  position: relative;
+  display: inline-grid;
+  vertical-align: bottom;
+}
+.rotating-word {
+  grid-area: 1 / 1;
+}
+html:not(.js) .rotating-word:not(:first-child) {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rotating-word:not(:first-child) {
+    display: none;
+  }
+}
+
+.text-brand-gradient {
+  background: linear-gradient(to right, var(--color-brand-600), var(--color-brand-400));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
