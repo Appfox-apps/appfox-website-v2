@@ -53,6 +53,240 @@ export type Post = {
 
 const postCatalog: Post[] = [
   {
+    slug: "subscribe-and-save-widget-mobile",
+    title: "Subscribe-and-save on product pages: what works on a phone",
+    excerpt:
+      "A subscribe-and-save widget on a phone belongs directly above the add-to-cart button, inside the first screen. StorePilot loaded the best-selling product of 3,052 Shopify stores on a phone, and 3,010 of those pages rendered properly.",
+    category: "GUIDE",
+    date: "2026-10-23",
+    author: "Misha Gavura, EVDEV / StorePilot (guest post)",
+    metaTitle:
+      "Subscribe-and-Save Widgets on Mobile: What Works (Data from 3,010 Stores) | Appfox",
+    metaDescription:
+      "Where to place a subscribe-and-save widget, how to word it and how many delivery options to show, based on 3,010 Shopify product pages measured on a phone.",
+    body: [
+      {
+        type: "p",
+        text: "At the end of September we loaded the best-selling product of 3,052 Shopify stores on a phone, and 3,010 of those pages rendered properly. On the ones that offered a subscription, the add-to-cart button sat lower than anywhere else: 45% of them had it 1.5 screens or more below the top, compared with 27% of pages without a subscription option.",
+      },
+      {
+        type: "p",
+        text: "In the pages we opened by hand, the usual culprit was the widget itself: tall, parked right above the button, and clearly never checked on a 390px screen before it went live. Subscription products also tend to have more variants, which doesn't help.",
+      },
+      {
+        type: "p",
+        text: "Below is what we look at on every subscription store we work on at EVDEV, and how to set each piece up in Appfox Subscriptions.",
+      },
+      {
+        type: "p",
+        text: "On Shopify product pages with a subscription option, 45.4% had add to cart 1.5+ screens down on a phone, vs 26.5% without.",
+      },
+      {
+        type: "p",
+        text: "How the numbers were collected: StorePilot loaded the best-selling product of 3,010 Shopify stores in a 390 × 844 phone viewport between September 30 and October 1, 2026, and recorded where the add-to-cart button started. A subscription option means the product had at least one selling plan.",
+      },
+      {
+        type: "h2",
+        text: "Where should the subscribe-and-save widget go?",
+      },
+      {
+        type: "p",
+        text: "Directly above the add-to-cart button, and inside the first screen. The shopper makes two decisions in a row: one-time or subscribe, then add to cart. Anything that sits between those two decisions costs taps.",
+      },
+      {
+        type: "p",
+        text: "We see two layouts go wrong over and over:",
+      },
+      {
+        type: "ul",
+        items: [
+          "The widget is under the button. People tap add to cart before they ever see the subscription. One-time purchase wins by default, not because anyone chose it.",
+          "The widget is above the button but huge. Benefit icons, a frequency table, a \"how it works\" accordion. On a phone that can push the button almost a full screen down.",
+        ],
+      },
+      {
+        type: "p",
+        text: "A test that takes ten seconds: open your best seller on your own phone, don't scroll, and take a screenshot. The price, the one-time/subscribe choice and the add-to-cart button should all be in that screenshot. If one is missing, the widget is either too tall or in the wrong place.",
+      },
+      {
+        type: "p",
+        text: "Appfox's subscribe-and-save widget is set up without code, so moving it shouldn't need a developer. Check the result in the theme editor's mobile preview after every change, because desktop will always look fine.",
+      },
+      {
+        type: "h2",
+        text: "How should you word the offer?",
+      },
+      {
+        type: "p",
+        text: "Say what the shopper saves and what they pay. \"Subscribe and save\" tells people there's a deal somewhere. \"$27 every 30 days (save $3)\" tells them what the deal is.",
+      },
+      {
+        type: "p",
+        text: "Label on the option, and what the shopper still has to figure out:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Subscribe and save — How much? How often? Can I stop?",
+          "Save 10% with a subscription — What do I actually pay per delivery?",
+          "$27 every 30 days (save $3) — Nothing. It's all on the screen.",
+        ],
+      },
+      {
+        type: "p",
+        text: "A few rules we stick to:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Put the subscription price on the subscription option itself, not only in the main price line.",
+          "On cheap products a percentage often sounds bigger than the dollar amount (\"save 10%\" vs \"save $1.20\"), so test which one your shoppers respond to.",
+          "Call the other option \"One-time purchase\". Not \"Buy once\", not \"Single order\".",
+          "Keep \"Skip or cancel anytime\" next to the offer in small text. An FAQ further down is too late.",
+        ],
+      },
+      {
+        type: "p",
+        text: "The labels in practice: Appfox's widget shows the saving on the subscription option (\"Subscribe & Save, 15% off\"), a plain \"One-time purchase\" and a note that the frequency can be changed anytime.",
+      },
+      {
+        type: "h2",
+        text: "How many delivery frequencies should you offer?",
+      },
+      {
+        type: "p",
+        text: "Two or three, with the most realistic one picked by default. Every extra choice on a small screen is one more reason to hesitate, and someone who isn't sure which interval fits often picks neither.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Base the default on how fast the product runs out. 30 servings taken daily means 30 days. Coffee for one person might be every two weeks.",
+          "Say it in plain terms. \"Every 30 days (one bag lasts about a month)\" beats a bare \"30 days\".",
+          "Use a dropdown or two or three buttons. A radio list of six intervals can add a third of a screen on its own.",
+          "Remind people they can change it later. It makes the first pick feel less permanent.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Frequencies come from the selling plans you set up in Appfox. Keep the list short per product.",
+      },
+      {
+        type: "p",
+        text: "Changing frequency instead of cancelling: in Appfox's portal a subscriber can switch from every week to every month in two taps.",
+      },
+      {
+        type: "p",
+        text: "Variants make this worse, by the way. In the same data, best sellers with six or more variants had the button at a median of 1.4 screens down, against 1.1 for single-variant products (867 and 1,253 pages). If your product has sizes and flavours and a subscription, every pixel of that widget counts double.",
+      },
+      {
+        type: "h2",
+        text: "Does a subscription widget slow the page down?",
+      },
+      {
+        type: "p",
+        text: "It can, and the bigger problem is usually movement, not load time. If the widget renders a beat after the rest of the page, everything under it jumps down. On a phone that's often the add-to-cart button sliding away just as someone goes to tap it.",
+      },
+      {
+        type: "p",
+        text: "What we check:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Cumulative Layout Shift. Run the product page through PageSpeed Insights on mobile. Google's \"good\" mark is 0.1 or lower. If the widget is what shifts, give it a fixed minimum height in the theme so the space exists before it loads.",
+          "Leftovers from the last app. When stores switch subscription apps, the old app's snippets often stay in the theme. That means duplicate scripts and sometimes two widgets fighting. Remove the old code, not just the app.",
+          "Decoration. Icons, illustrations and animated badges inside the widget add weight and height. Text and one accent colour are enough.",
+          "Your own phone, outside the office. Fast wifi and a laptop with dev tools hide most of this.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "What builds trust in a subscription before checkout?",
+      },
+      {
+        type: "p",
+        text: "Answering \"can I get out of this?\" on the product page. The fear of being stuck is the main reason people skip subscriptions, so deal with it where they decide.",
+      },
+      {
+        type: "p",
+        text: "Next to the subscription option, show:",
+      },
+      {
+        type: "ul",
+        items: [
+          "\"Skip, pause or cancel anytime\", but only if it's true and customers can do it themselves.",
+          "When they're charged. \"Charged today, then every 30 days\" removes the guessing.",
+          "A link to your subscription policy. One tap, opens in place.",
+          "Where they manage it. \"Manage deliveries from your account\" tells people they won't need to email support.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Then make sure the promise holds. Appfox's customer portal lets subscribers pause, skip, swap, reschedule or cancel on their own, so turn those on and test them. \"Cancel anytime\" followed by \"please email us to cancel\" is how stores end up with chargebacks and one-star reviews.",
+      },
+      {
+        type: "h2",
+        text: "Setup checklist for Appfox Subscriptions",
+      },
+      {
+        type: "p",
+        text: "Run this on your best-selling subscription product. It takes about 20 minutes.",
+      },
+      {
+        type: "ul",
+        items: [
+          "The widget sits directly above the add-to-cart button.",
+          "On a phone, without scrolling, you can see the price, the subscribe option and the button.",
+          "The subscription option shows the price per delivery and the saving.",
+          "The other option is labelled \"One-time purchase\".",
+          "Two or three frequencies, and the default matches how fast the product runs out.",
+          "\"Skip, pause or cancel anytime\" is visible next to the offer, and it's true.",
+          "Charge timing is visible before checkout.",
+          "The subscription policy is one tap away.",
+          "Mobile CLS is 0.1 or lower, and the widget doesn't jump in on load.",
+          "No code left over from a previous subscription app.",
+          "You've placed a test subscription and then skipped, paused and cancelled it from the portal.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Then pick one number to watch for a month: the share of that product's orders that are subscriptions. Change one thing at a time so you know what moved it.",
+      },
+      {
+        type: "p",
+        text: "Better still, test it instead of guessing. Every rule above is a starting point: A/B test the widget's placement and the offer wording, and keep whichever version brings in more subscriptions.",
+      },
+      {
+        type: "h2",
+        text: "Quick answers",
+      },
+      {
+        type: "h3",
+        text: "Should the subscription option be selected by default?",
+      },
+      {
+        type: "p",
+        text: "Only if most of that product's buyers are repeat customers. Preselecting it on a product people buy once tends to produce cancellations and support tickets, not loyal subscribers.",
+      },
+      {
+        type: "h3",
+        text: "How far down the page is too far for add to cart?",
+      },
+      {
+        type: "p",
+        text: "If it isn't on the first screen of a phone, it's too far. In our data, 79% of best-selling product pages missed that mark.",
+      },
+      {
+        type: "h2",
+        text: "About the author",
+      },
+      {
+        type: "p",
+        text: "Misha Gavura is a co-founder of EVDEV, a Toronto Shopify agency that has built more than 180 stores for merchants in Canada, the US and Australia. He also builds [StorePilot](https://www.usestorepilot.com), a Shopify conversion app that measures product pages the way shoppers see them on a phone.",
+      },
+    ],
+  },
+  {
     slug: "how-to-create-mix-and-match-bundles-on-shopify",
     title: "How to Create Mix-and-Match Bundles on Shopify",
     excerpt: "A mix-and-match bundle lets customers pick their own items from a set you choose and buy them together at a bundle price. Here's how to build one on Shopify (free native method and bundle-app method), price it without hurting margin, place it, and measure whether it's raising AOV.",
@@ -3022,6 +3256,7 @@ const postCatalog: Post[] = [
  * remove a collaboration while consolidating overlapping SEO topics.
  */
 const partnerPostSlugs = [
+  "subscribe-and-save-widget-mobile", // StorePilot / EVDEV guest post
   "how-to-create-mix-and-match-bundles-on-shopify", // BOGOS partner article
   "best-shopify-product-customization-apps-2026", // Easify partner article
   "shopify-subscription-renewal-triggers-review-request", // Loox
