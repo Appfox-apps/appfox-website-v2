@@ -1,6 +1,7 @@
 import { getApp } from "@/data/apps";
 import { InView } from "@/components/ui/InView";
 import { docsNavItem } from "@/lib/docs-nav";
+import { BuiltForShopifyBadge } from "@/components/subscription/BuiltForShopifyBadge";
 
 /**
  * Subscription hero - same "Counter" grammar as the home hero: light cream,
@@ -77,28 +78,34 @@ export function SubscriptionHero() {
               themselves.
             </p>
 
-            <div
-              className="enter-fade-rise mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
-              style={{ animationDelay: "220ms" }}
-            >
-              <a href={subscriptionApp.installUrl} className="btn-primary">
-                Install free on Shopify
-              </a>
-              <a href="#how-it-works" className="btn-secondary">
-                See how it works
-              </a>
-              {subscriptionDocs ? (
-                <a href={subscriptionDocs.href} className="btn-secondary">
-                  Read the docs
+            <div className="enter-fade-rise mt-6" style={{ animationDelay: "220ms" }}>
+              <BuiltForShopifyBadge href={subscriptionApp.installUrl} />
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                <a href={subscriptionApp.installUrl} className="btn-primary">
+                  Install free on Shopify
                 </a>
-              ) : null}
+                <a href="#how-it-works" className="btn-secondary">
+                  See how it works
+                </a>
+                {subscriptionDocs ? (
+                  <a href={subscriptionDocs.href} className="btn-secondary">
+                    Read the docs
+                  </a>
+                ) : null}
+              </div>
             </div>
 
             <p
               className="enter-fade-rise till mt-4 text-sm text-ink-500"
               style={{ animationDelay: "320ms" }}
             >
-              No code · Free to install · Works with Shopify Checkout
+              No code · Free to install · Built for Shopify
+            </p>
+            <p
+              className="enter-fade-rise mt-2 max-w-xl text-sm leading-relaxed text-ink-500"
+              style={{ animationDelay: "380ms" }}
+            >
+              Meets Shopify&apos;s standards for performance, design, and integration.
             </p>
 
             <ul

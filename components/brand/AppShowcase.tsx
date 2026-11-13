@@ -3,6 +3,7 @@ import { apps, getApp } from "@/data/apps";
 import { InView } from "@/components/ui/InView";
 import { Reveal, StaggerGroup } from "@/components/ui/Reveal";
 import { ImageReveal } from "@/components/ui/ImageReveal";
+import { BuiltForShopifyBadge } from "@/components/subscription/BuiltForShopifyBadge";
 
 /**
  * The front-of-house shelf: one large card per app, each with a mini
@@ -54,6 +55,9 @@ export function AppShowcase() {
                       {String(i + 1).padStart(2, "0")} · {app.pricingLine}
                     </p>
                     <h2 className="mt-4 !text-3xl sm:!text-4xl">{app.name}</h2>
+                    {app.slug === "subscription" ? (
+                      <BuiltForShopifyBadge href={app.installUrl} />
+                    ) : null}
                     <p className="mt-2 text-base font-medium text-brand-700">{app.tagline}</p>
 
                     <ImageReveal className="mt-6">{VIGNETTES[app.slug]}</ImageReveal>

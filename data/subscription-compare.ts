@@ -15,6 +15,10 @@
  * doc matches APP_IS_FREE: free for new installs, 0% transaction fees, every
  * feature unlocked. A merchant already on a paid plan keeps it. Support is
  * live chat and email, not 24/7. The listing is 5.0 from 1 review.
+ * Built for Shopify: Appfox Subscriptions earned it on 13 November 2026.
+ * Competitor badge cells were rechecked on the public listings that day.
+ * Appstle and Seal show the badge. Recharge, Loop, and Skio do not.
+ * Product Bundles is a different app and does not have the badge.
  *
  * Competitor cells were checked the same day against public help centers,
  * docs, pricing pages, and feature pages, then the App Store listing where
@@ -83,7 +87,7 @@ export const subscriptionCompare: CompareTable = {
   bestFor:
     "A new store that wants subscribe-and-save, a portal, and build-a-box without an app bill, and can live with one public review.",
   intro:
-    "This is a vendor page. Appfox Subscriptions is free for new installs, with 0% transaction fees and the features below unlocked. The current App Store listing is 5.0 from 1 review, launched 10 September 2026, and it does not have a Built for Shopify badge. Recharge, Appstle, Seal, Loop, and Skio have the review history and, in some cases, cancel-flow tools we do not ship. A question mark means the public help center, pricing page, or feature page we opened on 10 October 2026 does not say. We do not mark gaps as In development.",
+    "This is a vendor page. Appfox Subscriptions is free for new installs, with 0% transaction fees and the features below unlocked. The current App Store listing is 5.0 from 1 review, launched 10 September 2026, and it is Built for Shopify as of 13 November 2026. Recharge, Appstle, Seal, Loop, and Skio have the review history and, in some cases, cancel-flow tools we do not ship. A question mark means the public help center, pricing page, or feature page we opened on 10 October 2026 does not say. We do not mark gaps as In development.",
   vendors: [
     {
       id: A,
@@ -179,6 +183,10 @@ export const subscriptionCompare: CompareTable = {
       id: "9",
       text: "Not in the public help center, pricing page, or feature pages we opened on 10 October 2026.",
     },
+    {
+      id: "10",
+      text: "Built for Shopify for Appfox Subscriptions is as of 13 November 2026. Review counts in this row are from 10 October 2026. On 13 November 2026, Appstle and Seal still showed the badge. Recharge, Loop, and Skio still did not.",
+    },
   ],
   sections: [
     {
@@ -221,13 +229,13 @@ export const subscriptionCompare: CompareTable = {
           [K]: text("5.0 · 243 reviews"),
         }),
         row("bfs", "Built for Shopify badge", {
-          [A]: no,
+          [A]: yes,
           [R]: no,
           [P]: yes,
           [S]: yes,
           [L]: no,
           [K]: no,
-        }),
+        }, { hint: "Rechecked on the public listings, 13 Nov 2026. Appstle and Seal have it. Recharge, Loop, and Skio do not." }),
         row("checkout", "Shopify checkout", {
           [A]: yes,
           [R]: yes,
@@ -699,7 +707,7 @@ export const subscriptionCompare: CompareTable = {
           [K]: text("$599 plus 1% and 20¢"),
         }),
         row("proof", "Public proof on 10 Oct 2026", {
-          [A]: text("1 review, no badge"),
+          [A]: text("1 review, Built for Shopify", "10"),
           [R]: text("3,132 reviews, no badge"),
           [P]: text("8,975 reviews, Built for Shopify"),
           [S]: text("3,139 reviews, Built for Shopify"),
@@ -732,7 +740,7 @@ export const subscriptionCompare: CompareTable = {
     },
     {
       q: "What does Appfox Subscriptions not do yet?",
-      a: "There is no multi-step cancel-flow builder, no SMS, no Gorgias app, no referral program, and no inventory forecast. A shopper does not get a $0 trial: intro pricing is a lower price for the first cycles, then the normal discount. Payment methods saved in Shopify come across on an Appstle import. Cards held outside Shopify need customers to add them again. There is no Recharge file import; those moves are with our help. Customer skip is not a clean yes, because two of our own docs disagree. The retry schedule for failed cards is set by the app. The current listing has 1 review and no Built for Shopify badge.",
+      a: "There is no multi-step cancel-flow builder, no SMS, no Gorgias app, no referral program, and no inventory forecast. A shopper does not get a $0 trial: intro pricing is a lower price for the first cycles, then the normal discount. Payment methods saved in Shopify come across on an Appstle import. Cards held outside Shopify need customers to add them again. There is no Recharge file import; those moves are with our help. Customer skip is not a clean yes, because two of our own docs disagree. The retry schedule for failed cards is set by the app. The current listing has 1 review. It is Built for Shopify as of 13 November 2026.",
     },
     {
       q: "Is the app actually free?",
@@ -740,7 +748,7 @@ export const subscriptionCompare: CompareTable = {
     },
     {
       q: "Appfox has one review. Is that a real risk?",
-      a: "Yes. Appstle has 8,975 reviews and a Built for Shopify badge. Seal has 3,139 and the badge. Recharge has 3,132 reviews going back to 2014. One review on a listing launched 10 September 2026 is a fair reason to pick someone else, especially if you have to justify the install. Price is the Appfox case, not tenure.",
+      a: "Yes. Appstle has 8,975 reviews and a Built for Shopify badge. Seal has 3,139 and the badge. Recharge has 3,132 reviews going back to 2014. Appfox Subscriptions is also Built for Shopify as of 13 November 2026, and the listing still has 1 review from a launch on 10 September 2026. That review gap is a fair reason to pick someone else. Price is the Appfox case, not tenure.",
     },
     {
       q: "Can I move subscribers from Recharge or Appstle?",
@@ -748,7 +756,7 @@ export const subscriptionCompare: CompareTable = {
     },
     {
       q: "When is another app the better fit?",
-      a: "Recharge, when you want cancel-save, cohort benchmarks, or the $499 implementation, loyalty, and SMS set, and you can pay the fee. Appstle, when you want 8,975 reviews, a Built for Shopify badge, and 24/7 support, and you can live with build-a-box on the $30 plan. Seal, when you want a cheap subscriber-count bill, 18 languages, and an API on the free plan, and 50 subscriptions is enough to start. Loop, when the cancel flows and 15-retry dunning on the $99 plan are the job. Skio, when you want that cancel-flow builder and build-a-box on one $599 plan and the review base matters more than a free install.",
+      a: "Recharge, when you want cancel-save, cohort benchmarks, or the $499 implementation, loyalty, and SMS set, and you can pay the fee. Appstle, when you want 8,975 reviews and 24/7 support, and you can live with build-a-box on the $30 plan. Seal, when you want a cheap subscriber-count bill, 18 languages, and an API on the free plan, and 50 subscriptions is enough to start. Loop, when the cancel flows and 15-retry dunning on the $99 plan are the job. Skio, when you want that cancel-flow builder and build-a-box on one $599 plan and the review base matters more than a free install. Appfox, Appstle, and Seal are all Built for Shopify.",
     },
     {
       q: "Why is a cell a question mark?",
@@ -863,9 +871,9 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
           "Portal settings list Skip next order. The Reports page says customers cannot skip an order themselves. We are not calling that a yes.",
       },
       {
-        title: "No badge, no Gorgias, Flow is only a listing line",
+        title: "No Gorgias, and Flow is only a listing line",
         description:
-          "No Built for Shopify badge. Gorgias is not in our integrations docs. Shopify Flow is on the Works with line and not in the integrations docs we checked.",
+          "Gorgias is not in our integrations docs. Shopify Flow is on the Works with line and not in the integrations docs we checked.",
       },
     ],
     faq: [
@@ -895,12 +903,12 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
     metaDescription:
       "Appstle alternative for Shopify: Appfox Subscriptions is free for new installs with build-a-box included. Appstle has 8,975 reviews and puts build-a-box on the $30 plan. See the gaps.",
     summary:
-      "Appstle is free until $500 a month in subscription revenue, then $10, $30, or $100 a month, with 0% transaction fees stated on the paid plans. The free plan names prepaid, payment retry, built-in emails, analytics, churn control, a Shopify customer portal, and 24/7 support. Build-a-box and bundling are on the $30 plan. Product swap, a custom email domain, and APIs are on the $100 plan. The listing is 5.0 from 8,975 reviews and has a Built for Shopify badge. Appfox includes build-a-box, product swap, rewards, a custom email domain, and an API on a free install, and the current listing has 1 review and no badge. If the review base and round-the-clock support are the decision, Appstle is the better fit.",
+      "Appstle is free until $500 a month in subscription revenue, then $10, $30, or $100 a month, with 0% transaction fees stated on the paid plans. The free plan names prepaid, payment retry, built-in emails, analytics, churn control, a Shopify customer portal, and 24/7 support. Build-a-box and bundling are on the $30 plan. Product swap, a custom email domain, and APIs are on the $100 plan. The listing is 5.0 from 8,975 reviews and has a Built for Shopify badge. Appfox includes build-a-box, product swap, rewards, a custom email domain, and an API on a free install, and the current listing has 1 review. Appfox Subscriptions is also Built for Shopify as of 13 November 2026. If the review base and round-the-clock support are the decision, Appstle is the better fit.",
     whereTheyWin: [
       {
-        title: "8,975 reviews and the badge",
+        title: "8,975 reviews",
         description:
-          "Appstle shows 5.0 from 8,975 reviews and a Built for Shopify badge. Appfox shows 5.0 from 1 review and no badge. That gap is the main reason to stay.",
+          "Appstle shows 5.0 from 8,975 reviews. Appfox shows 5.0 from 1 review. Both are Built for Shopify as of 13 November 2026. The review gap is the main reason to stay.",
       },
       {
         title: "24/7 support on the free plan",
@@ -922,7 +930,7 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
       {
         title: "We do not have their review base",
         description:
-          "One review against 8,975 is not a close call. If a stakeholder needs the badge and the review count, do not install Appfox to save the $10.",
+          "One review against 8,975 is not a close call. If a stakeholder needs the review count, do not install Appfox to save the $10.",
       },
       {
         title: "No cancel-flow builder",
@@ -943,7 +951,7 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
     faq: [
       {
         q: "Is Appfox an Appstle alternative if I only need the core app?",
-        a: "If you want a widget, recurring billing, a portal, build-a-box, and Klaviyo without a revenue cap, Appfox is the cheaper install. It is a poor Appstle alternative if you are choosing on reviews, the Built for Shopify badge, or 24/7 support.",
+        a: "If you want a widget, recurring billing, a portal, build-a-box, and Klaviyo without a revenue cap, Appfox is the cheaper install. It is a poor Appstle alternative if you are choosing on reviews or 24/7 support.",
       },
       {
         q: "Appstle's free plan looks generous. What is the catch?",
@@ -955,7 +963,7 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
       },
       {
         q: "Is this page biased?",
-        a: "It is our page. Appstle's column is from public Appstle docs on 10 October 2026. We say they win on reviews, the badge, and support. Question marks are features those docs do not cover.",
+        a: "It is our page. Appstle's column is from public Appstle docs on 10 October 2026. We say they win on reviews and support. Both apps are Built for Shopify. Question marks are features those docs do not cover.",
       },
     ],
   },
@@ -967,12 +975,12 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
     metaDescription:
       "Seal Subscriptions alternative for Shopify: Seal is free for 50 subscriptions, then $5.95, with 0% fees and 3,139 reviews. Appfox is free for new installs with no subscriber cap. Compare the gaps.",
     summary:
-      "Seal is free for 50 subscriptions and unlimited revenue, then $5.95, $9.95, or $24.95 a month, and every listed plan says 0% transaction fees. The free plan names product swaps, tiered discounts, translations, and a full API. Passwordless portal login is on the $5.95 plan. A custom cancel flow is on the $9.95 plan. The listing is 4.9 from 3,139 reviews, 18 languages, and a Built for Shopify badge, launched in 2020. Appfox does not cap subscribers and is free for new installs, with build-a-box and a custom email domain included, and with 1 review and 9 languages. If you want Seal's review base, the badge, or those 18 languages, stay with Seal.",
+      "Seal is free for 50 subscriptions and unlimited revenue, then $5.95, $9.95, or $24.95 a month, and every listed plan says 0% transaction fees. The free plan names product swaps, tiered discounts, translations, and a full API. Passwordless portal login is on the $5.95 plan. A custom cancel flow is on the $9.95 plan. The listing is 4.9 from 3,139 reviews, 18 languages, and a Built for Shopify badge, launched in 2020. Appfox does not cap subscribers and is free for new installs, with build-a-box and a custom email domain included, and with 1 review and 9 languages. Both apps are Built for Shopify as of 13 November 2026. If you want Seal's review base or those 18 languages, stay with Seal.",
     whereTheyWin: [
       {
-        title: "Reviews, the badge, and 18 languages",
+        title: "Reviews and 18 languages",
         description:
-          "4.9 from 3,139 reviews, a Built for Shopify badge, and 18 languages on the listing. Appfox has 1 review, no badge, and 9 languages.",
+          "4.9 from 3,139 reviews and 18 languages on the listing. Appfox has 1 review and 9 languages. Both apps are Built for Shopify.",
       },
       {
         title: "A full API on the free plan",
@@ -992,9 +1000,9 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
     ],
     whatWeDont: [
       {
-        title: "We do not have their languages or their badge",
+        title: "We do not have their languages",
         description:
-          "Nine languages against eighteen, and no Built for Shopify badge. If the storefront has to be Arabic, Hebrew, Japanese, or Chinese, Seal's listing already names those and ours does not.",
+          "Nine languages against eighteen. If the storefront has to be Arabic, Hebrew, Japanese, or Chinese, Seal's listing already names those and ours does not.",
       },
       {
         title: "No cancel flow at any price",
@@ -1015,7 +1023,7 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
     faq: [
       {
         q: "Is Appfox a Seal Subscriptions alternative on price?",
-        a: "On the app bill, Appfox is cheaper: free for new installs, no 50-subscription cap, 0% of renewals. Seal is the better alternative if you want 3,139 reviews, the Built for Shopify badge, or 18 languages.",
+        a: "On the app bill, Appfox is cheaper: free for new installs, no 50-subscription cap, 0% of renewals. Seal is the better alternative if you want 3,139 reviews or 18 languages. Both apps are Built for Shopify.",
       },
       {
         q: "Does Seal charge a transaction fee?",
@@ -1023,7 +1031,7 @@ export const subscriptionVsPages: SubscriptionVsPage[] = [
       },
       {
         q: "What does Seal publish that Appfox does not?",
-        a: "A cancel flow on the $9.95 plan, a magic link in subscription emails, 18 languages, and the Built for Shopify badge. Build-a-box and Omnisend are not in the Seal manual we read, so those cells stay as question marks.",
+        a: "A cancel flow on the $9.95 plan, a magic link in subscription emails, and 18 languages. Both apps are Built for Shopify. Build-a-box and Omnisend are not in the Seal manual we read, so those cells stay as question marks.",
       },
       {
         q: "Is this comparison biased?",
