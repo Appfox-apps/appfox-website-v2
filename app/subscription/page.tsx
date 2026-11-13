@@ -17,7 +17,7 @@ const subscriptionApp = getApp("subscription")!;
 export const metadata: Metadata = pageMetadata({
   title: "Shopify Subscription App - Recurring Payments, Free for Now",
   description:
-    "Built for Shopify subscription app: subscribe-and-save widgets, recurring billing on Shopify Checkout, and a self-service customer portal. Free to install.",
+    "Subscribe-and-save widgets, auto-renewal billing on Shopify Checkout, and a self-service customer portal. Free for now - formerly Trust Subscriptions.",
   path: "/subscription",
 });
 
@@ -27,9 +27,7 @@ const softwareApplicationJsonLd = {
   "@id": `${site.url}/subscription#app`,
   name: subscriptionApp.name,
   url: `${site.url}/subscription`,
-  description:
-    "Built for Shopify subscription app: subscribe-and-save widgets, recurring billing on Shopify Checkout, and a self-service customer portal. Free to install.",
-  award: "Built for Shopify",
+  description: subscriptionApp.description,
   applicationCategory: "BusinessApplication",
   applicationSubCategory: "Shopify App",
   operatingSystem: "Web",

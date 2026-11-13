@@ -18,7 +18,7 @@ const bundlesApp = getApp("product-bundles")!;
 export const metadata: Metadata = pageMetadata({
   title: "Shopify Product Bundles App - Boost AOV with Bundle Offers",
   description:
-    "Create unlimited product bundles, volume discounts, BOGO offers, and mix-and-match deals. Theme-friendly widgets, easy setup. Free to start.",
+    "Appfox Product Bundles is Built for Shopify. Unlimited bundles, volume discounts, BOGO, and mix-and-match. Theme-friendly widgets. Free to start.",
   path: "/product-bundles",
 });
 
@@ -28,7 +28,9 @@ const softwareApplicationJsonLd = {
   "@id": `${site.url}/product-bundles#app`,
   name: bundlesApp.name,
   url: `${site.url}/product-bundles`,
-  description: bundlesApp.description,
+  description:
+    "Appfox Product Bundles is Built for Shopify. Unlimited bundles, volume discounts, BOGO, and mix-and-match. Theme-friendly widgets. Free to start.",
+  award: "Built for Shopify",
   applicationCategory: "BusinessApplication",
   applicationSubCategory: "Shopify App",
   operatingSystem: "Web",

@@ -1,15 +1,15 @@
 /**
- * Built for Shopify badge for Appfox Subscriptions only.
+ * Built for Shopify badge for Appfox Product Bundles only.
  *
  * Shopify's Partner media kit is not a public download. This is the badge
  * Shopify renders on App Store listings, checked 13 November 2026: the bag
  * paths and fills are copied unaltered from apps.shopify.com, the label is
  * the exact words "Built for Shopify", and the field is rgb(224, 240, 255)
  * with black text. Nothing here is recolored, shadowed, rotated, or animated.
- * The link is the Subscriptions listing. It does not say Shopify endorses
+ * The link is the Product Bundles listing. It does not say Shopify endorses
  * the Appfox brand.
  */
-const LISTING_URL = "https://apps.shopify.com/appfox-subscriptions";
+const LISTING_URL = "https://apps.shopify.com/trust-bundles";
 
 function ShopifyBag() {
   return (
@@ -37,7 +37,7 @@ export function BuiltForShopifyBadge({
       <a
         href={href}
         className="built-for-shopify-badge"
-        aria-label="Built for Shopify. View Appfox Subscriptions on the Shopify App Store."
+        aria-label="Built for Shopify. View Appfox Product Bundles on the Shopify App Store."
       >
         <ShopifyBag />
         <span className="built-for-shopify-badge-label">Built for Shopify</span>
