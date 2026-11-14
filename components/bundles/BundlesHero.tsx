@@ -1,6 +1,7 @@
 import { getApp } from "@/data/apps";
 import { InView } from "@/components/ui/InView";
 import { docsNavItem } from "@/lib/docs-nav";
+import { BuiltForShopifyBadge } from "@/components/bundles/BuiltForShopifyBadge";
 
 /**
  * Product Bundles hero - same "Counter" grammar as the subscription hero:
@@ -76,28 +77,35 @@ export function BundlesHero() {
               responsive widgets that match your theme. Easy setup, unlimited bundles.
             </p>
 
-            <div
-              className="enter-fade-rise mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
-              style={{ animationDelay: "220ms" }}
-            >
-              <a href={bundlesApp.installUrl} className="btn-primary">
-                Install free on Shopify
-              </a>
-              <a href="#how-it-works" className="btn-secondary">
-                See how it works
-              </a>
-              {bundlesDocs ? (
-                <a href={bundlesDocs.href} className="btn-secondary">
-                  Read the docs
+            <div className="enter-fade-rise mt-6" style={{ animationDelay: "220ms" }}>
+              <BuiltForShopifyBadge href={bundlesApp.installUrl} />
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                <a href={bundlesApp.installUrl} className="btn-primary">
+                  Install free on Shopify
                 </a>
-              ) : null}
+                <a href="#how-it-works" className="btn-secondary">
+                  See how it works
+                </a>
+                {bundlesDocs ? (
+                  <a href={bundlesDocs.href} className="btn-secondary">
+                    Read the docs
+                  </a>
+                ) : null}
+              </div>
             </div>
 
             <p
               className="enter-fade-rise till mt-4 text-sm text-ink-500"
               style={{ animationDelay: "320ms" }}
             >
-              No code · Free to start · Works with Shopify 2.0 themes
+              No code · Free to start · Built for Shopify
+            </p>
+            <p
+              className="enter-fade-rise mt-2 max-w-xl text-sm leading-relaxed text-ink-500"
+              style={{ animationDelay: "380ms" }}
+            >
+              Meets Shopify&apos;s standards for performance, design, and integration. Works with
+              Shopify 2.0 themes.
             </p>
 
             <ul

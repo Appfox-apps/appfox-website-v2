@@ -27,7 +27,7 @@ export const bundleCompetitors: Competitor[] = [
     tagline:
       "Kaching is the category's most-reviewed bundle app, with POS, layouts, and live chat to match. Appfox Product Bundles covers the same core offer types - and stays free.",
     framing:
-      "Kaching has the reviews, the Built for Shopify badge, and a mature widget system; the comparison comes down to whether you need that depth, or unlimited volume discounts, mix-and-match, and BOGO without a revenue-metered bill.",
+      "Kaching has the reviews and a mature widget system. Both apps are Built for Shopify. The comparison comes down to whether you need that depth, or unlimited volume discounts, mix-and-match, and BOGO without a revenue-metered bill.",
     metaTitle: "Kaching Alternative: Appfox Product Bundles vs Kaching (2026)",
     metaDescription:
       "Looking for a Kaching Bundles alternative? Appfox is free, with volume discounts, mix-and-match, BOGO, and FBT. Kaching has 6,000+ reviews, POS, and a sales meter from $14.99/mo.",
@@ -62,7 +62,7 @@ export const bundleCompetitors: Competitor[] = [
       { feature: "Pricing model", appfox: "Free, no limits", competitor: "From $14.99/mo, scales with sales" },
       { feature: "Free plan for live stores", appfox: true, competitor: "Free on dev stores" },
       { feature: "Shopify App Store rating", appfox: "5.0 (4 reviews)", competitor: "5.0 (6,243 reviews)" },
-      { feature: "Built for Shopify badge", appfox: false, competitor: true },
+      { feature: "Built for Shopify badge", appfox: true, competitor: true },
       { feature: "Volume discounts & quantity breaks", appfox: true, competitor: true },
       { feature: "Fixed / classic bundles", appfox: true, competitor: true },
       { feature: "Mix & match / build-a-box", appfox: true, competitor: true },
@@ -87,14 +87,14 @@ export const bundleCompetitors: Competitor[] = [
       },
       {
         q: "When is Kaching the better choice?",
-        a: "If you need Shopify POS, a large template library, progress bars, subscriptions inside bundles, or the reassurance of 6,000+ reviews and a Built for Shopify badge, Kaching is the stronger product. Pay for that depth when you will use it.",
+        a: "If you need Shopify POS, a large template library, progress bars, subscriptions inside bundles, or the reassurance of 6,000+ reviews, Kaching is the stronger product. Both apps are Built for Shopify. Pay for that depth when you will use it.",
       },
     ],
     whereTheyWin: [
       {
         title: "Reviews, badge, and installed confidence",
         description:
-          "Kaching's 5.0 from 6,243 reviews and Built for Shopify badge are in a different league from Appfox's 5.0 from 4 reviews. That social proof is a real reason to pick them, especially on a Plus store that has to justify the app to a team.",
+          "Kaching's 5.0 from 6,243 reviews is in a different league from Appfox's 5.0 from 4 reviews. Both apps are Built for Shopify. That review gap is a real reason to pick them, especially on a Plus store that has to justify the app to a team.",
       },
       {
         title: "Widget look-and-feel and template variety",
@@ -262,7 +262,7 @@ export const bundleCompetitors: Competitor[] = [
       { feature: "Price", appfox: "Free", competitor: "Free, then $9.99 / $19.99/mo" },
       { feature: "Free-plan revenue cap", appfox: "None", competitor: "Unlimited revenue & orders" },
       { feature: "Shopify App Store rating", appfox: "5.0 (4 reviews)", competitor: "4.9 (2,719 reviews)" },
-      { feature: "Built for Shopify badge", appfox: false, competitor: true },
+      { feature: "Built for Shopify badge", appfox: true, competitor: true },
       { feature: "Volume discounts & quantity breaks", appfox: true, competitor: "On free plan" },
       { feature: "Buy X Get Y", appfox: true, competitor: "On free plan" },
       { feature: "Mix & match / build-a-box", appfox: true, competitor: "From $9.99/mo" },
@@ -284,7 +284,7 @@ export const bundleCompetitors: Competitor[] = [
       },
       {
         q: "When is Bundler the better choice?",
-        a: "When you need Shopify POS on day one, a Built for Shopify badge, a 17-language widget, or subscription-product hooks - or when volume discounts alone on their free plan already do the job. Their review base is also two thousand times Appfox's.",
+        a: "When you need Shopify POS on day one, a 17-language widget, or subscription-product hooks - or when volume discounts alone on their free plan already do the job. Both apps are Built for Shopify. Their review base is also two thousand times Appfox's.",
       },
     ],
     whereTheyWin: [
@@ -294,9 +294,9 @@ export const bundleCompetitors: Competitor[] = [
           "Bundler's free tier includes unlimited revenue, quantity breaks, Buy X Get Y, product-page upsells, and POS. That is a better free plan than most of this category if you only need quantity breaks - including, on POS, better than Appfox.",
       },
       {
-        title: "POS, languages, and the Built for Shopify badge",
+        title: "POS and languages",
         description:
-          "POS is on Bundler's free plan. The listing names 17 languages. Built for Shopify is on the listing. Appfox has none of those three.",
+          "POS is on Bundler's free plan. The listing names 17 languages. Both apps are Built for Shopify. Appfox does not have POS or those 17 languages.",
       },
       {
         title: "Tenure and reviews",
@@ -358,7 +358,7 @@ export const bundleCompetitors: Competitor[] = [
       { feature: "Price", appfox: "Free", competitor: "Free (capped), then $14 / $39 / $149/mo" },
       { feature: "Free-plan limits", appfox: "None", competitor: "3 bundles, 50 orders/mo" },
       { feature: "Shopify App Store rating", appfox: "5.0 (4 reviews)", competitor: "4.9 (804 reviews)" },
-      { feature: "Built for Shopify badge", appfox: false, competitor: true },
+      { feature: "Built for Shopify badge", appfox: true, competitor: true },
       { feature: "Volume discounts & quantity breaks", appfox: true, competitor: true },
       { feature: "Mix & match / BYOB", appfox: true, competitor: true },
       { feature: "BOGO", appfox: true, competitor: true },
@@ -456,7 +456,7 @@ export const bundleCompetitors: Competitor[] = [
       { feature: "Pricing model", appfox: "Free, no limits", competitor: "From $14.99/mo, scales with sales" },
       { feature: "Free plan for live stores", appfox: true, competitor: "Free on dev stores; 14-day trial" },
       { feature: "Shopify App Store rating", appfox: "5.0 (4 reviews)", competitor: "4.9 (320 reviews)" },
-      { feature: "Built for Shopify badge", appfox: false, competitor: true },
+      { feature: "Built for Shopify badge", appfox: true, competitor: true },
       { feature: "Volume discounts & quantity breaks", appfox: true, competitor: true },
       { feature: "Mix & match", appfox: true, competitor: true },
       { feature: "BOGO", appfox: true, competitor: true },
@@ -492,9 +492,9 @@ export const bundleCompetitors: Competitor[] = [
           "Wide Bundles lists A/B testing as a first-class design feature. Appfox has weighted variants and a pick-a-winner flow. If the job is testing layouts and colors, they have more of a studio.",
       },
       {
-        title: "Built for Shopify and review history",
+        title: "Review history",
         description:
-          "Built for Shopify, 320 reviews, launched 2020. Appfox has 4 reviews and no badge. That gap is not a feature - it is a risk signal, and it favors them.",
+          "320 reviews, launched 2020. Appfox has 4 reviews. Both apps are Built for Shopify. The review gap is not a feature - it is a risk signal, and it favors them.",
       },
       {
         title: "Page builders and cart drawers",

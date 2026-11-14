@@ -598,6 +598,55 @@ h3 {
   }
 }
 
+/*
+ * Built for Shopify badge. Proportions match the badge Shopify renders on
+ * App Store listings (bag paths, rgb(224, 240, 255) field, black label,
+ * 4px radius at a 12px base). Scaled uniformly so the badge is at least
+ * 30px tall. No border, shadow, recolor, rotation, or motion.
+ * Clear space is half the badge height and stays empty.
+ */
+.built-for-shopify-badge-space {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 0.81em;
+  font-size: 1.1875rem;
+  line-height: 1;
+}
+.built-for-shopify-badge {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  border: 0;
+  border-radius: 0.333em;
+  padding: 0.0833em 0.6667em;
+  background-color: rgb(224, 240, 255);
+  color: #000;
+  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1em;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: 0;
+  text-decoration: none;
+  text-transform: none;
+  box-shadow: none;
+}
+.built-for-shopify-badge:hover {
+  background-color: rgb(209, 233, 255);
+  color: #000;
+  text-decoration: none;
+  box-shadow: none;
+}
+.built-for-shopify-badge svg {
+  display: block;
+  height: 0.75em;
+  width: auto;
+  flex: none;
+}
+.built-for-shopify-badge-label {
+  margin-inline-start: 0.333em;
+}
+
 /* Reduced motion: marquees stop, everything is visible */
 @media (prefers-reduced-motion: reduce) {
   .marquee-x,

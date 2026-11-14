@@ -165,7 +165,7 @@ export const bundleCompare: CompareTable = {
   bestFor:
     "Stores that want volume discounts, mix-and-match, BOGO, frequently bought together, and gifts on a free install — and can live with four reviews and no verified POS.",
   intro:
-    "Appfox Product Bundles is free: volume discounts, fixed bundles, mix-and-match, BOGO, frequently bought together, free gifts, add-ons, A/B tests, countdown offers, and seven storefront languages. 5.0 from 4 reviews, no Built for Shopify badge. Kaching, Fast Bundle, Bundler, and Simple Bundles have hundreds to thousands of reviews, plus POS or warehouse kits we do not have. Most of them charge more as bundle sales grow. Shopify Bundles is the free first-party app for fixed kits only. We checked the Appfox column against the product on 9 October 2026. A ? means we could not confirm that cell from public docs. Wide Bundles and Rebolt have their own /vs pages — same table data, two columns.",
+    "Appfox Product Bundles is free: volume discounts, fixed bundles, mix-and-match, BOGO, frequently bought together, free gifts, add-ons, A/B tests, countdown offers, and seven storefront languages. 5.0 from 4 reviews, and Built for Shopify as of 13 November 2026. Kaching, Fast Bundle, Bundler, and Simple Bundles have hundreds to thousands of reviews, plus POS or warehouse kits we do not have. Most of them charge more as bundle sales grow. Shopify Bundles is the free first-party app for fixed kits only. We checked the Appfox column against the product on 9 October 2026. A ? means we could not confirm that cell from public docs. Wide Bundles and Rebolt have their own /vs pages — same table data, two columns.",
   vendors: [
     {
       id: V.appfox,
@@ -280,15 +280,15 @@ export const bundleCompare: CompareTable = {
           [V.rebolt]: text("4.8 · 586 reviews"),
         }),
         row("bfs", "Built for Shopify badge", {
-          [V.appfox]: no,
+          [V.appfox]: yes,
           [V.kaching]: yes,
           [V.fast]: no,
           [V.bundler]: yes,
           [V.simple]: yes,
-          [V.shopify]: via("First-party app"),
+          [V.shopify]: no,
           [V.wide]: yes,
           [V.rebolt]: no,
-        }),
+        }, { hint: "Rechecked on the public listings, 13 Nov 2026. Fast Bundle, Shopify Bundles, and Rebolt do not show the badge." }),
         row("mix-match", "Mix & match / build-a-box", {
           [V.appfox]: yes,
           [V.kaching]: yes,
@@ -1032,15 +1032,15 @@ export const bundleCompare: CompareTable = {
           [V.shopify]: via("Shopify Help Center"),
         }),
         row("bfs-support", "Built for Shopify badge", {
-          [V.appfox]: no,
+          [V.appfox]: yes,
           [V.kaching]: yes,
           [V.fast]: no,
           [V.bundler]: yes,
           [V.simple]: yes,
-          [V.shopify]: via("First-party"),
+          [V.shopify]: no,
           [V.wide]: yes,
           [V.rebolt]: no,
-        }),
+        }, { hint: "Same check as the row above: public listings, 13 Nov 2026." }),
         row(
           "live-chat",
           "Live chat support",
@@ -1093,7 +1093,7 @@ export const bundleCompare: CompareTable = {
     },
     {
       q: "Appfox has four reviews. Is that a real risk?",
-      a: "Yes. Kaching has 6,243 reviews, Fast Bundle 3,533, Bundler 2,719. Four reviews and no Built for Shopify badge is a fair reason to pick someone else, especially on a Plus store that has to justify the install. Price and the verified feature set are the Appfox case, not tenure.",
+      a: "Yes. Kaching has 6,243 reviews, Fast Bundle 3,533, Bundler 2,719. Four reviews is a fair reason to pick someone else, especially on a Plus store that has to justify the install. Appfox Product Bundles is Built for Shopify as of 13 November 2026. Price and the verified feature set are the Appfox case, not tenure.",
     },
     {
       q: "When is each competitor the better choice?",
@@ -1180,9 +1180,9 @@ export const bundleAlternatives: BundleAlternative[] = [
     h1: "Kaching Alternative: Appfox Product Bundles vs Kaching (2026)",
     tagline: "Kaching is the most-reviewed bundle app. Appfox covers the same core offers and stays free.",
     summary:
-      "Kaching has the reviews, the Built for Shopify badge, POS, spend meters, and live chat. Plans start at $14.99/mo and rise as bundle sales grow; offers can pause if you hit the cap. Appfox is free, with no sales meter, and ships volume discounts, mix-and-match, BOGO, FBT, gifts, add-ons, and A/B tests. Four reviews. POS is unclear on our side.",
+      "Kaching has the reviews, POS, spend meters, and live chat. Plans start at $14.99/mo and rise as bundle sales grow; offers can pause if you hit the cap. Appfox is free, with no sales meter, and ships volume discounts, mix-and-match, BOGO, FBT, gifts, add-ons, and A/B tests. Four reviews. Both are Built for Shopify as of 13 November 2026. POS is unclear on our side.",
     betterFit:
-      "Pick Kaching if you need Shopify POS, spend meters, a large review base, or the Built for Shopify badge. That depth is real.",
+      "Pick Kaching if you need Shopify POS, spend meters, or a large review base. That depth is real.",
     gaps:
       "Appfox does not have a verified POS channel, spend meters, or 6,000 reviews. We do not do checkout or post-purchase upsells.",
     whoShouldSwitch:
@@ -1198,7 +1198,7 @@ export const bundleAlternatives: BundleAlternative[] = [
       },
       {
         q: "When should I stay on Kaching?",
-        a: "If you sell on POS, want spend meters, or need a Built for Shopify badge and thousands of reviews to justify the install.",
+        a: "If you sell on POS, want spend meters, or need thousands of reviews to justify the install. Both apps are Built for Shopify.",
       },
     ],
     sources: [
@@ -1255,7 +1255,7 @@ export const bundleAlternatives: BundleAlternative[] = [
     h1: "Bundler Alternative: Appfox Product Bundles vs Bundler (2026)",
     tagline: "Bundler’s free plan is excellent for volume discounts. Mix-and-match and analytics are paid.",
     summary:
-      "Bundler has been on the store since 2019, with 2,719 reviews, a Built for Shopify badge, 17 languages, and POS on the free plan. Volume discounts and Buy X Get Y are free. Mix-and-match starts at $9.99/mo; analytics at $19.99/mo. Appfox includes mix-and-match and analytics on a free install. We do not have a verified POS channel.",
+      "Bundler has been on the store since 2019, with 2,719 reviews, a Built for Shopify badge, 17 languages, and POS on the free plan. Volume discounts and Buy X Get Y are free. Mix-and-match starts at $9.99/mo; analytics at $19.99/mo. Appfox includes mix-and-match and analytics on a free install, and is also Built for Shopify as of 13 November 2026. We do not have a verified POS channel.",
     betterFit:
       "Pick Bundler if you want POS on day one, 17 languages, or volume discounts on a genuinely useful free plan.",
     gaps:
@@ -1364,7 +1364,7 @@ export const bundleAlternatives: BundleAlternative[] = [
     h1: "Wide Bundles Alternative: Appfox Product Bundles vs Wide Bundles (2026)",
     tagline: "Wide Bundles sells design control. Appfox sells a free, theme-native widget for the same offers.",
     summary:
-      "Wide Bundles is Built for Shopify, 4.9 from 320 reviews, with 100+ design options, A/B tests, and PageFly / GemPages connectors. Live stores start at $14.99/mo against additional-revenue caps. Dev stores are free; 14-day trial. Appfox lists the same offer family on a free install: four layouts, badge styles, and custom CSS, not a 100-option studio.",
+      "Wide Bundles is Built for Shopify, 4.9 from 320 reviews, with 100+ design options, A/B tests, and PageFly / GemPages connectors. Live stores start at $14.99/mo against additional-revenue caps. Dev stores are free; 14-day trial. Appfox lists the same offer family on a free install: four layouts, badge styles, and custom CSS, not a 100-option studio. Appfox is also Built for Shopify as of 13 November 2026.",
     betterFit:
       "Pick Wide Bundles if the widget has to look like a designed campaign, or you already run the page builders they connect to.",
     gaps:
