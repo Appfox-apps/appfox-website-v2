@@ -6,7 +6,8 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { site } from "@/lib/site";
 import { competitorsForApp } from "@/data/competitors";
-import { apps } from "@/data/apps";
+import { apps, publicApps } from "@/data/apps";
+import { isAppPublic } from "@/lib/visibility";
 import { enabledDocsNavItems, isDocsPath, type DocsNavItem } from "@/lib/docs-nav";
 import { Wordmark } from "./Wordmark";
 
@@ -28,34 +29,34 @@ const MOBILE_LINKS = [
 ];
 
 const FEATURES_LINKS = [
-  { label: "Order Editing & Upsell", detail: "Self-service edits + upsells", href: "/features/order-editing" },
-  { label: "Subscription", detail: "Recurring billing + portal", href: "/features/subscription" },
-  { label: "Product Bundles", detail: "Bundle offers + volume discounts", href: "/features/product-bundles" },
-];
+  { label: "Order Editing & Upsell", detail: "Self-service edits + upsells", href: "/features/order-editing", app: "order-editing" },
+  { label: "Subscription", detail: "Recurring billing + portal", href: "/features/subscription", app: "subscription" },
+  { label: "Product Bundles", detail: "Bundle offers + volume discounts", href: "/features/product-bundles", app: "product-bundles" },
+].filter((link) => isAppPublic(link.app));
 
 const HOW_IT_WORKS_LINKS = [
-  { label: "Order Editing & Upsell", detail: "Confirmation email → settled edit", href: "/order-editing#how-it-works" },
-  { label: "Subscription", detail: "Product page → renewal", href: "/subscription#how-it-works" },
-  { label: "Product Bundles", detail: "Create bundle → boost AOV", href: "/product-bundles#how-it-works" },
-];
+  { label: "Order Editing & Upsell", detail: "Confirmation email → settled edit", href: "/order-editing#how-it-works", app: "order-editing" },
+  { label: "Subscription", detail: "Product page → renewal", href: "/subscription#how-it-works", app: "subscription" },
+  { label: "Product Bundles", detail: "Create bundle → boost AOV", href: "/product-bundles#how-it-works", app: "product-bundles" },
+].filter((link) => isAppPublic(link.app));
 
 const FAQ_LINKS = [
-  { label: "Order Editing & Upsell", detail: "Edits, approvals & upsells", href: "/order-editing#faq" },
-  { label: "Subscription", detail: "Billing, portal & migration", href: "/subscription#faq" },
-  { label: "Product Bundles", detail: "Bundle types, pricing & setup", href: "/product-bundles#faq" },
-];
+  { label: "Order Editing & Upsell", detail: "Edits, approvals & upsells", href: "/order-editing#faq", app: "order-editing" },
+  { label: "Subscription", detail: "Billing, portal & migration", href: "/subscription#faq", app: "subscription" },
+  { label: "Product Bundles", detail: "Bundle types, pricing & setup", href: "/product-bundles#faq", app: "product-bundles" },
+].filter((link) => isAppPublic(link.app));
 
 const PRICING_LINKS = [
-  { label: "Order Editing & Upsell", detail: "Free plan · paid from $19/mo", href: "/pricing/order-editing" },
-  { label: "Subscription", detail: "Free for now · every feature", href: "/pricing/subscription" },
-  { label: "Product Bundles", detail: "Free to start", href: "/pricing/product-bundles" },
-];
+  { label: "Order Editing & Upsell", detail: "Free plan · paid from $19/mo", href: "/pricing/order-editing", app: "order-editing" },
+  { label: "Subscription", detail: "Free for now · every feature", href: "/pricing/subscription", app: "subscription" },
+  { label: "Product Bundles", detail: "Free to start", href: "/pricing/product-bundles", app: "product-bundles" },
+].filter((link) => isAppPublic(link.app));
 
 const COMPARE_GROUPS = [
-  { label: "Order Editing & Upsell", competitors: competitorsForApp("order-editing") },
-  { label: "Subscription", competitors: competitorsForApp("subscription") },
-  { label: "Product Bundles", competitors: competitorsForApp("product-bundles") },
-];
+  { label: "Order Editing & Upsell", app: "order-editing", competitors: competitorsForApp("order-editing") },
+  { label: "Subscription", app: "subscription", competitors: competitorsForApp("subscription") },
+  { label: "Product Bundles", app: "product-bundles", competitors: competitorsForApp("product-bundles") },
+].filter((group) => isAppPublic(group.app));
 
 /** Routes whose install CTA should point at Appfox Subscription. */
 const SUBSCRIPTION_PATHS = new Set([
@@ -121,17 +122,22 @@ function DocsDesktopNav({ items }: { items: readonly DocsNavItem[] }) {
 }
 
 /** The navbar install CTA follows the app the visitor is reading about. */
-function installUrlForPath(pathname: string): string {
+function installTargetForPath(pathname: string): { href: string; label: string } {
   const subscriptionApp = apps.find((a) => a.slug === "subscription");
   const bundlesApp = apps.find((a) => a.slug === "product-bundles");
-  if (subscriptionApp && SUBSCRIPTION_PATHS.has(pathname)) return subscriptionApp.installUrl;
-  if (bundlesApp && BUNDLES_PATHS.has(pathname)) return bundlesApp.installUrl;
-  return site.installUrl;
+  if (subscriptionApp && SUBSCRIPTION_PATHS.has(pathname)) {
+    return { href: subscriptionApp.installUrl, label: "Install free" };
+  }
+  if (bundlesApp && BUNDLES_PATHS.has(pathname)) {
+    return { href: bundlesApp.installUrl, label: "Install free" };
+  }
+  if (isAppPublic("order-editing")) return { href: site.installUrl, label: "Install free" };
+  return { href: "/apps", label: "See apps" };
 }
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const installUrl = installUrlForPath(usePathname() ?? "/");
+  const installTarget = installTargetForPath(usePathname() ?? "/");
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -188,7 +194,7 @@ export function Navbar() {
                 </Link>
                 <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 transition-all duration-700">
                   <div className="card w-72 p-2 shadow-(--shadow-raised)">
-                    {apps.map((app) => (
+                    {publicApps.map((app) => (
                       <Link
                         key={app.slug}
                         href={app.href}
@@ -229,8 +235,8 @@ export function Navbar() {
 
             {/* CTA button */}
             <div className="hidden md:flex items-center">
-              <a href={installUrl} className="btn-primary !px-4 !py-2 !text-sm">
-                Install free
+              <a href={installTarget.href} className="btn-primary !px-4 !py-2 !text-sm">
+                {installTarget.label}
               </a>
             </div>
             {/* Mobile toggle - animated hamburger */}
@@ -305,8 +311,8 @@ export function Navbar() {
                 animation: "enter-fade-rise 800ms var(--ease-out-soft) both",
               }}
             >
-              <a href={installUrl} className="btn-primary" onClick={() => setMobileOpen(false)}>
-                Install free
+              <a href={installTarget.href} className="btn-primary" onClick={() => setMobileOpen(false)}>
+                {installTarget.label}
               </a>
               <a
                 href={`mailto:${site.supportEmail}`}

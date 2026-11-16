@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { INLINE_LINK_RE, type PostBlock } from "@/data/posts";
+import { isHiddenPublicPath } from "@/lib/hidden-routes";
 
 const linkClass =
   "font-medium text-brand-600 underline decoration-brand-200 decoration-2 underline-offset-[3px] transition-colors hover:text-brand-700 hover:decoration-brand-300";
@@ -10,6 +11,14 @@ const linkClass =
  * Content stays plain strings in data/posts.ts (JSON-LD-safe); only this
  * renderer knows about the link syntax.
  */
+function linksHiddenPath(text: string): boolean {
+  for (const match of text.matchAll(new RegExp(INLINE_LINK_RE.source, "g"))) {
+    const href = match[2];
+    if (href?.startsWith("/") && isHiddenPublicPath(href)) return true;
+  }
+  return false;
+}
+
 function RichText({ text }: { text: string }) {
   const nodes: React.ReactNode[] = [];
   let last = 0;
@@ -40,9 +49,20 @@ function RichText({ text }: { text: string }) {
  * `img` blocks) so the same data can feed JSON-LD without escaping surprises.
  */
 export function PostBody({ blocks }: { blocks: PostBlock[] }) {
+  const visibleBlocks: PostBlock[] = [];
+  for (const block of blocks) {
+    if (block.type === "ul" || block.type === "ol") {
+      const items = block.items.filter((item) => !linksHiddenPath(item));
+      if (items.length > 0) visibleBlocks.push({ ...block, items });
+      continue;
+    }
+    if ("text" in block && linksHiddenPath(block.text)) continue;
+    visibleBlocks.push(block);
+  }
+
   return (
     <div className="max-w-[68ch]">
-      {blocks.map((block, i) => {
+      {visibleBlocks.map((block, i) => {
         switch (block.type) {
           case "h2":
             return (

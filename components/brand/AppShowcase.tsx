@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { apps, getApp } from "@/data/apps";
+import { publicApps } from "@/data/apps";
 import { InView } from "@/components/ui/InView";
 import { Reveal, StaggerGroup } from "@/components/ui/Reveal";
 import { ImageReveal } from "@/components/ui/ImageReveal";
@@ -10,9 +10,6 @@ import { BuiltForShopifyBadge } from "@/components/bundles/BuiltForShopifyBadge"
  * product vignette, the app's proof points, and both CTAs. Sits directly
  * under the brand hero on the same paper-wash - the hero's second half.
  */
-
-const orderEditing = getApp("order-editing")!;
-const subscription = getApp("subscription")!;
 
 /** Hand-drawn tick - never a ✓ character. */
 function Tick({ delay }: { delay: number }) {
@@ -44,7 +41,7 @@ export function AppShowcase() {
         <InView>
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
             <StaggerGroup step={140}>
-              {apps.map((app, i) => (
+              {publicApps.map((app, i) => (
                 <Reveal key={app.slug} index={i} className="h-full">
                   <article className="relative flex h-full flex-col rounded-2xl border border-paper-edge bg-paper-raised p-7 shadow-(--shadow-raised) transition-all duration-700 hover:-translate-y-1 hover:shadow-(--shadow-pop) sm:p-9">
                     <span className="sticker absolute -top-4 left-8 whitespace-nowrap">
@@ -60,7 +57,9 @@ export function AppShowcase() {
                     ) : null}
                     <p className="mt-2 text-base font-medium text-brand-700">{app.tagline}</p>
 
-                    <ImageReveal className="mt-6">{VIGNETTES[app.slug]}</ImageReveal>
+                    {VIGNETTES[app.slug] ? (
+                      <ImageReveal className="mt-6">{VIGNETTES[app.slug]}</ImageReveal>
+                    ) : null}
 
                     <ul className="mt-6 space-y-2.5 border-t border-paper-edge pt-6">
                       {app.highlights.slice(0, 3).map((h, j) => (

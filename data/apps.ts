@@ -1,7 +1,13 @@
+import { isAppPublic } from "@/lib/visibility";
+
 /**
  * The Appfox app catalog - one entry per Shopify app we ship. Navbar,
  * Footer, /apps, and llms.txt all render from this list, so adding an app
  * here is the single step that makes the site aware of it.
+ *
+ * `publicApps` is the same list with HIDDEN_APP_SLUGS removed. Use it for
+ * anything a visitor or crawler can see. `apps` stays complete so turning
+ * an app back on does not require restoring its catalog entry.
  */
 export type AppEntry = {
   slug: string;
@@ -80,3 +86,6 @@ export const apps: AppEntry[] = [
 export function getApp(slug: string): AppEntry | undefined {
   return apps.find((a) => a.slug === slug);
 }
+
+/** Apps currently shown on the site. */
+export const publicApps: AppEntry[] = apps.filter((app) => isAppPublic(app.slug));

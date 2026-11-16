@@ -3,6 +3,7 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { Perforation } from "@/components/site/Perforation";
 import { site } from "@/lib/site";
+import { isAppPublic } from "@/lib/visibility";
 import { routeMeta } from "@/lib/seo";
 
 export const metadata: Metadata = routeMeta.privacy;
@@ -53,11 +54,21 @@ export default function PrivacyPage() {
           </p>
 
           <p className="mt-8 text-ink-700 leading-relaxed">
-            Appfox (&ldquo;we&rdquo;, &ldquo;us&rdquo;) makes Shopify apps: {site.appName}, which
-            lets customers edit their own orders and adds post-purchase upsells, and Appfox
-            Subscription, which powers recurring subscriptions. This policy explains what data
-            our apps touch, why, and what happens to it. We have tried to keep it in plain
-            language - if anything is unclear, email{" "}
+            {isAppPublic("order-editing") ? (
+              <>
+                Appfox (&ldquo;we&rdquo;, &ldquo;us&rdquo;) makes Shopify apps: {site.appName}, which
+                lets customers edit their own orders and adds post-purchase upsells, and Appfox
+                Subscription, which powers recurring subscriptions.{" "}
+              </>
+            ) : (
+              <>
+                Appfox (&ldquo;we&rdquo;, &ldquo;us&rdquo;) makes Shopify apps: Appfox Subscription,
+                which powers recurring subscriptions, and Appfox Product Bundles, which builds
+                product bundles and volume discounts.{" "}
+              </>
+            )}
+            This policy explains what data our apps touch, why, and what happens to it. We have
+            tried to keep it in plain language - if anything is unclear, email{" "}
             <a className="text-brand-500 underline underline-offset-2" href={`mailto:${site.supportEmail}`}>
               {site.supportEmail}
             </a>
@@ -66,11 +77,21 @@ export default function PrivacyPage() {
 
           <Section no="01" title="What this policy covers">
             <p>
-              This policy covers the Appfox apps installed from the Shopify App Store - the
-              customer-facing editing on your store&rsquo;s thank-you and order status pages, the
-              subscription widgets and customer portal - and this marketing website. It
-              does not cover Shopify itself or other apps you install - those have their own
-              policies.
+              {isAppPublic("order-editing") ? (
+                <>
+                  This policy covers the Appfox apps installed from the Shopify App Store - the
+                  customer-facing editing on your store&rsquo;s thank-you and order status pages, the
+                  subscription widgets and customer portal - and this marketing website. It does not
+                  cover Shopify itself or other apps you install - those have their own policies.
+                </>
+              ) : (
+                <>
+                  This policy covers the Appfox apps installed from the Shopify App Store - the
+                  subscription widgets and customer portal, and the product bundle widgets - and this
+                  marketing website. It does not cover Shopify itself or other apps you install -
+                  those have their own policies.
+                </>
+              )}
             </p>
           </Section>
 
@@ -85,23 +106,50 @@ export default function PrivacyPage() {
 
           <Section no="03" title="Order data we access through the Shopify API">
             <p>
-              To power order editing and subscriptions, our apps read and update order data
-              through Shopify&rsquo;s APIs. This includes order contents (products, variants,
-              quantities, prices), shipping addresses, order status and fulfillment state,
-              subscription contracts and billing schedules, and the customer name and email
-              attached to an order - used to send edit and renewal confirmations. We access
-              only the data each app needs to function, under the API scopes you approve at
-              install.
+              {isAppPublic("order-editing") ? (
+                <>
+                  To power order editing and subscriptions, our apps read and update order data
+                  through Shopify&rsquo;s APIs. This includes order contents (products, variants,
+                  quantities, prices), shipping addresses, order status and fulfillment state,
+                  subscription contracts and billing schedules, and the customer name and email
+                  attached to an order - used to send edit and renewal confirmations. We access
+                  only the data each app needs to function, under the API scopes you approve at
+                  install.
+                </>
+              ) : (
+                <>
+                  To power subscriptions and product bundles, our apps read and update order data
+                  through Shopify&rsquo;s APIs. This includes order contents (products, variants,
+                  quantities, prices), shipping addresses, order status and fulfillment state,
+                  subscription contracts and billing schedules, and the customer name and email
+                  attached to an order - used to send renewal confirmations. We access only the data
+                  each app needs to function, under the API scopes you approve at install.
+                </>
+              )}
             </p>
           </Section>
 
           <Section no="04" title="How we use this information">
             <ul className="list-disc pl-5 space-y-1.5">
-              <li>To let customers view and edit their orders within the rules you set.</li>
+              {isAppPublic("order-editing") ? (
+                <li>To let customers view and edit their orders within the rules you set.</li>
+              ) : null}
               <li>To let customers manage their subscriptions - skip, pause, swap, or cancel - in the customer portal.</li>
-              <li>To run your approval queue, notifications, and integrations you enable.</li>
-              <li>To process payment differences, recurring charges, and refunds through Shopify.</li>
-              <li>To show you analytics about edits, upsell revenue, and subscriptions in your dashboard.</li>
+              <li>
+                {isAppPublic("order-editing")
+                  ? "To run your approval queue, notifications, and integrations you enable."
+                  : "To run notifications and integrations you enable."}
+              </li>
+              <li>
+                {isAppPublic("order-editing")
+                  ? "To process payment differences, recurring charges, and refunds through Shopify."
+                  : "To process recurring charges and refunds through Shopify."}
+              </li>
+              <li>
+                {isAppPublic("order-editing")
+                  ? "To show you analytics about edits, upsell revenue, and subscriptions in your dashboard."
+                  : "To show you analytics about subscriptions and bundles in your dashboard."}
+              </li>
               <li>To provide support and to operate, secure, and improve the service.</li>
             </ul>
           </Section>
@@ -109,7 +157,11 @@ export default function PrivacyPage() {
           <Section no="05" title="What we never do">
             <ul className="list-disc pl-5 space-y-1.5">
               <li>We do not sell your data or your customers&rsquo; data. Ever.</li>
-              <li>We do not show third-party ads on your storefront or in the edit flow.</li>
+              <li>
+                {isAppPublic("order-editing")
+                  ? "We do not show third-party ads on your storefront or in the edit flow."
+                  : "We do not show third-party ads on your storefront."}
+              </li>
               <li>We do not market to your customers or use their data to train models.</li>
               <li>We do not access data beyond the Shopify API scopes you approve.</li>
             </ul>
@@ -119,7 +171,10 @@ export default function PrivacyPage() {
             <p>
               We share data only with the service providers required to run Appfox - cloud
               hosting and infrastructure providers, and email delivery for transactional messages
-              like edit confirmations. If you connect an optional integration (for example a
+              {isAppPublic("order-editing")
+                ? " like edit confirmations. "
+                : " like renewal confirmations. "}
+              If you connect an optional integration (for example a
               helpdesk or Slack), we share only what that integration needs and only after you
               enable it. We may also disclose data where the law requires it.
             </p>
@@ -137,19 +192,26 @@ export default function PrivacyPage() {
 
           <Section no="08" title="Security">
             <p>
-              Data is encrypted in transit and at rest. Customer editing happens on your
-              store&rsquo;s own thank-you and order status pages, scoped to that single order -
-              no account credentials are exposed. Access to production data is restricted to the
-              small set of people who operate the service.
+              Data is encrypted in transit and at rest.{" "}
+              {isAppPublic("order-editing") ? (
+                <>
+                  Customer editing happens on your store&rsquo;s own thank-you and order status
+                  pages, scoped to that single order - no account credentials are exposed.{" "}
+                </>
+              ) : null}
+              Access to production data is restricted to the small set of people who operate the
+              service.
             </p>
           </Section>
 
           <Section no="09" title="Cookies">
             <p>
               The merchant dashboard uses session cookies required for sign-in inside the Shopify
-              admin. The customer editing experience runs on your store&rsquo;s checkout-hosted
-              pages and does not set advertising or cross-site tracking cookies. This marketing site does not use
-              third-party tracking cookies.
+              admin.{" "}
+              {isAppPublic("order-editing")
+                ? "The customer editing experience runs on your store’s checkout-hosted pages and does not set advertising or cross-site tracking cookies. "
+                : null}
+              This marketing site does not use third-party tracking cookies.
             </p>
           </Section>
 

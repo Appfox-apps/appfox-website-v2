@@ -1,11 +1,16 @@
+import { redirect } from "next/navigation";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { CtaBand } from "@/components/site/CtaBand";
 import { FeatureClusters } from "@/components/features/FeatureClusters";
 import { routeMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { isAppHidden } from "@/lib/visibility";
 
-export const metadata = routeMeta.featuresOrderEditing;
+export const metadata = {
+  ...routeMeta.featuresOrderEditing,
+  ...(isAppHidden("order-editing") ? { robots: { index: false, follow: false } } : {}),
+};
 
 /**
  * /features/order-editing - the full tour. Compact cream hero, then the
@@ -14,6 +19,8 @@ export const metadata = routeMeta.featuresOrderEditing;
  * the only seam is CtaBand's own perforation (from="paper").
  */
 export default function OrderEditingFeaturesPage() {
+  if (isAppHidden("order-editing")) redirect("/");
+
   return (
     <>
       <Navbar />

@@ -5,6 +5,8 @@ import { bundleAlternativeSlugs } from "@/data/bundle-compare";
 import { posts } from "@/data/posts";
 import docsUrlList from "@/data/docs-url-list.json";
 import { docsPublicUrl, docsSites } from "@/lib/docs-sites";
+import { hiddenPathnames } from "@/lib/hidden-routes";
+import { isAppPublic } from "@/lib/visibility";
 
 /**
  * Bump when marketing content meaningfully changes. A perpetually-fresh
@@ -14,8 +16,9 @@ const CONTENT_UPDATED = new Date("2026-10-10");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = CONTENT_UPDATED;
+  const hidden = new Set(hiddenPathnames());
 
-  const staticRoutes: MetadataRoute.Sitemap = [
+  const allStaticRoutes: MetadataRoute.Sitemap = [
     { url: site.url, lastModified, changeFrequency: "weekly", priority: 1 },
     { url: `${site.url}/apps`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${site.url}/order-editing`, lastModified, changeFrequency: "weekly", priority: 0.9 },
@@ -36,9 +39,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/privacy`, lastModified, changeFrequency: "yearly", priority: 0.2 },
     { url: `${site.url}/terms`, lastModified, changeFrequency: "yearly", priority: 0.2 },
   ];
+  const staticRoutes = allStaticRoutes.filter(
+    (route) => !hidden.has(route.url.slice(site.url.length)),
+  );
 
   const comparisonSlugs = new Set([
-    ...competitors.map((c) => c.slug),
+    ...competitors.filter((c) => isAppPublic(c.app)).map((c) => c.slug),
     ...bundleAlternativeSlugs(),
   ]);
   const comparisonRoutes: MetadataRoute.Sitemap = [...comparisonSlugs].map((slug) => ({

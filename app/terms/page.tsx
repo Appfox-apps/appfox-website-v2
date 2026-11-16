@@ -3,6 +3,7 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { Perforation } from "@/components/site/Perforation";
 import { site } from "@/lib/site";
+import { isAppPublic } from "@/lib/visibility";
 import { routeMeta } from "@/lib/seo";
 
 export const metadata: Metadata = routeMeta.terms;
@@ -53,10 +54,16 @@ export default function TermsPage() {
           </p>
 
           <p className="mt-8 text-ink-700 leading-relaxed">
-            These terms govern your use of Appfox&rsquo;s Shopify apps - {site.appName}{" "}
-            and Appfox Subscription (together &ldquo;Appfox&rdquo;, the &ldquo;service&rdquo;) - and
-            the related websites we provide. They are written to be read - if anything is
-            unclear, email{" "}
+            These terms govern your use of Appfox&rsquo;s Shopify apps -{" "}
+            {isAppPublic("order-editing") ? (
+              <>
+                {site.appName} and Appfox Subscription
+              </>
+            ) : (
+              <>Appfox Subscription and Appfox Product Bundles</>
+            )}{" "}
+            (together &ldquo;Appfox&rdquo;, the &ldquo;service&rdquo;) - and the related websites we
+            provide. They are written to be read - if anything is unclear, email{" "}
             <a className="text-brand-500 underline underline-offset-2" href={`mailto:${site.supportEmail}`}>
               {site.supportEmail}
             </a>{" "}
@@ -73,11 +80,22 @@ export default function TermsPage() {
 
           <Section no="02" title="The service">
             <p>
-              Appfox provides self-service order editing for your customers, merchant-side
-              controls such as eligibility rules and an approval queue, post-purchase upsells,
-              recurring subscriptions with a customer self-service portal, and related analytics
-              and integrations. We may improve or change features over time; we will not
-              materially reduce the core service you pay for without notice.
+              {isAppPublic("order-editing") ? (
+                <>
+                  Appfox provides self-service order editing for your customers, merchant-side
+                  controls such as eligibility rules and an approval queue, post-purchase upsells,
+                  recurring subscriptions with a customer self-service portal, and related analytics
+                  and integrations. We may improve or change features over time; we will not
+                  materially reduce the core service you pay for without notice.
+                </>
+              ) : (
+                <>
+                  Appfox provides recurring subscriptions with a customer self-service portal,
+                  product bundles and volume discounts, and related analytics and integrations. We
+                  may improve or change features over time; we will not materially reduce the core
+                  service you pay for without notice.
+                </>
+              )}
             </p>
           </Section>
 
@@ -119,16 +137,18 @@ export default function TermsPage() {
             </p>
           </Section>
 
-          <Section no="07" title="Order edits and your customers">
-            <p>
-              Appfox executes edits according to the rules you configure - edit windows,
-              cutoffs, approval requirements. You remain responsible for your store&rsquo;s own
-              policies and legal obligations to your customers, including fulfillment, refunds,
-              taxes, and consumer-protection rules in the places you sell. Review your eligibility
-              settings; an edit the app correctly applies under your configuration is your
-              decision, not ours.
-            </p>
-          </Section>
+          {isAppPublic("order-editing") ? (
+            <Section no="07" title="Order edits and your customers">
+              <p>
+                Appfox executes edits according to the rules you configure - edit windows,
+                cutoffs, approval requirements. You remain responsible for your store&rsquo;s own
+                policies and legal obligations to your customers, including fulfillment, refunds,
+                taxes, and consumer-protection rules in the places you sell. Review your eligibility
+                settings; an edit the app correctly applies under your configuration is your
+                decision, not ours.
+              </p>
+            </Section>
+          ) : null}
 
           <Section no="08" title="Third-party services">
             <p>

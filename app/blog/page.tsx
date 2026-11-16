@@ -9,6 +9,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { posts, readingMinutes, formatPostDate } from "@/data/posts";
 import { routeMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { isAppPublic } from "@/lib/visibility";
 
 export const metadata: Metadata = routeMeta.blog;
 
@@ -62,14 +63,17 @@ export default function BlogIndexPage() {
               Blog
             </p>
             <h1 className="enter-rise mt-4 max-w-3xl">
-              Notes on order editing, subscriptions, and product bundles
+              {isAppPublic("order-editing")
+                ? "Notes on order editing, subscriptions, and product bundles"
+                : "Notes on subscriptions and product bundles"}
             </h1>
             <p
               className="enter-fade-rise mt-6 max-w-[68ch] text-lg leading-relaxed text-ink-700"
               style={{ animationDelay: "140ms" }}
             >
-              Practical guides for Shopify merchants - helping customers fix orders, building
-              recurring revenue with subscriptions, and growing order value with product bundles.
+              {isAppPublic("order-editing")
+                ? "Practical guides for Shopify merchants - helping customers fix orders, building recurring revenue with subscriptions, and growing order value with product bundles."
+                : "Practical guides for Shopify merchants - building recurring revenue with subscriptions, and growing order value with product bundles."}
             </p>
           </div>
         </section>
@@ -86,10 +90,18 @@ export default function BlogIndexPage() {
 
         {/* CTA band - previous section is light paper */}
         <CtaBand
-          headline="Stop answering “can I change my order?” by hand"
-          body="Let customers fix their own orders, keep your Shopify fees, and grow the order on the way out. Five-minute setup. The free plan never expires."
-          secondaryLabel="See how it works"
-          secondaryHref="/order-editing#how-it-works"
+          headline={
+            isAppPublic("order-editing")
+              ? "Stop answering “can I change my order?” by hand"
+              : "Put the next order on a schedule"
+          }
+          body={
+            isAppPublic("order-editing")
+              ? "Let customers fix their own orders, keep your Shopify fees, and grow the order on the way out. Five-minute setup. The free plan never expires."
+              : "Subscribe-and-save on the product page, and bundles that raise average order value. Five-minute setup. Free to start."
+          }
+          secondaryLabel={isAppPublic("order-editing") ? "See how it works" : "See the apps"}
+          secondaryHref={isAppPublic("order-editing") ? "/order-editing#how-it-works" : "/apps"}
           from="paper"
         />
       </main>

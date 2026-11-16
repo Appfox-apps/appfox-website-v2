@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { CtaBand } from "@/components/site/CtaBand";
@@ -22,9 +22,13 @@ import { getSubscriptionVs } from "@/data/subscription-compare";
 import { SubscriptionVsArticle } from "@/components/subscription/SubscriptionVsArticle";
 import { getApp } from "@/data/apps";
 import { site } from "@/lib/site";
+import { isAppHidden, isAppPublic } from "@/lib/visibility";
 
 export function generateStaticParams() {
-  const slugs = new Set([...competitors.map((c) => c.slug), ...bundleAlternativeSlugs()]);
+  const slugs = new Set([
+    ...competitors.filter((c) => isAppPublic(c.app)).map((c) => c.slug),
+    ...bundleAlternativeSlugs(),
+  ]);
   return [...slugs].map((slug) => ({ slug }));
 }
 
@@ -65,6 +69,9 @@ export async function generateMetadata({
     };
   }
   const competitor = getCompetitor(slug);
+  if (competitor && isAppHidden(competitor.app)) {
+    return { robots: { index: false, follow: false } };
+  }
   if (!competitor) return {};
   const path = `/vs/${competitor.slug}`;
   return {
@@ -135,6 +142,7 @@ export default async function ComparisonPage({
     return <BundlesAlternativePage slug={slug} />;
   }
   const competitor = getCompetitor(slug);
+  if (competitor && isAppHidden(competitor.app)) redirect("/");
   if (!competitor) notFound();
 
   const path = `/vs/${competitor.slug}`;

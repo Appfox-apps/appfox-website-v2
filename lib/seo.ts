@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { isAppHidden } from "@/lib/visibility";
 
 /**
  * Per-route metadata, centralized so titles/descriptions/canonicals can be
@@ -34,8 +35,9 @@ export function pageMetadata({
 export const routeMeta = {
   features: pageMetadata({
     title: "Features - Appfox Apps for Shopify",
-    description:
-      "The full feature tour for every Appfox app: self-service order editing with in-flow upsells, and recurring subscriptions with a customer portal. Start free.",
+    description: isAppHidden("order-editing")
+      ? "The full feature tour for every Appfox app: recurring subscriptions with a customer portal, and product bundles with volume discounts. Start free."
+      : "The full feature tour for every Appfox app: self-service order editing with in-flow upsells, and recurring subscriptions with a customer portal. Start free.",
     path: "/features",
   }),
   featuresOrderEditing: pageMetadata({
@@ -58,8 +60,9 @@ export const routeMeta = {
   }),
   pricing: pageMetadata({
     title: "Pricing - Appfox Apps for Shopify",
-    description:
-      "Pricing for every Appfox app: Order Editing & Upsell from $0 with paid plans from $19/mo, and Appfox Subscription free for now with every feature included.",
+    description: isAppHidden("order-editing")
+      ? "Pricing for every Appfox app: Subscription is free for now with every feature included, and Product Bundles is free to install."
+      : "Pricing for every Appfox app: Order Editing & Upsell from $0 with paid plans from $19/mo, and Appfox Subscription free for now with every feature included.",
     path: "/pricing",
   }),
   pricingOrderEditing: pageMetadata({
@@ -81,9 +84,12 @@ export const routeMeta = {
     path: "/pricing/product-bundles",
   }),
   vs: pageMetadata({
-    title: "Compare Shopify Order Editing, Subscription & Bundle Apps",
-    description:
-      "Side-by-side comparisons of Appfox and Shopify order editing, subscription, and product bundle apps - pricing, features, and honest trade-offs. Start free.",
+    title: isAppHidden("order-editing")
+      ? "Compare Shopify Subscription & Bundle Apps"
+      : "Compare Shopify Order Editing, Subscription & Bundle Apps",
+    description: isAppHidden("order-editing")
+      ? "Side-by-side comparisons of Appfox and Shopify subscription and product bundle apps - pricing, features, and honest trade-offs. Start free."
+      : "Side-by-side comparisons of Appfox and Shopify order editing, subscription, and product bundle apps - pricing, features, and honest trade-offs. Start free.",
     path: "/vs",
   }),
   subscriptionCompare: pageMetadata({
@@ -101,21 +107,26 @@ export const routeMeta = {
     absoluteTitle: true,
   }),
   blog: pageMetadata({
-    title: "Blog - Order Editing & Post-Purchase Upsells for Shopify",
-    description:
-      "Guides and playbooks on self-service order editing, cutting support tickets, and post-purchase upsells for Shopify stores. Practical, no fluff.",
+    title: isAppHidden("order-editing")
+      ? "Blog - Subscriptions & Product Bundles for Shopify"
+      : "Blog - Order Editing & Post-Purchase Upsells for Shopify",
+    description: isAppHidden("order-editing")
+      ? "Guides and playbooks on Shopify subscriptions and product bundles. Practical, no fluff."
+      : "Guides and playbooks on self-service order editing, cutting support tickets, and post-purchase upsells for Shopify stores. Practical, no fluff.",
     path: "/blog",
   }),
   privacy: pageMetadata({
     title: "Privacy Policy",
-    description:
-      "How Appfox handles merchant and customer data across order editing, subscriptions, approvals, and analytics. Read the policy or email support@getappfox.com.",
+    description: isAppHidden("order-editing")
+      ? "How Appfox handles merchant and customer data across subscriptions, product bundles, and analytics. Read the policy or email support@getappfox.com."
+      : "How Appfox handles merchant and customer data across order editing, subscriptions, approvals, and analytics. Read the policy or email support@getappfox.com.",
     path: "/privacy",
   }),
   terms: pageMetadata({
     title: "Terms of Service",
-    description:
-      "The terms that govern your use of Appfox's Shopify apps for order editing, upsells, and subscriptions - billing, trials, and acceptable use. Questions? Email support@getappfox.com.",
+    description: isAppHidden("order-editing")
+      ? "The terms that govern your use of Appfox's Shopify apps for subscriptions and product bundles - billing, trials, and acceptable use. Questions? Email support@getappfox.com."
+      : "The terms that govern your use of Appfox's Shopify apps for order editing, upsells, and subscriptions - billing, trials, and acceptable use. Questions? Email support@getappfox.com.",
     path: "/terms",
   }),
 } satisfies Record<string, Metadata>;

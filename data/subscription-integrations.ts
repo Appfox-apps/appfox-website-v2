@@ -1,3 +1,5 @@
+import { isAppHidden } from "@/lib/visibility";
+
 /**
  * Subscription integrations and partner apps - the "Works with" ecosystem.
  * Partnership shortlist from Subscription app partnership bot (2026-09-11).
@@ -277,5 +279,9 @@ export const subscriptionIntegrations: IntegrationEntry[] = [
 ];
 
 export function getIntegrationsByCategory(categorySlug: string): IntegrationEntry[] {
-  return subscriptionIntegrations.filter((i) => i.category === categorySlug);
+  return subscriptionIntegrations.filter((i) => {
+    if (i.category !== categorySlug) return false;
+    if (isAppHidden("order-editing") && i.slug === "appfox-order-editing") return false;
+    return true;
+  });
 }

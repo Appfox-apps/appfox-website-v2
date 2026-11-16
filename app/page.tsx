@@ -3,7 +3,8 @@ import { Footer } from "@/components/site/Footer";
 import { CtaBand } from "@/components/site/CtaBand";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { site } from "@/lib/site";
-import { apps } from "@/data/apps";
+import { publicApps } from "@/data/apps";
+import { countWord, isAppPublic } from "@/lib/visibility";
 import { BrandHero } from "@/components/brand/BrandHero";
 import { AppShowcase } from "@/components/brand/AppShowcase";
 import { WhyAppfox } from "@/components/brand/WhyAppfox";
@@ -14,7 +15,7 @@ const appListJsonLd = {
   "@type": "ItemList",
   "@id": `${site.url}/#apps`,
   name: "Appfox apps for Shopify",
-  itemListElement: apps.map((app, i) => ({
+  itemListElement: publicApps.map((app, i) => ({
     "@type": "ListItem",
     position: i + 1,
     name: app.name,
@@ -33,11 +34,20 @@ export default function Home() {
         <WhyAppfox />
         <BrandReading />
         <CtaBand
-          headline="Three apps. One quieter inbox."
-          body="Order Editing lets customers fix and grow their own orders; Product Bundles boosts average order value; Subscription brings them back on a schedule. All three start free and set up in about five minutes."
-          primaryLabel="Get Order Editing"
-          secondaryLabel="See all apps"
-          secondaryHref="/apps"
+          headline={
+            isAppPublic("order-editing")
+              ? "Three apps. One quieter inbox."
+              : `${countWord(publicApps.length, true)} apps. One quieter inbox.`
+          }
+          body={
+            isAppPublic("order-editing")
+              ? "Order Editing lets customers fix and grow their own orders; Product Bundles boosts average order value; Subscription brings them back on a schedule. All three start free and set up in about five minutes."
+              : "Product Bundles boosts average order value; Subscription brings customers back on a schedule. Both start free and set up in about five minutes."
+          }
+          primaryLabel={isAppPublic("order-editing") ? "Get Order Editing" : "See the apps"}
+          primaryHref={isAppPublic("order-editing") ? undefined : "/apps"}
+          secondaryLabel={isAppPublic("order-editing") ? "See all apps" : "See pricing"}
+          secondaryHref={isAppPublic("order-editing") ? "/apps" : "/pricing"}
           from="paper"
         />
       </main>

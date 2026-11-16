@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { CtaBand } from "@/components/site/CtaBand";
@@ -9,8 +10,12 @@ import { PlanTable } from "@/components/pricing/PlanTable";
 import { PricingFaq, pricingFaqs } from "@/components/pricing/PricingFaq";
 import { routeMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { isAppHidden } from "@/lib/visibility";
 
-export const metadata = routeMeta.pricingOrderEditing;
+export const metadata = {
+  ...routeMeta.pricingOrderEditing,
+  ...(isAppHidden("order-editing") ? { robots: { index: false, follow: false } } : {}),
+};
 
 /** FAQPage JSON-LD built from the same array that feeds the accordion - never drifts. */
 const faqJsonLd = {
@@ -25,6 +30,8 @@ const faqJsonLd = {
 };
 
 export default function OrderEditingPricingPage() {
+  if (isAppHidden("order-editing")) redirect("/");
+
   return (
     <>
       <Navbar />

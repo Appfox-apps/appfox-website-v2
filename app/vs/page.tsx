@@ -7,6 +7,8 @@ import { Reveal, StaggerGroup } from "@/components/ui/Reveal";
 import { VsIndexRow, VsTitle } from "@/components/vs/VsIndexRow";
 import { competitorsForApp } from "@/data/competitors";
 import { routeMeta } from "@/lib/seo";
+import { isAppPublic } from "@/lib/visibility";
+import { getApp } from "@/data/apps";
 
 export const metadata: Metadata = routeMeta.vs;
 
@@ -20,6 +22,11 @@ const subscriptionComps = competitorsForApp("subscription");
 const bundleComps = competitorsForApp("product-bundles");
 
 export default function ComparisonHubPage() {
+  const showOrderEditing = isAppPublic("order-editing");
+  const subscriptionApp = getApp("subscription");
+  let sectionNo = 0;
+  const nextNo = () => String(++sectionNo).padStart(2, "0");
+
   return (
     <>
       <Navbar />
@@ -38,21 +45,20 @@ export default function ComparisonHubPage() {
               className="enter-fade-rise mt-6 max-w-[70ch] text-lg leading-relaxed text-ink-700"
               style={{ animationDelay: "140ms" }}
             >
-              Every app in these categories promises fewer tickets and more revenue - the
-              differences live in the details: how edits actually happen, what the pricing meters
-              (edits, subscribers, bundle sales), and how much control the merchant keeps. These
-              comparisons lay those details out side by side, plainly. Where a competitor is
-              genuinely strong, we say so; where the trade-offs favor Appfox, we show our work.
+              {showOrderEditing
+                ? "Every app in these categories promises fewer tickets and more revenue - the differences live in the details: how edits actually happen, what the pricing meters (edits, subscribers, bundle sales), and how much control the merchant keeps. These comparisons lay those details out side by side, plainly. Where a competitor is genuinely strong, we say so; where the trade-offs favor Appfox, we show our work."
+                : "Every app in these categories promises more revenue - the differences live in the details: what the pricing meters (subscribers, bundle sales), and how much control the merchant keeps. These comparisons lay those details out side by side, plainly. Where a competitor is genuinely strong, we say so; where the trade-offs favor Appfox, we show our work."}
             </p>
           </div>
         </section>
 
         {/* ── Index 1 - Order Editing comparisons ──────────── */}
+        {showOrderEditing ? (
         <section id="order-editing" className="pt-14 pb-8 sm:pt-20 sm:pb-10">
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
             <Reveal variant="none">
               <SectionSlug
-                no="01"
+                no={nextNo()}
                 label="ORDER EDITING & UPSELL"
                 caption={`${orderEditingComps.length} comparisons, one standard.`}
               />
@@ -76,13 +82,14 @@ export default function ComparisonHubPage() {
             </ul>
           </div>
         </section>
+        ) : null}
 
         {/* ── Index 2 - Subscription comparisons ───────────── */}
-        <section id="subscription" className="pt-8 pb-8 sm:pt-10 sm:pb-10">
+        <section id="subscription" className={showOrderEditing ? "pt-8 pb-8 sm:pt-10 sm:pb-10" : "pt-14 pb-8 sm:pt-20 sm:pb-10"}>
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
             <Reveal variant="none">
               <SectionSlug
-                no="02"
+                no={nextNo()}
                 label="SUBSCRIPTION"
                 caption="One table, then a page per app."
               />
@@ -126,7 +133,7 @@ export default function ComparisonHubPage() {
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
             <Reveal variant="none">
               <SectionSlug
-                no="03"
+                no={nextNo()}
                 label="PRODUCT BUNDLES"
                 caption="One table, then optional one-to-one pages."
               />
@@ -168,8 +175,13 @@ export default function ComparisonHubPage() {
         {/* CTA band - previous section is light paper. */}
         <CtaBand
           headline="However you compare it, every Appfox app starts at $0"
-          body="Order Editing's free plan never expires. Subscription is free for now. Product Bundles is free, no limits. Five-minute setups, no cards required."
-          primaryLabel="Get Order Editing"
+          body={
+            showOrderEditing
+              ? "Order Editing's free plan never expires. Subscription is free for now. Product Bundles is free, no limits. Five-minute setups, no cards required."
+              : "Subscription is free for now. Product Bundles is free, no limits. Five-minute setups, no cards required."
+          }
+          primaryLabel={showOrderEditing ? "Get Order Editing" : "Get Subscription"}
+          primaryHref={showOrderEditing ? undefined : subscriptionApp?.installUrl}
           secondaryLabel="Get Product Bundles"
           secondaryHref="/product-bundles"
           from="paper"
