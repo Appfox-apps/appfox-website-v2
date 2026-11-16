@@ -1,3 +1,5 @@
+import { isAppHidden, isOrderEditingPost } from "../lib/visibility";
+
 /**
  * Blog content, authored as structured blocks rather than MDX so it stays
  * type-checked, JSON-LD-safe (plain strings), and dependency-free. The /blog
@@ -3304,9 +3306,14 @@ const publishedPostSlugs = new Set<string>([
   ...editorialPostSlugs,
 ]);
 
-/** The curated collection used by the blog index, routes, and sitemap. */
+/**
+ * The curated collection used by the blog index, routes, and sitemap.
+ * Order Editing posts stay in `postCatalog` and come back when that app
+ * is removed from HIDDEN_APP_SLUGS.
+ */
 export const posts: Post[] = postCatalog
   .filter((post) => publishedPostSlugs.has(post.slug))
+  .filter((post) => !(isAppHidden("order-editing") && isOrderEditingPost(post.slug)))
   .sort((a, b) => b.date.localeCompare(a.date));
 
 export function getPost(slug: string): Post | undefined {

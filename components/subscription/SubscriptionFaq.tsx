@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AccordionItem } from "@/components/ui/Accordion";
+import { isAppPublic } from "@/lib/visibility";
 import { Reveal, StaggerGroup } from "@/components/ui/Reveal";
 import { SectionSlug } from "@/components/site/SectionSlug";
 import { site } from "@/lib/site";
@@ -73,11 +74,17 @@ export function SubscriptionFaq() {
                   <a href={`mailto:${site.supportEmail}`} className={`till ${answerLink}`}>
                     {site.supportEmail}
                   </a>
-                  . And if you also want customers editing their one-time orders,{" "}
-                  <Link href="/order-editing" className={answerLink}>
-                    meet Order Editing
-                  </Link>
-                  .
+                  {isAppPublic("order-editing") ? (
+                    <>
+                      . And if you also want customers editing their one-time orders,{" "}
+                      <Link href="/order-editing" className={answerLink}>
+                        meet Order Editing
+                      </Link>
+                      .
+                    </>
+                  ) : (
+                    "."
+                  )}
                 </p>
               </Reveal>
             </div>

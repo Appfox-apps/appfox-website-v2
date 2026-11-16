@@ -10,6 +10,7 @@ import {
   assertMintlifyRootAssetPathsDoNotClash,
   mintlifyRootAssetRewrites,
 } from "./lib/docs-route-guard";
+import { hiddenRedirects } from "./lib/hidden-routes";
 
 const activeDocsSites = docsConfig.sites.filter((docsSite) => docsSite.enabled);
 
@@ -57,7 +58,10 @@ const nextConfig: NextConfig = {
       permanent: true as const,
     }));
 
-    return [...docsRedirects, ...legacyBlogRedirects];
+    // Hidden apps 307 to the homepage. permanent: false is Next's temporary
+    // redirect (307), so taking a slug out of HIDDEN_APP_SLUGS publishes it
+    // again. These are not 308s.
+    return [...docsRedirects, ...legacyBlogRedirects, ...hiddenRedirects()];
   },
   // Mintlify subpath proxy. beforeFiles so these paths are proxied even if a
   // later dynamic route could match them. Sources are the docs folders only,

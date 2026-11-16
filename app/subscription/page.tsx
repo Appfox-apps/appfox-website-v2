@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { getApp } from "@/data/apps";
+import { isAppPublic } from "@/lib/visibility";
 import { SubscriptionHero } from "@/components/subscription/SubscriptionHero";
 import { SubscriptionFeatures } from "@/components/subscription/SubscriptionFeatures";
 import { SubscriptionHowItWorks } from "@/components/subscription/SubscriptionHowItWorks";
@@ -81,8 +82,8 @@ export default function SubscriptionPage() {
           headline="Recurring revenue, without the recurring admin"
           body="Install free, drop the widget on your product pages, and let auto-renewal do the collecting. Your subscribers manage themselves - you just ship."
           primaryHref={subscriptionApp.installUrl}
-          secondaryLabel="Meet Order Editing"
-          secondaryHref="/order-editing"
+          secondaryLabel={isAppPublic("order-editing") ? "Meet Order Editing" : undefined}
+          secondaryHref={isAppPublic("order-editing") ? "/order-editing" : undefined}
           from="sunken"
         />
       </main>

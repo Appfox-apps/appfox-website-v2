@@ -7,6 +7,7 @@ import { Reveal, StaggerGroup } from "@/components/ui/Reveal";
 import { routeMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { getApp } from "@/data/apps";
+import { countWord, isAppPublic } from "@/lib/visibility";
 
 export const metadata = routeMeta.features;
 
@@ -83,6 +84,8 @@ function Tick({ delay }: { delay: number }) {
 }
 
 export default function FeaturesHubPage() {
+  const cards = CARDS.filter((card) => isAppPublic(card.app.slug));
+
   return (
     <>
       <Navbar />
@@ -91,7 +94,11 @@ export default function FeaturesHubPage() {
         <section className="paper-wash grain grain-soft relative overflow-hidden">
           <div className="relative mx-auto max-w-7xl px-6 pt-28 pb-14 sm:px-8 sm:pt-36 sm:pb-20 lg:px-10">
             <div className="enter-fade-rise" style={{ animationDelay: "60ms" }}>
-              <SectionSlug no="01" label="FEATURES" caption="Three apps · pick a tour" />
+              <SectionSlug
+                no="01"
+                label="FEATURES"
+                caption={`${countWord(cards.length, true)} apps · pick a tour`}
+              />
             </div>
 
             <h1 className="enter-rise mt-10 max-w-3xl">
@@ -122,9 +129,9 @@ export default function FeaturesHubPage() {
               className="enter-fade-rise mt-6 max-w-[58ch] text-xl leading-[1.55] text-ink-700"
               style={{ animationDelay: "140ms" }}
             >
-              Three Appfox apps cover the whole order journey - subscriptions that start on the
-              product page, bundles that boost average order value, and orders customers fix and grow
-              themselves after checkout. Take the full tour of whichever fits.
+              {isAppPublic("order-editing")
+                ? "Three Appfox apps cover the whole order journey - subscriptions that start on the product page, bundles that boost average order value, and orders customers fix and grow themselves after checkout. Take the full tour of whichever fits."
+                : "Appfox apps cover the order after the first purchase - subscriptions that start on the product page, and bundles that boost average order value. Take the full tour of whichever fits."}
             </p>
           </div>
         </section>
@@ -132,9 +139,9 @@ export default function FeaturesHubPage() {
         {/* ── One card per app ── */}
         <section className="bg-paper-sunken py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-            <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
+            <div className={`grid gap-6 lg:gap-8 ${cards.length > 2 ? "lg:grid-cols-3" : "lg:grid-cols-2"}`}>
               <StaggerGroup step={120}>
-                {CARDS.map((card, i) => (
+                {cards.map((card, i) => (
                   <Reveal key={card.app.slug} index={i} className="h-full">
                     <article className="card lift flex h-full flex-col p-7 sm:p-9">
                       <p className="till text-[0.8125rem] uppercase tracking-[0.12em] text-ink-500">
@@ -180,11 +187,20 @@ export default function FeaturesHubPage() {
         </section>
 
         <CtaBand
-          headline="Three apps. One quieter inbox."
-          body="Order Editing lets customers fix and grow their own orders; Product Bundles boosts average order value; Subscription brings them back on a schedule. All three start free and set up in about five minutes."
-          primaryLabel="Get Order Editing"
-          secondaryLabel="See all apps"
-          secondaryHref="/apps"
+          headline={
+            isAppPublic("order-editing")
+              ? "Three apps. One quieter inbox."
+              : `${countWord(cards.length, true)} apps. One quieter inbox.`
+          }
+          body={
+            isAppPublic("order-editing")
+              ? "Order Editing lets customers fix and grow their own orders; Product Bundles boosts average order value; Subscription brings them back on a schedule. All three start free and set up in about five minutes."
+              : "Product Bundles boosts average order value; Subscription brings customers back on a schedule. Both start free and set up in about five minutes."
+          }
+          primaryLabel={isAppPublic("order-editing") ? "Get Order Editing" : "See the apps"}
+          primaryHref={isAppPublic("order-editing") ? undefined : "/apps"}
+          secondaryLabel="See pricing"
+          secondaryHref="/pricing"
           from="sunken"
         />
       </main>

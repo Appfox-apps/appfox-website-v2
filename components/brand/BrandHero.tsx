@@ -1,7 +1,8 @@
-import { apps } from "@/data/apps";
+import { publicApps } from "@/data/apps";
 import { HeroOrderDemo } from "@/components/brand/HeroOrderDemo";
 import { RotatingWords } from "@/components/ui/RotatingWords";
 import { FoxMascot } from "@/components/site/FoxMascot";
+import { isAppPublic } from "@/lib/visibility";
 
 /**
  * Brand hero - the multi-app front door. Copy on the left, a working
@@ -14,10 +15,18 @@ import { FoxMascot } from "@/components/site/FoxMascot";
  * else `.enter-fade-rise` with staggered delays.
  */
 export function BrandHero() {
+  const showOrderDemo = isAppPublic("order-editing");
+
   return (
     <section className="paper-wash grain grain-soft relative overflow-hidden">
       <div className="relative mx-auto max-w-7xl px-6 pt-24 pb-6 sm:px-8 sm:pt-28 lg:px-10 lg:pt-32 lg:pb-10">
-        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+        <div
+          className={
+            showOrderDemo
+              ? "grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12"
+              : "max-w-3xl"
+          }
+        >
           <div className="text-center lg:text-left">
             <div className="enter-fade-rise" style={{ animationDelay: "0ms" }}>
               <FoxMascot />
@@ -25,7 +34,7 @@ export function BrandHero() {
 
             <p className="enter-fade-rise" style={{ animationDelay: "60ms" }}>
               <span className="till inline-flex items-center rounded-full border border-brand-200 bg-paper-raised px-3.5 py-1.5 text-xs text-brand-700 shadow-(--shadow-card)">
-                {apps.length} apps · built for Shopify merchants
+                {publicApps.length} apps · built for Shopify merchants
               </span>
             </p>
 
@@ -44,9 +53,9 @@ export function BrandHero() {
               className="enter-fade-rise mx-auto mt-6 max-w-[58ch] text-xl leading-[1.55] text-ink-700 lg:mx-0"
               style={{ animationDelay: "140ms" }}
             >
-              Appfox builds Shopify apps that turn orders into growth - customers subscribe
-              right from your product page, fix their own orders, and add to them after
-              checkout. Fewer tickets, bigger orders, recurring revenue.
+              {showOrderDemo
+                ? "Appfox builds Shopify apps that turn orders into growth - customers subscribe right from your product page, fix their own orders, and add to them after checkout. Fewer tickets, bigger orders, recurring revenue."
+                : "Appfox builds Shopify apps that turn orders into growth - customers subscribe right from your product page, and bundle products to raise average order value. Bigger orders, recurring revenue."}
             </p>
 
             <div
@@ -66,9 +75,11 @@ export function BrandHero() {
             </p>
           </div>
 
-          <div className="enter-fade-rise" style={{ animationDelay: "280ms" }}>
-            <HeroOrderDemo />
-          </div>
+          {showOrderDemo ? (
+            <div className="enter-fade-rise" style={{ animationDelay: "280ms" }}>
+              <HeroOrderDemo />
+            </div>
+          ) : null}
         </div>
       </div>
     </section>

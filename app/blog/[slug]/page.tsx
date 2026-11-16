@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { CtaBand } from "@/components/site/CtaBand";
@@ -9,7 +9,9 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { Reveal, StaggerGroup } from "@/components/ui/Reveal";
 import { PostBody } from "@/components/blog/PostBody";
 import { posts, getPost, readingMinutes, formatPostDate } from "@/data/posts";
+import { getApp } from "@/data/apps";
 import { site } from "@/lib/site";
+import { isAppHidden, isAppPublic, isOrderEditingPost, productForPost } from "@/lib/visibility";
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -21,6 +23,9 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  if (isAppHidden("order-editing") && isOrderEditingPost(slug)) {
+    return { robots: { index: false, follow: false } };
+  }
   const post = getPost(slug);
   if (!post) return {};
   const path = `/blog/${post.slug}`;
@@ -50,12 +55,15 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  if (isAppHidden("order-editing") && isOrderEditingPost(slug)) redirect("/");
   const post = getPost(slug);
   if (!post) notFound();
 
   const path = `/blog/${post.slug}`;
   const pageUrl = `${site.url}${path}`;
   const related = relatedPosts(post.slug);
+  const showOrderEditing = isAppPublic("order-editing");
+  const closerApp = getApp(showOrderEditing ? "order-editing" : productForPost(post.slug));
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -144,20 +152,35 @@ export default async function BlogPostPage({
               </article>
             </Reveal>
 
-            <Reveal delay={80}>
-              <p className="mt-14 max-w-[68ch] border-t border-paper-edge pt-6 text-ink-700">
-                Appfox lets Shopify customers fix their own orders - addresses, sizes,
-                cancellations - right on your thank-you and order status pages, with one-click
-                upsells built in.{" "}
-                <Link
-                  href="/features/order-editing"
-                  className="font-medium text-brand-600 underline decoration-brand-200 decoration-2 underline-offset-[3px] transition-colors hover:text-brand-700 hover:decoration-brand-300"
-                >
-                  See how it works
-                </Link>
-                .
-              </p>
-            </Reveal>
+            {showOrderEditing ? (
+              <Reveal delay={80}>
+                <p className="mt-14 max-w-[68ch] border-t border-paper-edge pt-6 text-ink-700">
+                  Appfox lets Shopify customers fix their own orders - addresses, sizes,
+                  cancellations - right on your thank-you and order status pages, with one-click
+                  upsells built in.{" "}
+                  <Link
+                    href="/features/order-editing"
+                    className="font-medium text-brand-600 underline decoration-brand-200 decoration-2 underline-offset-[3px] transition-colors hover:text-brand-700 hover:decoration-brand-300"
+                  >
+                    See how it works
+                  </Link>
+                  .
+                </p>
+              </Reveal>
+            ) : closerApp ? (
+              <Reveal delay={80}>
+                <p className="mt-14 max-w-[68ch] border-t border-paper-edge pt-6 text-ink-700">
+                  {closerApp.description}{" "}
+                  <Link
+                    href={closerApp.href}
+                    className="font-medium text-brand-600 underline decoration-brand-200 decoration-2 underline-offset-[3px] transition-colors hover:text-brand-700 hover:decoration-brand-300"
+                  >
+                    See {closerApp.shortName}
+                  </Link>
+                  .
+                </p>
+              </Reveal>
+            ) : null}
           </div>
         </section>
 
@@ -201,10 +224,29 @@ export default async function BlogPostPage({
 
         {/* Final CTA - previous section is light paper */}
         <CtaBand
-          headline="Let customers edit their own orders"
-          body="Free plan up to 50 edits per month. 5-minute setup. No card required."
-          secondaryLabel="Compare plans"
-          secondaryHref="/pricing/order-editing"
+          headline={
+            showOrderEditing
+              ? "Let customers edit their own orders"
+              : closerApp?.slug === "product-bundles"
+                ? "Install free, start bundling"
+                : "Recurring revenue, without the recurring admin"
+          }
+          body={
+            showOrderEditing
+              ? "Free plan up to 50 edits per month. 5-minute setup. No card required."
+              : closerApp?.slug === "product-bundles"
+                ? "Unlimited product bundles, all bundle types, and full analytics. Setup takes about 5 minutes."
+                : "Install free, drop the widget on your product pages, and let auto-renewal do the collecting. Free for now, with every feature included."
+          }
+          primaryHref={showOrderEditing ? undefined : closerApp?.installUrl}
+          secondaryLabel={showOrderEditing ? "Compare plans" : "See pricing"}
+          secondaryHref={
+            showOrderEditing
+              ? "/pricing/order-editing"
+              : closerApp?.slug === "product-bundles"
+                ? "/pricing/product-bundles"
+                : "/pricing/subscription"
+          }
           from="paper"
         />
       </main>

@@ -1,7 +1,9 @@
 import { site } from "@/lib/site";
 import { competitors } from "@/data/competitors";
 import { posts } from "@/data/posts";
+import { publicApps } from "@/data/apps";
 import { SUBSCRIPTION_FREE_FEATURES } from "@/data/subscription-pricing";
+import { isAppHidden, isAppPublic } from "@/lib/visibility";
 
 /**
  * /llms.txt - a plain-text product summary for LLM crawlers and AI
@@ -11,7 +13,132 @@ import { SUBSCRIPTION_FREE_FEATURES } from "@/data/subscription-pricing";
  */
 export const dynamic = "force-static";
 
+function hiddenLlms(): string {
+  const appNames = publicApps.map((app) => app.name).join(" and ");
+  const pages = [
+    {
+      title: "Home",
+      path: "/",
+      description: `Brand overview - Appfox apps for Shopify (${appNames}), what each does, and why merchants run them together.`,
+    },
+    {
+      title: "Apps",
+      path: "/apps",
+      description: `Appfox apps for Shopify in one place - ${publicApps.map((app) => app.shortName).join(" and ")}.`,
+    },
+    {
+      title: "Appfox Subscription",
+      path: "/subscription",
+      description:
+        "Shopify subscription app, free for now - subscribe-and-save widgets, auto-renewal billing on native checkout, and a self-service customer portal.",
+    },
+    {
+      title: "Appfox Product Bundles",
+      path: "/product-bundles",
+      description:
+        "Shopify product bundles app - unlimited bundles, volume discounts, quantity breaks, BOGO offers, and mix-and-match deals with theme-friendly widgets.",
+    },
+    {
+      title: "Features",
+      path: "/features",
+      description: "Feature hub - each app's full tour on its own page.",
+    },
+    {
+      title: "Subscription features",
+      path: "/features/subscription",
+      description:
+        "Full feature tour: subscribe & save widgets, recurring billing on Shopify Checkout, a self-service customer portal, subscription models, integrations, Shopify Sidekick, and MCP for developers.",
+    },
+    {
+      title: "Product Bundles features",
+      path: "/features/product-bundles",
+      description:
+        "Full feature tour: unlimited bundles, volume discounts, quantity breaks, BOGO offers, mix-and-match, theme-integrated Shopify 2.0 widgets, and bundle analytics.",
+    },
+    {
+      title: "Pricing",
+      path: "/pricing",
+      description: "Pricing hub - each app's plans on its own page.",
+    },
+    {
+      title: "Subscription pricing",
+      path: "/pricing/subscription",
+      description: "Free for now - every feature unlocked, no cap on active subscriptions, 0% transaction fees on renewals.",
+    },
+    {
+      title: "Product Bundles pricing",
+      path: "/pricing/product-bundles",
+      description: "Free to install with unlimited bundles, all bundle types, and full analytics.",
+    },
+    {
+      title: "Subscriptions comparison table",
+      path: "/subscription/compare",
+      description:
+        "Multi-competitor table: Appfox Subscriptions vs Recharge, Appstle, Seal, Loop, and Skio. Public docs, checked 10 October 2026.",
+    },
+    {
+      title: "Best Shopify bundle apps compared",
+      path: "/product-bundles/compare",
+      description:
+        "Hub table of Appfox Product Bundles vs Kaching, Fast Bundle, Bundler, Simple Bundles, and Shopify Bundles, plus one-to-one alternative pages for Wide Bundles and Rebolt. Public sources, checked October 2026.",
+    },
+    {
+      title: "Comparison hub",
+      path: "/vs",
+      description: `Side-by-side comparisons of ${site.name} and other Shopify subscription and product bundle apps.`,
+    },
+    {
+      title: "Blog",
+      path: "/blog",
+      description: `${posts.length} guides and playbooks on subscriptions and product bundles for Shopify merchants.`,
+    },
+  ];
+
+  const visibleCompetitors = competitors.filter((competitor) => isAppPublic(competitor.app));
+
+  return `# ${site.name}
+
+> Shopify apps for subscriptions and product bundles.
+
+${site.name} makes ${publicApps.length} Shopify apps: Appfox Subscription (recurring subscriptions on Shopify's native checkout with a free plan, formerly Trust Subscriptions), and Appfox Product Bundles (product bundles, volume discounts, and BOGO offers).
+
+## Appfox Subscription
+
+Appfox Subscription (formerly Trust Subscriptions) is a Shopify subscription app. Merchants add subscribe-and-save widgets to product pages, and customers pay through Shopify's native checkout with auto-renewal on the schedule they picked. A self-service customer portal handles skips, pauses, swaps, payment updates, and cancellations. Supports replenishment, subscription boxes, memberships, digital products, and bundles, with discounts, trials, and tiered pricing. Integrates with Klaviyo, PageFly, Loyalty Lion, and Shopify Flow. Shopify Sidekick (admin AI assistant) integration lets merchants ask natural-language questions about subscriptions and jump to the right page. For developers: hosted MCP (Model Context Protocol) server connects Cursor, Claude Desktop, and VS Code to read subscription data with Appfox API keys. Rated 5.0/5 from 1 review on the Shopify App Store.
+
+### Subscription pricing
+
+Appfox Subscription is free for now. Every new install gets every feature at $0, with no plan to pick and no cap on active subscriptions:
+
+${SUBSCRIPTION_FREE_FEATURES.map((f) => `- ${f}`).join("\n")}
+
+## Pages
+
+${pages.map((p) => `- [${p.title}](${site.url}${p.path}): ${p.description}`).join("\n")}
+
+## Comparisons
+
+${visibleCompetitors
+  .map((c) => `- [${site.name} vs ${c.shortName}](${site.url}/vs/${c.slug}): ${c.metaDescription}`)
+  .join("\n")}
+
+## Blog
+
+${posts.map((p) => `- [${p.title}](${site.url}/blog/${p.slug}): ${p.metaDescription}`).join("\n")}
+
+## Contact
+
+- Support: ${site.supportEmail}
+`;
+}
+
 export function GET(): Response {
+  if (isAppHidden("order-editing")) {
+    return new Response(hiddenLlms(), {
+      headers: { "Content-Type": "text/plain; charset=utf-8" },
+    });
+  }
+
   const { free, growth, pro } = site.pricing;
 
   const pages = [

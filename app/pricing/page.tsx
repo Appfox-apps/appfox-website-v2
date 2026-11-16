@@ -7,6 +7,7 @@ import { Reveal, StaggerGroup } from "@/components/ui/Reveal";
 import { routeMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { getApp } from "@/data/apps";
+import { countWord, isAppPublic } from "@/lib/visibility";
 
 export const metadata = routeMeta.pricing;
 
@@ -62,6 +63,8 @@ const CARDS = [
 ];
 
 export default function PricingHubPage() {
+  const cards = CARDS.filter((card) => isAppPublic(card.app.slug));
+
   return (
     <>
       <Navbar />
@@ -70,7 +73,11 @@ export default function PricingHubPage() {
         <section className="paper-wash grain grain-soft relative overflow-hidden">
           <div className="relative mx-auto max-w-7xl px-6 pt-28 pb-14 sm:px-8 sm:pt-36 sm:pb-20 lg:px-10">
             <div className="enter-fade-rise" style={{ animationDelay: "60ms" }}>
-              <SectionSlug no="01" label="PRICING" caption="Three apps · all start at $0" />
+              <SectionSlug
+                no="01"
+                label="PRICING"
+                caption={`${countWord(cards.length, true)} apps · all start at $0`}
+              />
             </div>
 
             <h1 className="enter-rise mt-10 max-w-3xl">
@@ -102,9 +109,9 @@ export default function PricingHubPage() {
               className="enter-fade-rise mt-6 max-w-[58ch] text-xl leading-[1.55] text-ink-700"
               style={{ animationDelay: "140ms" }}
             >
-              All three Appfox apps start at $0 and none takes a cut of your revenue - no per-edit
-              fees, no transaction fees on renewals, no revenue caps. Here&apos;s each app&apos;s
-              pricing in full.
+              {isAppPublic("order-editing")
+                ? "All three Appfox apps start at $0 and none takes a cut of your revenue - no per-edit fees, no transaction fees on renewals, no revenue caps. Here's each app's pricing in full."
+                : "Both Appfox apps start at $0 and neither takes a cut of your revenue - no transaction fees on renewals, no revenue caps. Here's each app's pricing in full."}
             </p>
           </div>
         </section>
@@ -112,9 +119,9 @@ export default function PricingHubPage() {
         {/* ── One card per app ── */}
         <section className="bg-paper-sunken py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-            <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
+            <div className={`grid gap-6 lg:gap-8 ${cards.length > 2 ? "lg:grid-cols-3" : "lg:grid-cols-2"}`}>
               <StaggerGroup step={120}>
-                {CARDS.map((card, i) => (
+                {cards.map((card, i) => (
                   <Reveal key={card.app.slug} index={i} className="h-full">
                     <article className="card lift flex h-full flex-col p-7 sm:p-9">
                       <p className="till text-[0.8125rem] uppercase tracking-[0.12em] text-ink-500">
@@ -160,9 +167,18 @@ export default function PricingHubPage() {
         </section>
 
         <CtaBand
-          headline="Start free with any app - or all three"
-          body="Order Editing's free plan never expires, Subscription's covers your first 50 subscribers, and Product Bundles is free to install with unlimited bundles. None of the apps take a cut of your revenue."
-          primaryLabel="Get Order Editing"
+          headline={
+            isAppPublic("order-editing")
+              ? "Start free with any app - or all three"
+              : "Start free with either app"
+          }
+          body={
+            isAppPublic("order-editing")
+              ? "Order Editing's free plan never expires, Subscription's covers your first 50 subscribers, and Product Bundles is free to install with unlimited bundles. None of the apps take a cut of your revenue."
+              : "Subscription is free for now, and Product Bundles is free to install with unlimited bundles. Neither app takes a cut of your revenue."
+          }
+          primaryLabel={isAppPublic("order-editing") ? "Get Order Editing" : "See the apps"}
+          primaryHref={isAppPublic("order-editing") ? undefined : "/apps"}
           secondaryLabel="See all apps"
           secondaryHref="/apps"
           from="sunken"

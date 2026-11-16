@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { site } from "@/lib/site";
+import { isAppHidden } from "@/lib/visibility";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { CrispChat } from "@/components/site/CrispChat";
 import "./globals.css";
@@ -21,10 +22,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
     template: "%s | Appfox",
-    default: "Appfox - Shopify Apps for Order Editing, Upsells & Subscriptions",
+    default: isAppHidden("order-editing")
+      ? "Appfox - Shopify Apps for Subscriptions & Product Bundles"
+      : "Appfox - Shopify Apps for Order Editing, Upsells & Subscriptions",
   },
-  description:
-    "Shopify apps for the whole order journey: self-service order editing with one-click upsells, and subscriptions that start right on the product page. Install free in 5 minutes.",
+  description: isAppHidden("order-editing")
+    ? "Shopify apps for subscriptions and product bundles. Subscribe on the product page, and raise average order value with bundles. Install free in 5 minutes."
+    : "Shopify apps for the whole order journey: self-service order editing with one-click upsells, and subscriptions that start right on the product page. Install free in 5 minutes.",
   applicationName: site.name,
   alternates: { canonical: "/" },
   openGraph: {

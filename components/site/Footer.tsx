@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { site } from "@/lib/site";
 import { enabledDocsNavItems, isDocsPath } from "@/lib/docs-nav";
+import { isAppPublic } from "@/lib/visibility";
 import { Wordmark } from "./Wordmark";
 
 const ORDER_EDITING_LINKS = [
@@ -33,7 +34,9 @@ const BUNDLES_LINKS = [
 
 const COMPARE_LINKS = [
   { label: "All comparisons", href: "/vs" },
-  { label: "Order editing apps", href: "/vs#order-editing" },
+  ...(isAppPublic("order-editing")
+    ? [{ label: "Order editing apps", href: "/vs#order-editing" }]
+    : []),
   { label: "Subscription apps", href: "/subscription/compare" },
   { label: "Product bundle apps", href: "/product-bundles/compare" },
 ];
@@ -138,8 +141,9 @@ export function Footer() {
               <Wordmark onNight className="text-[1.375rem]" />
             </div>
             <p className="mt-4 text-base leading-relaxed">
-              Shopify apps for the whole order journey - self-service order editing, post-purchase
-              upsells, product bundles, and subscriptions.
+              {isAppPublic("order-editing")
+                ? "Shopify apps for the whole order journey - self-service order editing, post-purchase upsells, product bundles, and subscriptions."
+                : "Shopify apps for the whole order journey - product bundles and subscriptions."}
             </p>
             <p className="mt-4">
               <Link
@@ -151,7 +155,9 @@ export function Footer() {
             </p>
           </div>
 
-          <LinkColumn heading="Order Editing" links={ORDER_EDITING_LINKS} />
+          {isAppPublic("order-editing") ? (
+            <LinkColumn heading="Order Editing" links={ORDER_EDITING_LINKS} />
+          ) : null}
           <LinkColumn heading="Subscription" links={SUBSCRIPTION_LINKS} />
           <LinkColumn heading="Product Bundles" links={BUNDLES_LINKS} />
           <LinkColumn heading="Compare" links={COMPARE_LINKS} />

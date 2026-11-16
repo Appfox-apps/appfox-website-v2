@@ -1,6 +1,7 @@
 import { Reveal, StaggerGroup } from "@/components/ui/Reveal";
 import { Scribble } from "@/components/ui/Scribble";
 import { SectionSlug } from "@/components/site/SectionSlug";
+import { isAppPublic } from "@/lib/visibility";
 
 /**
  * NO. 01 - THE HOUSE RULES. What holds across every Appfox app -
@@ -11,16 +12,22 @@ const RULES: { title: string; mark?: string; copy: string }[] = [
   {
     title: "Native Shopify APIs, no hacks",
     mark: "no hacks",
-    copy: "Orders edit in place through Shopify's Order Editing API; subscriptions bill through Shopify Checkout. No cancel-and-reorder tricks, no checkout detours, no lost payment fees.",
+    copy: isAppPublic("order-editing")
+      ? "Orders edit in place through Shopify's Order Editing API; subscriptions bill through Shopify Checkout. No cancel-and-reorder tricks, no checkout detours, no lost payment fees."
+      : "Subscriptions bill through Shopify Checkout, and bundles use Shopify's own discounts. No checkout detours, no lost payment fees.",
   },
   {
     title: "Free to start, honestly",
-    copy: "Both apps have free plans that never expire - Order Editing's covers 50 edits a month, Subscription's covers 50 active subscriptions. No card required to install, no per-transaction skim on your revenue.",
+    copy: isAppPublic("order-editing")
+      ? "Both apps have free plans that never expire - Order Editing's covers 50 edits a month, Subscription's covers 50 active subscriptions. No card required to install, no per-transaction skim on your revenue."
+      : "Subscription is free for now, with every feature included. Product Bundles is free to install. No card required, and no per-transaction skim on your revenue.",
   },
   {
     title: "Five-minute setup, no code",
     mark: "no code",
-    copy: "Widgets and edit links drop in from the app - your branding, no theme surgery. If you can install a Shopify app, you're done before the coffee cools.",
+    copy: isAppPublic("order-editing")
+      ? "Widgets and edit links drop in from the app - your branding, no theme surgery. If you can install a Shopify app, you're done before the coffee cools."
+      : "Widgets drop in from the app - your branding, no theme surgery. If you can install a Shopify app, you're done before the coffee cools.",
   },
   {
     title: "Support that answers",

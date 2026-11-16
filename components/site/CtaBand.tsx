@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Perforation } from "./Perforation";
 import { site } from "@/lib/site";
+import { isAppPublic } from "@/lib/visibility";
 
 /**
  * Dark final-CTA band with the rotating dashed "stamp about to land"
@@ -11,7 +12,7 @@ export function CtaBand({
   headline,
   body,
   primaryLabel = "Install free on Shopify",
-  primaryHref = site.installUrl,
+  primaryHref = isAppPublic("order-editing") ? site.installUrl : "/apps",
   secondaryLabel,
   secondaryHref,
   from = "paper",

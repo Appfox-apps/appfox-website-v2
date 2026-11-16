@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { CtaBand } from "@/components/site/CtaBand";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { isAppHidden } from "@/lib/visibility";
 import { Hero } from "@/components/home/Hero";
 import { TrustStrip } from "@/components/home/TrustStrip";
 import { PainSection } from "@/components/home/PainSection";
@@ -18,13 +20,16 @@ import { PricingSection } from "@/components/home/PricingSection";
 import { FurtherReading } from "@/components/home/FurtherReading";
 import { FaqSection, homeFaqs } from "@/components/home/FaqSection";
 
-export const metadata: Metadata = pageMetadata({
-  title: "Shopify Order Editing App - Self-Service + Upsells | Appfox",
-  description:
-    "Give every Shopify order a self-service edit link - address fixes, size swaps, cancellations - plus one-click upsells in the flow. Install free in 5 minutes.",
-  path: "/order-editing",
-  absoluteTitle: true,
-});
+export const metadata: Metadata = {
+  ...pageMetadata({
+    title: "Shopify Order Editing App - Self-Service + Upsells | Appfox",
+    description:
+      "Give every Shopify order a self-service edit link - address fixes, size swaps, cancellations - plus one-click upsells in the flow. Install free in 5 minutes.",
+    path: "/order-editing",
+    absoluteTitle: true,
+  }),
+  ...(isAppHidden("order-editing") ? { robots: { index: false, follow: false } } : {}),
+};
 
 const softwareApplicationJsonLd = {
   "@context": "https://schema.org",
@@ -76,6 +81,8 @@ const faqJsonLd = {
 };
 
 export default function OrderEditingPage() {
+  if (isAppHidden("order-editing")) redirect("/");
+
   return (
     <>
       <JsonLd data={softwareApplicationJsonLd} />
